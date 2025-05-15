@@ -1,8 +1,45 @@
 ** {
   margin: 0;
   box-sizing: border-box;
+  max-width: 1440px;
+}
+
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
 }
 
 body {
   background-color: #F5F6FA;
+}
+
+/**mobile*/
+@media screen and (max-width: 600px) {
+  .contenedor-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.8rem;
+    align-self: center;
+     justify-self: center;
+  }
+  .tarjeta {
+    width: 372px;
+    height: 170px;
+    background: linear-gradient(#8F108D,#A712CD);
+    border-radius: 6px;
+    position: relative;
+  }
+
+  .img-testimonio {
+    top: 0;
+    left: 0;
+    position: absolute;
+  }
 }
