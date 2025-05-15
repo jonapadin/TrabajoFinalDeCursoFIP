@@ -16,12 +16,19 @@
   font-style: normal;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
 body {
   background-color: #F5F6FA;
 }
 
 /**mobile*/
 @media screen and (max-width: 600px) {
+
+
+
   .contenedor-tarjetas {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -30,16 +37,36 @@ body {
      justify-self: center;
   }
   .tarjeta {
-    width: 372px;
-    height: 170px;
-    background: linear-gradient(#8F108D,#A712CD);
-    border-radius: 6px;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 372px;
+    max-height: 170px;
+    background: linear-gradient(#8F108D, #A712CD);
+    padding: 5px; 
+    border-radius: 6px; 
+    color: white; 
+    box-sizing: border-box; 
   }
 
-  .img-testimonio {
-    top: 0;
-    left: 0;
-    position: absolute;
+  .tarjeta div {
+    flex: 1;
   }
+
+.parrafo-testimonio {
+  font-size: 14px;
+  overflow: hidden;        
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  max-height: 150px;
+  -webkit-box-orient: vertical;
+  padding-left: 5px;
+  margin: 0;
+}
+  .img-testimonio { 
+    height: auto;
+    border-radius: 8px; 
+  }
+    
 }
