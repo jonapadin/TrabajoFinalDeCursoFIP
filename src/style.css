@@ -26,6 +26,29 @@ body {
 
 /**mobile*/
 @media screen and (max-width: 600px) {
+  
+
+/**header and footer*/
+header {
+ background-color:#8F108D; 
+ 
+ }
+
+ nav{
+  display: flex;
+ }
+
+.contenido{
+  display: contents;
+
+}
+
+.input-buscador{
+  position: relative;
+}
+.boton-lupa{
+  position: absolute;
+}
 
 
 
