@@ -31,23 +31,41 @@ body {
 /**header and footer*/
 header {
  background-color:#8F108D; 
- 
- }
-
- nav{
   display: flex;
  }
 
-.contenido{
-  display: contents;
 
+ .hamburguesa{
+  background: none;
+  border: none;
+  cursor: pointer;
 }
-
-.input-buscador{
+.buscador{
+  display: flex;
   position: relative;
+  align-items: center;
 }
-.boton-lupa{
-  position: absolute;
+.input-buscador{
+    height: 29px;
+    border-radius: 1px;
+    border: none;
+    cursor: pointer;
+    padding-left: 5px;
+}
+
+.lupa{
+  position: relative;
+  right: 38px;
+  height: 29px;
+    background: none;
+  border: none;
+  cursor: pointer;
+  
+
+}
+
+.imagen-lupa{
+  height: 23px;
 }
 
 
