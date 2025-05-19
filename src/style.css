@@ -26,31 +26,33 @@ body {
 
 /**mobile*/
 @media screen and (max-width: 600px) {
-  
 
 
-/**header and footer*/
-header {
- background-color:#8F108D; 
- 
- }
 
- nav{
-  display: flex;
- }
+  /**header and footer*/
+  header {
+    background-color: #8F108D;
 
-.contenido{
-  display: contents;
+  }
 
-}
+  nav {
+    display: flex;
+  }
 
-.input-buscador{
-  position: relative;
-}
-.boton-lupa{
-  position: absolute;
-}
-.banner-container {
+  .contenido {
+    display: contents;
+
+  }
+
+  .input-buscador {
+    position: relative;
+  }
+
+  .boton-lupa {
+    position: absolute;
+  }
+
+  .banner-container {
     position: relative;
     text-align: center;
   }
@@ -69,7 +71,7 @@ header {
     padding: 15px;
     width: 90vw;
     max-width: 300px;
-  
+
   }
 
   .lato {
@@ -89,9 +91,9 @@ header {
     margin-top: 1px;
     padding: 10px 30px;
     width: 45%;
-    height:35px;
+    height: 35px;
     border-radius: 8px;
-     display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
@@ -107,44 +109,48 @@ header {
     border-color: #8F108D;
   }
 
+  /* estilos seccion testimonios*/
   .contenedor-tarjetas {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 1.8rem;
-    align-self: center;
-     justify-self: center;
+    justify-content: center;
+    padding: 0 1rem;
   }
+
   .tarjeta {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
-    max-width: 372px;
-    max-height: 170px;
+    width: 100%;
+    max-height: 200px;
     background: linear-gradient(#8F108D, #A712CD);
-    padding: 5px; 
-    border-radius: 6px; 
-    color: white; 
-    box-sizing: border-box; 
+    padding: 5px;
+    border-radius: 6px;
+    color: white;
+    box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
 
-  .tarjeta div {
-    flex: 1;
+
+  .parrafo-testimonio {
+    font-size: 14px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    max-height: 150px;
+    -webkit-box-orient: vertical;
+    padding-left: 5px;
+    margin: 0;
   }
 
-.parrafo-testimonio {
-  font-size: 14px;
-  overflow: hidden;        
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  max-height: 150px;
-  -webkit-box-orient: vertical;
-  padding-left: 5px;
-  margin: 0;
-}
-  .img-testimonio { 
-    height: auto;
-    border-radius: 8px; 
+  .img-testimonio {
+    border-radius: 8px;
+    max-width: 180px;
+    max-height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
   }
-    
+
 }
