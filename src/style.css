@@ -28,6 +28,7 @@ body {
 @media screen and (max-width: 600px) {
   
 
+
 /**header and footer*/
 header {
  background-color:#8F108D; 
@@ -49,6 +50,86 @@ header {
 .boton-lupa{
   position: absolute;
 }
+.banner-container {
+    position: relative;
+    text-align: center;
+  }
+
+  .banner-image {
+    width: 100%;
+    height: auto;
+
+  }
+
+  .banner-parrafo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    width: 90vw;
+    max-width: 300px;
+  
+  }
+
+  .lato {
+    font-family: 'Lato', sans-serif;
+    font-size: 14px;
+  }
+
+  .extrabold {
+    font-weight: 900;
+  }
+
+  .btn-outline-secondary.custom-color {
+    color: #8F108D;
+    font-size: 14px;
+    border: 2px solid #8F108D;
+    background-color: white;
+    margin-top: 1px;
+    padding: 10px 30px;
+    width: 45%;
+    height:35px;
+    border-radius: 8px;
+     display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+
+
+
+  }
+
+  .btn-outline-secondary.custom-color:hover,
+  .btn-outline-secondary.custom-color:focus {
+    color: white;
+    background-color: #8F108D;
+    border-color: #8F108D;
+  }
+
+
+  .contenedor-tarjetas {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.8rem;
+    align-self: center;
+     justify-self: center;
+  }
+  .tarjeta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 372px;
+    max-height: 170px;
+    background: linear-gradient(#8F108D, #A712CD);
+    padding: 5px; 
+    border-radius: 6px; 
+    color: white; 
+    box-sizing: border-box; 
+  }
+
+
 
 
 .banner-container {
