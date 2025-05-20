@@ -65,16 +65,17 @@ body {
 
   .banner-parrafo {
     position: absolute;
-    @media (max-width:400px) {
-      font-size: 12px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 1rem;
     width: 90%;
     max-width: 300px;
-
   }
+
+   .banner-parrafo a {
+    text-decoration: none;
+   }
 
   .font-lato {
     font-family: 'Lato', sans-serif;
@@ -84,6 +85,12 @@ body {
     font-size: 14px;
   }
 
+@media (min-width: 400px) {
+   .banner-parrafo { 
+    font-size: 12px;
+   }
+
+}
   .extrabold {
     font-weight: 900;
   }
@@ -159,4 +166,3 @@ body {
     border-radius: 8px;
   }
 
-}
