@@ -115,79 +115,66 @@ body {
   font-size: 12px;
 }
 
-  .banner-container {
-    position: relative;
-    text-align: center;
-  }
+.banner-container {
+   display: flex;
+  position: relative;
+  opacity: 0.9;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('/public/assets/banner.avif'); 
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  justify-content: flex-start;  
+  align-items: flex-start;      
+  padding: 1rem;
 
-  .banner-image {
-    width: 100%;
-    height: auto;
+}
 
-  }
+.banner-parrafo {
+  color: #8F108D;
+  padding: 1rem 0rem;
+  width: 90%;
+  font-size: 16px;
+  font-family: 'Open Sans', sans-serif;
+  text-align: left;
+  margin-top: 1rem;
+ 
+}
+
 
   .banner-parrafo {
-    position: absolute;
-
-    @media (max-width:400px) {
-      font-size: 12px;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 1rem;
-      width: 90%;
-      max-width: 300px;
-
-    }
-
-    .font-lato {
-      font-family: 'Lato', sans-serif;
-
-    }
-
-    .font-small {
-      font-size: 14px;
-    }
-
-    .extrabold {
-      font-weight: 900;
-    }
-
-    .btn-outline-secondary.custom-color {
-      color: #8F108D;
-      font-size: 14px;
-      border: 2px solid #8F108D;
-      background-color: white;
-      margin-top: 1px;
-      padding: 10px 30px;
-      width: 45%;
-      height: 35px;
-      border-radius: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0 auto;
-
-
-
-    }
-
-    .btn-outline-secondary.custom-color:hover,
-    .btn-outline-secondary.custom-color:focus {
-      color: white;
-      background-color: #8F108D;
-      border-color: #8F108D;
-    }
+    font-size: 16px;
+    margin-left: 1rem; 
   }
 
-  /* estilos seccion testimonios*/
-  .contenedor-tarjetas {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 1.8rem;
-    justify-content: center;
-    padding: 0 1rem;
-  }
+.btn-outline-secondary.custom-color {
+  display: flex;
+  font-family: 'Open Sans', sans-serif;
+  color: #8F108D;
+  font-size: 16px;
+  border: 2px solid #8F108D;
+  background-color: transparent;
+  padding: 8px 24px;
+  height: 34px;
+  border-radius: 8px;
+  margin-top: 1rem;
+  width: 114px;
+  text-align: center;
+  margin-left: 0rem;
+  align-items: center;     
+  justify-content: center; 
+   text-decoration: none; 
+
+}
+
+.btn-outline-secondary.custom-color:hover,
+.btn-outline-secondary.custom-color:focus {
+  color: white;
+  background-color: #8F108D;
+  border-color: #8F108D;
+}
+
 
   .tarjeta {
     display: flex;
