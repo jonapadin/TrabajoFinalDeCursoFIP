@@ -1,0 +1,117 @@
+body {
+  background-color: #f5f6fa;
+  font-family: 'Poppins', sans-serif;
+}
+
+.texto1{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.texto2{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+}
+.search-input {
+  width: 0;
+  transition: width 0.4s ease, opacity 0.4s ease;
+  opacity: 0;
+}
+
+.search-input:focus {
+  width: 200px;
+  opacity: 1;
+}
+
+.banner {
+  position: relative;
+  background-image: url('/public/assets/usuariobody.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.banner-text {
+  color: white;
+  padding: 20px;
+  max-width: 80%;
+  border-radius: 10px;
+}
+
+.veterinaria-img {
+  position: absolute;
+  right: 10px;
+  bottom: 0px;
+  height: 140px;
+}
+
+.btn-cita {
+  background-color: #ffff;
+  color: #8f108d;
+  border: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
+.btn-cita:hover {
+  background-color: #8f108d;
+}
+
+    .service-img {
+      border-radius: 10px;
+      width: 100%;
+      object-fit: cover;
+      height: 110px;
+    }
+
+    .service-title {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      color: #ffffff;
+      font-weight: bold;
+      text-shadow: 1px 1px 3px #000;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .bottom-nav {
+      background-color: #ffffff;
+      border-top: 1px solid #ddd;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+
+    .bottom-nav a {
+      text-decoration: none;
+      color: black;
+      font-size: 0.75rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .bottom-nav img {
+      height: 24px;
+      margin-bottom: 2px;
+    }
+    .bottom-nav:hover {
+      background-color: #8f108d;
+    }
+    .bottom-nav .active {
+      color: #bf3bbd;
+    }

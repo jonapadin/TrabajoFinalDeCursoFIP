@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Veterinaria App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/public/assets/icons/patitaGatoPerroLogo 2.svg" />
+  <link rel="stylesheet" href="/pages/styles/usuario.css">
+</head>
+
+<body class="pb-5 m-2">
+
+  <div class="container py-3">
+
+  <!-- Sección de bienvenida -->
+  <div class="d-flex justify-content-between align-items-center mb-1 py-3">
+
+  <!-- Texto de bienvenida -->
+  <div>
+    <small class="text-muted texto1">Te damos la bienvenida</small><br>
+    <strong class="texto2">Pepito Gonzalez</strong>
+  </div>
+
+  <!-- Área de acciones (lupa, input, menú) -->
+  <div class="d-flex align-items-center">
+
+    <!-- Input de búsqueda (oculto inicialmente) -->
+    <input type="text" id="searchInput" class="form-control search-input me-2" placeholder="Buscar..." style="display: none;">
+
+    <!-- Botón de Lupa -->
+    <button id="searchBtn" class="rounded-circle btn btn-link text-dark me-2" type="button" style="border: 1px solid #bababa;">
+      <img src="/public/assets/Vector (1).svg" alt="Buscar" width="24" height="32">
+    </button>
+
+    <!-- Botón de 3 puntos con Dropdown -->
+    <div class="dropdown">
+      <button id="menuBtn" class="btn btn-link text-dark rounded-circle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: 1px solid #bababa;">
+        <img src="/public/assets/icons/puntitos.svg" alt="Más opciones" width="24" height="32">
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end mt-2">
+        <li><a class="dropdown-item" href="#link1">Enlace 1</a></li>
+        <li><a class="dropdown-item" href="#link2">Enlace 2</a></li>
+        <li><a class="dropdown-item" href="#link3">Enlace 3</a></li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+    </div>
+
+    <!-- Banner -->
+    <div class="banner">
+      <div class="banner-text">
+        <p class="mb-1 texto2">Tu mascota, en las mejores manos.</p>
+        <small style=" max-width: 1%;">Atención profesional, con amor y dedicación.</small><br>
+        <button class="btn btn-cita btn-sm rounded mt-2">Agendar Cita</button>
+      </div>
+      <img src="/public/assets/veterinaria.png" alt="Veterinaria" class="veterinaria-img">
+    </div>
+
+    <!-- Servicios -->
+    <h5 class="texto2 pt-3">Servicios</h5>
+    <div class="row g-3">
+      <div class="col-7">
+        <a href="#" class="text-decoration-none">
+          <div class="position-relative">
+            <img src="/public/assets/vacunacion.png" alt="Vacunación" class="service-img">
+            <div class="service-title">Vacunación</div>
+          </div>
+        </a>
+      </div>
+      <div class="col-5">
+        <a href="#" class="text-decoration-none">
+          <div class="position-relative">
+            <img src="/public/assets/hospitalizacion.png" alt="Hospitalización" class="service-img">
+            <div class="service-title">Hospitalización</div>
+          </div>
+        </a>
+      </div>
+      <div class="col-5">
+        <a href="#" class="text-decoration-none">
+          <div class="position-relative">
+            <img src="/public/assets/historiaclinica.png" alt="Historia Clínica" class="service-img">
+            <div class="service-title">Historia Clínica</div>
+          </div>
+        </a>
+      </div>
+      <div class="col-7">
+        <a href="#" class="text-decoration-none">
+          <div class="position-relative">
+            <img src="/public/assets/productos 1.png" alt="Productos" class="service-img">
+            <div class="service-title">Productos</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer navegable -->
+  <nav class="bottom-nav">
+    <a href="#">
+      <img src="/public/assets/icons/home.svg" alt="Inicio">
+      <span>Inicio</span>
+    </a>
+    <a href="#">
+      <img src="/public/assets/icons/calendar.svg" alt="Turnos">
+      <span>Turnos</span>
+    </a>
+    <a href="#">
+      <img src="/public/assets/icons/notification.svg" alt="Notificaciones">
+      <span>Notificaciones</span>
+    </a>
+    <a href="#">
+      <img src="/public/assets/icons/user.svg" alt="Perfil">
+      <span>Perfil</span>
+    </a>
+  </nav>
+  <script src="/pages/script/usuario.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
