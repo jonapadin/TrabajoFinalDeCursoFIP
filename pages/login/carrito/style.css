@@ -10,6 +10,11 @@ body {
   
 
 }
+
+.texto{
+    font-size: larger;
+    border-radius: 2px;
+}
 .flecha {
   position: absolute;
   top: 20px;
