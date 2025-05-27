@@ -1,0 +1,41 @@
+.container-formulario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 25px;
+   
+
+}
+
+.border-bottom {
+    border-bottom: 1px solid rgb(156, 156, 156);
+}
+
+input {
+    border: none;
+    padding-bottom: 5px;
+    margin-left: 7px;
+}
+
+.btn-registro {
+    margin-top: 30px;
+}
+
+.btn-registro button {
+    padding: 10px 20px;
+    background-color: #800080;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+    .inputs-formulario {
+        display: flex;
+
+        flex-direction: row;
+    }
+}
