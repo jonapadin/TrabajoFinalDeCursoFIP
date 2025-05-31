@@ -83,35 +83,122 @@ body {
       font-family: 'Poppins', sans-serif;
     }
 
-    .bottom-nav {
-      background-color: #ffffff;
-      border-top: 1px solid #ddd;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 60px;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-    }
 
-    .bottom-nav a {
-      text-decoration: none;
-      color: black;
-      font-size: 0.75rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+.custom-offcanvas {
+  top: 0;
+  bottom: 60px; /* Ajusta esto si tu footer tiene otra altura */
+  height: auto;
+  background-color: #fff;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+}
 
-    .bottom-nav img {
-      height: 24px;
-      margin-bottom: 2px;
-    }
-    .bottom-nav:hover {
-      background-color: #8f108d;
-    }
-    .bottom-nav .active {
-      color: #bf3bbd;
-    }
+.bottom-nav {
+  background-color: #ffffff;
+  border-top: 1px solid #ddd;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1045;
+}
+
+.bottom-nav a {
+  text-decoration: none;
+  color: black;
+  font-size: 0.75rem;
+}
+
+.nav-icon {
+  font-size: 1.5rem;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+/* Ícono activo */
+.bottom-nav a.active-link .nav-icon {
+  color: #8f108d;
+}
+
+/* Texto debajo del ícono */
+.nav-text {
+  font-size: 0.75rem;
+  margin-top: 2px;
+  color: #000;
+  border: none; /* 👈 elimina cualquier subrayado o borde residual */
+}
+
+/* Texto activo */
+.bottom-nav a.active-link .nav-text {
+  color: #8f108d;
+}
+
+.notification.unread .notification-text {
+  font-weight: bold;
+}
+
+.notification.read .notification-text {
+  font-weight: normal;
+  color: #6c757d;
+}
+
+.card-body p {
+  margin-bottom: 0.75rem;
+}
+
+/* estilos turnos */
+  .option-btn {
+    width: 64px;
+    height: 64px;
+    transition: all 0.3s ease;
+  }
+
+  .option-label {
+    text-align: center;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+
+  .option-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+  }
+
+  .option-selected {
+    background-color: #8f108d !important;
+    border-color: #8f108d !important;
+    color: white !important;
+  }
+
+  .option-btn img {
+    width: 40px;
+  }
+
+  .btn-primary {
+    background-color: white;
+    color: #8f108d;
+    border-color: #8f108d;
+  }
+
+  .btn-primary:hover {
+    background-color: #750c73;
+    border-color: #750c73;
+  }
+
+    /* Elimina el efecto azul al hacer clic o enfocar */
+  .btn:focus,
+  .btn:active,
+  .btn-primary:focus,
+  .btn-primary:active,
+  .btn-primary:focus-visible {
+    box-shadow: none !important;
+    outline: none !important;
+    background-color: #750c73 !important;
+    border-color: #ffffff !important;
+    color: white !important;
+  }

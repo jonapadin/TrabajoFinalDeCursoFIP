@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Veterinaria App</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+  <!-- Flatpickr -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/themes/material_blue.css">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/public/assets/icons/patitaGatoPerroLogo 2.svg" />
+
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="/pages/styles/usuario.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="pb-5 m-2">
+<div class="container">
+
+  <!-- Bienvenida -->
+  <div class="d-flex justify-content-between align-items-center pt-3">
+    <div>
+      <small class="text-muted texto1">Te damos la bienvenida</small><br>
+      <strong class="texto2">Pepito Gonzalez</strong>
+    </div>
+    <div class="d-flex align-items-center">
+      <input type="text" id="searchInput" class="form-control search-input me-2" placeholder="Buscar..." style="display: none;">
+      <button id="searchBtn" class="rounded-circle btn btn-link text-dark me-2" type="button" style="border: 1px solid #bababa;">
+        <img src="/public/assets/Vector (1).svg" alt="Buscar" width="24" height="32">
+      </button>
+      <button class="btn btn-link text-dark rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#userMenu" aria-controls="userMenu" style="border: 1px solid #bababa;">
+        <img src="/public/assets/icons/puntitos.svg" alt="Más opciones" width="24" height="32">
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<main class="container py-4">
+
+  <!-- ¿Para quién es? -->
+  <h5>¿Para quién es?</h5>
+  <div class="d-flex gap-3 mb-4">
+    <div class="option-container" onclick="selectOption(this)">
+      <button class="btn btn-outline-primary rounded-circle p-3 option-btn">
+        <img src="/public/assets/siluetas/perro-svg.svg" alt="Perro" class="img-fluid rounded-circle">
+      </button>
+      <div class="option-label">Perro</div>
+    </div>
+
+    <div class="option-container" onclick="selectOption(this)">
+      <button class="btn btn-outline-primary rounded-circle p-3 option-btn">
+        <img src="/public/assets/siluetas/gato-svg.svg" alt="Gato" class="img-fluid rounded-circle">
+      </button>
+      <div class="option-label">Gato</div>
+    </div>
+
+    <div class="option-container" onclick="selectOption(this)">
+      <button class="btn btn-outline-primary rounded-circle p-3 option-btn">
+        <img src="/public/assets/siluetas/svg-ave.svg" alt="Ave" class="img-fluid rounded-circle">
+      </button>
+      <div class="option-label">Ave</div>
+    </div>
+
+    <div class="option-container" onclick="selectOption(this)">
+      <button class="btn rounded-circle p-3 option-btn d-flex align-items-center justify-content-center" style="background-color: black; color: white;">
+        <i class="bi bi-paw fs-4"></i>
+      </button>
+      <div class="option-label">Otro</div>
+    </div>
+  </div>
+
+  <!-- ¿Para cuándo? -->
+  <h5>¿Para cuándo?</h5>
+  <div class="mb-4 border p-3">
+    <input id="datepicker" class="form-control" placeholder="Seleccionar fecha y hora">
+  </div>
+
+  <!-- Consulta -->
+  <h5>¿Cuál es la consulta?</h5>
+  <div class="mb-4">
+    <select class="form-select">
+      <option selected disabled>Selecciona una opción</option>
+      <option value="1">Consulta general</option>
+      <option value="2">Chequeo médico</option>
+      <option value="3">Vacunación</option>
+      <option value="4">Castración</option>
+    </select>
+  </div>
+
+  <!-- Botón reservar -->
+  <div class="text-center">
+    <button class="btn btn-primary px-4" id="reservarBtn">Reservar</button>
+  </div>
+
+</main>
+
+<!-- Footer -->
+<nav class="bottom-nav">
+  <a href="usuario.html" class="text-center d-flex flex-column align-items-center justify-content-center">
+    <i class="bi bi-house-fill nav-icon"></i>
+    <span class="nav-text">Inicio</span>
+  </a>
+  <a href="turnos.html" class="text-center active-link d-flex flex-column align-items-center justify-content-center">
+    <i class="bi bi-calendar2-week nav-icon"></i>
+    <span class="nav-text">Turnos</span>
+  </a>
+  <a href="notificaciones.html" class="text-center d-flex flex-column align-items-center justify-content-center">
+    <i class="bi bi-bell nav-icon"></i>
+    <span class="nav-text">Notificaciones</span>
+  </a>
+  <a href="perfil.html" class="text-center d-flex flex-column align-items-center justify-content-center">
+    <i class="bi bi-person nav-icon"></i>
+    <span class="nav-text">Perfil</span>
+  </a>
+</nav>
+
+<!-- Menú lateral -->
+<div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="userMenu" aria-labelledby="userMenuLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="userMenuLabel">Ir a</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+  </div>
+  <div class="offcanvas-body d-flex flex-column">
+    <a href="usuario.html" class="btn mb-2 text-start">Inicio</a>
+    <a href="historia_clinica.html" class="btn mb-2 text-start">Historia Clínica</a>
+    <a href="productos.html" class="btn mb-2 text-start">Productos</a>
+    <div class="mt-auto">
+      <hr>
+      <button class="btn w-100" style="background-color: #fff; color: #8f108d;">Cerrar sesión</button>
+    </div>
+  </div>
+</div>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/es.js"></script>
+
+<!-- ... head permanece igual hasta los estilos personalizados ... -->
+
+<!-- Agrega este estilo en el <head> si quieres personalizar el modal -->
+<style>
+  .modal-confirm .modal-header {
+    background-color: #0d6efd;
+    color: white;
+  }
+  .modal-confirm .modal-footer .btn {
+    min-width: 100px;
+  }
+</style>
+
+<!-- Modal de confirmación -->
+<div class="modal fade" id="reservaModal" tabindex="-1" aria-labelledby="reservaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-confirm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="reservaModalLabel">¡Cita Reservada!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        Tu cita ha sido reservada correctamente. Podés verla en la sección de notificaciones.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendido</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Agrega al final del <body>, justo antes del cierre -->
+<script>
+  let seleccion = "";
+
+  function selectOption(selected) {
+    document.querySelectorAll('.option-container button').forEach(btn => {
+      btn.classList.remove('option-selected');
+    });
+    selected.querySelector('button').classList.add('option-selected');
+    seleccion = selected.querySelector('.option-label').innerText.toLowerCase();
+  }
+
+  const feriadosArg = [
+    "2025-01-01", "2025-03-24", "2025-04-02", "2025-05-01",
+    "2025-05-25", "2025-06-20", "2025-07-09", "2025-12-25"
+  ];
+
+  flatpickr("#datepicker", {
+    locale: "es",
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    minDate: "today",
+    time_24hr: true,
+    defaultHour: 8,
+    minuteIncrement: 30,
+    disable: [
+      date => date.getDay() === 0 || date.getDay() === 6,
+      ...feriadosArg
+    ],
+    minTime: "08:00",
+    maxTime: "16:00",
+    onChange: function(_, dateStr, instance) {
+      const horariosOcupados = ["2025-06-01 09:00", "2025-06-02 11:30"]; // Simulado
+      if (horariosOcupados.includes(dateStr)) {
+        alert("Ese horario ya está reservado. Por favor selecciona otro.");
+        instance.clear();
+      }
+    }
+  });
+
+  function loadNotifications() {
+    return JSON.parse(localStorage.getItem('notifications') || '[]');
+  }
+
+  function saveNotifications(notifs) {
+    localStorage.setItem('notifications', JSON.stringify(notifs));
+  }
+
+  function generateId() {
+    return 'notif-' + Date.now() + '-' + Math.floor(Math.random() * 1000);
+  }
+
+  document.getElementById("reservarBtn").addEventListener("click", function () {
+    const fechaHora = document.getElementById("datepicker").value;
+    if (!seleccion) {
+      alert("Por favor selecciona una opción antes de reservar.");
+      return;
+    }
+    if (!fechaHora) {
+      alert("Selecciona una fecha y hora válida.");
+      return;
+    }
+
+    const notifs = loadNotifications();
+    const nuevaNotificacion = {
+      id: generateId(),
+      mensaje: `Reserva creada para tu ${seleccion} el ${fechaHora}`,
+      leida: false
+    };
+
+    notifs.unshift(nuevaNotificacion);
+    saveNotifications(notifs);
+
+    // Mostrar modal en vez de alert
+    const modal = new bootstrap.Modal(document.getElementById('reservaModal'));
+    modal.show();
+
+    // Limpiar selección y fecha
+    document.getElementById("datepicker").value = "";
+    document.querySelectorAll('.option-container button').forEach(btn => btn.classList.remove('option-selected'));
+    seleccion = "";
+  });
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Veterinaria App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/public/assets/icons/patitaGatoPerroLogo 2.svg" />
+  <link rel="stylesheet" href="/pages/styles/usuario.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    .notification.unread .notification-text {
+      font-weight: bold;
+    }
+    .notification.read .notification-text {
+      font-weight: normal;
+      color: #6c757d;
+    }
+  </style>
+</head>
+
+<body class="pb-5 m-2">
+  <div class="container py-3">
+
+    <!-- Sección de bienvenida -->
+    <div class="d-flex justify-content-between align-items-center mb-1 py-3">
+      <div>
+        <small class="text-muted texto1">Te damos la bienvenida</small><br>
+        <strong class="texto2">Pepito Gonzalez</strong>
+      </div>
+      <div class="d-flex align-items-center">
+        <input type="text" id="searchInput" class="form-control search-input me-2" placeholder="Buscar..." style="display: none;">
+        <button id="searchBtn" class="rounded-circle btn btn-link text-dark me-2" type="button" style="border: 1px solid #bababa;">
+          <img src="/public/assets/Vector (1).svg" alt="Buscar" width="24" height="32">
+        </button>
+        <button class="btn btn-link text-dark rounded-circle" type="button" data-bs-toggle="offcanvas" data-bs-target="#userMenu" aria-controls="userMenu" style="border: 1px solid #bababa;">
+          <img src="/public/assets/icons/puntitos.svg" alt="Más opciones" width="24" height="32">
+        </button>
+      </div>
+    </div>
+
+<div class="container py-4">
+  <!-- Encabezado -->
+  <div class="d-flex align-items-center mb-4">
+    <i class="bi bi-person-circle fs-1 me-3 text-primary"></i>
+    <div>
+      <h5 class="mb-0">Perfil del Usuario</h5>
+      <small class="text-muted">Información personal</small>
+    </div>
+  </div>
+
+  <!-- Perfil en modo visualización -->
+  <form id="perfilForm">
+    <div class="card mb-4">
+      <div class="card-body">
+        <div class="mb-3">
+          <label class="form-label">Nombre</label>
+          <input type="text" class="form-control" id="nombre" value="Pepito Gonzalez" disabled>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Correo electrónico</label>
+          <input type="email" class="form-control" id="correo" value="pepito@gmail.com" disabled>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Teléfono</label>
+          <input type="tel" class="form-control" id="telefono" value="+54 9 1234 567890" disabled>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="d-flex gap-2" id="botonesAccion">
+      <button type="button" class="btn btn-primary w-100" id="editarBtn">
+        <i class="bi bi-pencil me-2"></i>Editar
+      </button>
+    </div>
+  </form>
+
+  <!-- Seguridad -->
+  <div class="mt-4">
+    <h6 class="mb-3">Seguridad</h6>
+    <button class="btn btn-outline-secondary w-100 mb-2">
+      <a href="login/reestablecer/reestablecer.html" class="bi bi-lock me-2">Cambiar contraseña</a>
+    </button>
+    <button class="btn btn-outline-danger w-100">
+      <i class="bi bi-box-arrow-right me-2"></i>Cerrar sesión
+    </button>
+  </div>
+</div>
+
+<!-- Modal de Confirmación -->
+<div class="modal fade" id="modalGuardado" tabindex="-1" aria-labelledby="modalGuardadoLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-success shadow">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="modalGuardadoLabel"><i class="bi bi-check-circle me-2"></i>¡Cambios guardados!</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body text-center">
+        Tus datos han sido actualizados correctamente.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success w-100" data-bs-dismiss="modal">Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+  <!-- Footer navegable -->
+  <nav class="bottom-nav">
+    <a href="usuario.html" class="text-center d-flex flex-column align-items-center justify-content-center">
+      <i class="bi bi-house-fill nav-icon"></i>
+      <span class="nav-text">Inicio</span>
+    </a>
+    <a href="turnos.html" class="text-center d-flex flex-column align-items-center justify-content-center">
+      <i class="bi bi-calendar2-week nav-icon"></i>
+      <span class="nav-text">Turnos</span>
+    </a>
+    <a href="notificaciones.html" class="text-center d-flex flex-column align-items-center justify-content-center">
+      <i class="bi bi-bell nav-icon"></i>
+      <span class="nav-text">Notificaciones</span>
+    </a>
+    <a href="perfil.html" class="text-center active-link d-flex flex-column align-items-center justify-content-center">
+      <i class="bi bi-person nav-icon"></i>
+      <span class="nav-text">Perfil</span>
+    </a>
+  </nav>
+
+  <!-- Offcanvas Menú de Usuario -->
+  <div class="offcanvas offcanvas-end custom-offcanvas" tabindex="-1" id="userMenu" aria-labelledby="userMenuLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="userMenuLabel">Ir a</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column">
+      <a href="turnos.html" class="btn mb-2 text-start">Turnos</a>
+      <a href="historia_clinica.html" class="btn mb-2 text-start">Historia Clínica</a>
+      <a href="productos.html" class="btn mb-2 text-start">Productos</a>
+      <div class="mt-auto">
+        <hr>
+        <button class="btn w-100" style="background-color: #fff; color: #8f108d;">Cerrar sesión</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/pages/script/usuario.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  const editarBtn = document.getElementById("editarBtn");
+  const form = document.getElementById("perfilForm");
+  const inputs = form.querySelectorAll("input");
+  const botonesAccion = document.getElementById("botonesAccion");
+
+  editarBtn.addEventListener("click", () => {
+    // Habilita los campos
+    inputs.forEach(input => input.disabled = false);
+
+    // Reemplaza los botones
+    botonesAccion.innerHTML = `
+      <button type="submit" class="btn btn-success w-100">
+        <i class="bi bi-check-lg me-2"></i>Guardar
+      </button>
+      <button type="button" class="btn btn-secondary w-100" id="cancelarBtn">
+        <i class="bi bi-x-circle me-2"></i>Cancelar
+      </button>
+    `;
+
+    // Botón cancelar para restaurar
+    document.getElementById("cancelarBtn").addEventListener("click", () => {
+      inputs.forEach(input => input.disabled = true);
+      botonesAccion.innerHTML = `<button type="button" class="btn btn-primary w-100" id="editarBtn"><i class="bi bi-pencil me-2"></i>Editar</button>`;
+      // Reinicia el script de nuevo
+      location.reload();
+    });
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    // Deshabilita campos
+    inputs.forEach(input => input.disabled = true);
+    // Modal de Bootstrap
+    const modal = new bootstrap.Modal(document.getElementById('modalGuardado'));
+    modal.show();
+
+    // Restaura el botón Editar
+    botonesAccion.innerHTML = `<button type="button" class="btn btn-primary w-100" id="editarBtn"><i class="bi bi-pencil me-2"></i>Editar</button>`;
+    location.reload(); // Opcional: forzar reinicio para resetear el script
+  });
+</script>
+
+</body>
+</html>
