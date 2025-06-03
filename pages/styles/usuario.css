@@ -86,7 +86,7 @@ body {
 
 .custom-offcanvas {
   top: 0;
-  bottom: 60px; /* Ajusta esto si tu footer tiene otra altura */
+  bottom: 60px;
   height: auto;
   background-color: #fff;
   box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
@@ -128,7 +128,7 @@ body {
   font-size: 0.75rem;
   margin-top: 2px;
   color: #000;
-  border: none; /* 👈 elimina cualquier subrayado o borde residual */
+  border: none;
 }
 
 /* Texto activo */
@@ -170,7 +170,7 @@ body {
   }
 
   .option-selected {
-    background-color: #8f108d !important;
+    background-color: white !important;
     border-color: #8f108d !important;
     color: white !important;
   }
@@ -198,7 +198,45 @@ body {
   .btn-primary:focus-visible {
     box-shadow: none !important;
     outline: none !important;
-    background-color: #750c73 !important;
-    border-color: #ffffff !important;
-    color: white !important;
+    background-color: #fff !important;
+    border-color: #750c73 !important;
+    color: #750c73 !important;
   }
+
+  .banner-chat {
+  position: relative;
+  background-image: url('/public/assets/banner-chat.png');
+  background-size: contain;
+  background-position: center;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 20px;
+  height: 140px;
+}
+
+.btn-chat{
+  
+  background-color: #ffff;
+  color: #8f108d;
+  border: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  position: absolute;
+  bottom: 4px;
+  left: 18px;
+}
+
+.btn-chat:hover {
+  background-color: #8f108d;
+}
+.bannerchat-text {
+  color: white;
+  padding: 20px;
+  max-width: 80%;
+  border-radius: 10px;
+}
