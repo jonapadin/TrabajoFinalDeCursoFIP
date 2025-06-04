@@ -1,42 +1,74 @@
-.container-formulario {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 30px;
-    padding: 25px;
-
-   
-
+body {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+.flecha {
+  position: absolute;
+  top: 20px;
+  left: 20px;
 }
 
-.border-bottom {
-    border-bottom: 1px solid rgb(156, 156, 156);
+.flecha button {
+  background: none;
+  border: none;
+}
+
+.registro {
+  font-weight: bold;
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+
+form {
+  width: 100%;
+  max-width: 300px;
+}
+
+.campo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 35px;
+  
+}
+
+label {
+  width: 60px; 
+  font-weight: 500;
+  font-size: 14px;
 }
 
 input {
-    border: none;
-    padding-bottom: 5px;
-    margin-left: 7px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 8px 4px;
+  font-size: 15px;
+  outline: none;
+}
+
+input::placeholder {
+  color: #aaa;
+  padding: 0;
 }
 
 .btn-registro {
-    margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
 }
 
-.btn-registro button {
-    padding: 10px 20px;
-    background-color: #800080;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
+button {
+  background-color:  #800080;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-@media screen and (max-width: 600px) {
-    .inputs-formulario {
-        display: flex;
-
-        flex-direction: row;
-    }
+button span {
+  font-size: 14px;
 }
