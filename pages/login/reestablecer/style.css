@@ -16,7 +16,41 @@ body {
   left: 20px;
 }
 
+input{
+  border: none;
+  border-bottom: 1px solid rgb(145, 145, 145);
+  width: 100%;
+  
+}
+
+button {
+  padding: 12px;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: #800080;
+  color: white;
+  border: none;
+
+  
+}
+
+
+.reestablecer {
+  background-color: #800080;
+  color: white;
+  border-radius: 6px;
+  margin-top: 50px;
+  text-align: center;
+  }
+
 .flecha button {
   background: none;
   border: none;
+}
+
+.text,.repetir{
+  font-weight: bold;
+  margin-top: 35px;
 }

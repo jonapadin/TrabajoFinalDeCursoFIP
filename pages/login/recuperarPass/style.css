@@ -24,9 +24,11 @@ input {
 }
 .container-input input::placeholder {
   color: #000;
-  font-size: 15px;
+  font-size: 15px;  
+  border-bottom: solid black 2px;
+  padding-left: 10px;
+  }
 
-}
 .container-candado img{
     padding-bottom: 30px;
 }
@@ -34,8 +36,15 @@ input {
 .container-input{
     display: flex;
     margin-top: 45px;
-    padding-bottom: 50px;
+    margin-bottom: 50px;
+    border-bottom: 1px solid #8f8d8d;
 }
+
+.container-input img{
+  width: 25px;
+  padding-bottom: 1px;
+}
+
 button {
   padding: 12px;
   border-radius: 6px;
