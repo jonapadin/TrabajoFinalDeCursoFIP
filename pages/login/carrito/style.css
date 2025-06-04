@@ -6,7 +6,7 @@ body {
   height: 80vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+
   
 
 }
@@ -14,6 +14,8 @@ body {
 .texto{
     font-size: larger;
     border-radius: 2px;
+    margin-top: 70px;
+    font-weight: bold;
 }
 .flecha {
   position: absolute;
