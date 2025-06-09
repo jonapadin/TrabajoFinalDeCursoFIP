@@ -29,7 +29,7 @@ body {
 
 
 
-  /**header and footer*/
+  /**header */
   header {
     background-color: #8F108D;
        
@@ -58,6 +58,7 @@ body {
     background: none;
     border: none;
     cursor: pointer;
+  
   }
 
   .contenedor-buscador {
@@ -131,3 +132,9 @@ body {
 
 }
 }
+
+
+
+
+
+
