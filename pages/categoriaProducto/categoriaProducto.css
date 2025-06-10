@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  max-width: 1440px;
+
+}
+
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+body {
+  background-color: #F5F6FA;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  padding-bottom: 80px;
+}
+
+@media screen and (max-width: 600px) {
+
+  /* HEADER */
+  header {
+    background-color: #8F108D;
+  }
+
+  .contenido {
+
+    display: flex;
+    justify-content: space-between;
+
+  }
+
+  .izquierda {
+    display: flex;
+    align-items: center;
+  }
+
+  .derecha {
+    display: flex;
+    align-items: center;
+  }
+
+  .boton-categoria {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .contenedor-buscador {
+    display: flex;
+    position: relative;
+    align-items: center;
+
+  }
+
+  .input-buscador {
+    height: 35px;
+    right: 42px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    padding-left: 7px;
+  }
+
+  .boton-lupa {
+    position: relative;
+    right: 42px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+
+
+  /* BANNER */
+  .banner-categoria {
+    display: flex;
+    position: relative;
+    opacity: 0.9;
+    width: 100%;
+    height: 250px;
+    background-image: url('/pages/categoriaProducto/img/categoria-producto.avif');
+    background-size: cover;
+    background-position: end;
+    background-repeat: no-repeat;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  /* CATEGORÍAS */
+  .categorias {
+    display: grid;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .categoria {
+    width: 100%;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.7);
+    text-decoration: none;
+    padding-bottom: 5px;
+  }
+
+  .perro {
+    background-image: url('/pages/categoriaProducto/img/perro.avif');
+  }
+
+  .gato {
+    background-image: url('/pages/categoriaProducto/img/gato.avif');
+  }
+
+  .aves {
+    background-image: url('/pages/categoriaProducto/img/aves.avif');
+  }
+
+  .erizo {
+    background-image: url('/pages/categoriaProducto/img/Erizo.avif');
+  }
+
+
+  /* footer */
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #8F108D;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+
+  .contenedor-footer {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 8px 0;
+  }
+
+  .contenedor-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .contenedor-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fbf2f2;
+    font-size: 12px;
+  }
+}
