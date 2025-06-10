@@ -42,7 +42,7 @@ body {
 }
 
 .contenedor-testimonios {
-  margin-bottom: 90px;
+  margin-bottom: 120px;
 }
 
 
@@ -67,6 +67,7 @@ body {
   }
 
   .contenido {
+    height: 80px;
     max-width: 600px;
     display: flex;
     justify-content: space-between;
@@ -126,9 +127,10 @@ body {
   }
 
   .contenedor-footer {
+    height: 80px;
     max-width: 600px;
     margin: 0 auto;
-    padding: 8px 0;
+    padding: 15px 0;
   }
 
   .contenedor-nav {
@@ -150,7 +152,7 @@ body {
     position: relative;
     display: flex;
     width: 100vw;
-    height: 80vh;
+    height: 75vh;
     justify-content: flex-start;
     align-items: flex-start;
     padding: 1rem;
@@ -183,14 +185,17 @@ body {
 
   @media (max-width:400px) {
     .banner-parrafo {
-      font-size: 12px;
-      top: 50%;
+      font-size: 18px;
+      top: 10%;
       left: 50%;
       transform: translate(-50%, -50%);
       padding: 1rem;
-      width: 90%;
-      max-width: 300px;
+      width: 100%;
     }
+
+      .banner-parrafo p {
+        font-size: 14px;
+      }
   }
 
   .font-lato {
