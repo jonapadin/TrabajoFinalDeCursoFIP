@@ -77,12 +77,16 @@ body {
   .izquierda {
     display: flex;
     align-items: center;
-
   }
 
   .derecha {
     display: flex;
     align-items: center;
+  }
+
+  .imagen-logo {
+    margin-left: 2px;
+    margin-top: 6px;
   }
 
   .boton-categoria {
@@ -104,8 +108,11 @@ body {
     border-radius: 3px;
     border: none;
     cursor: pointer;
-    padding-left: 7px;
+    padding-left: 12px;
+    width: 250px;
   }
+
+
 
   .boton-lupa {
     position: relative;
@@ -196,7 +203,13 @@ body {
       .banner-parrafo p {
         font-size: 14px;
       }
+
+        .input-buscador {
+    width: 200px;
   }
+
+  }
+
 
   .font-lato {
     font-family: 'Lato', sans-serif;
