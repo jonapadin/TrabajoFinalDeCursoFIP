@@ -1,12 +1,12 @@
 ** {
- 
+
   box-sizing: border-box;
   max-width: 1440px;
 }
 
 body {
   background-color: #F5F6FA;
-   margin: 0;
+  margin: 0;
   padding: 0;
 }
 
@@ -101,26 +101,43 @@ body {
     font-size: 12px;
   }
 
-  .contenedor{
+  .contenedor {
     padding-bottom: 40px;
   }
-.seccionAlimento{
-display: grid;
-grid-template-columns: repeat(2,1fr);
-justify-items: center;
-}
-.titulo{
-  text-align: center;
-}
 
-.card{
-  max-width: 168px;
-}
-.imgProducto{
-  max-width: 144px;
-}
+  .seccionAlimento {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    gap: 10px;
+  }
 
-.containerDesc{
-  justify-items: center;
-}
+  .titulo {
+    text-align: center;
+  }
+
+  .card {
+  max-width: 160px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  border-radius: 8px;
+  background-color: white;
+  }
+
+  .imgProducto {
+    max-width: 144px;
+  }
+
+  .containerDesc {
+    justify-items: center;
+  }
+
+  .btnCompra {
+    width: 100px;
+    height: 30px;
+    background-color: transparent;
+    color: #800080;
+    border: 2px solid #800080;
+    border-radius: 5px;
+  }
 }
