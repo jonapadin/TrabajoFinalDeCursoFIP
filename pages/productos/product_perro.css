@@ -1,27 +1,40 @@
+** {
+ 
+  box-sizing: border-box;
+  max-width: 1440px;
+}
+
 body {
   background-color: #F5F6FA;
+   margin: 0;
+  padding: 0;
 }
-/**header and footer*/
+
+@media screen and (max-width: 600px) {
+
+
+
+  /**header and footer*/
   header {
     background-color: #8F108D;
-       
+
   }
 
 
-  .contenido{
-     max-width: 600px;
-    display:flex;
+  .contenido {
+    max-width: 600px;
+    display: flex;
     justify-content: space-between;
-      
+
   }
-  
+
   .izquierda {
     display: flex;
     align-items: center;
 
   }
 
-  .derecha{
+  .derecha {
     display: flex;
     align-items: center;
   }
@@ -46,7 +59,7 @@ body {
     border: none;
     cursor: pointer;
     padding-left: 7px;
-  } 
+  }
 
   .boton-lupa {
     position: relative;
@@ -58,31 +71,56 @@ body {
 
   /* footer */
 
- footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color:  #8F108D;
-  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
-  z-index: 100;
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #8F108D;
+    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+  }
+
+  .contenedor-footer {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 8px 0;
+  }
+
+  .contenedor-nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .contenedor-nav a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fbf2f2;
+    font-size: 12px;
+  }
+
+  .contenedor{
+    padding-bottom: 40px;
+  }
+.seccionAlimento{
+display: grid;
+grid-template-columns: repeat(2,1fr);
+justify-items: center;
 }
-.contenedor-footer {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 8px 0;
+.titulo{
+  text-align: center;
 }
 
-.contenedor-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+.card{
+  max-width: 168px;
+}
+.imgProducto{
+  max-width: 144px;
 }
 
-.contenedor-nav a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: #fbf2f2;
-  font-size: 12px;
+.containerDesc{
+  justify-items: center;
+}
 }
