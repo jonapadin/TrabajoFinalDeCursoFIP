@@ -4,12 +4,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     const contenedor = document.getElementById("seccion-productos");
 
 
-
-
-
-
-
-
+    // funcion para obtner productos
     const url = "/productos.json";
     async function obtenerProductos() {
         try {
@@ -24,10 +19,9 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
 
 
-
     }
     const dataProduct = await obtenerProductos();
-    console.log(dataProduct);
+
 
     if (!dataProduct || !dataProduct.length) {
         console.log("no hay productos");
@@ -35,8 +29,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
 
-
-    const productosPerro = dataProduct[0]?.categoria?.Perro;
+    //acceder a la esctructura
+    const productosPerro = dataProduct[0]?.categoria?.Perro.Alimento;
 
     if (!productosPerro) {
         console.log("No se encontro la categoria perros");
@@ -44,13 +38,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     }
 
-    for (const subCategoria in productosPerro) {
-        const productos = productosPerro[subCategoria];
-        productos.forEach(producto => {
+    // iterar sobre alimentos y crear las cards
+
+        productosPerro.forEach(producto => {
             const card = document.createElement("DIV");
             const imagenProducto = document.createElement("IMG");
             imagenProducto.src=producto.imagen;
-            imagenProducto.alt=`${productos.marca}`;
+            imagenProducto.alt=`${producto.marca}`;
 
             const titulo = document.createElement("H2");
             titulo.textContent= producto.marca;
@@ -71,7 +65,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
         });
-    }
+    
 
 
 

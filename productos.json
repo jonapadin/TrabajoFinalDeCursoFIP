@@ -9,7 +9,7 @@
                         "stock": 20,
                         "descripcion": "Sabor Carne Vegetales 1,5kg",
                         "marca": "Pedrigree",
-                        "imagen": "/assets/productPerro/pedrigree.webp",
+                        "imagen": "/assets/productPerro/pedigree.webp",
                         "opciones_pago": {
                             "cuotas": 3,
                             "monto_por_cuota": 2000,

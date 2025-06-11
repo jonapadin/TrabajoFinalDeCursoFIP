@@ -62,6 +62,8 @@ body {
   
   }
 
+
+
   .contenedor-buscador {
     display: flex;
     position: relative;
@@ -118,20 +120,6 @@ body {
 }
  /* estilos  servicios*/
  
- .contenedor-servicios {
-  display: grid;
-  justify-content: center;
-  padding: 2rem;
-  margin-bottom: 80px;
-}
-
-.img-servicio {
-  border-radius: 8px;
-  max-width: 100%;
-  height: auto;
-  display: block;
-
-}
 }
 
 
