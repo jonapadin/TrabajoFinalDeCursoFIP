@@ -100,4 +100,27 @@ body {
     color: #fbf2f2;
     font-size: 12px;
   }
+
+  .contenedor{
+    padding-bottom: 40px;
+  }
+.seccionAlimento{
+display: grid;
+grid-template-columns: repeat(2,1fr);
+justify-items: center;
+}
+.titulo{
+  text-align: center;
+}
+
+.card{
+  max-width: 168px;
+}
+.imgProducto{
+  max-width: 144px;
+}
+
+.containerDesc{
+  justify-items: center;
+}
 }
