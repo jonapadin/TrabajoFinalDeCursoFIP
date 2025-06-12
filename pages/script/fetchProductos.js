@@ -61,8 +61,15 @@ document.addEventListener("DOMContentLoaded", async function () {
             const titulo = document.createElement("H2");
             titulo.textContent= producto.marca;             
             
-            const descripcion = document.createElement("P");
+            const descripcion = document.createElement("H4");
             descripcion.textContent = producto.descripcion;
+
+            const pagos= document.createElement("P");
+            pagos.textContent = `${producto.opciones_pago.descripcion}`;
+
+            const precio = document.createElement("SPAN");
+            precio.textContent= `$ ${producto.precio}`;
+
             
             const btnCompra = document.createElement("BUTTON");
             btnCompra.textContent= `Comprar`;
@@ -75,7 +82,9 @@ document.addEventListener("DOMContentLoaded", async function () {
             card.appendChild(containerDesc);
             containerDesc.appendChild(titulo);
             containerDesc.appendChild(descripcion);
-            containerDesc.appendChild(btnCompra);
+            containerDesc.appendChild(pagos);
+            containerDesc.appendChild(precio);
+            card.appendChild(btnCompra);
 
             // agrega la cara del contenedor
             seccionAlimento.appendChild(card);
