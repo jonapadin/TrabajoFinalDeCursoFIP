@@ -83,7 +83,25 @@ body {
   }
 
 
+@media (max-width:400px) {
+  .banner-parrafo {
+      font-size: 18px;
+      top: 10%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 1rem;
+      width: 100%;
+    }
 
+      .banner-parrafo p {
+        font-size: 14px;
+      }
+
+        .input-buscador {
+    width: 200px;
+  }
+
+}
 /**mobile*/
 @media screen and (max-width: 600px) {
 
