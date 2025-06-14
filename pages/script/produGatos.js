@@ -1,18 +1,20 @@
-import { obtenerProductos } from "./fetchProductos"; 
+import { obtenerProductos } from "./fetchProductos";
 import { crearTarjeta } from "./funciones";
 document.addEventListener("DOMContentLoaded", async function () {
 
     const contenedor = document.getElementById("seccion-alimentos");
-    contenedor.className="seccionProductos" ;
+    contenedor.className = "seccionProductos";
 
     const seccionAlimento = document.createElement("section");
-    seccionAlimento.className ="seccionAlimento";
+    seccionAlimento.className = "seccionAlimento";
 
     const contenedorAccesorios = document.getElementById("seccion-accesorios");
-    contenedorAccesorios.className= "seccionAccesorios";
-    
-    
-      const dataProduct = await obtenerProductos();
+    contenedorAccesorios.className = "seccionAccesorios";
+
+    const tarjetasAccesorios = document.getElementById("contenedor-tarjetas")
+
+
+    const dataProduct = await obtenerProductos();
 
 
     if (!dataProduct || !dataProduct.length) {
@@ -32,19 +34,19 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // iterar sobre alimentos y crear las cards
-alimentos.forEach(producto => {
-    const cardsAlimeto = crearTarjeta(
-        producto.marca,
-        producto.descripcion,
-        producto.opciones_pago.descripcion,
-        producto.precio,
-        producto.imagen,
-        producto.marca // para alt de imagen
-    );
+    alimentos.forEach(producto => {
+        const cardsAlimeto = crearTarjeta(
+            producto.marca,
+            producto.descripcion,
+            producto.opciones_pago.descripcion,
+            producto.precio,
+            producto.imagen,
+            producto.marca // para alt de imagen
+        );
 
-    seccionAlimento.appendChild(cardsAlimeto);
-    contenedor.appendChild(seccionAlimento);
-});
+        seccionAlimento.appendChild(cardsAlimeto);
+        contenedor.appendChild(seccionAlimento);
+    });
 
 
     if (!accesorios) {
@@ -53,16 +55,18 @@ alimentos.forEach(producto => {
 
     }
 
-    accesorios.array.forEach(accesorio => {
+    accesorios.forEach(accesorio => {
         const cardAccesorios = crearTarjeta(
             accesorio.marca,
             accesorio.descripcion,
-            accesorio.opciones_pago,
+            accesorio.opciones_pago.descripcion,
+            accesorio.precio,
             accesorio.imagen,
             accesorio.marca // para alt de imagen
         )
 
-        contenedorAccesorios.appendChild(cardAccesorios);
+        tarjetasAccesorios.appendChild(cardAccesorios);
+        contenedorAccesorios.appendChild(tarjetasAccesorios)
     });
 
 
