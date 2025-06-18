@@ -39,3 +39,5 @@ export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, al
     return card;
     
 }
+
+
