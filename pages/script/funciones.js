@@ -41,3 +41,12 @@ export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, al
 }
 
 
+// crear titulo
+export function crearTitulo(texto, clases = []) {
+    const titulo = document.createElement("H2");
+    titulo.textContent=texto;
+    if(Array.isArray(clases)){
+        titulo.classList.add(...clases);
+    }
+    return titulo;
+}
