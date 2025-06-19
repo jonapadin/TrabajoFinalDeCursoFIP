@@ -6,8 +6,7 @@ Jonathan Padin, Nicolas Dume, Marina Briceño, Celeste Ruspil
 ---
 
 ## Descripción del Proyecto  
-App veterinaria es una aplicación móvil diseñada para optimizar la gestión integral de clínicas veterinarias, facilitando la atención médica de mascotas, la comunicación con los propietarios y la administración eficiente de recursos, turnos y pagos. Con un enfoque centrado en el bienestar animal y la experiencia del cliente, VetCare App ofrece herramientas digitales para digitalizar y mejorar todos los procesos dentro de un centro veterinario.
-
+App veterinaria es una aplicación web diseñada para optimizar la gestión integral de clínicas veterinarias, facilitando la atención médica de mascotas, la comunicación con sus propietarios y la administración eficiente de recursos, turnos y pagos. Con un enfoque centrado en el bienestar animal y la experiencia del cliente, esta plataforma digitaliza y mejora todos los procesos internos de un centro veterinario.
 ---
 
 ## Funcionalidades Principales
