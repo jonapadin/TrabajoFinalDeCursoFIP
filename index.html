@@ -3,17 +3,29 @@
 
 <head>
   <meta charset="UTF-8" />
+  <meta name="description" content="veterinaria">
   <link rel="icon" type="image/svg+xml" href="/public/assets/icons/patitaGatoPerroLogo 2.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- PRECONNECT para Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+  <!-- Google Fonts (no bloqueante) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+  </noscript>
+
+  <!-- Bootstrap CSS (no bloqueante) -->
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css">
+  </noscript>
+
+  <!-- Tu CSS local (esto sigue igual) -->
   <link rel="stylesheet" href="./src/style.css">
+
   <title>Veterinaria App</title>
 </head>
 
@@ -24,11 +36,19 @@
     <nav class="contenido">
 
       <div class="izquierda">
-        <button type="button" class=" boton-categoria">
+        <button id="btn-menu" type="button" class="boton-categoria">
           <img class="categoria" src="/assets/icons/hamburger.svg" alt="icono-Menu">
-          <a href="#"></a> <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg"
-            alt="imagen-logo">
         </button>
+        <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg" alt="imagen-logo">
+          <!-- Menú desplegable aquí -->
+          <div id="menu-desplegable" class="menu-desplegable" hidden>
+            <ul>
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Servicios</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">Ingresar</a></li>
+            </ul>
+          </div>
       </div>
 
       <div class="derecha">
@@ -42,18 +62,19 @@
 
     </nav>
 
-
   </header>
   <main>
     <!-- aca mari hace el contenido -->
-    <section class="banner-container ">
+    <section class="banner-container">
       <div class="banner-parrafo">
-        <p class="opens-sans">
-          Somos una clínica comprometida con tu bienestar. Ofrecemos atención médica de
-          calidad, con un equipo profesional y cercano, enfocados en cuidar tu salud y la
-          de tu familia.
-        </p>
-        <a href="/login" class="btn-primary lato-bold">
+        <div class="container-p">
+          <p class="opens-sans">
+            Somos una clínica comprometida con tu bienestar. Ofrecemos atención médica de
+            calidad, con un equipo profesional y cercano, enfocados en cuidar tu salud y la
+            de tu familia.
+          </p>
+        </div>
+        <a href="/pages/login/login.html" class="btn-primary lato-bold">
           INGRESAR
         </a>
       </div>
@@ -137,7 +158,7 @@
               los animales. Ahora no la llevo a otro lugar. ¡Gracias por cuidarla tanto! — María G., dueña de Luna
             </p>
           </div>
-          <img class="img-testimonio" src="/public/assets/testimonio3.png" alt="testimonio">
+          <img class="img-testimonio" src="/public/assets/testimonio3.webp" alt="testimonio">
         </article>
 
         <article class="tarjeta">
@@ -148,7 +169,7 @@
               Max
             </p>
           </div>
-          <img class="img-testimonio" src="/public/assets/testimonio2.png" alt="testimonio">
+          <img class="img-testimonio" src="/public/assets/testimonio2.webp" alt="testimonio">
         </article>
         <article class="tarjeta">
           <div>
@@ -157,7 +178,7 @@
               está feliz otra vez. ¡Gracias por ayudar a Copito!" — Santi, 8 años
             </p>
           </div>
-          <img class="img-testimonio" src="/public/assets/testimonio1.png" alt="testimonio">
+          <img class="img-testimonio" src="/public/assets/testimonio1.webp" alt="testimonio">
         </article>
       </section>
     </section>
@@ -170,12 +191,12 @@
           <div class="contenedor-nav">
 
 
-            <a href="inicio.html" class="home" title="Inicio">
+            <a href="/index.html" class="home" title="Inicio">
               <img src="/public/assets/icons/mdi-light_home (1).svg" alt="home">
               <span>INICIO</span>
             </a>
 
-            <a href="ingresar.html" class="ingresar" title="Ingresar">
+            <a href="/pages/login/login.html" class="ingresar" title="Ingresar">
               <img src="/public/assets/icons/qlementine-icons_user-24.svg" alt="">
               <span>INGRESAR</span>
             </a>
