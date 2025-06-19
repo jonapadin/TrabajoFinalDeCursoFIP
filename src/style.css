@@ -28,9 +28,9 @@
 .btn-primary {
   display: inline-block;
   padding: 6px 24px;
-  color: #8F108D;
-  border: 2px solid #8F108D;
-  background-color: transparent;
+  color: #F5F6FA;
+  border: 2px solid #F5F6FA;
+  background-color: #8F108D;
   text-decoration: none;
   border-radius: 8px;
   transition: background-color 0.3s, color 0.3s;
@@ -41,10 +41,54 @@ body {
   background-color: #F5F6FA;
 }
 
+.izquierda {
+  position: relative; 
+}
+/* menu desplegable */
+.menu-desplegable {
+  position: absolute;
+  top: 100%; /* justo debajo del botón */
+  left: 0;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.menu-desplegable ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-desplegable li {
+  margin-bottom: 0.5rem;
+}
+
+.menu-desplegable li a {
+  text-decoration: none;
+  color: #333;
+}
+
 .contenedor-testimonios {
   margin-bottom: 120px;
 }
 
+.contenido {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; 
+  background-color: #8F108D;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  padding: 1rem; 
+}
+
+.boton-categoria {
+  padding: 0;
+  margin-left: 8px;
+}
 
 
 .banner-parrafo p {
@@ -178,6 +222,7 @@ body {
     align-items: flex-start;
     padding: 1rem;
     overflow: hidden;
+    margin-top: 60px;
   }
 
   .banner-container::before {
@@ -207,6 +252,9 @@ body {
 }
 
 @media (max-width:400px) {
+  .banner-container { 
+    margin-top: 80px;
+  }
   .banner-parrafo {
     font-size: 18px;
     top: 10%;

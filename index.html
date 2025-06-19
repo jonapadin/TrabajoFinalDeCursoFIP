@@ -36,10 +36,19 @@
     <nav class="contenido">
 
       <div class="izquierda">
-        <button type="button" class=" boton-categoria">
+        <button id="btn-menu" type="button" class="boton-categoria">
           <img class="categoria" src="/assets/icons/hamburger.svg" alt="icono-Menu">
-          <a href="/"></a> <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg" alt="imagen-logo">
         </button>
+        <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg" alt="imagen-logo">
+          <!-- Menú desplegable aquí -->
+          <div id="menu-desplegable" class="menu-desplegable" hidden>
+            <ul>
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Servicios</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">Ingresar</a></li>
+            </ul>
+          </div>
       </div>
 
       <div class="derecha">
@@ -53,11 +62,10 @@
 
     </nav>
 
-
   </header>
   <main>
     <!-- aca mari hace el contenido -->
-    <section class="banner-container ">
+    <section class="banner-container">
       <div class="banner-parrafo">
         <div class="container-p">
           <p class="opens-sans">
@@ -183,12 +191,12 @@
           <div class="contenedor-nav">
 
 
-            <a href="inicio.html" class="home" title="Inicio">
+            <a href="/index.html" class="home" title="Inicio">
               <img src="/public/assets/icons/mdi-light_home (1).svg" alt="home">
               <span>INICIO</span>
             </a>
 
-            <a href="ingresar.html" class="ingresar" title="Ingresar">
+            <a href="/pages/login/login.html" class="ingresar" title="Ingresar">
               <img src="/public/assets/icons/qlementine-icons_user-24.svg" alt="">
               <span>INGRESAR</span>
             </a>
