@@ -1,4 +1,5 @@
 import { obtenerProductos } from "./fetchProductos"; 
+import { crearTarjeta, crearTitulo } from "./funciones";
 document.addEventListener("DOMContentLoaded", async function () {
 
     const contenedor = document.getElementById("seccion-productos");
@@ -7,10 +8,39 @@ document.addEventListener("DOMContentLoaded", async function () {
     const seccionAlimento = document.createElement("section");
     seccionAlimento.className ="seccionAlimento";
     
-    const titulo = document.createElement("H2");
-    titulo.textContent="Alimento";
-    titulo.className="titulo";
-    contenedor.appendChild(titulo);
+  const tituloAlimentos = crearTitulo("Alimento", ['titulo']);
+    contenedor.appendChild(tituloAlimentos);
+    // Seccion Accesorios, elementos
+    const contenedorAccesorios = document.getElementById('seccion-accesorios');
+    contenedorAccesorios.className = "seccionProductos";
+
+    const seccionAccesorios = document.createElement("section");
+    seccionAccesorios.className = "seccionAlimento";
+
+    const tituloAccesorios = crearTitulo("Accesorios");
+
+    contenedorAccesorios.appendChild(tituloAccesorios);
+    contenedorAccesorios.className = "titulo";
+
+    //Seccion Estetica e Higiene, elementos
+    const contenedorEsteticaHigiene = document.getElementById('seccion-esteticaHigiene');
+
+    const seccionEsteticaHigiene = document.createElement('section');
+    seccionEsteticaHigiene.className = "seccionAlimento";
+
+    const tituloEsteticaH = crearTitulo("Estetica e Higiene", ["titulo"]);
+    contenedorEsteticaHigiene.appendChild(tituloEsteticaH);
+
+    //Seccion salud, elementos
+    const contenedorSalud = document.getElementById('seccion-salud');
+
+    const seccionSalud = document.createElement('section');
+    seccionSalud.className = "seccionAlimento";
+
+    const tituloSalud = crearTitulo("Salud");
+    tituloSalud.className="titulo"
+
+    contenedorSalud.appendChild(tituloSalud);
     
       const dataProduct = await obtenerProductos();
 
@@ -29,53 +59,87 @@ document.addEventListener("DOMContentLoaded", async function () {
         return
 
     }
+     // iterar sobre alimentos y crear las cards
+    productosPerro.forEach(producto => {
+        const cardsAlimeto = crearTarjeta(
+            producto.marca,
+            producto.descripcion,
+            producto.opciones_pago.descripcion,
+            producto.precio,
+            producto.imagen,
+            producto.marca // para alt de imagen
+        );
 
-    // iterar sobre alimentos y crear las cards
+        seccionAlimento.appendChild(cardsAlimeto);
+        contenedor.appendChild(seccionAlimento);
+    });
 
-        productosPerro.forEach(producto => {
-            const card = document.createElement("DIV");
-            card.className="card";
-            const imagenProducto = document.createElement("IMG");
-            imagenProducto.className="imgProducto";
-            imagenProducto.src=producto.imagen;
-            imagenProducto.alt=`${producto.marca}`;
+    const accesorios = dataProduct[0]?.categoria?.Perro.Accesorios
 
-            
-            const titulo = document.createElement("H2");
-            titulo.textContent= producto.marca;             
-            
-            const descripcion = document.createElement("H4");
-            descripcion.textContent = producto.descripcion;
+    if (!accesorios) {
+        console.warn("No se encontro la categoria Accesorios");
+        return
 
-            const pagos= document.createElement("P");
-            pagos.textContent = `${producto.opciones_pago.descripcion}`;
+    }
 
-            const precio = document.createElement("SPAN");
-            precio.textContent= `$ ${producto.precio}`;
+    // crear cards seccion accesorios
+    accesorios.forEach(producto => {
+        const cardsAccesorios = crearTarjeta(
+            producto.marca,
+            producto.descripcion,
+            producto.opciones_pago.descripcion,
+            producto.precio,
+            producto.imagen,
+            producto.marca // para alt de imagen
+        );
+        seccionAccesorios.appendChild(cardsAccesorios);
+        contenedorAccesorios.appendChild(seccionAccesorios);
+    });
 
-            
-            const btnCompra = document.createElement("BUTTON");
-            btnCompra.textContent= `Comprar`;
-            btnCompra.className="btnCompra";
-            
-            const containerDesc = document.createElement("DIV");
-            containerDesc.className="containerDesc"; 
-            // agrega datos a la card
-            card.appendChild(imagenProducto);
-            card.appendChild(containerDesc);
-            containerDesc.appendChild(titulo);
-            containerDesc.appendChild(descripcion);
-            containerDesc.appendChild(pagos);
-            containerDesc.appendChild(precio);
-            card.appendChild(btnCompra);
+    const productosEstetica = dataProduct[0]?.categoria?.Perro.Estética_e_Higiene;
+    if (!productosEstetica) {
+        console.warn("No se encontro la categoria Estetica e Higiene");
+        return
 
-            // agrega la cara del contenedor
-            seccionAlimento.appendChild(card);
-            contenedor.appendChild(seccionAlimento);
+    }
+    // crear cards seccion estetica
+    productosEstetica.forEach(producto => {
+        const cardsesteticaHigiene = crearTarjeta(
+            producto.marca,
+            producto.descripcion,
+            producto.opciones_pago.descripcion,
+            producto.precio,
+            producto.imagen,
+            producto.marca // para alt de imagen
+        );
 
+        seccionEsteticaHigiene.appendChild(cardsesteticaHigiene);
+        contenedorEsteticaHigiene.appendChild(seccionEsteticaHigiene);
+    });
 
+    const productosSalud = dataProduct[0]?.categoria?.Perro.Salud;
+    if (!productosSalud) {
+        console.warn("No se encontro la categoria Salud")
+    }
 
-        });
+    // crear cards seccion salud
+    productosSalud.forEach(producto => {
+       const cardSalud = crearTarjeta(
+            producto.marca,
+            producto.descripcion,
+            producto.opciones_pago.descripcion,
+            producto.precio,
+            producto.imagen,
+            producto.marca // para alt de imagen
+        );
+
+            seccionSalud.appendChild(cardSalud);
+            contenedorSalud.appendChild(seccionSalud);
+    })
+})  
+
+   
+
+        
     
 
-})
