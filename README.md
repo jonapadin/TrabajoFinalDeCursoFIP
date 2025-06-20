@@ -25,9 +25,6 @@ Carga y consulta de imágenes, estudios, análisis y documentos importantes.
 **Calendario Interactivo:**  
 Permite a los clientes agendar consultas en horarios disponibles de forma sencilla.
 
-**Mapa Interactivo:**  
-Ubicación de clínicas cercanas para facilitar la elección del centro más conveniente.
-
 **Asignación de Veterinarios:**  
 Distribución automática de turnos en base a la especialidad de cada profesional.
 
