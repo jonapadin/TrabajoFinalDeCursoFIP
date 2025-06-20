@@ -1,3 +1,6 @@
+  //Script seccion de usuario
+
+  //funcionalidad de la lupa
   const searchBtn = document.getElementById('searchBtn');
   const searchInput = document.getElementById('searchInput');
 
@@ -21,3 +24,4 @@
       searchBtn.style.display = 'inline-block';
     }
   });
+
