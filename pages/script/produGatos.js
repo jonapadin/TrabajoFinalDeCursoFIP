@@ -2,6 +2,8 @@ import { obtenerProductos } from "./fetchProductos";
 import { crearTarjeta, crearTitulo } from "./funciones";
 document.addEventListener("DOMContentLoaded", async function () {
 
+    const btnMasInf = document.createElement('button');
+    
     // Seccion alimento, elementos
     const contenedor = document.getElementById("seccion-productos");
     contenedor.className = "seccionProductos";
@@ -15,15 +17,13 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // Seccion Accesorios, elementos
     const contenedorAccesorios = document.getElementById('seccion-accesorios');
-    contenedorAccesorios.className = "seccionProductos";
+    contenedorAccesorios.className = "seccionProductos;"
 
-    const seccionAccesorios = document.createElement("section");
+    const seccionAccesorios = document.createElement('section');
     seccionAccesorios.className = "seccionAlimento";
 
-    const tituloAccesorios = crearTitulo("Accesorios");
-
+    const tituloAccesorios = crearTitulo("Accesorios", ["titulo"]);
     contenedorAccesorios.appendChild(tituloAccesorios);
-    contenedorAccesorios.className = "titulo";
 
     //Seccion Estetica e Higiene, elementos
     const contenedorEsteticaHigiene = document.getElementById('seccion-esteticaHigiene');
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     seccionSalud.className = "seccionAlimento";
 
     const tituloSalud = crearTitulo("Salud");
-    tituloSalud.className="titulo"
+    tituloSalud.className = "titulo"
 
     contenedorSalud.appendChild(tituloSalud);
 
@@ -98,17 +98,19 @@ document.addEventListener("DOMContentLoaded", async function () {
             producto.imagen,
             producto.marca // para alt de imagen
         );
+
         seccionAccesorios.appendChild(cardsAccesorios);
         contenedorAccesorios.appendChild(seccionAccesorios);
     });
 
+    // crear cards seccion estetica
     const productosEstetica = dataProduct[0]?.categoria?.Gato.Estética_e_Higiene;
     if (!productosEstetica) {
         console.warn("No se encontro la categoria Estetica e Higiene");
         return
 
     }
-    // crear cards seccion estetica
+
     productosEstetica.forEach(producto => {
         const cardsesteticaHigiene = crearTarjeta(
             producto.marca,
@@ -130,7 +132,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     // crear cards seccion salud
     productosSalud.forEach(producto => {
-       const cardSalud = crearTarjeta(
+        const cardSalud = crearTarjeta(
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
@@ -139,7 +141,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             producto.marca // para alt de imagen
         );
 
-            seccionSalud.appendChild(cardSalud);
-            contenedorSalud.appendChild(seccionSalud);
+        seccionSalud.appendChild(cardSalud);
+        contenedorSalud.appendChild(seccionSalud);
     })
 })  

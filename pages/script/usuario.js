@@ -24,3 +24,4 @@
       searchBtn.style.display = 'inline-block';
     }
   });
+
