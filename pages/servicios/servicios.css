@@ -1,5 +1,7 @@
 ** {
+   
   margin: 0;
+    padding: 0;
   box-sizing: border-box;
   max-width: 1440px;
 }
@@ -81,6 +83,9 @@ body {
     border: none;
     cursor: pointer;
   }
+  main {
+  padding-bottom: 100px;
+}
 
 
 @media (max-width:400px) {
@@ -97,7 +102,7 @@ body {
         font-size: 14px;
       }
 
-        .input-buscador {
+       .input-buscador {
     width: 200px;
   }
 
@@ -106,30 +111,96 @@ body {
 @media screen and (max-width: 600px) {
 
   /**header */
+  @media screen and (max-width: 600px) {
+
   header {
     background-color: #8F108D;
-       
   }
- 
 
-  /* footer */
+  /* Servicios */
+  .titulo-servicios {
+    font-weight: 700;
+    font-size: 20px;
+    color: black;
+    text-align: center;
+    margin: 40px 0 20px 0;
+    position: relative;
+  }
 
- footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color:  #8F108D;
-  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-}
-.contenedor-footer {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 8px 0;
-}
+  .seccion-servicios {
+    position: relative;
+    padding: 20px 16px 10px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
 
-  /* CATEGORÍAS */
- 
+  .card {
+    position: relative;
+    margin: 0 auto 30px;
+    max-width: 300px;
+    overflow: hidden;
+    background-color: white;
+    border-radius: 12px;
+    font-family: 'Lato', sans-serif;
+  }
+
+  .card-img-container {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    padding-top: 40px; /* espacio para que el vet sobresalga */
+  }
+
+  .img-vet {
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    z-index: 0;
+  }
+
+  .img-dec {
+    position: absolute;
+   bottom: -0px; 
+    left: 0;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .container-descripcion {
+    background-color: #8F108D;
+    color: white;
+    padding: 10px 12px;
+    border-radius: 12px;
+    width: 100%;
+    margin-top: 2px;
+    z-index: 3;
+    position: relative;
+    text-align: left;
+  }
+
+  .container-descripcion h2 {
+    text-align: start;
+    font-size: 14px;
+    margin-bottom: 8px;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 4;
+  }
+
+  .container-descripcion p {
+    font-size: 10px;
+    margin: 0;
+  }
+
+  .titulo-servicios {
+    top: -10px;
+  }}
 
 
   /* footer */
