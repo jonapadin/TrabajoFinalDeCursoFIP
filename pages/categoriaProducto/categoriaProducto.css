@@ -65,6 +65,11 @@ header {
   align-items: center;
 }
 
+.imagen-logo {
+  margin-top: 6px;
+  margin-left: 2px;
+}
+
 .boton-categoria {
   background: none;
   border: none;
