@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         const usuario = {
-            email: "Marina15@gmail.com",
+            email: "PepitoGonzalez@gmail.com",
             contrasenia: "12154hola"
         }
 
