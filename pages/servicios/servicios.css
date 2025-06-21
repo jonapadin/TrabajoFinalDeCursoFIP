@@ -108,9 +108,7 @@ body {
 
 }
 /**mobile*/
-@media screen and (max-width: 600px) {
 
-  /**header */
   @media screen and (max-width: 600px) {
 
   header {
@@ -147,8 +145,8 @@ body {
   .card-img-container {
     position: relative;
     width: 100%;
-    height: 150px;
-    padding-top: 40px; /* espacio para que el vet sobresalga */
+    height: 200px;
+    padding-top: 40px; 
   }
 
   .img-vet {
@@ -156,53 +154,60 @@ body {
     top: -5px;
     left: 50%;
     transform: translateX(-50%);
-    width: 140px;
-    height: 140px;
-    object-fit: contain;
-    z-index: 0;
+    width: 150px;
+    height: 180px;
+    z-index: 1;
   }
 
   .img-dec {
-    position: absolute;
-    
-   bottom: -0px; 
-    left: 0;
-    width: 100%;
-    z-index: 2;
-  }
+  position: relative;
+  top: -90px; 
+  width: 100%;
+  z-index: 2;
+}
 
-  .container-descripcion {
-    background-color: #8F108D;
-    color: white;
-    padding: 10px 12px;
-    border-radius: 12px;
-    width: 100%;
-    margin-top: 2px;
-    z-index: 3;
-    position: relative;
-    text-align: left;
-  }
+  
 
-  .container-descripcion h2 {
-    text-align: start;
-    font-size: 14px;
-    margin-bottom: 8px;
-    position: absolute;
-    top: -30px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 4;
-  }
+ .container-descripcion {
+  background-color: #8F108D;
+  color: white;
+  padding: 10px 12px;
+  border-radius: 8px;
+  width: 100%;
+  height: 100px;
+  margin-top: 2px;
+  z-index: 3;
+  position: relative;
+  text-align: left;
+  font-family: 'Lato', sans-serif;
+}
 
+ 
+ .titulo-servicio {
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+  text-align: left;
+  color: white;
+  position: absolute;
+  top: 15px; 
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  z-index: 3;
+  padding: 160px 10px;
+  white-space: nowrap;
+   font-size: clamp(14px, 3vw, 16px); 
+
+ 
+}
   .container-descripcion p {
-    font-size: 10px;
-    margin: 0;
+    text-align: left;
+    font-weight: 500;
+    font-size: 12px;
+    margin: 0px;
+   
   }
-
-  .titulo-servicios {
-    top: -10px;
-  }}
-
 
   /* footer */
 
