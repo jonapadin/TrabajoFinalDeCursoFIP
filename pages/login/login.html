@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/pages/login/style.css">
-     <link rel="icon" type="image/svg+xml" href="/public/assets/icons/patitaGatoPerroLogo 2.svg" />
+    <link rel="icon" type="image/svg+xml" href="/public/assets/icons/patitaGatoPerroLogo 2.svg" />
     <title>Iniciar Sesion</title>
 </head>
 
@@ -22,25 +22,28 @@
 
         </div>
 
-        
-
-        <div class= container-inputs>
-            <input type="text" class="correo" placeholder="correo@correo.com">
-            <input type="text" class="clave" placeholder="*********">
-
-        </div>
+        <form id="datosUsuario">
 
 
-        <p class="password">¿Olvidaste tu contraseña?</p>
+            <div class= "container-inputs">
+                <input id="email" type="email" name ="email" class="correo" placeholder="correo@correo.com" required>
+                <input type="password" id= "password" name="password" placeholder="*********" required>
+            </div>
 
-        <div class="ingreso-registro">
-            <button class="btn-ingresar"><span>INGRESAR</span></button>
-            <button class="btn-registrarse"><span>REGISTRARSE</span></button>
-        </div>
+            <div class="password">
 
-    </div>
-
-
+                <a href="/pages/login/recuperarPass/recuperarPass.html">¿Olvidaste tu contraseña?</a>
+            </div>
+            
+            
+            <div class="ingreso-registro">
+                <button class="btn-ingresar" type="submit" ><span>INGRESAR</span></button>
+                    <a class="btn-registrarse" href="/pages/login/registro/registro.html"
+                    type="button"><span>REGISTRARSE</span></a>
+                               
+            </div>
+        </form>
+    
+    <script src="/pages/script/login.js" type="module"></script>
 </body>
-
 </html>
