@@ -22,33 +22,34 @@
 
         <section>
             <form id="formulario">
-                <div class="campo">
+                <div id="grupoNombre" class="campo">
                     <label for="nombre">Nombre:</label>
-                    <input id="nombre" name="nombre" type="text" placeholder="Ruben" >
+                    <input id="nombre" name="nombre" type="text" placeholder="Ruben" required >
+                    <p id="errorNombre" style="color:red;"></p>
                 </div>
 
                 <div class="campo">
                     <label for="apellido">Apellido:</label>
-                    <input id="apellido" name="apellido" type="text" placeholder="Fernandez" >
+                    <input id="apellido" name="apellido" type="text" placeholder="Fernandez"  required>
                 </div>
                 <div class="campo">
                     <label  for="edad">Edad</label>
-                    <input id="edad" name="edad" type="text" placeholder="Edad" >
+                    <input id="edad" name="edad" type="text" placeholder="Edad"  min="18" required >
                 </div>
 
                 <div class="campo">
                     <label for="clave">Clave:</label>
-                    <input id="pass" name="pass" type="password" placeholder="*********" >
+                    <input id="pass" name="pass" type="password" placeholder="*********" required >
                 </div>
 
                 <div class="campo">
                     <label for="repetirclave">Repetir:</label>
-                    <input id="repass" name="repass" type="password" placeholder="*********" >
+                    <input id="repass" name="repass" type="password" placeholder="*********" required>
                 </div>
 
                 <div class="campo">
                     <label for="correo">Correo:</label>
-                    <input id="email" name="email" type="email" placeholder="correo@correo.com" >
+                    <input id="email" name="email" type="email" placeholder="correo@correo.com" required>
                 </div>
 
                 <div class="btn-registro">
