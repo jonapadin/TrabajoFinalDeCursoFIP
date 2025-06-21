@@ -28,20 +28,36 @@ document.addEventListener("DOMContentLoaded", function () {
                 }
 
                 switch (campo) {
-                    case "nombre":
-                    case "apellido":
-                        if (valor.length < 3) {
-                            console.log(`El ${campo} debe contener un mínimo de 3 caracteres`);
-                            return false;
-                        }
-                        break;
+                  case "nombre":
+                  case "apellido":
+                    if (valor.length < 3) {
+                      console.log(
+                        `El ${campo} debe contener un mínimo de 3 caracteres`
+                      );
+                      return false;
+                    }
+                    break;
 
-                }
+                  case "edad":
+                    const edadNumero = parseInt(valor, 10);
+                    if (isNaN(edadNumero)) {
+                      console.log("La edad debe ser un número válido.");
+                      return false;
+                    }
+                    if (edadNumero < 18) {
+                      console.log("Debes tener al menos 18 años.");
+                      return false;
+                    }
+                    break;
 
-
-                if (campo === "email" && !/^\S+@\S+\.\S+$/.test(valor)) {
-                    console.log(`El campo "${campo}" debe ser un correo válido.`);
-                    return false;
+                  case "email":
+                    if (!/^\S+@\S+\.\S+$/.test(valor)) {
+                      console.log(
+                        `El campo "${campo}" debe ser un correo válido.`
+                      );
+                      return false;
+                    }
+                    break;
                 }
             }
             console.log("Todos los campos son válidos.");
