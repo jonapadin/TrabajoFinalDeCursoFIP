@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const formulario = document.getElementById("datosUsuario");
+    const mensaje = document.getElementById("mensaje"); 
 
     formulario.addEventListener("submit", (e) => {
         e.preventDefault();
@@ -14,17 +15,22 @@ document.addEventListener("DOMContentLoaded", () => {
             usuario.email.trim().toLowerCase() === emailIngresado
         );
 
+      
+
         if (!usuarioEncontrado) {
-            console.log("Correo no registrado");
+              mensaje.textContent =("Correo no registrado");
             return;
         }
 
         if (!usuarioEncontrado || usuarioEncontrado.password !== passIngresado) {
-            console.log("usuario o contraseña");
+              mensaje.textContent =("Usuario o Contraseña Incorrecta.");
             return;
         }
 
-        console.log("Usuario autenticado correctamente");
+         localStorage.setItem("usuarioActivo", JSON.stringify(usuarioEncontrado));
+
+       formulario.reset();
+     
         window.location.href = "http://localhost:5173/pages/usuario";
     });
 });
