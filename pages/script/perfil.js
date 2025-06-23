@@ -49,12 +49,7 @@ form.addEventListener("submit", function (e) {
     return;
   }
 
-<<<<<<< HEAD
   const data = {
-=======
-  // Guarda los datos en localStorage
-   const data = {
->>>>>>> 26990cf48c5f207a6b7e7be7901a1f7af6a18f75
     nombre: form.nombre.value.trim(),
     correo: form.correo.value.trim(),
     telefono: form.telefono.value.trim(),
@@ -65,15 +60,10 @@ form.addEventListener("submit", function (e) {
   const modal = new bootstrap.Modal(document.getElementById('modalGuardado'));
   modal.show();
 
-<<<<<<< HEAD
+
   crearBotonEditar();
 });
 
 // Inicializar
 cargarDatos();
 crearBotonEditar();
-=======
-  botonesAccion.innerHTML = `<button type="button" class="btn btn-primary w-100" id="editarBtn"><i class="bi bi-pencil me-2"></i>Editar</button>`;
-});
-
->>>>>>> 26990cf48c5f207a6b7e7be7901a1f7af6a18f75
