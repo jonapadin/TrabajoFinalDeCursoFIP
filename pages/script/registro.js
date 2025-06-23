@@ -21,11 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const reclave = inputReclave.value.trim();
         const correo = inputCorreo.value.trim();
 
-        const inputs = [inputNombre, inputApellido, inputEdad, inputClave, inputReclave, inputCorreo]
-
+        
         const completo = nombre && apellido && edad && clave && reclave && correo;
         const clavesCoinciden = clave === reclave;
-
+        
         if (clave && reclave && !clavesCoinciden) {
             mensaje.textContent = "Las contraseñas deben coincidir.";
         } else {
@@ -36,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
         btnRegistrar.disabled = !habilitar;
         btnRegistrar.classList.toggle('disabled', !habilitar);
     }
+    const inputs = [inputNombre, inputApellido, inputEdad, inputClave, inputReclave, inputCorreo];
 
     // Ejecutar validación al escribir
     inputs.forEach(input => {
