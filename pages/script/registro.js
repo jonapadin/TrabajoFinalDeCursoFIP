@@ -21,6 +21,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const reclave = inputReclave.value.trim();
         const correo = inputCorreo.value.trim();
 
+        const inputs = [inputNombre, inputApellido, inputEdad, inputClave, inputReclave, inputCorreo]
+
         const completo = nombre && apellido && edad && clave && reclave && correo;
         const clavesCoinciden = clave === reclave;
 
@@ -36,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Ejecutar validación al escribir
-    [inputNombre, inputApellido, inputEdad, inputClave, inputReclave, inputCorreo].forEach(input => {
+    inputs.forEach(input => {
         input.addEventListener('input', validarFormulario);
     });
 
