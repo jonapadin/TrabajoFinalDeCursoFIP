@@ -25,3 +25,12 @@
     }
   });
 
+ document.addEventListener("DOMContentLoaded", () => {
+  const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"));
+
+  if (usuarioActivo && usuarioActivo.nombre && usuarioActivo.apellido) {
+    const saludo = document.getElementById("saludo");
+saludo.textContent = `${usuarioActivo.nombre} ${usuarioActivo.apellido}`;
+
+  }
+  });

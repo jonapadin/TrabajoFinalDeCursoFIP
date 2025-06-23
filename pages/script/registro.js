@@ -2,6 +2,8 @@
 
 document.addEventListener("DOMContentLoaded", function () {
     const formularioRegistro = document.getElementById("formulario");
+    const mensaje = document.getElementById("mensaje");
+
 
 
     formularioRegistro.addEventListener('submit', (e) => {
@@ -17,11 +19,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         if (inputClave !== inputReclave) {
-            console.log("las contraseñas deben coincidir")
+            mensaje.textContent = ("las contraseñas deben coincidir");
             return false;
         }
+        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-        const usuario = {
+       
+        const yaRegistrado = usuarios.some(usuario =>
+            usuario.email.trim().toLowerCase() === inputCorreo.toLowerCase()
+        );
+
+        if (yaRegistrado) {
+            mensaje.textContent = ("El correo ya está registrado.");
+            return;
+        }
+         const usuario = {
             nombre: inputNombre,
             apellido: inputApellido,
             edad: inputEdad,
@@ -31,14 +43,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
-        usuarios.push(usuario);
-        localStorage.setItem("usuarios", JSON.stringify(usuarios));
-
-
-       console.log("datos guardados")
-
        
+       usuarios.push(usuario);
+       localStorage.setItem("usuarios", JSON.stringify(usuarios));
+       localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
+        console.log("datos guardados")
+
+        formularioRegistro.reset();
+         window.location.href = "http://localhost:5173/pages/usuario";
 
     })
 })
