@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
        
        usuarios.push(usuario);
        localStorage.setItem("usuarios", JSON.stringify(usuarios));
-       localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
+      localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
         console.log("datos guardados")
 
         formularioRegistro.reset();
