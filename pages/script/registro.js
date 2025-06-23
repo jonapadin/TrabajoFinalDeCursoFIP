@@ -1,85 +1,84 @@
-
-
 document.addEventListener("DOMContentLoaded", function () {
     const formularioRegistro = document.getElementById("formulario");
+    const btnRegistrar = document.getElementById('btnReg');
+    const mensaje = document.getElementById("mensaje");
+
+    // Referencias a los inputs
+    const inputNombre = document.getElementById('nombre');
+    const inputApellido = document.getElementById('apellido');
+    const inputEdad = document.getElementById('edad');
+    const inputClave = document.getElementById('pass');
+    const inputReclave = document.getElementById('repass');
+    const inputCorreo = document.getElementById('email');
+
+    btnRegistrar.disabled = true;
+
+    function validarFormulario() {
+        const nombre = inputNombre.value.trim();
+        const apellido = inputApellido.value.trim();
+        const edad = inputEdad.value.trim();
+        const clave = inputClave.value.trim();
+        const reclave = inputReclave.value.trim();
+        const correo = inputCorreo.value.trim();
+
+        
+        const completo = nombre && apellido && edad && clave && reclave && correo;
+        const clavesCoinciden = clave === reclave;
+        
+        if (clave && reclave && !clavesCoinciden) {
+            mensaje.textContent = "Las contraseñas deben coincidir.";
+        } else {
+            mensaje.textContent = "";
+        }
+        
+        const habilitar = completo && clavesCoinciden;
+        btnRegistrar.disabled = !habilitar;
+        btnRegistrar.classList.toggle('disabled', !habilitar);
+    }
+    const inputs = [inputNombre, inputApellido, inputEdad, inputClave, inputReclave, inputCorreo];
+
+    // Ejecutar validación al escribir
+    inputs.forEach(input => {
+        input.addEventListener('input', validarFormulario);
+    });
 
     formularioRegistro.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const inputNombre = document.getElementById('nombre').value.trim();
-        const inputApellido = document.getElementById('apellido').value.trim();
-        const inputEdad = document.getElementById('edad').value.trim();
-        const inputClave = document.getElementById('pass').value.trim();
-        const inputReclave = document.getElementById('repass').value.trim();
-        const inputCorreo = document.getElementById('email').value.trim();
-        console.log(inputNombre, inputApellido, inputEdad, inputClave, inputReclave, inputCorreo);
+        const nombre = inputNombre.value.trim();
+        const apellido = inputApellido.value.trim();
+        const edad = inputEdad.value.trim();
+        const clave = inputClave.value.trim();
+        const correo = inputCorreo.value.trim();
 
 
-        if (inputClave !== inputReclave) {
-            console.log("las contraseñas deben coincidir")
-            return false;
+        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+        const yaRegistrado = usuarios.some(usuario =>
+            usuario.email.trim().toLowerCase() === correo.toLowerCase()
+        );
+
+        if (yaRegistrado) {
+            mensaje.textContent = "El correo ya está registrado.";
+            return;
         }
 
-        function validar(obj) {
-            for (const [campo, valor] of Object.entries(obj)) {
-                if (!valor || valor.trim() === "") {
-                    console.log(`El campo "${campo}" no debe estar vacío.`);
-                    return false;
-                }
-
-                switch (campo) {
-                  case "nombre":
-                  case "apellido":
-                    if (valor.length < 3) {
-                      console.log(
-                        `El ${campo} debe contener un mínimo de 3 caracteres`
-                      );
-                      return false;
-                    }
-                    break;
-
-                  case "edad":
-                    const edadNumero = parseInt(valor, 10);
-                    if (isNaN(edadNumero)) {
-                      console.log("La edad debe ser un número válido.");
-                      return false;
-                    }
-                    if (edadNumero < 18) {
-                      console.log("Debes tener al menos 18 años.");
-                      return false;
-                    }
-                    break;
-
-                  case "email":
-                    if (!/^\S+@\S+\.\S+$/.test(valor)) {
-                      console.log(
-                        `El campo "${campo}" debe ser un correo válido.`
-                      );
-                      return false;
-                    }
-                    break;
-                }
-            }
-            console.log("Todos los campos son válidos.");
-            return true;
-        }
-
+        const id = window.crypto.randomUUID();
         const usuario = {
-            nombre: inputNombre,
-            apellido: inputApellido,
-            edad: inputEdad,
-            pass: inputClave,
-            email: inputCorreo
-        }
+            id,
+            nombre,
+            apellido,
+            edad,
+            password: clave,
+            email: correo
+        };
 
-
-       if( validar(usuario)) {
-                    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
         usuarios.push(usuario);
         localStorage.setItem("usuarios", JSON.stringify(usuarios));
-       }
+        localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
+        console.log("datos guardados");
 
-       console.log("no hay datos para guardar")
-
-    })
-})
+        formularioRegistro.reset();
+        window.location.href = "http://localhost:5173/pages/usuario";
+    });
+});

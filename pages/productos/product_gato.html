@@ -11,16 +11,26 @@
 
   <title>Productos-Gato</title>
 </head>
-
-<body>
-  <header>
+ <header>
     <nav class="contenido">
 
       <div class="izquierda">
-        <button type="button" class=" boton-categoria">
-          <img class="categoria" src="/public/assets/icons/hamburger.svg">
-          <a href="#"></a> <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg" alt="imagen-logo">
+        <button id="btn-menu" type="button" class="boton-categoria">
+          <img class="categoria" src="/assets/icons/hamburger.svg" alt="icono-Menu">
         </button>
+        <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg" alt="imagen-logo">
+        <!-- Menú desplegable aquí -->
+        <div id="menu-desplegable" class="menu-desplegable" hidden>
+          <button id="btn-close" type="button" class="boton-categoria">
+            <img class="categoria" src="/assets/icons/close-menu.svg" alt="icono-close" width="32">
+          </button>
+          <ul>
+            <li><a href="/index.html">Inicio</a></li>
+            <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
+            <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
+            <li><a href="/pages/login/login.html">Ingresar</a></li>
+          </ul>
+        </div>
       </div>
 
       <div class="derecha">
@@ -35,14 +45,18 @@
     </nav>
 
   </header>
+
+<body>
+
+
   <main>
-          <sectionc>
-        <img src="/public/assets/productGato/bannerGatos.webp" alt="">
-      </section>
+
+    <section >
+      <img class="imagen-banner" src="/public/assets/productGato/banner.avif" alt="banner">
+    </section>
 
     <section class="container-main">
-      <!-- banner gatos -->
-
+      
       <section class="" id="seccion-productos"></section>
       <section class="" id="seccion-accesorios"></section>
       <section class="" id="seccion-esteticaHigiene"></section>
@@ -82,7 +96,7 @@
   </footer>
 
 
-
+  <script type="module" src="/src/main.js"></script>
   <script type="module" src="/pages/script/produGatos.js"></script>
 </body>
 
