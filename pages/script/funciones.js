@@ -1,7 +1,7 @@
 
 //Crear tarjetas
 export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, altImg) {
- const card = document.createElement("DIV");
+    const card = document.createElement("DIV");
     card.className = "card";
 
     const imagenProducto = document.createElement("IMG");
@@ -37,16 +37,18 @@ export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, al
     card.appendChild(btnCompra);
 
     return card;
-    
+
 }
 
 
 // crear titulo
 export function crearTitulo(texto, clases = []) {
     const titulo = document.createElement("H2");
-    titulo.textContent=texto;
-    if(Array.isArray(clases)){
+    titulo.textContent = texto;
+    if (Array.isArray(clases)) {
         titulo.classList.add(...clases);
     }
     return titulo;
 }
+
+// validar usuarios
