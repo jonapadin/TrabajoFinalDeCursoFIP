@@ -14,51 +14,57 @@
     <main>
 
 
-        <div class="flecha">
+        <a href="/index.html" class="flecha">
             <img src="/public/assets/icons/line-md_arrow-left.svg" alt="flecha">
-        </div>
-
+       
+      </a>
         <p class="registro">Registro</p>
 
         <section>
             <form id="formulario">
-                <div class="campo">
+                <div id="grupoNombre" class="campo">
                     <label for="nombre">Nombre:</label>
-                    <input type="text" placeholder="Ruben" required>
+                    <input id="nombre" name="nombre" type="text" placeholder="Ruben" required >
+                  
                 </div>
 
                 <div class="campo">
                     <label for="apellido">Apellido:</label>
-                    <input type="text" placeholder="Fernandez" required>
+                    <input id="apellido" name="apellido" type="text" placeholder="Fernandez"  required>
                 </div>
                 <div class="campo">
-                    <label for="edad">Edad</label>
-                    <input type="text" placeholder="Edad" required>
+                    <label  for="edad">Edad</label>
+                    <input id="edad" name="edad" type="text" placeholder="Edad"  min="18" required >
                 </div>
 
                 <div class="campo">
                     <label for="clave">Clave:</label>
-                    <input type="password" placeholder="*********" required>
+                    <input id="pass" name="pass" type="password" placeholder="*********" required >
                 </div>
 
                 <div class="campo">
                     <label for="repetirclave">Repetir:</label>
-                    <input type="password" placeholder="*********" required>
+                    <input id="repass" name="repass" type="password" placeholder="*********" required>
                 </div>
 
                 <div class="campo">
                     <label for="correo">Correo:</label>
-                    <input type="email" placeholder="correo@correo.com" required>
+                    <input id="email" name="email" type="email" placeholder="correo@correo.com" required>
                 </div>
+
+                <div id="mensaje" style="color: red; text-align: center; margin-bottom: 8px; font-size: 14px;">
+                    
+                </div>
+            
 
                 <div class="btn-registro">
-                    <button type="submit"><span>REGISTRAR</span></button>
+                    <button class="disabled" id="btnReg" type="submit" disabled><span>REGISTRAR</span></button>
                 </div>
             </form>
-
-            <div id="errores" style="color:red;"></div>
+  
         </section>
     </main>
     <script type="module" src="/pages/script/registro.js"></script>
     
 </body>
+
