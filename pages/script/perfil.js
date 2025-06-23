@@ -1,4 +1,3 @@
-const editarBtn = document.getElementById("editarBtn");
 const form = document.getElementById("perfilForm");
 const inputs = form.querySelectorAll("input");
 const botonesAccion = document.getElementById("botonesAccion");
@@ -11,9 +10,19 @@ function cargarDatos() {
     document.getElementById("telefono").value = data.telefono;
   }
 }
-cargarDatos();
 
-editarBtn.addEventListener("click", () => {
+function crearBotonEditar() {
+  botonesAccion.innerHTML = `
+    <button type="button" class="btn btn-primary w-100" id="editarBtn">
+      <i class="bi bi-pencil me-2"></i>Editar
+    </button>
+  `;
+
+  // Asignar nuevamente el listener al nuevo botón
+  document.getElementById("editarBtn").addEventListener("click", habilitarEdicion);
+}
+
+function habilitarEdicion() {
   inputs.forEach(input => input.disabled = false);
 
   botonesAccion.innerHTML = `
@@ -27,10 +36,10 @@ editarBtn.addEventListener("click", () => {
 
   document.getElementById("cancelarBtn").addEventListener("click", () => {
     inputs.forEach(input => input.disabled = true);
-    botonesAccion.innerHTML = `<button type="button" class="btn btn-primary w-100" id="editarBtn"><i class="bi bi-pencil me-2"></i>Editar</button>`;
-    location.reload();
+    cargarDatos(); // Restaurar datos
+    crearBotonEditar();
   });
-});
+}
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
@@ -40,7 +49,6 @@ form.addEventListener("submit", function (e) {
     return;
   }
 
-  // Guarda los datos en localStorage
   const data = {
     nombre: form.nombre.value.trim(),
     correo: form.correo.value.trim(),
@@ -48,10 +56,13 @@ form.addEventListener("submit", function (e) {
   };
   localStorage.setItem("perfilUsuario", JSON.stringify(data));
 
-  // Deshabilita campos y muestra modal
   inputs.forEach(input => input.disabled = true);
   const modal = new bootstrap.Modal(document.getElementById('modalGuardado'));
   modal.show();
 
-  botonesAccion.innerHTML = `<button type="button" class="btn btn-primary w-100" id="editarBtn"><i class="bi bi-pencil me-2"></i>Editar</button>`;
+  crearBotonEditar();
 });
+
+// Inicializar
+cargarDatos();
+crearBotonEditar();
