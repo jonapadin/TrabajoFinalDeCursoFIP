@@ -16,18 +16,26 @@
   <title>Veterinaria App</title>
 </head>
 
-<body class="lato-bold">
-
-
-  <header>
+ <header>
     <nav class="contenido">
 
       <div class="izquierda">
-        <button type="button" class=" boton-categoria">
+        <button id="btn-menu" type="button" class="boton-categoria">
           <img class="categoria" src="/assets/icons/hamburger.svg" alt="icono-Menu">
-          <a href="#"></a> <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg"
-            alt="imagen-logo">
         </button>
+        <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg" alt="imagen-logo">
+        <!-- Menú desplegable aquí -->
+        <div id="menu-desplegable" class="menu-desplegable" hidden>
+          <button id="btn-close" type="button" class="boton-categoria">
+            <img class="categoria" src="/assets/icons/close-menu.svg" alt="icono-close" width="32">
+          </button>
+          <ul>
+            <li><a href="#">Inicio</a></li>
+            <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Ingresar</a></li>
+          </ul>
+        </div>
       </div>
 
       <div class="derecha">
@@ -41,15 +49,16 @@
 
     </nav>
 
-
   </header>
+
+<body class="lato-bold">
   <main>
     <section class="banner-categoria"></section>
 
-    <h5 class="ps-3 pt-3 fw-bold">Categorías</h5>
+    <h5 class="ml-4 size-medium">Categorías</h5>
 
-    <div class="card-img px-3">
-      <a href="#" class="img-animal perro"><span>PERRO</span></a>
+    <div class="contenedor-categorias">
+      <a href="#" class="img-animal perro "><span>PERRO</span></a>
       <a href="#" class="img-animal gato"><span>GATO</span></a>
       <a href="#" class="img-animal aves"><span>AVES</span></a>
       <a href="#" class="img-animal exoticos"><span>EXOTICOS</span></a>

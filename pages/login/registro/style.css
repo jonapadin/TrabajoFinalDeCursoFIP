@@ -5,6 +5,7 @@ body {
   align-items: center;
   padding: 20px;
 }
+
 .flecha {
   position: absolute;
   top: 20px;
@@ -31,11 +32,11 @@ form {
   display: flex;
   align-items: center;
   margin-bottom: 35px;
-  
+
 }
 
 label {
-  width: 60px; 
+  width: 60px;
   font-weight: 500;
   font-size: 14px;
 }
@@ -60,7 +61,7 @@ input::placeholder {
 }
 
 button {
-  background-color:  #800080;
+  background-color: #800080;
   color: white;
   padding: 12px 24px;
   border: none;
@@ -71,4 +72,25 @@ button {
 
 button span {
   font-size: 14px;
+}
+
+/* Estilo normal del botón */
+#btnReg {
+  background-color: #800080;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Estilo deshabilitado con clase .disabled */
+#btnReg.disabled {
+  background-color: #d3b3d3;
+  /* tono claro de púrpura */
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.6;
 }

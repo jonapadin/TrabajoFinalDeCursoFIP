@@ -41,7 +41,7 @@ form.addEventListener("submit", function (e) {
   }
 
   // Guarda los datos en localStorage
-  const data = {
+   const data = {
     nombre: form.nombre.value.trim(),
     correo: form.correo.value.trim(),
     telefono: form.telefono.value.trim(),
@@ -55,3 +55,4 @@ form.addEventListener("submit", function (e) {
 
   botonesAccion.innerHTML = `<button type="button" class="btn btn-primary w-100" id="editarBtn"><i class="bi bi-pencil me-2"></i>Editar</button>`;
 });
+
