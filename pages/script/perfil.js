@@ -3,11 +3,25 @@ const inputs = form.querySelectorAll("input");
 const botonesAccion = document.getElementById("botonesAccion");
 
 function cargarDatos() {
-  const data = JSON.parse(localStorage.getItem("perfilUsuario"));
+  let data = JSON.parse(localStorage.getItem("perfilUsuario"));
+
+  // Si no hay perfil guardado, lo creamos con datos del usuario activo
+  if (!data) {
+    const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"));
+    if (usuarioActivo) {
+      data = {
+        nombre: `${usuarioActivo.nombre} ${usuarioActivo.apellido}`,
+        correo: usuarioActivo.email || "",
+        telefono: usuarioActivo.telefono || ""
+      };
+      localStorage.setItem("perfilUsuario", JSON.stringify(data));
+    }
+  }
+
   if (data) {
-    document.getElementById("nombre").value = data.nombre;
-    document.getElementById("correo").value = data.correo;
-    document.getElementById("telefono").value = data.telefono;
+    document.getElementById("nombre").value = data.nombre || "";
+    document.getElementById("correo").value = data.correo || "";
+    document.getElementById("telefono").value = data.telefono || "";
   }
 }
 
@@ -18,7 +32,6 @@ function crearBotonEditar() {
     </button>
   `;
 
-  // Asignar nuevamente el listener al nuevo botón
   document.getElementById("editarBtn").addEventListener("click", habilitarEdicion);
 }
 
@@ -36,9 +49,15 @@ function habilitarEdicion() {
 
   document.getElementById("cancelarBtn").addEventListener("click", () => {
     inputs.forEach(input => input.disabled = true);
-    cargarDatos(); // Restaurar datos
+    cargarDatos(); // Restaurar datos previos
     crearBotonEditar();
   });
+}
+
+function cerrarSesion() {
+  localStorage.removeItem("usuarioActivo");
+  localStorage.removeItem("perfilUsuario");
+  window.location.href = "/pages/login/login.html";
 }
 
 form.addEventListener("submit", function (e) {
@@ -52,14 +71,27 @@ form.addEventListener("submit", function (e) {
   const data = {
     nombre: form.nombre.value.trim(),
     correo: form.correo.value.trim(),
-    telefono: form.telefono.value.trim(),
+    telefono: form.telefono.value.trim()
   };
+
+  // Guardar datos actualizados en perfilUsuario
   localStorage.setItem("perfilUsuario", JSON.stringify(data));
 
+  // También actualizar usuarioActivo (si existe)
+  const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"));
+  if (usuarioActivo) {
+    const nombrePartes = data.nombre.split(" ");
+    usuarioActivo.nombre = nombrePartes[0] || "";
+    usuarioActivo.apellido = nombrePartes.slice(1).join(" ") || "";
+    usuarioActivo.email = data.correo;
+    usuarioActivo.telefono = data.telefono;
+    localStorage.setItem("usuarioActivo", JSON.stringify(usuarioActivo));
+  }
+
+  // Desactivar inputs y mostrar modal
   inputs.forEach(input => input.disabled = true);
   const modal = new bootstrap.Modal(document.getElementById('modalGuardado'));
   modal.show();
-
 
   crearBotonEditar();
 });
