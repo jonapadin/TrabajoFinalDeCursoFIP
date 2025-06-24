@@ -59,6 +59,7 @@ header {
   position: relative;
   display: flex;
   align-items: center;
+   
 }
 
 .derecha {
@@ -67,9 +68,10 @@ header {
 }
 
 .imagen-logo {
-  margin-top: 6px;
   margin-left: 2px;
+  margin-top: 6px;
 }
+
 
 .boton-categoria {
   background: none;
