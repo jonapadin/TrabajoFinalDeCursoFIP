@@ -3,6 +3,7 @@ import { crearTarjeta, crearTitulo } from "./funciones";
 document.addEventListener("DOMContentLoaded", async function () {
 
     const btnMasInf = document.createElement('button');
+
     
     // Seccion alimento, elementos
     const contenedor = document.getElementById("seccion-productos");

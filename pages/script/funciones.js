@@ -51,4 +51,4 @@ export function crearTitulo(texto, clases = []) {
     return titulo;
 }
 
-// validar usuarios
+
