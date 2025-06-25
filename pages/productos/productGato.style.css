@@ -148,35 +148,6 @@ header {
 
 /* footer */
 
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #8F108D;
-  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-}
-
-.contenedor-footer {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 8px 0;
-}
-
-.contenedor-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.contenedor-nav a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: #fbf2f2;
-  font-size: 12px;
-}
 
 .contenedor {
   padding-bottom: 40px;
