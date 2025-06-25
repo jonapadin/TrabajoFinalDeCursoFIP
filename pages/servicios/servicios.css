@@ -221,7 +221,7 @@ header {
   top: -90px;
   width: 100%;
   z-index: 2;
-}
+} 
 
 .container-descripcion {
   background-color: #8F108D;
@@ -260,78 +260,5 @@ header {
   white-space: nowrap;
 }
 
-@media (max-width: 400px) {
- .size-medium {
-    font-size: 28px;
-  }
-  .input-buscador {
-    width: 230px;
-  }
-}
 
 
-@media screen and (min-width: 601px) {
-  .titulo-servicios {
-  font-weight: 700;
-  font-size: 34px;
-  color: black;
-  text-align: center;
-  padding: 20px 20px 20px;
-  position: relative;
-}
- .seccion-servicios {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 20px;
-    padding: 20px;
-    max-width: 1300px; 
-    margin: 0 auto;
-  }
-
-  .card {
-    min-height: 350px;
-    background-color: white;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  .img-vet {
-    width: 180px;
-    height: 200px;
-    top: 10px;
-  }
-
-  .img-dec {
-    position: relative;
-    top: -50px;
-    width: 100%;
-  }
-
-  .container-descripcion {
-    height: 120px;
-    padding: 10px 12px;
-    background-color: #8F108D;
-    color: white;
-    border-radius: 8px;
-    position: relative;
-    top:40px;
-  }
-
-  .container-descripcion p {
-    font-size: 14px;
-    margin: 0;
-  }
-
-  .sub-titulo-servicio {
-    font-size: clamp(14px, 3vw, 16px);
-    font-weight: 700;
-    color: white;
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    padding: 160px 10px;
-    white-space: nowrap;
-  }
-}

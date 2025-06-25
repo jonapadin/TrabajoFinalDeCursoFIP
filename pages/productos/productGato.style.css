@@ -21,6 +21,11 @@ header {
 
 }
 
+/* oculta menu de pc */
+.ocultarMobile {
+  display: none;
+}
+
 /* Contenedor principal del nav */
 .contenido {
   position: fixed;
@@ -262,4 +267,54 @@ footer {
   text-decoration: none;
   color: #fbf2f2;
   font-size: 12px;
+}
+
+@media screen and (min-width: 400px) {
+  .titulo{
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 768px) { 
+  
+}
+
+@media screen and (min-width: 1024px) {
+  .ocultar {
+    display: none;
+  }
+
+  .ocultarMobile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    list-style: none;
+    color: #F5F6FA;
+  }
+
+  header {
+    width: 100%;
+  }
+
+  .contenido {
+    max-width: 100%;
+    justify-content: start;
+  }
+  .derecha {
+    margin-left: 5%;
+  }
+
+  .input-buscador{
+    width: 400px;
+    height: 40px;
+  }
+
+
+  span{
+    margin-left: 5px;
+  }
+  footer {
+    position: static;
+  }
+
 }
