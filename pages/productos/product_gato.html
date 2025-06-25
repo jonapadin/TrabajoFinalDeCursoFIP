@@ -11,52 +11,76 @@
 
   <title>Productos-Gato</title>
 </head>
- <header>
-    <nav class="contenido">
+<header>
+  <nav class="contenido">
 
-      <div class="izquierda">
-        <button id="btn-menu" type="button" class="boton-categoria">
-          <img class="categoria" src="/assets/icons/hamburger.svg" alt="icono-Menu">
+    <div class="izquierda">
+      <button id="btn-menu" type="button" class="boton-categoria ocultar">
+        <img class="categoria" src="/assets/icons/hamburger.svg" alt="icono-Menu">
+      </button>
+      <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg" alt="imagen-logo">
+
+      <!-- Menú pc-->
+      <ul class="ocultarMobile">
+        <li>Inicio</li>
+        <li>Productos</li>
+        <li>Servicios</li>
+      </ul>
+
+      <!-- Menú desplegable aquí -->
+      <div id="menu-desplegable" class="menu-desplegable" hidden>
+        <button id="btn-close" type="button" class="boton-categoria">
+          <img class="categoria" src="/assets/icons/close-menu.svg" alt="icono-close" width="32">
         </button>
-        <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg" alt="imagen-logo">
-        <!-- Menú desplegable aquí -->
-        <div id="menu-desplegable" class="menu-desplegable" hidden>
-          <button id="btn-close" type="button" class="boton-categoria">
-            <img class="categoria" src="/assets/icons/close-menu.svg" alt="icono-close" width="32">
-          </button>
-          <ul>
-            <li><a href="/index.html">Inicio</a></li>
-            <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
-            <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
-            <li><a href="/pages/login/login.html">Ingresar</a></li>
-          </ul>
-        </div>
+        <ul>
+          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
+          <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
+          <li><a href="/pages/login/login.html">Ingresar</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="derecha">
+      <div class="contenedor-buscador">
+        <input class="input-buscador" type="search" placeholder="Buscar">
+        <button class="boton-lupa">
+          <img src="/assets/Vector (1).svg" alt="lupa">
+        </button>
+      </div>
+    </div>
+
+    <section style="gap:40px;  margin-bottom: 4px;" class="ocultarMobile container-buttons flex gap-8">
+      <div style="position: relative;">
+        <a style="text-decoration: none; color:white;" href="#" class="flex items-center gap-2 centrar">
+          <img src="/public/assets/icons/carrito.svg" alt="icono del carrito">
+          <span style="position: absolute; top:35%">Carrito</span>
+        </a>
       </div>
 
-      <div class="derecha">
-        <div class="contenedor-buscador">
-          <input class="input-buscador" type="search" placeholder="Buscar">
-          <button class="boton-lupa">
-            <img src="/assets/Vector (1).svg" alt="lupa">
-          </button>
-        </div>
+      <div style="margin-left: 20px; position: relative;">
+        <a style="text-decoration: none; color:white;" href="#" class="flex items-center gap-2 centrar">
+          <img src="/public/assets/icons/usuario.svg" alt="icono de usuario" width="28">
+          <span style="margin-bottom: 8px; position: absolute; top:35%">Ingresar</span>
+        </a>
       </div>
+    </section>
 
-    </nav>
+  </nav>
 
-  </header>
+</header>
 
 <body>
 
 
   <main>
 
-    <section >
+    <section>
       <img class="imagen-banner" src="/public/assets/productGato/banner.avif" alt="banner">
     </section>
 
     <section class="container-main">
-      
+
       <section class="" id="seccion-productos"></section>
       <section class="" id="seccion-accesorios"></section>
       <section class="" id="seccion-esteticaHigiene"></section>
