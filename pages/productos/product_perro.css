@@ -271,6 +271,15 @@ footer {
   border-radius: 5px;
   margin: 5px 0;
 }
+.btn-Compra {
+  padding: 6px 30px;
+  background-color: transparent;
+  color: #800080;
+  border: 2px solid #800080;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
 
 .container-main {
   padding-bottom: 100px;
