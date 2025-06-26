@@ -3,7 +3,7 @@ const inputs = form.querySelectorAll("input");
 const botonesAccion = document.getElementById("botonesAccion");
 
 function cargarDatos() {
-  const data = JSON.parse(localStorage.getItem("perfilUsuario"));
+  const data = JSON.parse(localStorage.getItem("usuarioActivo"));
   if (data) {
     document.getElementById("nombre").value = data.nombre;
     document.getElementById("correo").value = data.correo;
@@ -48,32 +48,22 @@ form.addEventListener("submit", function (e) {
     form.reportValidity();
     return;
   }
-
-<<<<<<< HEAD
-  const data = {
-=======
   // Guarda los datos en localStorage
    const data = {
->>>>>>> 26990cf48c5f207a6b7e7be7901a1f7af6a18f75
     nombre: form.nombre.value.trim(),
     correo: form.correo.value.trim(),
     telefono: form.telefono.value.trim(),
   };
-  localStorage.setItem("perfilUsuario", JSON.stringify(data));
+  localStorage.setItem("usuarioActivo", JSON.stringify(data));
 
   inputs.forEach(input => input.disabled = true);
   const modal = new bootstrap.Modal(document.getElementById('modalGuardado'));
   modal.show();
 
-<<<<<<< HEAD
+
   crearBotonEditar();
 });
 
 // Inicializar
 cargarDatos();
 crearBotonEditar();
-=======
-  botonesAccion.innerHTML = `<button type="button" class="btn btn-primary w-100" id="editarBtn"><i class="bi bi-pencil me-2"></i>Editar</button>`;
-});
-
->>>>>>> 26990cf48c5f207a6b7e7be7901a1f7af6a18f75
