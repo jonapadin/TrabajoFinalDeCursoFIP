@@ -1,7 +1,7 @@
 ** {
   box-sizing: border-box;
   max-width: 1440px;
-  
+
 }
 
 
@@ -9,7 +9,6 @@ body {
   background-color: #F5F6FA;
   margin: 0;
   padding: 0;
-  height: 100dvh;
 }
 
 
@@ -18,6 +17,11 @@ header {
   background-color: #8F108D;
 
 }
+
+.fondo-blanco {
+  background-color: rgba(255, 255, 255, 0.911);
+}
+
 /* fonts */
 
 .lato-bold {
@@ -25,6 +29,7 @@ header {
   font-weight: 700;
   font-style: normal;
 }
+
 /* oculta menu de pc */
 .ocultarMobile {
   display: none;
@@ -121,6 +126,7 @@ header {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  width: 50%;
 }
 
 /* Lista menú */
@@ -205,8 +211,9 @@ footer {
 .titulo {
   text-align: center;
   margin: 40px 0;
+  padding-top:20px;
   text-transform: uppercase;
-   font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 
 }
 
@@ -269,17 +276,41 @@ footer {
   padding-bottom: 100px;
 }
 
+.container-main section:nth-of-type(2),
+.container-main section:nth-of-type(4) {
+  background-color: rgba(255, 255, 255, 0.911);
+}
+
 [hidden] {
   display: none !important;
 }
-.contenedor-navPc{
+
+.contenedor-navPc {
   display: none;
 }
 
+@media (min-width: 400px) {
+  .input-buscador {
+    height: 40px;
+    width: 230px;
+  }
+
+  .titulo {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    height: 100dvh;
+  }
+}
+
 @media (min-width: 1024px) {
-   header {
+  header {
     width: 100%;
   }
+
   /* estilos navbar */
 
   .izquierda ul {
@@ -333,9 +364,9 @@ footer {
     transition: all 0.5s ease-out;
   }
 
-    .container-1 a:hover {
-      color:#f5f6faad ;
-    }
+  .container-1 a:hover {
+    color: #f5f6faad;
+  }
 
   .container-1 a span {
     position: absolute;
@@ -355,9 +386,9 @@ footer {
     transition: all 0.5s ease-out;
   }
 
-      .container-2 a:hover {
-      color:#f5f6faad ;
-    }
+  .container-2 a:hover {
+    color: #f5f6faad;
+  }
 
   .container-2 a span {
     position: absolute;
@@ -394,45 +425,63 @@ footer {
     margin-left: 5px;
   }
 
+  /* productos */
   .seccionAlimento {
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(4, 1fr);
     padding: 0 40px;
     gap: 20px;
   }
-  
+
+  .imgProducto {
+    padding-bottom: 20px;
+    width: 180px;
+  }
+
   .card {
-    max-width: 200px; 
+    max-width: 200px;
     margin-bottom: 50px;
   }
-  
-  footer{
-    position: static;
-    
+
+  .card {
+    align-items: normal;
+   }
+
+    .btnCompra { 
+    font-size: 16px;
   }
-  .contenedor-navPc{
-  display: flex;
-}
-  .contenedor-navPc ul{
+
+
+  footer {
+    position: static;
+
+  }
+
+  .contenedor-navPc {
+    display: flex;
+  }
+
+  .contenedor-navPc ul {
     height: 50px;
     display: flex;
-      list-style: none;
-      justify-content: space-between;
-      gap: 20px;
-  
-    }
+    list-style: none;
+    justify-content: space-between;
+    gap: 20px;
 
-  
-.container-main{
-  padding-top: 30px;
+  }
 
-}
-.contenedor-nav{
-  display: none;
-}
 
-.imagen-banner{
-  height: 70vh;
-}
+  .container-main {
+    padding-top: 30px;
+
+  }
+
+  .contenedor-nav {
+    display: none;
+  }
+
+  .imagen-banner {
+    height: 70vh;
+  }
 
 }
 
@@ -453,6 +502,7 @@ footer {
   .container-enlaces {
     margin-left: 20px;
     gap: 70px;
+    margin-bottom: 8px;
   }
 
 
@@ -468,21 +518,38 @@ footer {
   .container-2 a {
     font-size: 16px;
   }
+    
+  /*prodcutos  */
+    .seccionAlimento {
+    padding: 0 50px;
+    gap: 0px;
+  }
+
+
+    .imgProducto {
+    padding-bottom: 20px; }
+
+    .containerDesc {
+    padding: 15px 0;
+}
+  
 }
 
 @media screen and (min-width: 1440px) {
   .imagen-logo {
     width: 60px;
   }
+
   .contenido {
     padding-left: 60px;
   }
+
   .container-enlaces {
     margin-left: 30px;
     gap: 80px;
     margin-bottom: 10px;
   }
-  
+
 
   .input-buscador {
     margin-left: 30px;
@@ -490,25 +557,52 @@ footer {
   }
 
 
-   .container-1 a img {
+  .container-1 a img {
     width: 32px;
-   }
+  }
 
-     .container-2 a img {
+  .container-2 a img {
     width: 32px;
-   }
+  }
+
+    /* productos */
+  .seccionAlimento {
+    margin: 0 auto;
+    max-width: 1200px;
+    gap: 50px;
+    padding: 0px;
+  }
+
+    .card { 
+    max-width: 230px;
+  }
+
+    .card h2 {
+  font-size: 22px;
+}
+
+.card h4 {
+  font-size: 16px;
+}
+
+.card p {
+  font-size: 16px;
+}
+  
+  
 }
 
 @media screen and (min-width: 1600px) {
-    .contenido {
+  .contenido {
     padding-left: 80px;
   }
-    .container-enlaces {
+
+  .container-enlaces {
     margin-left: 60px;
   }
 
 
-    .input-buscador {
+  .input-buscador {
     margin-left: 40px;
     width: 440px;
   }
@@ -519,19 +613,18 @@ footer {
     justify-content: center;
   }
 
-      .contenido {
+  .contenido {
     padding-left: 0px;
   }
-    .container-enlaces {
+
+  .container-enlaces {
     margin-left: 0;
+    margin-bottom: 0 ;
   }
 
 
-    .input-buscador {
+  .input-buscador {
     margin-left: 0px;
     width: 440px;
   }
 }
-
-
-

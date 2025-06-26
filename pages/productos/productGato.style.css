@@ -21,6 +21,8 @@ header {
 
 }
 
+
+
 /* fonts */
 
 .lato-bold {
@@ -127,6 +129,7 @@ header {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  width: 50%;
 }
 
 /* Lista menú */
@@ -155,11 +158,22 @@ header {
 }
 
 
+/*  encabezados */
+.titulo {
+  text-align: center;
+  padding: 20px 0;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+}
+
 /* banner */
 .imagen-banner {
   width: 100%;
   margin-top: 80px;
 }
+
+
+
 
 /* footer */
 
@@ -182,6 +196,7 @@ header {
 .titulo {
   text-align: center;
   margin: 20px 0;
+  padding-top: 20px;
 }
 
 .card h2 {
@@ -243,6 +258,11 @@ header {
   padding-bottom: 100px;
 }
 
+.container-main section:nth-of-type(2),
+.container-main section:nth-of-type(4) {
+  background-color: rgba(255, 255, 255, 0.911);
+}
+
 [hidden] {
   display: none !important;
 }
@@ -280,11 +300,29 @@ footer {
 }
 
 @media screen and (min-width: 400px) {
+  .input-buscador {
+    height: 40px;
+    width: 230px;
+  }
+
   .titulo {
-    font-size: 28px;
+    font-size: 24px;
   }
 }
 
+@media screen and (max-width: 600px) {
+  html {
+    height: 100dvh;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .seccionAlimento {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 40px;
+    gap: 20px;
+  }
+}
 
 
 @media screen and (min-width: 1024px) {
@@ -345,9 +383,9 @@ footer {
     transition: all 0.5s ease-out;
   }
 
-    .container-1 a:hover {
-      color:#f5f6faad ;
-    }
+  .container-1 a:hover {
+    color: #f5f6faad;
+  }
 
   .container-1 a span {
     position: absolute;
@@ -367,9 +405,9 @@ footer {
     transition: all 0.5s ease-out;
   }
 
-      .container-2 a:hover {
-      color:#f5f6faad ;
-    }
+  .container-2 a:hover {
+    color: #f5f6faad;
+  }
 
   .container-2 a span {
     position: absolute;
@@ -407,6 +445,33 @@ footer {
   }
 
 
+  /* productos */
+  .seccionAlimento {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 40px;
+    gap: 20px;
+  }
+
+  .card {
+    align-items: normal;
+  }
+
+
+  .imgProducto {
+    margin-bottom: 20px;
+    width: 200px;
+  }
+
+
+  .card {
+    max-width: 200px;
+    margin-bottom: 50px;
+  }
+
+  .btnCompra {
+    font-size: 16px;
+  }
+
 
   footer {
     position: static;
@@ -431,6 +496,7 @@ footer {
   .container-enlaces {
     margin-left: 20px;
     gap: 70px;
+    margin-bottom: 8px;
   }
 
 
@@ -446,21 +512,31 @@ footer {
   .container-2 a {
     font-size: 16px;
   }
+
+  /* productos */
+  .seccionAlimento {
+    padding: 0 50px;
+    gap: 0px;
+  }
+
+
 }
 
 @media screen and (min-width: 1440px) {
   .imagen-logo {
     width: 60px;
   }
+
   .contenido {
     padding-left: 60px;
   }
+
   .container-enlaces {
     margin-left: 30px;
     gap: 80px;
     margin-bottom: 10px;
   }
-  
+
 
   .input-buscador {
     margin-left: 30px;
@@ -468,25 +544,52 @@ footer {
   }
 
 
-   .container-1 a img {
+  .container-1 a img {
     width: 32px;
-   }
+  }
 
-     .container-2 a img {
+  .container-2 a img {
     width: 32px;
-   }
+  }
+
+    /* productos */
+  .seccionAlimento {
+    margin: 0 auto;
+    max-width: 1200px;
+    gap: 50px;
+    padding: 0px;
+  }
+
+    .card { 
+    max-width: 230px;
+  }
+
+    .card h2 {
+  font-size: 22px;
+}
+
+.card h4 {
+  font-size: 16px;
+}
+
+.card p {
+  font-size: 16px;
+}
+  
+
 }
 
 @media screen and (min-width: 1600px) {
-    .contenido {
+  .contenido {
     padding-left: 80px;
   }
-    .container-enlaces {
+
+  .container-enlaces {
     margin-left: 60px;
   }
 
 
-    .input-buscador {
+  .input-buscador {
     margin-left: 40px;
     width: 440px;
   }
@@ -497,15 +600,18 @@ footer {
     justify-content: center;
   }
 
-      .contenido {
+  .contenido {
     padding-left: 0px;
   }
-    .container-enlaces {
+
+  .container-enlaces {
+
     margin-left: 0;
+    margin-bottom: 0;
   }
 
 
-    .input-buscador {
+  .input-buscador {
     margin-left: 0px;
     width: 440px;
   }
