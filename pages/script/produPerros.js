@@ -1,15 +1,19 @@
-import { obtenerProductos } from "./fetchProductos"; 
+import { obtenerProductos } from "./fetchProductos";
 import { crearTarjeta, crearTitulo } from "./funciones";
 document.addEventListener("DOMContentLoaded", async function () {
 
+    const btnMasInf = document.createElement('button');
+
+    // Seccion alimento, elementos
     const contenedor = document.getElementById("seccion-productos");
-    contenedor.className="seccionProductos" ;
+    contenedor.className = "seccionProductos";
 
     const seccionAlimento = document.createElement("section");
-    seccionAlimento.className ="seccionAlimento";
-    
-  const tituloAlimentos = crearTitulo("Alimento", ['titulo']);
+    seccionAlimento.className = "seccionAlimento";
+
+    const tituloAlimentos = crearTitulo("Alimento", ['titulo']);
     contenedor.appendChild(tituloAlimentos);
+
     // Seccion Accesorios, elementos
     const contenedorAccesorios = document.getElementById('seccion-accesorios');
     contenedorAccesorios.className = "seccionProductos";
@@ -17,10 +21,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     const seccionAccesorios = document.createElement("section");
     seccionAccesorios.className = "seccionAlimento";
 
-    const tituloAccesorios = crearTitulo("Accesorios");
-
+    const tituloAccesorios = crearTitulo("Accesorios", ["titulo"]);
     contenedorAccesorios.appendChild(tituloAccesorios);
-    contenedorAccesorios.className = "titulo";
 
     //Seccion Estetica e Higiene, elementos
     const contenedorEsteticaHigiene = document.getElementById('seccion-esteticaHigiene');
@@ -38,11 +40,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     seccionSalud.className = "seccionAlimento";
 
     const tituloSalud = crearTitulo("Salud");
-    tituloSalud.className="titulo"
+    tituloSalud.className = "titulo"
 
     contenedorSalud.appendChild(tituloSalud);
-    
-      const dataProduct = await obtenerProductos();
+
+    // fetch a datos
+    const dataProduct = await obtenerProductos();
 
 
     if (!dataProduct || !dataProduct.length) {
@@ -55,19 +58,21 @@ document.addEventListener("DOMContentLoaded", async function () {
     const productosPerro = dataProduct[0]?.categoria?.Perro.Alimento;
 
     if (!productosPerro) {
-        console.log("No se encontro la categoria perros");
+        console.log("No se encontro la categoria Alimento");
         return
 
     }
-     // iterar sobre alimentos y crear las cards
-    productosPerro.forEach(producto => {
+    // iterar sobre alimentos y crear las cards
+    productosPerro.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`; // Combina marca + índice
         const cardsAlimeto = crearTarjeta(
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca // para alt de imagen
+            producto.marca, // para alt de imagen
+            idUnico
         );
 
         seccionAlimento.appendChild(cardsAlimeto);
@@ -83,14 +88,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // crear cards seccion accesorios
-    accesorios.forEach(producto => {
+    accesorios.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`; // Combina marca + índice
         const cardsAccesorios = crearTarjeta(
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca // para alt de imagen
+            producto.marca, // para alt de imagen
+            idUnico
         );
         seccionAccesorios.appendChild(cardsAccesorios);
         contenedorAccesorios.appendChild(seccionAccesorios);
@@ -103,14 +110,17 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     }
     // crear cards seccion estetica
-    productosEstetica.forEach(producto => {
+    productosEstetica.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`; // Combina marca + índice
         const cardsesteticaHigiene = crearTarjeta(
+            
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca // para alt de imagen
+            producto.marca, // para alt de imagen
+            idUnico
         );
 
         seccionEsteticaHigiene.appendChild(cardsesteticaHigiene);
@@ -122,24 +132,40 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.warn("No se encontro la categoria Salud")
     }
 
+
     // crear cards seccion salud
-    productosSalud.forEach(producto => {
-       const cardSalud = crearTarjeta(
+        productosSalud.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`; // Combina marca + índice
+        const cardSalud = crearTarjeta(
+            
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca // para alt de imagen
+            producto.marca, // para alt de imagen
+            idUnico
         );
 
-            seccionSalud.appendChild(cardSalud);
-            contenedorSalud.appendChild(seccionSalud);
-    })
-})  
+        seccionSalud.appendChild(cardSalud);
+        contenedorSalud.appendChild(seccionSalud);
+    });
 
-   
+const botonesCompra = document.querySelectorAll(".btn-Compra");
+console.log("Botones encontrados:", botonesCompra.length); 
+botonesCompra.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        console.log("Botón clickeado:", e.target);
+        console.log("ID:", e.target.id);
+    });
+});
 
-        
-    
+
+
+})
+
+
+
+
+
 

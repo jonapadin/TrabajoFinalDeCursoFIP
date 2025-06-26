@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    console.log("script cargado");
+
     const btnMenu = document.getElementById("btn-menu");
     const btnCloseMenu = document.getElementById('btn-close');
     const menu = document.getElementById("menu-desplegable");

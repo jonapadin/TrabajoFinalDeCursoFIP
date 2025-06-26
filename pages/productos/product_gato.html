@@ -6,57 +6,94 @@
   <meta name="description" content="productosGato">
   <link rel="icon" type="image/svg+xml" href="/public/assets/icons/patitaGatoPerroLogo 2.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- PRECONNECT para Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Google Fonts (no bloqueante) -->
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+  </noscript>
 
   <link rel="stylesheet" href="./productGato.style.css">
 
   <title>Productos-Gato</title>
 </head>
- <header>
-    <nav class="contenido">
+<header>
+  <nav class="contenido">
 
-      <div class="izquierda">
-        <button id="btn-menu" type="button" class="boton-categoria">
-          <img class="categoria" src="/assets/icons/hamburger.svg" alt="icono-Menu">
+    <div class="izquierda">
+      <button id="btn-menu" type="button" class="boton-categoria ocultar">
+        <img class="categoria" src="/assets/icons/hamburger.svg" alt="icono-Menu">
+      </button>
+      <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg" alt="imagen-logo">
+
+      <!-- Menú pc-->
+      <ul class="ocultarMobile lato-bold">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
+        <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
+      </ul>
+
+      <!-- Menú desplegable aquí -->
+      <div id="menu-desplegable" class="menu-desplegable" hidden>
+        <button id="btn-close" type="button" class="boton-categoria">
+          <img class="categoria" src="/assets/icons/close-menu.svg" alt="icono-close" width="32">
         </button>
-        <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg" alt="imagen-logo">
-        <!-- Menú desplegable aquí -->
-        <div id="menu-desplegable" class="menu-desplegable" hidden>
-          <button id="btn-close" type="button" class="boton-categoria">
-            <img class="categoria" src="/assets/icons/close-menu.svg" alt="icono-close" width="32">
-          </button>
-          <ul>
-            <li><a href="/index.html">Inicio</a></li>
-            <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
-            <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
-            <li><a href="/pages/login/login.html">Ingresar</a></li>
-          </ul>
-        </div>
+        <ul>
+          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
+          <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
+          <li><a href="/pages/login/login.html">Ingresar</a></li>
+        </ul>
       </div>
+    </div>
 
-      <div class="derecha">
-        <div class="contenedor-buscador">
-          <input class="input-buscador" type="search" placeholder="Buscar">
-          <button class="boton-lupa">
-            <img src="/assets/Vector (1).svg" alt="lupa">
-          </button>
-        </div>
+    <div class="derecha">
+      <div class="contenedor-buscador">
+        <input class="input-buscador" type="search" placeholder="Buscar">
+        <button class="boton-lupa">
+          <img src="/assets/Vector (1).svg" alt="lupa">
+        </button>
       </div>
+    </div>
 
-    </nav>
+      <section class="ocultarMobile container-enlaces ">
+        <div class="container-1">
+          <a href="/pages/carrito/carrito.html" class="items-1">
+            <img src="/public/assets/icons/carrito.svg" alt="icono del carrito">
+            <span class="lato-bold">Carrito</span>
+          </a>
+        </div>
 
-  </header>
+        <div class="container-2">
+          <a href="/pages/login/login.html">
+            <img src="/public/assets/icons/usuario.svg" alt="icono de usuario" width="28">
+            <span class="lato-bold">Ingresar</span>
+          </a>
+        </div>
+      </section>
+
+  </nav>
+
+</header>
 
 <body>
 
 
   <main>
 
-    <section >
+    <section>
       <img class="imagen-banner" src="/public/assets/productGato/banner.avif" alt="banner">
     </section>
 
     <section class="container-main">
-      
+
       <section class="" id="seccion-productos"></section>
       <section class="" id="seccion-accesorios"></section>
       <section class="" id="seccion-esteticaHigiene"></section>

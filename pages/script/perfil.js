@@ -3,6 +3,7 @@ const inputs = form.querySelectorAll("input");
 const botonesAccion = document.getElementById("botonesAccion");
 
 function cargarDatos() {
+<<<<<<< HEAD
   let data = JSON.parse(localStorage.getItem("perfilUsuario"));
 
   // Si no hay perfil guardado, lo creamos con datos del usuario activo
@@ -18,6 +19,9 @@ function cargarDatos() {
     }
   }
 
+=======
+  const data = JSON.parse(localStorage.getItem("usuarioActivo"));
+>>>>>>> main
   if (data) {
     document.getElementById("nombre").value = data.nombre || "";
     document.getElementById("correo").value = data.correo || "";
@@ -67,15 +71,24 @@ form.addEventListener("submit", function (e) {
     form.reportValidity();
     return;
   }
+<<<<<<< HEAD
 
   const data = {
+=======
+  // Guarda los datos en localStorage
+   const data = {
+>>>>>>> main
     nombre: form.nombre.value.trim(),
     correo: form.correo.value.trim(),
     telefono: form.telefono.value.trim()
   };
+<<<<<<< HEAD
 
   // Guardar datos actualizados en perfilUsuario
   localStorage.setItem("perfilUsuario", JSON.stringify(data));
+=======
+  localStorage.setItem("usuarioActivo", JSON.stringify(data));
+>>>>>>> main
 
   // También actualizar usuarioActivo (si existe)
   const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"));
@@ -93,6 +106,10 @@ form.addEventListener("submit", function (e) {
   const modal = new bootstrap.Modal(document.getElementById('modalGuardado'));
   modal.show();
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
   crearBotonEditar();
 });
 
