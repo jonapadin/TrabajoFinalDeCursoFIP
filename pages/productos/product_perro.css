@@ -263,7 +263,7 @@ footer {
 
 }
 
-.btnCompra {
+.boton-categoria {
   padding: 6px 30px;
   background-color: transparent;
   color: #800080;
@@ -435,6 +435,7 @@ footer {
   .imgProducto {
     padding-bottom: 20px;
     width: 180px;
+    margin: 0 auto;
   }
 
   .card {
@@ -446,9 +447,15 @@ footer {
     align-items: normal;
    }
 
-    .btnCompra { 
-    font-size: 16px;
-  }
+.btn-Compra {
+  padding: 6px 30px;
+  background-color: transparent;
+  color: #800080;
+  border: 2px solid #800080;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
 
 
   footer {

@@ -1,6 +1,6 @@
 
 //Crear tarjetas
-export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, altImg) {
+export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, altImg,idUnico) {
     const card = document.createElement("DIV");
     card.className = "card";
 
@@ -23,7 +23,8 @@ export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, al
 
     const btnCompra = document.createElement("BUTTON");
     btnCompra.textContent = "Comprar";
-    btnCompra.className = "btnCompra";
+    btnCompra.className = "btn-Compra";
+    btnCompra.id =`${idUnico}`;
 
     const containerDesc = document.createElement("DIV");
     containerDesc.className = "containerDesc";

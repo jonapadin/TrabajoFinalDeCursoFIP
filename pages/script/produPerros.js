@@ -63,14 +63,16 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     }
     // iterar sobre alimentos y crear las cards
-    productosPerro.forEach(producto => {
+    productosPerro.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`; // Combina marca + índice
         const cardsAlimeto = crearTarjeta(
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca // para alt de imagen
+            producto.marca, // para alt de imagen
+            idUnico
         );
 
         seccionAlimento.appendChild(cardsAlimeto);
@@ -86,14 +88,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // crear cards seccion accesorios
-    accesorios.forEach(producto => {
+    accesorios.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`; // Combina marca + índice
         const cardsAccesorios = crearTarjeta(
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca // para alt de imagen
+            producto.marca, // para alt de imagen
+            idUnico
         );
         seccionAccesorios.appendChild(cardsAccesorios);
         contenedorAccesorios.appendChild(seccionAccesorios);
@@ -106,14 +110,17 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     }
     // crear cards seccion estetica
-    productosEstetica.forEach(producto => {
+    productosEstetica.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`; // Combina marca + índice
         const cardsesteticaHigiene = crearTarjeta(
+            
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca // para alt de imagen
+            producto.marca, // para alt de imagen
+            idUnico
         );
 
         seccionEsteticaHigiene.appendChild(cardsesteticaHigiene);
@@ -126,19 +133,17 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // crear cards seccion salud
-    productosSalud.forEach(producto => {
-        const cardSalud = crearTarjeta(
-            producto.marca,
-            producto.descripcion,
-            producto.opciones_pago.descripcion,
-            producto.precio,
-            producto.imagen,
-            producto.marca // para alt de imagen
-        );
+const botonesCompra = document.querySelectorAll(".btn-Compra");
+console.log("Botones encontrados:", botonesCompra.length); 
+botonesCompra.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        console.log("Botón clickeado:", e.target);
+        console.log("ID:", e.target.id);
+    });
+});
 
-        seccionSalud.appendChild(cardSalud);
-        contenedorSalud.appendChild(seccionSalud);
-    })
+
+
 })
 
 
