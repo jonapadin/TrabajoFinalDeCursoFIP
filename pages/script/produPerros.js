@@ -132,7 +132,25 @@ document.addEventListener("DOMContentLoaded", async function () {
         console.warn("No se encontro la categoria Salud")
     }
 
+
     // crear cards seccion salud
+        productosSalud.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`; // Combina marca + índice
+        const cardSalud = crearTarjeta(
+            
+            producto.marca,
+            producto.descripcion,
+            producto.opciones_pago.descripcion,
+            producto.precio,
+            producto.imagen,
+            producto.marca, // para alt de imagen
+            idUnico
+        );
+
+        seccionSalud.appendChild(cardSalud);
+        contenedorSalud.appendChild(seccionSalud);
+    });
+
 const botonesCompra = document.querySelectorAll(".btn-Compra");
 console.log("Botones encontrados:", botonesCompra.length); 
 botonesCompra.forEach(btn => {
