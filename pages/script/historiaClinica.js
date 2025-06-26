@@ -15,7 +15,7 @@
       peso: "4.5 kg",
       historial: "Esterilizada, controles anuales"
     }
-    // 🔜 Acá agregar más mascotas
+    // Acá agregar más mascotas
   ];
 
   const acordeonMascotas = document.getElementById("acordeonMascotas");
