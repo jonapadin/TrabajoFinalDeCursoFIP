@@ -10,8 +10,8 @@ body {
   background-color: #F5F6FA;
   margin: 0;
   padding: 0;
+  height: 100dvh;
 }
-
 
 
 
@@ -20,6 +20,15 @@ header {
   background-color: #8F108D;
 
 }
+
+/* fonts */
+
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
 
 /* oculta menu de pc */
 .ocultarMobile {
@@ -37,7 +46,8 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 0 1rem;
   height: 80px;
-  max-width: 600px;
+  width: 100%;
+  ;
   display: flex;
   justify-content: space-between;
 }
@@ -270,16 +280,36 @@ footer {
 }
 
 @media screen and (min-width: 400px) {
-  .titulo{
+  .titulo {
     font-size: 28px;
   }
 }
 
-@media screen and (min-width: 768px) { 
-  
-}
+
 
 @media screen and (min-width: 1024px) {
+  header {
+    width: 100%;
+  }
+
+  /* estilos navbar */
+
+  .izquierda ul {
+    text-transform: uppercase;
+    font-size: 12px;
+
+  }
+
+  .izquierda ul li a {
+    color: #F5F6FA;
+    text-decoration: none;
+    transition: all 0.5s ease-out;
+  }
+
+  .izquierda ul li a:hover {
+    color: #f5f6faad;
+  }
+
   .ocultar {
     display: none;
   }
@@ -290,31 +320,193 @@ footer {
     gap: 15px;
     list-style: none;
     color: #F5F6FA;
+
   }
 
-  header {
-    width: 100%;
+  .container-enlaces {
+    display: flex;
+    align-items: center;
+    gap: 55px;
   }
+
+  .container-derecha {
+    gap: 50px;
+    margin-bottom: 4px;
+  }
+
+  .container-1 {
+    position: relative;
+  }
+
+  .container-1 a {
+    color: #F5F6FA;
+    text-transform: uppercase;
+    font-size: 12px;
+    transition: all 0.5s ease-out;
+  }
+
+    .container-1 a:hover {
+      color:#f5f6faad ;
+    }
+
+  .container-1 a span {
+    position: absolute;
+    top: 35%
+  }
+
+
+  .container-2 {
+    margin-left: 20px;
+    position: relative;
+  }
+
+  .container-2 a {
+    color: #F5F6FA;
+    text-transform: uppercase;
+    font-size: 12px;
+    transition: all 0.5s ease-out;
+  }
+
+      .container-2 a:hover {
+      color:#f5f6faad ;
+    }
+
+  .container-2 a span {
+    position: absolute;
+    top: 35%
+  }
+
+  .item-1,
+  .items-2 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    text-align: center;
+  }
+
+
 
   .contenido {
     max-width: 100%;
     justify-content: start;
   }
+
   .derecha {
     margin-left: 5%;
   }
 
-  .input-buscador{
+  .input-buscador {
     width: 400px;
     height: 40px;
   }
 
 
-  span{
+  span {
     margin-left: 5px;
   }
+
+
+
   footer {
     position: static;
   }
 
+}
+
+@media screen and (min-width: 1280px) {
+
+  /* estilos navbar */
+  .contenido {
+    justify-content: start;
+    max-width: 100%;
+    padding-left: 30px;
+  }
+
+
+  .input-buscador {
+    margin-left: 20px;
+  }
+
+  .container-enlaces {
+    margin-left: 20px;
+    gap: 70px;
+  }
+
+
+  .izquierda ul {
+    font-size: 16px;
+    margin-left: 20px;
+  }
+
+  .container-1 a {
+    font-size: 16px;
+  }
+
+  .container-2 a {
+    font-size: 16px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .imagen-logo {
+    width: 60px;
+  }
+  .contenido {
+    padding-left: 60px;
+  }
+  .container-enlaces {
+    margin-left: 30px;
+    gap: 80px;
+    margin-bottom: 10px;
+  }
+  
+
+  .input-buscador {
+    margin-left: 30px;
+    width: 420px;
+  }
+
+
+   .container-1 a img {
+    width: 32px;
+   }
+
+     .container-2 a img {
+    width: 32px;
+   }
+}
+
+@media screen and (min-width: 1600px) {
+    .contenido {
+    padding-left: 80px;
+  }
+    .container-enlaces {
+    margin-left: 60px;
+  }
+
+
+    .input-buscador {
+    margin-left: 40px;
+    width: 440px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .contenido {
+    justify-content: center;
+  }
+
+      .contenido {
+    padding-left: 0px;
+  }
+    .container-enlaces {
+    margin-left: 0;
+  }
+
+
+    .input-buscador {
+    margin-left: 0px;
+    width: 440px;
+  }
 }
