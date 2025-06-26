@@ -1,6 +1,7 @@
 ** {
   box-sizing: border-box;
   max-width: 1440px;
+  
 }
 
 
@@ -8,6 +9,7 @@ body {
   background-color: #F5F6FA;
   margin: 0;
   padding: 0;
+  height: 100dvh;
 }
 
 
@@ -191,7 +193,10 @@ footer {
 
 .titulo {
   text-align: center;
-  margin: 20px 0;
+  margin: 40px 0;
+  text-transform: uppercase;
+   font-family: 'Poppins', sans-serif;
+
 }
 
 .card h2 {
@@ -255,5 +260,48 @@ footer {
 
 [hidden] {
   display: none !important;
+}
+.contenedor-navPc ul{
+  height: 20px;
+  display: flex;
+    list-style: none;
+    justify-content: space-between;
+
+  }
+
+
+@media (min-width: 1024px) {
+  .seccionAlimento {
+    grid-template-columns: repeat(4, 1fr); 
+    padding: 0 40px;
+    gap: 20px;
+  }
+
+  .card {
+    max-width: 200px; 
+    margin-bottom: 50px;
+  }
+
+  footer{
+    position: static;
+    
+  }
+
+  
+.container-main{
+  padding-top: 30px;
+
+}
+.contenedor-nav{
+  display: none;
+}
+
+}
+
+@media (min-width: 1280px){
+  .container-main{
+    max-width: 1280px;
+    margin: 0 auto;
+  }
 }
 
