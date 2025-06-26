@@ -368,3 +368,11 @@ body {
       height: 300px;
     }
   }
+
+  /* perfil*/
+  .btnCerrarSesion{
+    background-color: #fff;
+    color: #8f108d;
+    border-color: #8f108d;
+    margin-top: 15px;
+  } 
