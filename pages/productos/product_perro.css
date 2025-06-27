@@ -173,7 +173,7 @@ footer {
 }
 
 .contenedor-footer {
-  max-width: 600px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 15px 0;
 }
@@ -484,6 +484,7 @@ footer {
   }
 
   .contenedor-navPc ul {
+    align-items: center;
     height: 50px;
     color: #F5F6FA;
     display: flex;
@@ -493,6 +494,10 @@ footer {
     padding-right: 60px;
 
   }
+
+.contenedor-navPc img{
+  width: 60px;
+}
 
 
   .container-main {
