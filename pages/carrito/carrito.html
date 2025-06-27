@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/pages/login/carrito/style.css">
+    <link rel="icon" type="image/svg+xml" href="/public/assets/icons/patitaGatoPerroLogo 2.svg" />
+    <title>Carrito</title>
+</head>
+
+<body>
+
+    <div class="flecha">
+        <button type="button"> <img src="/public/assets/icons/line-md_arrow-left.svg" alt="flecha"
+                onclick="window.history.back()">
+    </div></button>
+    <h1>Carrito</h1>
+
+
+    <div id="contenedor-carrito"></div>
+
+    <!-- Template para producto -->
+
+    <template id="template-producto">
+        <div  class="item-carrito">
+            <img src="/public/assets/productGato/7vidas.webp" alt="gato" width="80">
+            <h3 ></h3>
+            <p class="descripcion"></p>
+            <p class="precio"></p>
+            <div>
+                <button>-</button>
+                <input style="width: 20px;" readonly type="text" placeholder="0">
+                <button>+</button>
+            </div>
+        </div>
+</template>
+
+    <script type="module" src="/pages/script/carrito.js"></script>
+</body>
+
+</html>

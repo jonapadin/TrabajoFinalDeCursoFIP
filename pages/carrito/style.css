@@ -1,0 +1,50 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    padding: 20px;
+}
+
+#carrito-contenedor {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.item-carrito {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.item-carrito img {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+}
+
+.item-carrito h3 {
+    margin: 0;
+    font-size: 1.2em;
+    color: #8f108d;
+}
+
+.item-carrito p {
+    margin: 4px 0;
+    font-size: 0.95em;
+    color: #333;
+}
+.flecha {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.flecha button {
+  background: none;
+  border: none;
+}

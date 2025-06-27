@@ -1,15 +1,18 @@
-import { obtenerProductos } from "./fetchProductos"; 
+import { obtenerProductos } from "./fetchProductos";
 import { crearTarjeta, crearTitulo } from "./funciones";
+
 document.addEventListener("DOMContentLoaded", async function () {
 
+    // Seccion alimento, elementos
     const contenedor = document.getElementById("seccion-productos");
-    contenedor.className="seccionProductos" ;
+    contenedor.className = "seccionProductos";
 
     const seccionAlimento = document.createElement("section");
-    seccionAlimento.className ="seccionAlimento";
-    
-  const tituloAlimentos = crearTitulo("Alimento", ['titulo']);
+    seccionAlimento.className = "seccionAlimento";
+
+    const tituloAlimentos = crearTitulo("Alimento", ['titulo']);
     contenedor.appendChild(tituloAlimentos);
+
     // Seccion Accesorios, elementos
     const contenedorAccesorios = document.getElementById('seccion-accesorios');
     contenedorAccesorios.className = "seccionProductos";
@@ -17,12 +20,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     const seccionAccesorios = document.createElement("section");
     seccionAccesorios.className = "seccionAlimento";
 
-    const tituloAccesorios = crearTitulo("Accesorios");
-
+    const tituloAccesorios = crearTitulo("Accesorios", ["titulo"]);
     contenedorAccesorios.appendChild(tituloAccesorios);
-    contenedorAccesorios.className = "titulo";
 
-    //Seccion Estetica e Higiene, elementos
+    // Seccion Estetica e Higiene, elementos
     const contenedorEsteticaHigiene = document.getElementById('seccion-esteticaHigiene');
 
     const seccionEsteticaHigiene = document.createElement('section');
@@ -31,115 +32,180 @@ document.addEventListener("DOMContentLoaded", async function () {
     const tituloEsteticaH = crearTitulo("Estetica e Higiene", ["titulo"]);
     contenedorEsteticaHigiene.appendChild(tituloEsteticaH);
 
-    //Seccion salud, elementos
+    // Seccion salud, elementos
     const contenedorSalud = document.getElementById('seccion-salud');
 
     const seccionSalud = document.createElement('section');
     seccionSalud.className = "seccionAlimento";
 
     const tituloSalud = crearTitulo("Salud");
-    tituloSalud.className="titulo"
-
+    tituloSalud.className = "titulo";
     contenedorSalud.appendChild(tituloSalud);
-    
-      const dataProduct = await obtenerProductos();
 
+    // fetch a datos
+    const dataProduct = await obtenerProductos();
 
     if (!dataProduct || !dataProduct.length) {
         console.log("no hay productos");
-        return
+        return;
     }
 
-
-    //acceder a la esctructura
+    // Alimento
     const productosPerro = dataProduct[0]?.categoria?.Perro.Alimento;
-
     if (!productosPerro) {
-        console.log("No se encontro la categoria perros");
-        return
-
+        console.log("No se encontro la categoria Alimento");
+        return;
     }
-     // iterar sobre alimentos y crear las cards
-    productosPerro.forEach(producto => {
-        const cardsAlimeto = crearTarjeta(
+    productosPerro.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`;
+        const tarjeta = crearTarjeta(
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca // para alt de imagen
+            producto.marca,
+            idUnico,
+            producto.stock
         );
-
-        seccionAlimento.appendChild(cardsAlimeto);
+        seccionAlimento.appendChild(tarjeta);
         contenedor.appendChild(seccionAlimento);
     });
 
-    const accesorios = dataProduct[0]?.categoria?.Perro.Accesorios
-
+    // Accesorios
+    const accesorios = dataProduct[0]?.categoria?.Perro.Accesorios;
     if (!accesorios) {
         console.warn("No se encontro la categoria Accesorios");
-        return
-
+        return;
     }
-
-    // crear cards seccion accesorios
-    accesorios.forEach(producto => {
-        const cardsAccesorios = crearTarjeta(
+    accesorios.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`;
+        const tarjeta = crearTarjeta(
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca // para alt de imagen
+            producto.marca,
+            idUnico,
+            producto.stock
         );
-        seccionAccesorios.appendChild(cardsAccesorios);
+        seccionAccesorios.appendChild(tarjeta);
         contenedorAccesorios.appendChild(seccionAccesorios);
     });
 
+    // Estetica e Higiene
     const productosEstetica = dataProduct[0]?.categoria?.Perro.Estética_e_Higiene;
     if (!productosEstetica) {
         console.warn("No se encontro la categoria Estetica e Higiene");
-        return
-
+        return;
     }
-    // crear cards seccion estetica
-    productosEstetica.forEach(producto => {
-        const cardsesteticaHigiene = crearTarjeta(
+    productosEstetica.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`;
+        const tarjeta = crearTarjeta(
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca // para alt de imagen
+            producto.marca,
+            idUnico,
+            producto.stock
         );
-
-        seccionEsteticaHigiene.appendChild(cardsesteticaHigiene);
+        seccionEsteticaHigiene.appendChild(tarjeta);
         contenedorEsteticaHigiene.appendChild(seccionEsteticaHigiene);
     });
 
+    // Salud
     const productosSalud = dataProduct[0]?.categoria?.Perro.Salud;
     if (!productosSalud) {
-        console.warn("No se encontro la categoria Salud")
+        console.warn("No se encontro la categoria Salud");
+        return;
     }
-
-    // crear cards seccion salud
-    productosSalud.forEach(producto => {
-       const cardSalud = crearTarjeta(
+    productosSalud.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`;
+        const tarjeta = crearTarjeta(
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca // para alt de imagen
+            producto.marca,
+            idUnico,
+            producto.stock
         );
+        seccionSalud.appendChild(tarjeta);
+        contenedorSalud.appendChild(seccionSalud);
+    });
 
-            seccionSalud.appendChild(cardSalud);
-            contenedorSalud.appendChild(seccionSalud);
-    })
-})  
+    // Obtener todos los botones Comprar
+    const botonesCompra = document.querySelectorAll(".btn-Compra");
 
-   
+    // Restaurar stocks guardados en localStorage (si existen)
+    const stocksGuardados = JSON.parse(localStorage.getItem("stocks")) || {};
+    botonesCompra.forEach((boton) => {
+        const id = boton.dataset.id;
+        if (stocksGuardados[id] !== undefined) {
+            boton.dataset.stock = stocksGuardados[id];
+            boton.textContent = stocksGuardados[id] > 0 ? `Comprar (${stocksGuardados[id]} disponibles)` : "Sin stock";
+        }
+    });
 
-        
-    
+    // Asignar evento click a todos los botones Comprar
+    botonesCompra.forEach((boton) => {
+        boton.addEventListener('click', (event) => {
+            const id = event.target.dataset.id;
+            const img = event.target.dataset.imagen;
+            const marca = event.target.dataset.marca;
+            const precio = event.target.dataset.precio;
+            let stockRestante = Number(event.target.dataset.stock); // stock actualizado
+            let stockTotal = Number(event.target.dataset.stockTotal); // stock original
 
+            if (stockRestante <= 0) {
+                alert("No hay más stock disponible de este producto.");
+                return;
+            }
+
+            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
+            const indexExistente = carrito.findIndex(item => item.id === id);
+
+            if (indexExistente !== -1) {
+                // Aquí comparamos con el stock total para no excederlo
+                if (carrito[indexExistente].cantidad < stockTotal) {
+                    carrito[indexExistente].cantidad += 1;
+                    stockRestante -= 1;
+                } else {
+                    alert("Has alcanzado el límite máximo disponible en stock.");
+                    return;
+                }
+            } else {
+                carrito.push({
+                    id,
+                    img,
+                    marca,
+                    precio: Number(precio),
+                    stock: stockTotal,
+                    cantidad: 1,
+                });
+                stockRestante -= 1;
+            }
+
+            // Actualizar dataset y texto botón
+            event.target.dataset.stock = stockRestante;
+            event.target.textContent = stockRestante > 0 ? `Comprar (${stockRestante} disponibles)` : "Sin stock";
+
+            // Guardar stock actualizado en localStorage
+            let stocksGuardados = JSON.parse(localStorage.getItem("stocks")) || {};
+            stocksGuardados[id] = stockRestante;
+            localStorage.setItem("stocks", JSON.stringify(stocksGuardados));
+
+            // Guardar carrito actualizado
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+
+            console.log("Producto agregado al carrito:", carrito[indexExistente] || carrito[carrito.length - 1]);
+            console.log("Carrito actual:", carrito);
+        });
+    });
+
+});

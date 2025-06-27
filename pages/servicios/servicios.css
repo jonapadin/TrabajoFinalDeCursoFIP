@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   box-sizing: border-box;
@@ -33,6 +32,7 @@ body {
 .ml-4 {
   margin-left: 10px;
 }
+
 /* Header */
 header {
   background-color: #8F108D;
@@ -59,6 +59,7 @@ header {
   position: relative;
   display: flex;
   align-items: center;
+
 }
 
 .derecha {
@@ -67,9 +68,10 @@ header {
 }
 
 .imagen-logo {
-  margin-top: 6px;
   margin-left: 2px;
+  margin-top: 6px;
 }
+
 
 .boton-categoria {
   background: none;
@@ -138,36 +140,36 @@ header {
 
 
 /* Footer */
- footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #8F108D;
-    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-  }
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #8F108D;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
 
-  .contenedor-footer {
-    height: 80px;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 15px 0;
-  }
+.contenedor-footer {
+  height: 80px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 15px 0;
+}
 
-  .contenedor-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
+.contenedor-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
-  .contenedor-nav a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: #fbf2f2;
-    font-size: 12px;
-  }
+.contenedor-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #fbf2f2;
+  font-size: 12px;
+}
 
 
 
@@ -258,78 +260,17 @@ header {
   white-space: nowrap;
 }
 
-@media (max-width: 400px) {
- .size-medium {
-    font-size: 28px;
-  }
+
+
+@media screen and (min-width: 400px) {
   .input-buscador {
+    height: 40px;
     width: 230px;
   }
 }
 
-
-@media screen and (min-width: 601px) {
-  .titulo-servicios {
-  font-weight: 700;
-  font-size: 34px;
-  color: black;
-  text-align: center;
-  padding: 20px 20px 20px;
-  position: relative;
-}
- .seccion-servicios {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 20px;
-    padding: 20px;
-    max-width: 1300px; 
-    margin: 0 auto;
-  }
-
-  .card {
-    min-height: 350px;
-    background-color: white;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  .img-vet {
-    width: 180px;
-    height: 200px;
-    top: 10px;
-  }
-
-  .img-dec {
-    position: relative;
-    top: -50px;
-    width: 100%;
-  }
-
-  .container-descripcion {
-    height: 120px;
-    padding: 10px 12px;
-    background-color: #8F108D;
-    color: white;
-    border-radius: 8px;
-    position: relative;
-    top:40px;
-  }
-
-  .container-descripcion p {
-    font-size: 14px;
-    margin: 0;
-  }
-
-  .sub-titulo-servicio {
-    font-size: clamp(14px, 3vw, 16px);
-    font-weight: 700;
-    color: white;
-    position: absolute;
-    top: 15px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    padding: 160px 10px;
-    white-space: nowrap;
+@media screen and (max-width: 600px) { 
+  html {
+    height: 100dvh;
   }
 }

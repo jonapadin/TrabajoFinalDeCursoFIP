@@ -62,7 +62,7 @@
             <div class="mb-3">
               <label class="form-label">Nombre</label>
               <input type="text" class="form-control" id="nombre" name="nombre" value="Pepito Gonzalez" disabled
-                required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]{2,}">
+                required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ ]{3,}">
             </div>
             <div class="mb-3">
               <label class="form-label">Correo electrónico</label>
@@ -90,9 +90,9 @@
         <button class="btn btn-outline-secondary w-100 mb-2">
           <a href="login/reestablecer/reestablecer.html" class="bi bi-lock me-2">Cambiar contraseña</a>
         </button>
-        <a href="/pages/login/login.html" class="btn btn-outline-danger w-100">
-          <i class="bi bi-box-arrow-right me-2"></i>Cerrar sesión
-        </a>
+        <button class="btnCerrarSesion btn w-100" onclick="cerrarSesion()">
+          Cerrar sesión
+        </button>
       </div>
     </div>
 

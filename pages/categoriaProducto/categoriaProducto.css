@@ -49,7 +49,7 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   height: 80px;
-  max-width: 600px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -93,6 +93,7 @@ header {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  width: 50%;
 }
 
 .menu-desplegable ul {
@@ -226,7 +227,7 @@ header {
 
   .contenedor-footer {
     height: 80px;
-    max-width: 600px;
+    max-width: 100%;
     margin: 0 auto;
     padding: 15px 0;
   }
@@ -245,6 +246,7 @@ header {
     color: #fbf2f2;
     font-size: 12px;
   }
+
 
 
 @media screen and (min-width: 400px) {
@@ -266,4 +268,10 @@ header {
   width: 180px;
 }
 
+}
+
+@media screen and (max-width: 600px) { 
+  html {
+    height: 100dvh;
+  }
 }

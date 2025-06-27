@@ -3,7 +3,7 @@ import { crearTarjeta, crearTitulo } from "./funciones";
 document.addEventListener("DOMContentLoaded", async function () {
 
     const btnMasInf = document.createElement('button');
-    
+
     // Seccion alimento, elementos
     const contenedor = document.getElementById("seccion-productos");
     contenedor.className = "seccionProductos";
@@ -66,20 +66,22 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // iterar sobre alimentos y crear las cards
-    alimentos.forEach(producto => {
-        const cardsAlimeto = crearTarjeta(
+    alimentos.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`; // Combina marca + índice
+
+        const cardsAlimento = crearTarjeta(
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca // para alt de imagen
+            producto.marca,     // alt de imagen
+            idUnico
         );
 
-        seccionAlimento.appendChild(cardsAlimeto);
+        seccionAlimento.appendChild(cardsAlimento);
         contenedor.appendChild(seccionAlimento);
     });
-
     const accesorios = dataProduct[0]?.categoria?.Gato.Accesorios;
 
     if (!accesorios) {
@@ -89,14 +91,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // crear cards seccion accesorios
-    accesorios.forEach(producto => {
+    accesorios.forEach((producto, index)=> {
+        const idUnico = `btn-${producto.marca}-${index}`; // Combina marca + índice
         const cardsAccesorios = crearTarjeta(
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca // para alt de imagen
+            producto.marca, // para alt de imagen
+            idUnico
         );
 
         seccionAccesorios.appendChild(cardsAccesorios);
@@ -111,14 +115,16 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     }
 
-    productosEstetica.forEach(producto => {
+    productosEstetica.forEach((producto, index)=> {
+        const idUnico = `btn-${producto.marca}-${index}`; // Combina marca + índice
         const cardsesteticaHigiene = crearTarjeta(
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca // para alt de imagen
+            producto.marca, // para alt de imagen
+            idUnico
         );
 
         seccionEsteticaHigiene.appendChild(cardsesteticaHigiene);
@@ -131,7 +137,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // crear cards seccion salud
-    productosSalud.forEach(producto => {
+    productosSalud.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`; // Combina marca + índice
         const cardSalud = crearTarjeta(
             producto.marca,
             producto.descripcion,
@@ -139,9 +146,20 @@ document.addEventListener("DOMContentLoaded", async function () {
             producto.precio,
             producto.imagen,
             producto.marca // para alt de imagen
+            , idUnico
         );
 
         seccionSalud.appendChild(cardSalud);
         contenedorSalud.appendChild(seccionSalud);
     })
+
+const botonesCompra = document.querySelectorAll(".btn-Compra");
+console.log("Botones encontrados:", botonesCompra.length); 
+
+botonesCompra.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        console.log("Botón clickeado:", e.target);
+        console.log("ID:", e.target.id);
+    });
+});
 })  

@@ -1,8 +1,9 @@
 ** {
-
   box-sizing: border-box;
   max-width: 1440px;
+
 }
+
 
 body {
   background-color: #F5F6FA;
@@ -10,161 +11,681 @@ body {
   padding: 0;
 }
 
-@media screen and (max-width: 600px) {
+
+/**header and footer*/
+header {
+  background-color: #8F108D;
+
+}
+
+.fondo-blanco {
+  background-color: rgba(255, 255, 255, 0.911);
+}
+
+/* fonts */
+
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* oculta menu de pc */
+.ocultarMobile {
+  display: none;
+}
+
+/* Contenedor principal del nav */
+.contenido {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: #8F108D;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0 1rem;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Sección izquierda (botón menú + logo) */
+.izquierda {
+  display: flex;
+  align-items: center;
+}
+
+/* Sección derecha (buscador) */
+.derecha {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo */
+.imagen-logo {
+  margin-left: 2px;
+  margin-top: 6px;
+  user-select: none;
+}
+
+/* Botón para menú y cerrar */
+.boton-categoria {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+  display: flex;
+  align-items: center;
+}
+
+/* Contenedor buscador */
+.contenedor-buscador {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+
+/* Input buscador */
+.input-buscador {
+  height: 35px;
+  right: 42px;
+  border-radius: 3px;
+  border: none;
+  cursor: pointer;
+  padding-left: 12px;
+  width: 200px;
+
+}
+
+/* Botón lupa */
+.boton-lupa {
+  position: relative;
+  right: 42px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Menú desplegable */
+.menu-desplegable {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #8F108D;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1rem 0 0 1rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 50%;
+}
+
+/* Lista menú */
+.menu-desplegable ul {
+  list-style: none;
+  margin: 2rem 0 2rem 2rem;
+  padding: 0;
+}
+
+/* Ítems menú */
+.menu-desplegable li {
+  margin-bottom: 1rem;
+}
+
+/* Enlaces menú */
+.menu-desplegable li a {
+  text-decoration: none;
+  color: #F5F6FA;
+  font-size: 1.3rem;
+}
+
+/* Botón cerrar menú */
+#btn-close {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
+
+
+/* banner */
+.imagen-banner {
+  width: 100%;
+  margin-top: 80px;
+}
+
+/* footer */
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #8F108D;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.contenedor-footer {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+.contenedor-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.contenedor-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #fbf2f2;
+  font-size: 12px;
+}
+
+.contenedor {
+  padding-bottom: 40px;
+}
+
+.seccionAlimento {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  padding: 0 5px 0 5px;
+  gap: 10px;
+
+}
 
 
 
-  /**header and footer*/
-  header {
-    background-color: #8F108D;
+.titulo {
+  text-align: center;
+  margin: 40px 0;
+  padding-top:20px;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
 
-  }
+}
+
+.card h2 {
+  margin: 0;
+  font-size: 20px;
+  padding: 5px 0;
+}
+
+.card h4 {
+  margin: 0;
+  font-size: 14px;
+  padding: 5px 0;
+}
+
+.card p {
+  margin: 0;
+  font-size: 14px;
+  padding: 5px 0;
+}
+
+.card span {
+  font-weight: bold;
+  left: 0;
+  padding: 5px 0;
+}
 
 
-  .contenido {
-    max-width: 600px;
-    display: flex;
-    justify-content: space-between;
+.card {
+  max-width: 150px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 0px 16px 8px 16px;
+  border-radius: 8px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-  }
+.imgProducto {
+  width: 100px;
+}
 
-  .izquierda {
-    display: flex;
-    align-items: center;
+.containerDesc {
+  justify-self: start;
 
-  }
 
-  .derecha {
-    display: flex;
-    align-items: center;
-  }
+}
 
-  .boton-categoria {
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
+.boton-categoria {
+  padding: 6px 30px;
+  background-color: transparent;
+  color: #800080;
+  border: 2px solid #800080;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+.btn-Compra {
+  padding: 6px 30px;
+  background-color: transparent;
+  color: #800080;
+  border: 2px solid #800080;
+  border-radius: 5px;
+  margin: 5px 0;
+}
 
-  .contenedor-buscador {
-    display: flex;
-    position: relative;
-    align-items: center;
 
-  }
+.container-main {
+  padding-bottom: 100px;
+}
 
+.container-main section:nth-of-type(2),
+.container-main section:nth-of-type(4) {
+  background-color: rgba(255, 255, 255, 0.911);
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.contenedor-navPc {
+  display: none;
+}
+
+@media (min-width: 400px) {
   .input-buscador {
-    height: 35px;
-    right: 42px;
-    border-radius: 3px;
-    border: none;
-    cursor: pointer;
-    padding-left: 7px;
-  }
-
-  .boton-lupa {
-    position: relative;
-    right: 42px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  /* footer */
-
-  footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background-color: #8F108D;
-    box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
-    z-index: 100;
-  }
-
-  .contenedor-footer {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 8px 0;
-  }
-
-  .contenedor-nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  .contenedor-nav a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-decoration: none;
-    color: #fbf2f2;
-    font-size: 12px;
-  }
-
-  .contenedor {
-    padding-bottom: 40px;
-  }
-
-  .seccionAlimento {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
-    padding: 0 5px 0 5px;
-    gap: 10px;
-    
+    height: 40px;
+    width: 230px;
   }
 
   .titulo {
-    text-align: center;
-    margin: 0;
-    padding-bottom: 10px;
-    padding-top: 2px;
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    height: 100dvh;
+  }
+}
+@media screen and (min-width: 768px) {
+  .seccionAlimento {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 40px;
+    gap: 20px;
   }
 
-  .card h2 {
-    margin: 0;
-  }
-  .card h4{
-    margin: 0;
+  .contenedor-buscador{
+    padding-right: 130px;
   }
 
-  .card p {
-    margin: 0;
+  .input-buscador{
+    width: 350px;
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
+    width: 100%;
+  }
+
+  /* estilos navbar */
+
+  .izquierda ul {
+    text-transform: uppercase;
+    font-size: 12px;
 
   }
-  .card span{
-    font-weight: bold;
-    left: 0;
+
+  .izquierda ul li a {
+    color: #F5F6FA;
+    text-decoration: none;
+    transition: all 0.5s ease-out;
   }
 
+  .izquierda ul li a:hover {
+    color: #f5f6faad;
+  }
 
-  .card {
-    max-width: 160px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 8px 16px;
-    border-radius: 8px;
-    background-color: white;
+  .ocultar {
+    display: none;
+  }
+
+  .ocultarMobile {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    list-style: none;
+    color: #F5F6FA;
+
+  }
+
+  .container-enlaces {
+    display: flex;
+    align-items: center;
+    gap: 55px;
+  }
+
+  .container-derecha {
+    gap: 50px;
+    margin-bottom: 4px;
+  }
+
+  .container-1 {
+    position: relative;
+  }
+
+  .container-1 a {
+    color: #F5F6FA;
+    text-transform: uppercase;
+    font-size: 12px;
+    transition: all 0.5s ease-out;
+  }
+
+  .container-1 a:hover {
+    color: #f5f6faad;
+  }
+
+  .container-1 a span {
+    position: absolute;
+    top: 35%
+  }
+
+
+  .container-2 {
+    margin-left: 20px;
+    position: relative;
+  }
+
+  .container-2 a {
+    color: #F5F6FA;
+    text-transform: uppercase;
+    font-size: 12px;
+    transition: all 0.5s ease-out;
+  }
+
+  .container-2 a:hover {
+    color: #f5f6faad;
+  }
+
+  .container-2 a span {
+    position: absolute;
+    top: 35%
+  }
+
+  .item-1,
+  .items-2 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    text-align: center;
+  }
+
+
+
+  .contenido {
+    max-width: 100%;
+    justify-content: start;
+  }
+
+  .derecha {
+    margin-left: 5%;
+  }
+
+  .input-buscador {
+    width: 230px;
+    height: 40px;
+  }
+
+
+  span {
+    margin-left: 5px;
+  }
+
+  /* productos */
+  .seccionAlimento {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 40px;
+    gap: 20px;
   }
 
   .imgProducto {
-    max-width: 144px;
+    padding-bottom: 20px;
+    width: 180px;
+    margin: 0 auto;
   }
 
-  .containerDesc {
-    justify-self: start;
+  .card {
+    max-width: 200px;
+    margin-bottom: 50px;
+  }
+
+  .card {
+    align-items: normal;
+   }
+
+.btn-Compra {
+  padding: 6px 30px;
+  background-color: transparent;
+  color: #800080;
+  border: 2px solid #800080;
+  border-radius: 5px;
+  margin: 5px 0;
+}
+
+
+
+  footer {
+    position: static;
+
+  }
+  .contenedor-footer{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    padding: 15px 0;
+  }
+
+  .contenedor-navPc {
+    display: flex;
+  }
+
+  .contenedor-navPc ul {
+    align-items: center;
+    height: 50px;
+    color: #F5F6FA;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    gap: 200px;
+    padding-right: 60px;
 
   }
 
-  .btnCompra {
-    padding: 6px 30px;
-    background-color: transparent;
-    color: #800080;
-    border: 2px solid #800080;
-    border-radius: 5px;
+.contenedor-navPc img{
+  width: 60px;
+}
+
+
+  .container-main {
+    padding-top: 30px;
+
+  }
+
+  .contenedor-nav {
+    display: none;
+  }
+
+  .imagen-banner {
+    height: 70vh;
+  }
+
+}
+
+@media screen and (min-width: 1280px) {
+
+  /* estilos navbar */
+  .contenido {
+    justify-content: start;
+    max-width: 100%;
+    padding-left: 30px;
+  }
+
+
+  .input-buscador {
+    margin-left: 20px;
+  }
+
+  .container-enlaces {
+    margin-left: 20px;
+    gap: 70px;
+    margin-bottom: 8px;
+  }
+
+
+  .izquierda ul {
+    font-size: 16px;
+    margin-left: 20px;
+  }
+
+  .container-1 a {
+    font-size: 16px;
+  }
+
+  .container-2 a {
+    font-size: 16px;
+  }
     
+  /*prodcutos  */
+    .seccionAlimento {
+    padding: 0 50px;
+    gap: 0px;
   }
 
 
+    .imgProducto {
+    padding-bottom: 20px; }
+
+    .containerDesc {
+    padding: 15px 0;
+}
+
+
+.contenedor-navPc ul {
+  gap: 320px;
+}
+  
+}
+
+@media screen and (min-width: 1440px) {
+  .imagen-logo {
+    width: 60px;
+  }
+
+  .contenido {
+    padding-left: 60px;
+  }
+
+  .container-enlaces {
+    margin-left: 30px;
+    gap: 80px;
+    margin-bottom: 10px;
+  }
+
+
+  .input-buscador {
+    margin-left: 30px;
+    width: 420px;
+  }
+
+
+  .container-1 a img {
+    width: 32px;
+  }
+
+  .container-2 a img {
+    width: 32px;
+  }
+
+    /* productos */
+  .seccionAlimento {
+    margin: 0 auto;
+    max-width: 1200px;
+    gap: 50px;
+    padding: 0px;
+  }
+
+    .card { 
+    max-width: 230px;
+  }
+
+    .card h2 {
+  font-size: 22px;
+}
+
+.card h4 {
+  font-size: 16px;
+}
+
+.card p {
+  font-size: 16px;
+}
+
+.contenedor-navPc ul{
+  gap: 400px;
+  
+  
+}
+}
+
+@media screen and (min-width: 1600px) {
+  .contenido {
+    padding-left: 80px;
+  }
+
+  .container-enlaces {
+    margin-left: 60px;
+  }
+
+
+  .input-buscador {
+    margin-left: 40px;
+    width: 440px;
+  }
+  .contenedor-navPc ul{
+  gap: 450px;  
+  
+}
+}
+
+@media screen and (min-width: 1920px) {
+  .contenido {
+    justify-content: center;
+  }
+
+  .contenido {
+    padding-left: 0px;
+  }
+
+  .container-enlaces {
+    margin-left: 0;
+    margin-bottom: 0 ;
+  }
+
+
+  .input-buscador {
+    margin-left: 0px;
+    width: 440px;
+  }
+  .contenedor-navPc ul{
+  gap: 550px;
+    
+}
 }

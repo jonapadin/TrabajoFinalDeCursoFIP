@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+
     const btnMenu = document.getElementById("btn-menu");
     const btnCloseMenu = document.getElementById('btn-close');
     const menu = document.getElementById("menu-desplegable");

@@ -7,6 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const inputNombre = document.getElementById('nombre');
     const inputApellido = document.getElementById('apellido');
     const inputEdad = document.getElementById('edad');
+    const inputTelefono = document.getElementById('telefono');
     const inputClave = document.getElementById('pass');
     const inputReclave = document.getElementById('repass');
     const inputCorreo = document.getElementById('email');
@@ -17,12 +18,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const nombre = inputNombre.value.trim();
         const apellido = inputApellido.value.trim();
         const edad = inputEdad.value.trim();
+        const telefono = inputTelefono.value.trim();
         const clave = inputClave.value.trim();
         const reclave = inputReclave.value.trim();
         const correo = inputCorreo.value.trim();
 
-        
-        const completo = nombre && apellido && edad && clave && reclave && correo;
+        const completo = nombre && apellido && edad && telefono && clave && reclave && correo;
         const clavesCoinciden = clave === reclave;
         
         if (clave && reclave && !clavesCoinciden) {
@@ -35,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
         btnRegistrar.disabled = !habilitar;
         btnRegistrar.classList.toggle('disabled', !habilitar);
     }
-    const inputs = [inputNombre, inputApellido, inputEdad, inputClave, inputReclave, inputCorreo];
+    const inputs = [inputNombre, inputApellido, inputEdad, inputTelefono, inputClave, inputReclave, inputCorreo];
 
     // Ejecutar validación al escribir
     inputs.forEach(input => {
@@ -48,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const nombre = inputNombre.value.trim();
         const apellido = inputApellido.value.trim();
         const edad = inputEdad.value.trim();
+        const telefono = inputTelefono.value.trim();
         const clave = inputClave.value.trim();
         const correo = inputCorreo.value.trim();
 
@@ -69,6 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
             nombre,
             apellido,
             edad,
+            telefono,
             password: clave,
             email: correo
         };
