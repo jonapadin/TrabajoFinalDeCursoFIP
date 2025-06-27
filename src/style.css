@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  max-width: 1440px;
 }
 
 .opens-sans {
@@ -72,6 +71,9 @@ body {
   margin-top: 6px;
 }
 
+.ocultarMobile {
+  display: none;
+}
 
 /* Lista del menú */
 .menu-desplegable ul {
@@ -115,7 +117,7 @@ body {
   background-color: #8F108D;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
-  
+
 }
 
 .boton-categoria {
@@ -161,7 +163,7 @@ header {
 
 .contenido {
   height: 80px;
-  max-width: 600px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
 
@@ -368,3 +370,259 @@ footer {
   font-size: 12px;
 }
 
+@media (min-width: 768px) {
+  .contenedor-buscador {
+    padding-right: 130px;
+  }
+
+  .input-buscador {
+    width: 350px;
+
+  }
+}
+
+@media (min-width: 1024px) {
+  /* estilos navbar */
+
+  .izquierda ul {
+    text-transform: uppercase;
+    font-size: 12px;
+
+  }
+
+  .izquierda ul li a {
+    color: #F5F6FA;
+    text-decoration: none;
+    transition: all 0.5s ease-out;
+  }
+
+  .izquierda ul li a:hover {
+    color: #f5f6faad;
+  }
+
+  .ocultar {
+    display: none;
+  }
+
+  .ocultarMobile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    list-style: none;
+    color: #F5F6FA;
+
+  }
+
+  .container-enlaces {
+    display: flex;
+    align-items: center;
+    gap: 55px;
+  }
+
+  .container-derecha {
+    gap: 50px;
+    margin-bottom: 4px;
+  }
+
+  .container-1 {
+    position: relative;
+  }
+
+  .container-1 a {
+    color: #F5F6FA;
+    text-transform: uppercase;
+    font-size: 12px;
+    transition: all 0.5s ease-out;
+  }
+
+  .container-1 a:hover {
+    color: #f5f6faad;
+  }
+
+  .container-1 a span {
+    position: absolute;
+    top: 35%
+  }
+
+
+  .container-2 {
+    margin-left: 20px;
+    position: relative;
+  }
+
+  .container-2 a {
+    color: #F5F6FA;
+    text-transform: uppercase;
+    font-size: 12px;
+    transition: all 0.5s ease-out;
+  }
+
+  .container-2 a:hover {
+    color: #f5f6faad;
+  }
+
+  .container-2 a span {
+    position: absolute;
+    top: 35%
+  }
+
+  .item-1,
+  .items-2 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+    text-align: center;
+  }
+
+
+
+  .contenido {
+    width: 100%;
+    justify-content: start;
+    align-items: center;
+  }
+
+  .div-izquierda ul {
+    margin-top: 15px;
+
+  }
+
+  .derecha {
+    margin-left: 5%;
+  }
+
+
+  .input-buscador {
+    width: 250px;
+    height: 40px;
+  }
+
+  dl,
+  ol,
+  ul {
+    margin-top: 20px;
+  }
+
+  .container-enlaces {
+    margin-bottom: 8px;
+  }
+
+  /* estilos banner */
+  .banner-container {
+    height: 50vh;
+  }
+}
+
+@media (min-width: 1280px) {
+  .contenido {
+    justify-content: start;
+    max-width: 100%;
+    padding-left: 30px;
+  }
+
+
+  .input-buscador {
+    margin-left: 20px;
+  }
+
+  .container-enlaces {
+    margin-left: 20px;
+    gap: 70px;
+    margin-bottom: 8px;
+  }
+
+
+  .izquierda ul {
+    font-size: 16px;
+    margin-left: 20px;
+  }
+
+  .container-1 a {
+    font-size: 16px;
+  }
+
+  .container-2 a {
+    font-size: 16px;
+  }
+
+  /* productos */
+  .seccionAlimento {
+    padding: 0 50px;
+    gap: 0px;
+  }
+
+  .imagen-banner {
+    width: 100%;
+  }
+
+}
+
+@media (min-width: 1440px) { 
+    .imagen-logo {
+    width: 60px;
+  }
+
+  .contenido {
+    padding-left: 60px;
+  }
+
+  .container-enlaces {
+    margin-left: 30px;
+    gap: 80px;
+    margin-bottom: 10px;
+  }
+
+
+  .input-buscador {
+    margin-left: 30px;
+    width: 420px;
+  }
+
+
+  .container-1 a img {
+    width: 32px;
+  }
+
+  .container-2 a img {
+    width: 32px;
+  }
+}
+
+@media screen and (min-width: 1600px) { 
+   .contenido {
+    padding-left: 80px;
+  }
+
+  .container-enlaces {
+    margin-left: 60px;
+  }
+
+
+  .input-buscador {
+    margin-left: 40px;
+    width: 440px;
+  }
+}
+
+@media screen and (min-width: 1920px) {
+  .contenido {
+    justify-content: center;
+  }
+
+  .contenido {
+    padding-left: 0px;
+  }
+
+  .container-enlaces {
+
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+
+
+  .input-buscador {
+    margin-left: 0px;
+    width: 440px;
+  }
+}

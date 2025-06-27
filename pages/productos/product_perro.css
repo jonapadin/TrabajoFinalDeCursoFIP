@@ -1,7 +1,7 @@
 ** {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
-  max-width: 1440px;
-
 }
 
 
@@ -9,7 +9,9 @@ body {
   background-color: #F5F6FA;
   margin: 0;
   padding: 0;
+  height: 100dvh;
 }
+
 
 
 /**header and footer*/
@@ -18,9 +20,7 @@ header {
 
 }
 
-.fondo-blanco {
-  background-color: rgba(255, 255, 255, 0.911);
-}
+
 
 /* fonts */
 
@@ -29,6 +29,7 @@ header {
   font-weight: 700;
   font-style: normal;
 }
+
 
 /* oculta menu de pc */
 .ocultarMobile {
@@ -46,6 +47,8 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 0 1rem;
   height: 80px;
+  width: 100%;
+  
   display: flex;
   justify-content: space-between;
 }
@@ -154,43 +157,25 @@ header {
 }
 
 
+/*  encabezados */
+.titulo {
+  text-align: center;
+  padding: 20px 0;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+}
+
 /* banner */
 .imagen-banner {
   width: 100%;
   margin-top: 80px;
 }
 
+
+
+
 /* footer */
 
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #8F108D;
-  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-}
-
-.contenedor-footer {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 15px 0;
-}
-
-.contenedor-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.contenedor-nav a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  color: #fbf2f2;
-  font-size: 12px;
-}
 
 .contenedor {
   padding-bottom: 40px;
@@ -209,11 +194,8 @@ footer {
 
 .titulo {
   text-align: center;
-  margin: 40px 0;
-  padding-top:20px;
-  text-transform: uppercase;
-  font-family: 'Poppins', sans-serif;
-
+  margin: 20px 0;
+  padding-top: 20px;
 }
 
 .card h2 {
@@ -262,14 +244,6 @@ footer {
 
 }
 
-.boton-categoria {
-  padding: 6px 30px;
-  background-color: transparent;
-  color: #800080;
-  border: 2px solid #800080;
-  border-radius: 5px;
-  margin: 5px 0;
-}
 .btn-Compra {
   padding: 6px 30px;
   background-color: transparent;
@@ -278,7 +252,6 @@ footer {
   border-radius: 5px;
   margin: 5px 0;
 }
-
 
 .container-main {
   padding-bottom: 100px;
@@ -293,11 +266,42 @@ footer {
   display: none !important;
 }
 
+/* footer */
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #8F108D;
+  box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+.contenedor-footer {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 15px 0;
+}
+
+.contenedor-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.contenedor-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #fbf2f2;
+  font-size: 12px;
+}
 .contenedor-navPc {
   display: none;
 }
 
-@media (min-width: 400px) {
+@media screen and (min-width: 400px) {
   .input-buscador {
     height: 40px;
     width: 230px;
@@ -313,12 +317,8 @@ footer {
     height: 100dvh;
   }
 }
+
 @media screen and (min-width: 768px) {
-  .seccionAlimento {
-    grid-template-columns: repeat(4, 1fr);
-    padding: 0 40px;
-    gap: 20px;
-  }
 
   .contenedor-buscador{
     padding-right: 130px;
@@ -326,10 +326,18 @@ footer {
 
   .input-buscador{
     width: 350px;
+    height: 40px;
   }
+  .seccionAlimento {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 40px;
+    gap: 20px;
+  }
+
 }
 
-@media (min-width: 1024px) {
+
+@media screen and (min-width: 1024px) {
   header {
     width: 100%;
   }
@@ -432,6 +440,7 @@ footer {
   .contenido {
     max-width: 100%;
     justify-content: start;
+    align-items: center;
   }
 
   .derecha {
@@ -439,14 +448,22 @@ footer {
   }
 
   .input-buscador {
-    width: 230px;
+    width: 250px;
     height: 40px;
   }
 
+  .imagen-banner {
+    width: 100vh;
+  }
 
   span {
     margin-left: 5px;
   }
+
+    .container-enlaces{
+    margin-bottom: 5px;
+  }
+
 
   /* productos */
   .seccionAlimento {
@@ -455,76 +472,30 @@ footer {
     gap: 20px;
   }
 
+  .card {
+    align-items: normal;
+  }
+
+
   .imgProducto {
-    padding-bottom: 20px;
-    width: 180px;
+    margin-bottom: 20px;
+    width: 200px;
     margin: 0 auto;
   }
+
 
   .card {
     max-width: 200px;
     margin-bottom: 50px;
   }
 
-  .card {
-    align-items: normal;
-   }
-
-.btn-Compra {
-  padding: 6px 30px;
-  background-color: transparent;
-  color: #800080;
-  border: 2px solid #800080;
-  border-radius: 5px;
-  margin: 5px 0;
-}
-
+  .boton-categoria {
+    font-size: 16px;
+  }
 
 
   footer {
     position: static;
-
-  }
-  .contenedor-footer{
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: center;
-    padding: 15px 0;
-  }
-
-  .contenedor-navPc {
-    display: flex;
-  }
-
-  .contenedor-navPc ul {
-    align-items: center;
-    height: 50px;
-    color: #F5F6FA;
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-    gap: 200px;
-    padding-right: 60px;
-
-  }
-
-.contenedor-navPc img{
-  width: 60px;
-}
-
-
-  .container-main {
-    padding-top: 30px;
-
-  }
-
-  .contenedor-nav {
-    display: none;
-  }
-
-  .imagen-banner {
-    height: 70vh;
   }
 
 }
@@ -562,26 +533,17 @@ footer {
   .container-2 a {
     font-size: 16px;
   }
-    
-  /*prodcutos  */
-    .seccionAlimento {
+
+  /* productos */
+  .seccionAlimento {
     padding: 0 50px;
     gap: 0px;
   }
 
+  .imagen-banner {
+    width: 100%;
+  }
 
-    .imgProducto {
-    padding-bottom: 20px; }
-
-    .containerDesc {
-    padding: 15px 0;
-}
-
-
-.contenedor-navPc ul {
-  gap: 320px;
-}
-  
 }
 
 @media screen and (min-width: 1440px) {
@@ -637,12 +599,8 @@ footer {
 .card p {
   font-size: 16px;
 }
+  
 
-.contenedor-navPc ul{
-  gap: 400px;
-  
-  
-}
 }
 
 @media screen and (min-width: 1600px) {
@@ -659,13 +617,12 @@ footer {
     margin-left: 40px;
     width: 440px;
   }
-  .contenedor-navPc ul{
-  gap: 450px;  
-  
-}
 }
 
 @media screen and (min-width: 1920px) {
+  .imagen-banner {
+    height: 65vh;
+  }
   .contenido {
     justify-content: center;
   }
@@ -675,8 +632,9 @@ footer {
   }
 
   .container-enlaces {
+
     margin-left: 0;
-    margin-bottom: 0 ;
+    margin-bottom: 0;
   }
 
 
@@ -684,8 +642,4 @@ footer {
     margin-left: 0px;
     width: 440px;
   }
-  .contenedor-navPc ul{
-  gap: 550px;
-    
-}
 }
