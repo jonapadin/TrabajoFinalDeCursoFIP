@@ -29,7 +29,7 @@ body {
 
 .banner {
   position: relative;
-  background-image: url('/public/assets/usuariobody.png');
+  background-image: url('/public/assets/DocsBanner.jpg');
   background-size: cover;
   background-position: center;
   border-radius: 10px;
@@ -73,6 +73,10 @@ body {
       width: 100%;
       object-fit: cover;
       height: 110px;
+    }
+
+    .service-img:hover{
+      filter: brightness(0.8);
     }
 
     .service-title {
@@ -122,7 +126,7 @@ body {
 
 .banner-chat {
   position: relative;
-  background-image: url('/public/assets/banner-chat.png');
+  background-image: url('/public/assets/Bannerchat.jpg');
   background-size: cover;
   background-position: center;
   border-radius: 10px;
@@ -224,18 +228,12 @@ body {
     width: 40px;
   }
 
-  .btn-primary {
-    background-color: white;
-    color: #8f108d;
-    border-color: #8f108d;
-  }
-
   .option-btn:hover {
     background-color: #750c73;
     border-color: #750c73;
   }
 
-    /* Elimina el efecto azul al hacer clic o enfocar */
+    /* Elimina el efecto azul al hacer clic o enfocar 
   .btn:focus,
   .btn:active,
   .btn-primary:focus,
@@ -246,7 +244,7 @@ body {
     background-color: #fff !important;
     border-color: #750c73 !important;
     color: #750c73 !important;
-  }
+  }*/
 
 /* modal de confirmacion de la ventana turnos */
 
@@ -326,7 +324,7 @@ body {
       100% { transform: scale(1); opacity: 1; }
     } 
 
-      @media (min-width: 768px) {
+      @media (min-width: 1024px) {
       
       .banner{
       height: 300px;
@@ -369,10 +367,76 @@ body {
     }
   }
 
-  /* perfil*/
-  .btnCerrarSesion{
-    background-color: #fff;
-    color: #8f108d;
-    border-color: #8f108d;
-    margin-top: 15px;
-  } 
+      @media (min-width: 1280px) {
+  
+       .banner {
+         height: 300px;
+         font-size: 40px;
+       }
+  
+       .texto2 {
+         font-size: 50px;
+       }
+  
+       .veterinaria-img {
+         height: 270px;
+       }
+  
+       .btn-cita {
+  
+         padding: 20px 40px;
+  
+         font-size: 20px;
+       }
+  
+       .alguna {
+         font-size: 55px;
+         margin-left: 65px;
+         margin-top: 20px;
+       }
+  
+       .consulta {
+         font-size: 70px;
+         margin-left: 65px;
+         margin-top: 30px;
+       }
+  
+       .btn-chat {
+         font-size: 20px;
+         padding: 20px 40px;
+         bottom: 20px;
+         left: 110px;
+       }
+  
+       .banner-chat {
+         height: 380px;
+       }
+           .service-img {
+      height: 200px;
+    }
+     }
+  
+     /* perfil*/
+     .btnCerrarSesion {
+       background-color: #fff;
+       color: red;
+       border-color: red;
+       margin-top: 15px;
+     }
+  
+     .btnCerrarSesion:hover {
+       color: #8f108d;
+       border-color: #8f108d;
+     }
+  
+     .seguridad {
+       color: black;
+       text-decoration: none;
+     }
+  
+     .seguridad:hover {
+       color: white;
+       text-decoration: none;
+     }
+
+  /* acomodar hover de las weas de los animales y ver si se puede cambiar el banner */ 
