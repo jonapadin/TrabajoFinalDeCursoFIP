@@ -46,7 +46,6 @@ header {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 0 1rem;
   height: 80px;
-  max-width: 600px;
   display: flex;
   justify-content: space-between;
 }
@@ -314,6 +313,21 @@ footer {
     height: 100dvh;
   }
 }
+@media screen and (min-width: 768px) {
+  .seccionAlimento {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 40px;
+    gap: 20px;
+  }
+
+  .contenedor-buscador{
+    padding-right: 130px;
+  }
+
+  .input-buscador{
+    width: 350px;
+  }
+}
 
 @media (min-width: 1024px) {
   header {
@@ -425,7 +439,7 @@ footer {
   }
 
   .input-buscador {
-    width: 400px;
+    width: 230px;
     height: 40px;
   }
 
@@ -562,6 +576,11 @@ footer {
     .containerDesc {
     padding: 15px 0;
 }
+
+
+.contenedor-navPc ul {
+  gap: 320px;
+}
   
 }
 
@@ -618,8 +637,12 @@ footer {
 .card p {
   font-size: 16px;
 }
+
+.contenedor-navPc ul{
+  gap: 400px;
   
   
+}
 }
 
 @media screen and (min-width: 1600px) {
@@ -636,6 +659,10 @@ footer {
     margin-left: 40px;
     width: 440px;
   }
+  .contenedor-navPc ul{
+  gap: 450px;  
+  
+}
 }
 
 @media screen and (min-width: 1920px) {
@@ -657,4 +684,8 @@ footer {
     margin-left: 0px;
     width: 440px;
   }
+  .contenedor-navPc ul{
+  gap: 550px;
+    
+}
 }
