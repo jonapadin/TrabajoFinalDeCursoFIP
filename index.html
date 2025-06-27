@@ -33,14 +33,23 @@
   <title>Veterinaria App</title>
 </head>
 
- <header>
+<body class="lato-bold">
+  <header>
     <nav class="contenido">
 
       <div class="izquierda">
-        <button id="btn-menu" type="button" class="boton-categoria">
+        <button id="btn-menu" type="button" class="boton-categoria ocultar">
           <img class="categoria" src="/assets/icons/hamburger.svg" alt="icono-Menu">
         </button>
         <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg" alt="imagen-logo">
+
+        <!-- Menú pc-->
+        <ul class="ocultarMobile lato-bold">
+          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
+          <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
+        </ul>
+
         <!-- Menú desplegable aquí -->
         <div id="menu-desplegable" class="menu-desplegable" hidden>
           <button id="btn-close" type="button" class="boton-categoria">
@@ -64,12 +73,25 @@
         </div>
       </div>
 
+      <section class="ocultarMobile container-enlaces ">
+        <div class="container-1">
+          <a href="/pages/carrito/carrito.html" class="items-1">
+            <img src="/public/assets/icons/carrito.svg" alt="icono del carrito">
+            <span class="lato-bold">Carrito</span>
+          </a>
+        </div>
+
+        <div class="container-2">
+          <a href="/pages/login/login.html">
+            <img src="/public/assets/icons/usuario.svg" alt="icono de usuario" width="28">
+            <span class="lato-bold">Ingresar</span>
+          </a>
+        </div>
+      </section>
+
     </nav>
 
   </header>
-
-<body class="lato-bold">
-
 
  
   <main>

@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  max-width: 1440px;
 }
 
 
@@ -317,11 +316,21 @@ footer {
 }
 
 @media screen and (min-width: 768px) {
+
+  .contenedor-buscador{
+    padding-right: 130px;
+  }
+
+  .input-buscador{
+    width: 350px;
+    height: 40px;
+  }
   .seccionAlimento {
     grid-template-columns: repeat(4, 1fr);
     padding: 0 40px;
     gap: 20px;
   }
+
 }
 
 
@@ -428,6 +437,7 @@ footer {
   .contenido {
     max-width: 100%;
     justify-content: start;
+    align-items: center;
   }
 
   .derecha {
@@ -435,13 +445,20 @@ footer {
   }
 
   .input-buscador {
-    width: 400px;
+    width: 250px;
     height: 40px;
   }
 
+  .imagen-banner {
+    width: 100vh;
+  }
 
   span {
     margin-left: 5px;
+  }
+
+    .container-enlaces{
+    margin-bottom: 5px;
   }
 
 
@@ -520,6 +537,9 @@ footer {
     gap: 0px;
   }
 
+  .imagen-banner {
+    width: 100%;
+  }
 
 }
 
