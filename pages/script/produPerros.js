@@ -1,5 +1,7 @@
 import { obtenerProductos } from "./fetchProductos";
 import { crearTarjeta, crearTitulo } from "./funciones";
+import { agregarAlCarritoPorId } from "./carrito";
+
 document.addEventListener("DOMContentLoaded", async function () {
 
     const btnMasInf = document.createElement('button');
@@ -152,15 +154,12 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
 const botonesCompra = document.querySelectorAll(".btn-Compra");
-console.log("Botones encontrados:", botonesCompra.length); 
 botonesCompra.forEach(btn => {
     btn.addEventListener('click', (e) => {
-        console.log("Botón clickeado:", e.target);
-        console.log("ID:", e.target.id);
+        const id = e.target.id;
+        agregarAlCarritoPorId(id, productosPerro, accesorios, productosEstetica, productosSalud);
     });
 });
-
-
 
 })
 
