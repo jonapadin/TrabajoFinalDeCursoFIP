@@ -1,6 +1,4 @@
-
-//Crear tarjetas
-export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, altImg,idUnico) {
+export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, altImg, idUnico, stock) {
     const card = document.createElement("DIV");
     card.className = "card";
 
@@ -24,7 +22,13 @@ export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, al
     const btnCompra = document.createElement("BUTTON");
     btnCompra.textContent = "Comprar";
     btnCompra.className = "btn-Compra";
-    btnCompra.id =`${idUnico}`;
+
+    // Asignamos los atributos data-* para guardar info del producto
+    btnCompra.dataset.id = idUnico;  
+    btnCompra.dataset.imagen = imagenSrc;      // ID único para identificar el producto
+    btnCompra.dataset.marca = titulo;      // Marca o título
+    btnCompra.dataset.precio = precio;     // Precio
+    btnCompra.dataset.stock = stock;       // Stock
 
     const containerDesc = document.createElement("DIV");
     containerDesc.className = "containerDesc";
@@ -38,9 +42,7 @@ export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, al
     card.appendChild(btnCompra);
 
     return card;
-
 }
-
 
 // crear titulo
 export function crearTitulo(texto, clases = []) {
@@ -51,5 +53,4 @@ export function crearTitulo(texto, clases = []) {
     }
     return titulo;
 }
-
 
