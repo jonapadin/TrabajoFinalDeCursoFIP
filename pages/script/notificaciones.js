@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function saveNotifications(notifs) {
     localStorage.setItem('notifications', JSON.stringify(notifs));
   }
-
+  //aplica los iconos segun el tipo de noti
   function getIconClass(tipo) {
     switch (tipo) {
       case "turno": return "bi-calendar-event-fill text-primary";
