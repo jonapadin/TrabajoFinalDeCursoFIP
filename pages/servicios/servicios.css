@@ -96,6 +96,7 @@ header {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  width: 50;
 }
 
 .menu-desplegable ul {
@@ -138,6 +139,10 @@ header {
   cursor: pointer;
 }
 
+/* contenedor servicios */
+.seccion-servicios {
+  margin: 100px 0;
+}
 
 /* Footer */
 footer {
