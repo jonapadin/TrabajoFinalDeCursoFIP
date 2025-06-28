@@ -524,7 +524,7 @@ footer {
   }
 
   .imagen-banner {
-    height: 70vh;
+    height: 45vh;
   }
 
 }
@@ -581,6 +581,9 @@ footer {
 .contenedor-navPc ul {
   gap: 320px;
 }
+ .imagen-banner {
+    height: 60vh;
+  }
   
 }
 
