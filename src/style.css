@@ -317,6 +317,9 @@ header {
   object-fit: cover;
   border-radius: 50%;
 }
+.contenedor-navPc{
+  display: none;
+}
 
 @media screen and (min-width: 401px) {
   .banner-parrafo {
@@ -354,7 +357,7 @@ footer {
 
 .contenedor-footer {
   height: 80px;
-  max-width: 600px;
+  max-width: 100px;
   margin: 0 auto;
   padding: 15px 0;
 }
@@ -572,6 +575,44 @@ footer {
  .carousel {
   display: none;
  }
+
+ footer{
+  position: static;
+ }
+ .contenedor-footer{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    padding: 15px 0;
+  }
+
+  .contenedor-navPc {
+    display: flex;
+  }
+
+  .contenedor-navPc ul {
+    align-items: center;
+    height: 50px;
+    color: #F5F6FA;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    gap: 200px;
+    padding-right: 60px;
+
+  }
+
+.contenedor-navPc img{
+  width: 60px;
+}
+
+
+  
+
+  .contenedor-nav {
+    display: none;
+  }
 }
 
 @media (min-width: 1280px) {
