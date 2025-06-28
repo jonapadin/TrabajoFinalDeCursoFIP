@@ -452,6 +452,9 @@ footer {
   span {
     margin-left: 5px;
   }
+      .contenedor-buscador { 
+        padding-right: 50px;
+      }
 
     .container-enlaces{
     margin-bottom: 5px;
@@ -542,6 +545,7 @@ footer {
 @media screen and (min-width: 1280px) {
 
   /* estilos navbar */
+    /*nav */
   .contenido {
     justify-content: start;
     max-width: 100%;
@@ -551,6 +555,12 @@ footer {
 
   .input-buscador {
     margin-left: 20px;
+    height: 35px;
+    width: 300px;
+  }
+
+  .boton-lupa img {
+    width: 28px;
   }
 
   .container-enlaces {
@@ -561,17 +571,10 @@ footer {
 
 
   .izquierda ul {
-    font-size: 16px;
+
     margin-left: 20px;
   }
 
-  .container-1 a {
-    font-size: 16px;
-  }
-
-  .container-2 a {
-    font-size: 16px;
-  }
     
   /*prodcutos  */
     .seccionAlimento {
