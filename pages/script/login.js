@@ -1,36 +1,44 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const formulario = document.getElementById("datosUsuario");
-    const mensaje = document.getElementById("mensaje"); 
+  const formulario = document.getElementById("datosUsuario");
+  const mensaje = document.getElementById("mensaje");
 
-    formulario.addEventListener("submit", (e) => {
-        e.preventDefault();
+  formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-        const emailIngresado = document.getElementById("email").value.trim().toLowerCase();
-        const passIngresado = document.getElementById("password").value.trim();
+    // Obtener los valores del formulario
+    const emailIngresado = document.getElementById("email").value.trim().toLowerCase();
+    const passIngresado = document.getElementById("password").value.trim();
 
-        const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    // Obtener los usuarios registrados desde localStorage
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
+    // Buscar el usuario por email
+    const usuarioEncontrado = usuarios.find(usuario =>
+      usuario.email.trim().toLowerCase() === emailIngresado
+    );
 
-        const usuarioEncontrado = usuarios.find(usuario =>
-            usuario.email.trim().toLowerCase() === emailIngresado
-        );
+    // Validación: email no registrado
+    if (!usuarioEncontrado) {
+      mensaje.textContent = "Correo no registrado.";
+      mensaje.style.color = "red";
+      return;
+    }
 
-      
+    // Validación: contraseña incorrecta
+    if (usuarioEncontrado.password !== passIngresado) {
+      mensaje.textContent = "Usuario o contraseña incorrecta.";
+      mensaje.style.color = "red";
+      return;
+    }
 
-        if (!usuarioEncontrado) {
-              mensaje.textContent =("Correo no registrado");
-            return;
-        }
+    // Login exitoso
+    localStorage.setItem("usuarioActivo", JSON.stringify(usuarioEncontrado));
+    localStorage.setItem("usuarioAutenticado", "true");
 
-        if (!usuarioEncontrado || usuarioEncontrado.password !== passIngresado) {
-              mensaje.textContent =("Usuario o Contraseña Incorrecta.");
-            return;
-        }
+    // Limpiar formulario
+    formulario.reset();
 
-         localStorage.setItem("usuarioActivo", JSON.stringify(usuarioEncontrado));
-
-       formulario.reset();
-     
-        window.location.href = "http://localhost:5173/pages/usuario";
-    });
+    // Redirigir al panel de usuario
+    window.location.href = "http://localhost:5173/pages/usuario.html"; // Asegurate que esta ruta sea la correcta
+  });
 });
