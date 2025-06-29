@@ -425,6 +425,9 @@ footer {
 @media (min-width: 1024px) {
 
   /* estilos navbar */
+  html {
+    overflow-x: hidden ;
+  }
 
   .izquierda ul {
     text-transform: uppercase;
@@ -919,7 +922,7 @@ footer {
 
   /* parrafo estilos */
   .banner-parrafo {
-    top: 51%;
+    top: 49.5%;
     left: 85%;
     margin-top: 5px;
     width: 600px;

@@ -540,12 +540,9 @@ footer {
 .contenedor-categorias a:hover {
   background-color: #F5F6FA;
   transform: scale(1.05); /* Pequeña animación */
-  border-color: #fdfdfd;
+  border-color: #2ca8fa;
 }
 
-.contenedor-categorias a:hover span {
-  color: #000000;
-}
  .contenedor-categorias a:hover {
   background-color: #000000;
  }
@@ -827,9 +824,6 @@ footer {
     font-size: 30px;
   }
 
-  .img-animal {
-    height: 25vh;
-  }
 
   .contenedor-navPc ul {
     gap: 550px;

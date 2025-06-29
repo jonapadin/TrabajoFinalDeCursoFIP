@@ -394,7 +394,8 @@ footer {
 
   .container-1 a span {
     position: absolute;
-    top: 35%
+    top: 35%;
+    margin-left: 5px;
   }
 
 
@@ -416,7 +417,8 @@ footer {
 
   .container-2 a span {
     position: absolute;
-    top: 35%
+    top: 35%;
+    margin-left: 5px;
   }
 
   .item-1,
@@ -431,13 +433,23 @@ footer {
 
 
   .contenido {
-    max-width: 100%;
+    width: 100%;
     justify-content: start;
     align-items: center;
+    padding: 0 50px;
+  }
+
+  .div-izquierda ul {
+    margin-top: 15px;
+
   }
 
   .derecha {
     margin-left: 5%;
+  }
+
+  .contenedor-buscador {
+    padding-right: 50px;
   }
 
   .input-buscador {
@@ -445,21 +457,16 @@ footer {
     height: 40px;
   }
 
-  .imagen-banner {
-    width: 100vh;
+  dl,
+  ol,
+  ul {
+    margin-top: 20px;
   }
 
-  span {
-    margin-left: 5px;
-  }
-      .contenedor-buscador { 
-        padding-right: 50px;
-      }
 
-    .container-enlaces{
-    margin-bottom: 5px;
+  .container-enlaces {
+    margin-bottom: 8px;
   }
-
 
   /* productos */
   .seccionAlimento {
