@@ -136,19 +136,29 @@ header {
   border: none;
   cursor: pointer;
 }
-.ocultarMobile{
+
+.ocultarMobile {
   display: none;
 }
 
 /* Categorías */
+.seccion-categorias {
+  margin-top: 20px;
+}
+
+.seccion-categorias h5 {
+  text-transform: uppercase;
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
 .contenedor-categorias,
 .card-img {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
   padding: 0 20px;
-
-
+  margin-bottom: 120px;
 }
 
 
@@ -287,7 +297,8 @@ footer {
     margin-bottom: 20px;
     padding-left: 10px;
   }
-  .ocultarMobile{
+
+  .ocultarMobile {
     display: none;
   }
 }
@@ -297,7 +308,8 @@ footer {
   html {
     height: 100dvh;
   }
- .contenedor-buscador {
+
+  .contenedor-buscador {
     padding-right: 130px;
   }
 
@@ -305,16 +317,17 @@ footer {
     width: 350px;
 
   }
+
   .banner-categoria {
     width: 100%;
-    height: 40vh;
+    height: 50vh;
     margin-top: 10px;
   }
 
   .img-animal {
     width: 80%;
     height: 160px;
-    
+
   }
 
   .contenedor-categorias {
@@ -334,10 +347,11 @@ footer {
   html {
     height: 100%;
   }
-  .categoria{
+
+  .categoria {
     display: none;
   }
-  
+
   .izquierda ul {
     text-transform: uppercase;
     font-size: 12px;
@@ -353,10 +367,12 @@ footer {
   .izquierda ul li a:hover {
     color: #f5f6faad;
   }
-  .ocultar{
+
+  .ocultar {
     display: none;
   }
-    .ocultarMobile {
+
+  .ocultarMobile {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -364,7 +380,8 @@ footer {
     color: #F5F6FA;
 
   }
-   .container-enlaces {
+
+  .container-enlaces {
     display: flex;
     align-items: center;
     gap: 55px;
@@ -470,9 +487,19 @@ footer {
     margin-left: 5px;
   }
 
+  /* Categorías */
+  .seccion-categorias {
+    margin-top: 40px;
+  }
+
+  .seccion-categorias h5 {
+    text-transform: uppercase;
+    padding-left: 15px;
+    padding-bottom: 15px;
+  }
 
   .banner-categoria {
-    height: 70vh;
+    height: 80vh;
   }
 
   .ml-4 {
@@ -484,18 +511,44 @@ footer {
 
   .contenedor-categorias {
     display: flex;
-    margin: 0 0 50px 80px;
+    margin: 0 auto;
     padding: 0;
     width: 110vh;
+    padding-bottom: 60px;
   }
 
-  .img-animal {
-    border-radius: 75%;
-    box-sizing: border-box;
-    border: solid 2px black;
-   
+  .contenedor-categorias a {
+  padding: 1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: rgb(252, 252, 252);
+}
 
-  }
+.img-animal {
+  border-radius: 75%;
+  box-sizing: border-box;
+  border: solid 2px black;
+  background-color: white;
+}
+
+.contenedor-categorias a span {
+  font-size: 18px;
+  text-align: center;
+  text-align: center;
+}
+
+.contenedor-categorias a:hover {
+  background-color: #F5F6FA;
+  transform: scale(1.05); /* Pequeña animación */
+  border-color: #fdfdfd;
+}
+
+.contenedor-categorias a:hover span {
+  color: #000000;
+}
+ .contenedor-categorias a:hover {
+  background-color: #000000;
+ }
 
   .contenedor-nav {
     display: none;
@@ -503,6 +556,7 @@ footer {
 
   footer {
     position: static;
+
   }
 
   .contenedor-footer {
@@ -511,6 +565,7 @@ footer {
     width: 100%;
     justify-content: center;
     padding: 15px 0;
+    height: 100%;
   }
 
   .contenedor-navPc {
@@ -523,15 +578,26 @@ footer {
     color: #F5F6FA;
     display: flex;
     list-style: none;
+    justify-content: space-between;
     gap: 200px;
     padding-right: 60px;
-    padding-top: 10px;
 
   }
 
   .contenedor-navPc img {
     width: 60px;
   }
+
+
+  .container-main {
+    padding-top: 30px;
+
+  }
+
+  .contenedor-nav {
+    display: none;
+  }
+
   .img-animal span {
     text-align: center;
     font-size: 1.5em;
@@ -542,7 +608,8 @@ footer {
   html {
     height: 100dvh;
   }
-.contenido {
+
+  .contenido {
     justify-content: start;
     max-width: 100%;
     padding-left: 30px;
@@ -573,7 +640,7 @@ footer {
 
 
   .banner-categoria {
-    height: 85vh;
+    height: 100vh;
     margin: 0;
     padding: 0;
   }
@@ -585,15 +652,18 @@ footer {
   .contenedor-navPc ul {
     gap: 260px;
   }
-  .ml-4{
+
+  .ml-4 {
     font-size: bold 3px;
     font-weight: 900;
     padding-top: 5px;
   }
-  .contenedor-categorias {
-    width: 150vh;
-    padding-left: 50px;
+
+
+  .img-animal {
+    height: 22vh;
   }
+
   .img-animal span {
     text-align: center;
     font-size: 1.5em;
@@ -605,7 +675,8 @@ footer {
   html {
     height: 100dvh;
   }
-/* navbar estilos */
+
+  /* navbar estilos */
   .imagen-logo {
     width: 60px;
   }
@@ -636,14 +707,15 @@ footer {
   }
 
   .banner-categoria {
-    height: 80vh;
+    height: 90vh;
   }
-  .contenedor-categorias{
-    padding-right:50px;
+
+  .contenedor-categorias {
+    padding-right: 50px;
   }
 
   .img-animal {
-    height: 250px;
+    height: 24vh;
   }
 
   .contenedor-navPc ul {
@@ -655,7 +727,8 @@ footer {
   html {
     height: 100dvh;
   }
-/*estilos nav */
+
+  /*estilos nav */
   .contenido {
     padding-left: 80px;
   }
@@ -668,16 +741,30 @@ footer {
     margin-left: 40px;
     width: 440px;
   }
+
   .banner-categoria {
-    height: 80vh;
+    height: 95vh;
   }
-  .contenedor-categorias{
+
+  .seccion-categorias {
+    background-color: #F5F6FA;
+    margin-top: -80px;
+  }
+
+  .seccion-categorias h5 {
+    padding: 20px 15px;
+  }
+
+  .contenedor-categorias {
+    width: 140vh;
     padding-left: 100px;
   }
 
+
   .img-animal {
-    height: 280px;
+    height: 26vh;
   }
+
 
   .contenedor-navPc ul {
     gap: 400px;
@@ -689,6 +776,7 @@ footer {
   html {
     height: 100dvh;
   }
+
   /* navbar estilos */
   .contenido {
     justify-content: center;
@@ -696,6 +784,18 @@ footer {
 
   .contenido {
     padding-left: 0px;
+  }
+
+  .izquierda ul li a {
+    font-size: 16px;
+  }
+
+  .container-1 a span {
+    font-size: 16px;
+  }
+
+  .container-2 a span {
+    font-size: 16px;
   }
 
   .container-enlaces {
@@ -710,13 +810,25 @@ footer {
     width: 440px;
   }
 
-  
- .contenedor-categorias{
-  margin-right: 50px;
- }
+  .contenedor-categorias {
+    width: 140vh;
+    padding-top: 30px;
+    padding-bottom: 80px;
+  }
+
+  .contenedor-categorias a span {
+    font-size: 25px;
+  }
+
+  .seccion-categorias h5 {
+    padding-top: 30px;
+    padding-left: 40px;
+    padding-bottom: 0px;
+    font-size: 30px;
+  }
 
   .img-animal {
-    height: 350px;
+    height: 25vh;
   }
 
   .contenedor-navPc ul {
@@ -724,4 +836,3 @@ footer {
   }
 
 }
-

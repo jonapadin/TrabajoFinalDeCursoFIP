@@ -370,7 +370,8 @@ main {
 
   .container-1 a span {
     position: absolute;
-    top: 35%
+    top: 35%;
+    margin-left: 5px;
   }
 
 
@@ -392,7 +393,8 @@ main {
 
   .container-2 a span {
     position: absolute;
-    top: 35%
+    top: 35%;
+    margin-left: 5px;
   }
 
   .item-1,
@@ -466,6 +468,7 @@ main {
     width: 100%;
     justify-content: center;
     padding: 15px 0;
+    height: 100%;
   }
 .contenedor-nav {
   display: none;
@@ -599,6 +602,18 @@ main {
   .contenido {
     padding-left: 0px;
   }
+
+  .izquierda ul li a { 
+  font-size: 16px;
+}
+
+    .container-1 a span { 
+      font-size: 16px;
+    }
+        .container-2 a span { 
+      font-size: 16px;
+    }
+
 
   .container-enlaces {
 

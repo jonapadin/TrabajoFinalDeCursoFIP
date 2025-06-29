@@ -48,9 +48,10 @@ body {
   position: relative;
 }
 
-.ocultarMobile  {
+.ocultarMobile {
   display: none;
 }
+
 /* menu desplegable */
 .menu-desplegable {
   position: fixed;
@@ -272,7 +273,7 @@ header {
 /* estilos seccion testimonios*/
 .contenedor-tarjetas {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 1.8rem;
   justify-items: center;
   width: 100%;
@@ -378,6 +379,13 @@ footer {
   display: none;
 }
 
+
+@media screen and (max-width: 350px) {
+  .tarjeta {
+    padding: 0;
+  }
+}
+
 @media screen and (min-width: 401px) {
   .banner-parrafo {
     margin-top: 10px;
@@ -415,10 +423,6 @@ footer {
 }
 
 @media (min-width: 1024px) {
-
-  body {
-    overflow-x: hidden;
-  }
 
   /* estilos navbar */
 
@@ -479,7 +483,8 @@ footer {
 
   .container-1 a span {
     position: absolute;
-    top: 35%
+    top: 35%;
+    margin-left: 5px;
   }
 
 
@@ -501,7 +506,8 @@ footer {
 
   .container-2 a span {
     position: absolute;
-    top: 35%
+    top: 35%;
+    margin-left: 5px;
   }
 
   .item-1,
@@ -559,7 +565,7 @@ footer {
     position: static;
     display: flex;
     width: 100%;
-    height: 87vh;
+    height: 82vh;
   }
 
   .banner-container::before {
@@ -660,6 +666,8 @@ footer {
     top: 5%;
   }
 
+  /* footer */
+
   footer {
     position: static;
 
@@ -671,6 +679,7 @@ footer {
     width: 100%;
     justify-content: center;
     padding: 15px 0;
+    height: 100%;
   }
 
   .contenedor-navPc {
@@ -740,7 +749,7 @@ footer {
 
   /* estilos banner */
   .banner-container {
-    height: 65vh;
+    height: 48vh;
   }
 
   .banner-parrafo {
@@ -758,10 +767,17 @@ footer {
 
   /* servicios */
   .contenedor-servicios {
-    margin-top: 16%;
+    margin-top: 38vh;
     padding: 2.5rem 1.5rem 2.5rem;
   }
 }
+
+@media (min-width: 1366px) {
+  .contenedor-servicios {
+    margin-top: 18%;
+  }
+}
+
 
 @media (min-width: 1440px) {
 
@@ -795,6 +811,10 @@ footer {
     width: 32px;
   }
 
+  .banner-container {
+    height: 65vh;
+  }
+
 
   /* parrafo main */
   .banner-parrafo {
@@ -803,7 +823,7 @@ footer {
 
   /* servicios */
   .contenedor-servicios {
-    margin-top: 12%;
+    margin-top: 22vh;
   }
 }
 
@@ -823,10 +843,19 @@ footer {
     width: 440px;
   }
 
+  .banner-container {
+    height: 60vh;
+  }
+
+
+
   /*servicios */
   .contenedor-servicios {
     padding: 3.5rem 1.5rem;
+    margin-top: 25vh;
   }
+
+  
 
 }
 
@@ -840,6 +869,19 @@ footer {
   .contenido {
     padding-left: 0px;
   }
+
+  .izquierda ul li a {
+    font-size: 16px;
+  }
+
+  .container-1 a span {
+    font-size: 16px;
+  }
+
+  .container-2 a span {
+    font-size: 16px;
+  }
+
 
   .container-enlaces {
 
@@ -877,59 +919,72 @@ footer {
 
   /* parrafo estilos */
   .banner-parrafo {
+    top: 51%;
     left: 85%;
+    margin-top: 5px;
     width: 600px;
   }
 
-  .container-p {
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  .container-p p {
-    font-size: 24px;
-  }
-
-  .btn-primary {
-    font-size: 18px;
-  }
-
-  /*servicios */
-  .contenedor-servicios {
-    margin-top: -5%;
-    padding: 4.5rem 1.5rem;
-  }
-
-  .contenedor-servicios h2 {
-    font-size: 28px;
-  }
-
-  .f-size {
-    font-size: 18px;
-  }
-
-  .img-icon {
-    width: 100%;
-  }
-
-  .contenedor-cards {
-    margin: 0 auto;
-    max-width: 1600px;
-  }
 
 
-  /*testimonios */
-  
-  .contenedor-testimonios h3 {
-    font-size: 28px;
-  }
+.container-p {
+  width: 90%;
+  margin: 0 auto;
+}
 
-   .tarjeta {
-    max-width: 800px;
-  }
- 
-  .parrafo-testimonio {
-        font-size: 18px;
-        top: 6%; 
-      }
+.container-p p {
+  font-size: 24px;
+}
+
+.btn-primary {
+  font-size: 18px;
+}
+
+/*servicios */
+.contenedor-servicios {
+  margin-top: -5%;
+  padding: 8rem 1.5rem;
+}
+
+.contenedor-servicios h2 {
+  font-size: 28px;
+}
+
+.f-size {
+  font-size: 18px;
+}
+
+.img-icon {
+  width: 100%;
+}
+
+.contenedor-cards {
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+
+/*testimonios */
+
+.contenedor-testimonios {
+  padding: 100px 0;
+}
+
+.contenedor-testimonios h3 {
+  font-size: 28px;
+}
+
+.contenedor-tarjetas {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.tarjeta {
+  max-width: 600px;
+}
+
+
+.parrafo-testimonio {
+  font-size: 18px;
+  padding: 10px 0;
+}
 }
