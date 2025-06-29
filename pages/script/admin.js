@@ -3,6 +3,8 @@ function mostrarSeccion(nombre) {
       document.getElementById("seccionUsuarios").style.display = "none";
       document.getElementById("seccionMascotas").style.display = "none";
       document.getElementById("seccionTurnos").style.display = "none";
+      document.getElementById("seccionChat").style.display = "none";
+      document.getElementById("seccionVentas").style.display = "none";
 
       if (nombre === "usuarios") {
         document.getElementById("seccionUsuarios").style.display = "block";
@@ -13,6 +15,12 @@ function mostrarSeccion(nombre) {
       } else if (nombre === "turnos") {
         document.getElementById("seccionTurnos").style.display = "block";
         cargarTurnos();
+      }  else if (nombre === "chat") {
+        document.getElementById("seccionChat").style.display = "block";
+        cargarChat();
+      } else if (nombre === "ventas") {
+        document.getElementById("seccionVentas").style.display = "block";
+        cargarVentas();
       }
     }
 
@@ -81,7 +89,6 @@ function editarUsuario(id) {
   document.getElementById("usuarioId").value = u.id;
   document.getElementById("nombreUsuario").value = u.nombre;
   document.getElementById("emailUsuario").value = u.email;
-  document.getElementById("rolUsuario").value = u.rol;
   document.getElementById("modalUsuarioLabel").textContent = "Editar Usuario";
   new bootstrap.Modal(document.getElementById("modalUsuario")).show();
 }
@@ -104,7 +111,6 @@ function cargarMascotas() {
     tr.innerHTML = `
       <td>${m.nombre}</td>
       <td>${m.especie}</td>
-      <td>${m.rol}</td>
       <td>${m.idDuenio}</td>
       <td class="text-end">
         <button class="btn btn-sm btn-outline-primary me-2" onclick="editarMascota('${m.idDuenio}')"><i class="bi bi-pencil"></i></button>
@@ -129,12 +135,11 @@ document.getElementById("formUsuario").addEventListener("submit", function (e) {
     if (u) {
       u.nombre = nombre;
       u.email = email;
-      u.rol = rol;
     }
   } else {
     // Si no existe el id, es un nuevo usuario, generamos uno nuevo con randomUUID
     const nuevoId = window.crypto.randomUUID();
-    usuarios.push({ id: nuevoId, nombre, email, rol });
+    usuarios.push({ id: nuevoId, nombre, email});
   }
 
   guardarEnStorage("usuarios", usuarios);
@@ -149,7 +154,6 @@ function editarUsuario(id) {
   document.getElementById("usuarioId").value = u.id;
   document.getElementById("nombreUsuario").value = u.nombre;
   document.getElementById("emailUsuario").value = u.email;
-  document.getElementById("rolUsuario").value = u.rol;
   document.getElementById("modalUsuarioLabel").textContent = "Editar Usuario";
   new bootstrap.Modal(document.getElementById("modalUsuario")).show();
 }
@@ -160,4 +164,53 @@ function eliminarUsuario(id) {
     guardarEnStorage("usuarios", usuarios);
     cargarUsuarios();
   }
+}
+
+function cargarChat() {
+const chatForm = document.getElementById('chatForm');
+    const messageInput = document.getElementById('messageInput');
+    const chatBox = document.getElementById('chatBox');
+
+    function addMessage(text, sender = 'user') {
+      const msg = document.createElement('div');
+      msg.classList.add('message', sender);
+      msg.textContent = text;
+      chatBox.appendChild(msg);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    chatForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const text = messageInput.value.trim();
+      if (text !== '') {
+        addMessage(text, 'user');
+        messageInput.value = '';
+
+        // Simulación de respuesta automática
+        setTimeout(() => {
+          addMessage('¡Gracias por tu mensaje! Un profesional responderá pronto.', 'bot');
+        }, 800);
+      }
+    });
+}
+
+// seccion ventas
+function cargarVentas() {
+  const carrito = obtenerDeStorage("carrito");
+  const tbody = document.getElementById("tablaVentas");
+  tbody.innerHTML = "";
+  carrito.forEach(carrito => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${carrito.nombre}</td>
+      <td>${carrito.email}</td>
+      <td>${carrito.id}</td>
+      <td>${carrito.id}</td>
+      <td class="text-end">
+        <button class="btn btn-sm btn-outline-primary me-2" onclick="editarCarrito('${carrito.id}')"><i class="bi bi-pencil"></i></button>
+        <button class="btn btn-sm btn-outline-danger" onclick="eliminarCarrito('${carrito.id}')"><i class="bi bi-trash"></i></button>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
 }

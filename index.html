@@ -33,14 +33,23 @@
   <title>Veterinaria App</title>
 </head>
 
- <header>
+<body class="lato-bold">
+  <header>
     <nav class="contenido">
 
       <div class="izquierda">
-        <button id="btn-menu" type="button" class="boton-categoria">
+        <button id="btn-menu" type="button" class="boton-categoria ocultar">
           <img class="categoria" src="/assets/icons/hamburger.svg" alt="icono-Menu">
         </button>
         <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg" alt="imagen-logo">
+
+        <!-- Menú pc-->
+        <ul class="ocultarMobile lato-bold">
+          <li><a href="/index.html">Inicio</a></li>
+          <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
+          <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
+        </ul>
+
         <!-- Menú desplegable aquí -->
         <div id="menu-desplegable" class="menu-desplegable" hidden>
           <button id="btn-close" type="button" class="boton-categoria">
@@ -64,14 +73,27 @@
         </div>
       </div>
 
+      <section class="ocultarMobile container-enlaces ">
+        <div class="container-1">
+          <a href="/pages/carrito/carrito.html" class="items-1">
+            <img src="/public/assets/icons/carrito.svg" alt="icono del carrito">
+            <span class="lato-bold">Carrito</span>
+          </a>
+        </div>
+
+        <div class="container-2">
+          <a href="/pages/login/login.html">
+            <img src="/public/assets/icons/usuario.svg" alt="icono de usuario" width="28">
+            <span class="lato-bold">Ingresar</span>
+          </a>
+        </div>
+      </section>
+
     </nav>
 
   </header>
 
-<body class="lato-bold">
 
-
- 
   <main>
 
     <section class="banner-container">
@@ -91,33 +113,36 @@
 
 
     <section>
-      <div class="container text-center py-4">
+      <div class="contenedor-servicios  text-center">
         <h2 class="fw-bold mb-4">SERVICIOS</h2>
 
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center contenedor-cards">
           <div class="col-12 col-sm-6 col-md-3 mb-4">
             <div class="rounded-circle d-flex justify-content-center align-items-center mx-auto mb-2"
               style="width: 80px; height: 80px; background-color: #ededf0;">
-              <img src="/public/assets/icons/maki_doctor (1).svg" alt="Gestión de Pacientes" width="60">
+              <img class="img-icon" src="/public/assets/icons/maki_doctor (1).svg" alt="Gestión de Pacientes"
+                width="60">
             </div>
-            <p class="mb-0">Gestión de Pacientes y Hospitalización.</p>
+            <p class="mb-0 f-size">Gestión de Pacientes y Hospitalización.</p>
           </div>
 
           <div class="col-12 col-sm-6 col-md-3 mb-4">
             <div class="rounded-circle d-flex justify-content-center align-items-center mx-auto mb-2"
               style="width: 80px; height: 80px; background-color: #ededf0;">
-              <img src="/public/assets/icons/fluent_shifts-activity-24-filled.svg" alt="Turnos y Consultas" width="60">
+              <img class="img-icon" src="/public/assets/icons/fluent_shifts-activity-24-filled.svg"
+                alt="Turnos y Consultas" width="60">
             </div>
-            <p class="mb-0">Administración de Turnos y Consultas.</p>
+            <p class="mb-0 f-size">Administración de Turnos y Consultas.</p>
           </div>
 
           <div class="col-12 col-sm-6 col-md-3 mb-4">
             <div class="rounded-circle d-flex justify-content-center align-items-center mx-auto mb-2"
               style="width: 80px; height: 80px; background-color: #ededf0;">
-              <img src="/public/assets/icons/hugeicons_treatment.svg" alt="Medicación y Tratamientos" width="60">
+              <img class="img-icon" src="/public/assets/icons/hugeicons_treatment.svg" alt="Medicación y Tratamientos"
+                width="60">
             </div>
-            <p class="mb-0">Control de Medicación y Tratamientos.</p>
+            <p class="mb-0 f-size">Control de Medicación y Tratamientos.</p>
           </div>
 
           <div class="col-12 col-sm-6 col-md-3 mb-2">
@@ -125,7 +150,7 @@
               style="width: 80px; height: 80px; background-color: #ededf0;">
               <img src="/public/assets/icons/stash_shop.svg" alt="Balanceados" width="60">
             </div>
-            <p class="mb-0">Balanceados Contamos con varias marcas y variantes</p>
+            <p class="mb-0 f-size">Balanceados Contamos con varias marcas y variantes</p>
           </div>
         </div>
       </div>
@@ -134,13 +159,13 @@
     <div id="carouselExampleAutoplaying" class="carousel slide img-fluid" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="/public/assets/imagencarrusel.avif" class="d-block w-100" alt="...">
+          <img src="/public/assets/imagencarrusel.avif" class="d-block w-100 img-c" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="/public/assets/imagencarrusel2.avif" class="d-block w-100" alt="...">
+          <img src="/public/assets/imagencarrusel2.avif" class="d-block w-100 img-c" alt="...">
         </div>
         <div class="carousel-item">
-          <img src="/public/assets/imagencarrusel3.avif" class="d-block w-100" alt="...">
+          <img src="/public/assets/imagencarrusel3.avif" class="d-block w-100 img-c" alt="...">
         </div>
       </div>
       <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
@@ -161,33 +186,42 @@
       <h3 class="text-center pt-5 pb-4  lato-bold uppercase">Testimonios</h3>
       <section class="contenedor-tarjetas">
         <article class="tarjeta">
-          <div>
+          <div class="contenedor-superpuesto">
+            <div class="overlay-fondo"></div>
+            <img style="position: absolute; right: 0%;" src="/public/assets/testimonio3.webp" alt="Foto testimonio"
+              class="imagen-testimonio">
             <p class="parrafo-testimonio lato-bold">
               Llevé a mi perrita Luna por una revisión y quedé encantada. El trato fue súper humano, se nota que aman a
               los animales. Ahora no la llevo a otro lugar. ¡Gracias por cuidarla tanto! — María G., dueña de Luna
             </p>
           </div>
-          <img class="img-testimonio" src="/public/assets/testimonio3.webp" alt="testimonio">
         </article>
 
+
         <article class="tarjeta">
-          <div>
+          <div class="contenedor-superpuesto">
+            <div class="overlay-fondo"></div>
+            <img style="position: absolute; right: 0;" src="/public/assets/testimonio2.webp" alt="Foto testimonio"
+              class="imagen-testimonio">
             <p class="parrafo-testimonio lato-bold">
               Mi perro Max odia ir al veterinario, pero acá entró moviendo la cola. El equipo fue súper paciente y
               profesional. Lo revisaron sin estrés y hasta le dieron una galletita. ¡Mil gracias!" — Carlos M., papá de
               Max
             </p>
           </div>
-          <img class="img-testimonio" src="/public/assets/testimonio2.webp" alt="testimonio">
         </article>
+
         <article class="tarjeta">
-          <div>
+          <div class="contenedor-superpuesto">
+            <div class="overlay-fondo"></div>
+            <img style="position: absolute; right: 0;" src="/public/assets/testimonio1.webp" alt="Foto testimonio"
+              class="imagen-testimonio">
             <p class="parrafo-testimonio lato-bold">
               Mi conejito se llama Copito. Estaba triste y no comía, pero en la veterinaria lo cuidaron mucho. Ahora
               está feliz otra vez. ¡Gracias por ayudar a Copito!" — Santi, 8 años
+
             </p>
           </div>
-          <img class="img-testimonio" src="/public/assets/testimonio1.webp" alt="testimonio">
         </article>
       </section>
     </section>
@@ -200,25 +234,35 @@
           <div class="contenedor-nav">
 
 
-            <a href="/index.html" class="home" title="Inicio">
+            <a href="inicio.html" class="home" title="Inicio">
               <img src="/public/assets/icons/mdi-light_home (1).svg" alt="home">
               <span>INICIO</span>
             </a>
 
-            <a href="/pages/login/login.html" class="ingresar" title="Ingresar">
+            <a href="ingresar.html" class="ingresar" title="Ingresar">
               <img src="/public/assets/icons/qlementine-icons_user-24.svg" alt="">
               <span>INGRESAR</span>
             </a>
 
-            <a href="/pages/carrito/carrito.html" class="carrito" title="Carrito">
+            <a href="carrito.html" class="carrito" title="Carrito">
               <img src="/public/assets/icons/carrito.svg" alt="carro">
               <span>CARRITO</span>
             </a>
 
           </div>
 
+          <div class="contenedor-navPc">
+            <ul>
+              <li> <img src="/public/assets/img/patitaGatoPerroLogo 2.svg" alt="logo"></li>
+              <li><span>TODOS LOS DERECHOS RESERVADOS</span></li>
+              <li><span>Veterinaria@gmail.com</span></li>
+            </ul>
+          </div>
+        </div>
+
         </div>
       </footer>
+
 
       <script type="module" src="/src/main.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"

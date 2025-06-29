@@ -105,17 +105,17 @@ header {
   right: 42px;
   background: none;
   border: none;
-  cursor: pointer;
   display: flex;
+  cursor: pointer;
   align-items: center;
 }
 
-/* Menú desplegable */
+/* Menú desplegableee*/
 .menu-desplegable {
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
   bottom: 0;
   background-color: #8F108D;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -524,7 +524,7 @@ footer {
   }
 
   .imagen-banner {
-    height: 70vh;
+    height: 45vh;
   }
 
 }
@@ -581,6 +581,9 @@ footer {
 .contenedor-navPc ul {
   gap: 320px;
 }
+ .imagen-banner {
+    height: 60vh;
+  }
   
 }
 
@@ -689,3 +692,5 @@ footer {
     
 }
 }
+
+
