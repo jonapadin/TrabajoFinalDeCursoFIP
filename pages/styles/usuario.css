@@ -335,9 +335,9 @@ body {
      }
 
      .veterinaria-img {
-  height:270px;
+       height:270px;
 }
-.btn-cita {
+    .btn-cita {
 
   padding: 20px 40px;
 
@@ -411,7 +411,7 @@ body {
        .banner-chat {
          height: 380px;
        }
-           .service-img {
+     .service-img {
       height: 200px;
     }
      }
