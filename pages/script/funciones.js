@@ -1,6 +1,6 @@
 export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, altImg, idUnico, stock) {
     const card = document.createElement("DIV");
-    card.className = "card";
+    card.className = "card tarjeta-producto";
 
     const imagenProducto = document.createElement("IMG");
     imagenProducto.className = "imgProducto";
@@ -25,31 +25,26 @@ export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, al
     btnCompra.textContent = stockNum > 0 ? `Comprar (${stockNum} disponibles)` : "Sin stock";
     btnCompra.className = `btn-Compra`;
 
-    // mensaje agotado 
+
 
 
     //cambiar colores de la card si esta agotado 
     if (!stockNum) {
         card.classList.add("background-sin-stock");
         const agotado = document.createElement("DIV");
-      
+
 
         const pAgotado = document.createElement("P");
-          pAgotado.classList.add("aviso")
+        pAgotado.classList.add("sin-stock", "back")
         pAgotado.textContent = "Producto Agotado!";
 
         agotado.appendChild(pAgotado);
-        card.appendChild(pAgotado)
+        card.appendChild(agotado)
     } else {
         card.classList.remove("background-sin-stock");
     }
 
-
-
-
-
-
-    // Asignar atributos data-* para info del producto
+    // Asignar atributos para info del producto
     btnCompra.dataset.id = idUnico;
     btnCompra.dataset.imagen = imagenSrc;
     btnCompra.dataset.marca = titulo;
@@ -63,10 +58,9 @@ export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, al
         btnCompra.disabled = true;
     }
 
-    // Modal de notificacion
-
 
     btnCompra.addEventListener("click", () => {
+        // Modal de notificacion
         const modal = document.createElement("DIV");
         modal.classList.add('notificacion');
         const mensaje = document.createElement("P");
@@ -75,7 +69,7 @@ export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, al
         //agregar modal al documento
         document.body.appendChild(modal);
 
-        // Opcional: eliminar el modal después de 3 segundos
+        //eliminar el modal después de 3 segundos
         setTimeout(() => {
             modal.remove();
         }, 1500);
