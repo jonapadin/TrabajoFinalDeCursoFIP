@@ -9,6 +9,7 @@ body {
   background-color: #F5F6FA;
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 
@@ -16,6 +17,23 @@ body {
 header {
   background-color: #8F108D;
 
+}
+
+/* modal */
+.notificacion {
+  top: 80px;
+  right: 6px;
+  z-index: 1000;
+  position: fixed;
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  padding: 0px 5px;
+  border-radius: 8px;
+}
+
+.notificacion p {
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .fondo-blanco {
@@ -241,6 +259,22 @@ footer {
 }
 
 
+.background-sin-stock{
+  filter: grayscale();
+}
+
+.aviso {
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  backdrop-filter: blur(8px);
+  color: #F5F6FA;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  transform: translateY(50%);
+}
+
 .card {
   max-width: 150px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -335,6 +369,40 @@ footer {
   header {
     width: 100%;
   }
+
+.aviso {
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.9) !important;
+  backdrop-filter: blur(8px);
+  color: #F5F6FA;
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  left: 0;
+  transform: translateY(40%);
+  font-size: 18px !important;
+  padding: 20px 0 !important;
+}
+  /* modal */
+  .notificacion {
+    top: 84px;
+    right: 6px;
+    z-index: 1000;
+    position: fixed;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(8px);
+    padding: 0px 5px;
+    border-radius: 8px;
+    width: 400px;
+  }
+
+  .notificacion p {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+  }
+
 
   /* estilos navbar */
 
@@ -461,7 +529,7 @@ footer {
   dl,
   ol,
   ul {
-    margin-top: 12px;
+    margin-top: 20px;
   }
 
 
@@ -469,7 +537,7 @@ footer {
     margin-bottom: 8px;
   }
 
-    .imagen-banner {
+  .imagen-banner {
     height: 45vh;
   }
 
@@ -514,7 +582,7 @@ footer {
 
 
 
-   /* footer */
+  /* footer */
 
   footer {
     position: static;
@@ -546,6 +614,11 @@ footer {
 
   }
 
+  .contenedor-navPc ul li span {
+    font-weight: bold;
+    font-size: 16px
+  }
+
   .contenedor-navPc img {
     width: 60px;
   }
@@ -574,6 +647,12 @@ footer {
 
   .input-buscador {
     margin-left: 20px;
+    height: 35px;
+    width: 300px;
+  }
+
+  .boton-lupa img {
+    width: 28px;
   }
 
   .container-enlaces {
@@ -584,16 +663,8 @@ footer {
 
 
   .izquierda ul {
-    font-size: 16px;
+
     margin-left: 20px;
-  }
-
-  .container-1 a {
-    font-size: 16px;
-  }
-
-  .container-2 a {
-    font-size: 16px;
   }
 
 
@@ -614,19 +685,23 @@ footer {
     padding: 0;
   }
 
-  .containerDesc h2,span{
+  .containerDesc h2,
+  span {
     font-size: 14px;
   }
-  .containerDesc h4,span{ 
+
+  .containerDesc h4,
+  span {
     font-size: 12px;
   }
-  
+
   /* productos */
 
   .titulo {
     margin: 20px 0;
     padding-top: 10px;
   }
+
   .seccionAlimento {
     grid-template-columns: repeat(4, 1fr);
     padding: 0 40px;
