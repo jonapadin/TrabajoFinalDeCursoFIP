@@ -11,10 +11,11 @@ const btnRecuperar = document.getElementById("btn-enviar").addEventListener("cli
 
     document.body.appendChild(modal);
 
+
     setTimeout(() => {
         modal.remove();
-    }, 1500);
 
+    }, 1500);
 
 
 });
