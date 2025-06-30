@@ -1,11 +1,13 @@
 // seccion que mostramos al cargar el dom
 function mostrarSeccion(nombre) {
+  // Oculta todas las secciones
       document.getElementById("seccionUsuarios").style.display = "none";
       document.getElementById("seccionMascotas").style.display = "none";
       document.getElementById("seccionTurnos").style.display = "none";
       document.getElementById("seccionChat").style.display = "none";
       document.getElementById("seccionVentas").style.display = "none";
 
+      // Mostramos la sección indicada y carga sus datos
       if (nombre === "usuarios") {
         document.getElementById("seccionUsuarios").style.display = "block";
         cargarUsuarios();
@@ -24,7 +26,7 @@ function mostrarSeccion(nombre) {
       }
     }
 
-    // Mostrar seccion usuarios al cargar
+    // Mostrar seccion usuarios por defecto
     document.addEventListener("DOMContentLoaded", () => {
       mostrarSeccion("usuarios");
     });
@@ -41,7 +43,7 @@ function obtenerDeStorage(clave) {
 function cargarUsuarios() {
   const usuarios = obtenerDeStorage("usuarios");
   const tbody = document.getElementById("tablaUsuarios");
-  tbody.innerHTML = "";
+  tbody.innerHTML = ""; //Borramos el contenido que tenga para ingresar los nuevos
   usuarios.forEach(usuario => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
@@ -57,6 +59,7 @@ function cargarUsuarios() {
   });
 }
 
+// Evento al enviar el formulario de usuario (crear o editar)
 document.getElementById("formUsuario").addEventListener("submit", function (e) {
   e.preventDefault();
   const id = document.getElementById("usuarioId").value; // El id solo se usa si se edita un usuario
@@ -79,10 +82,12 @@ document.getElementById("formUsuario").addEventListener("submit", function (e) {
 
   guardarEnStorage("usuarios", usuarios);
   cargarUsuarios(); // Recargamos la lista de usuarios
-  bootstrap.Modal.getInstance(document.getElementById('modalUsuario')).hide(); // Cerrar modal
-  this.reset(); // Limpiar formulario
+  bootstrap.Modal.getInstance(document.getElementById('modalUsuario')).hide(); // Cierra el modal
+  this.reset(); // Limpia el formulario
 });
 
+
+// Carga un usuario en el formulario para edita
 function editarUsuario(id) {
   const u = obtenerDeStorage("usuarios").find(u => u.id === id);
   if (!u) return;
@@ -93,6 +98,7 @@ function editarUsuario(id) {
   new bootstrap.Modal(document.getElementById("modalUsuario")).show();
 }
 
+// Elimina un usuario luego de confirmación
 function eliminarUsuario(id) {
   if (confirm("¿Eliminar este usuario?")) {
     const usuarios = obtenerDeStorage("usuarios").filter(u => u.id !== id);
@@ -103,7 +109,7 @@ function eliminarUsuario(id) {
 
 // seccion mascotas
 function cargarMascotas() {
-  const cargarMascotas = obtenerDeStorage("cargarMascotas");
+  const cargarMascotas = obtenerDeStorage("mascotas"); //No esta aplicado ya que no esta creado en localStorage
   const tbody = document.getElementById("tablaMascotas");
   tbody.innerHTML = "";
   mascotas.forEach(mascotas => {
@@ -123,7 +129,7 @@ function cargarMascotas() {
 
 // seccion Turnos
 function cargarTurnos() {
-  const turnos = obtenerDeStorage("cargarTurnos"); // Corrección de variable
+  const turnos = obtenerDeStorage("turnos");
   const tbody = document.getElementById("tablaTurnos");
   tbody.innerHTML = "";
   turnos.forEach(t => {
@@ -146,11 +152,12 @@ function cargarTurnos() {
 
 
 // seccion chat
-function cargarChat() {
+function cargarChat() { // Inicializa la funcionalidad de chat con respuestas automáticas
 const chatForm = document.getElementById('chatForm');
     const messageInput = document.getElementById('messageInput');
     const chatBox = document.getElementById('chatBox');
 
+  // Agrega un mensaje al chat (usuario o bot)
     function addMessage(text, sender = 'user') {
       const msg = document.createElement('div');
       msg.classList.add('message', sender);
@@ -159,11 +166,12 @@ const chatForm = document.getElementById('chatForm');
       chatBox.scrollTop = chatBox.scrollHeight;
     }
 
+    // Envío del mensaje
     chatForm.addEventListener('submit', (e) => {
       e.preventDefault();
       const text = messageInput.value.trim();
       if (text !== '') {
-        addMessage(text, 'user');
+        addMessage(text, 'user'); // Mensaje del usuario
         messageInput.value = '';
 
         // Simulación de respuesta automática
@@ -176,7 +184,7 @@ const chatForm = document.getElementById('chatForm');
 
 // seccion ventas
 function cargarVentas() {
-  const carrito = obtenerDeStorage("carrito");
+  const carrito = obtenerDeStorage("carrito"); // Carga el historial de ventas desde el carrito guardado
   const tbody = document.getElementById("tablaVentas");
   tbody.innerHTML = "";
   carrito.forEach(carrito => {
