@@ -263,7 +263,8 @@ footer {
   filter: grayscale();
 }
 
-.aviso {
+
+.sin-stock {
   height: auto;
   background-color: rgba(0, 0, 0, 0.9) !important;
   backdrop-filter: blur(8px);
@@ -271,11 +272,17 @@ footer {
   width: 100%;
   position: absolute;
   text-align: center;
-  top: 50%;
-  transform: translateY(50%);
+  top: 40%;
+  left: 0;
+  transform: translateY(40%);
+  font-size: 18px !important;
+  padding: 20px 0 !important;
+  z-index: 10;
 }
 
+
 .card {
+  position: relative;
   max-width: 150px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 0px 16px 8px 16px;
@@ -343,9 +350,17 @@ footer {
   }
 }
 
+
+
 @media screen and (max-width: 600px) {
   html {
     height: 100dvh;
+  }
+    .sin-stock {
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px !important;
+    padding: 15px 0 !important;
   }
 }
 
@@ -370,20 +385,7 @@ footer {
     width: 100%;
   }
 
-.aviso {
-  height: auto;
-  background-color: rgba(0, 0, 0, 0.9) !important;
-  backdrop-filter: blur(8px);
-  color: #F5F6FA;
-  width: 100%;
-  position: absolute;
-  text-align: center;
-  top: 40%;
-  left: 0;
-  transform: translateY(40%);
-  font-size: 18px !important;
-  padding: 20px 0 !important;
-}
+
   /* modal */
   .notificacion {
     top: 84px;
@@ -563,6 +565,8 @@ footer {
   }
 
   .card {
+      position: relative;
+  overflow: hidden;
     max-width: 300px;
     margin-bottom: 50px;
   }

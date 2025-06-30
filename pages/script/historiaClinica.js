@@ -15,17 +15,20 @@
       peso: "4.5 kg",
       historial: "Esterilizada, controles anuales"
     }
-    // Acá agregar más mascotas
+    // Acá agregar más mascotas de ejemplo, luego hay que cambiarlo para usar localStorage
   ];
 
   const acordeonMascotas = document.getElementById("acordeonMascotas");
 
+  // Recorre cada mascota y genera un item del acordeón
   mascotas.forEach((mascota, index) => {
     const collapseId = `mascota${index}`;
     const headerId = `cabecera${index}`;
 
+    // Crea un div para la mascota con clases de estilo de Bootstrap
     const item = document.createElement("div");
     item.className = "accordion-item shadow-sm mb-3";
+    // Define el contenido HTML del acordeón para esta mascota
     item.innerHTML = `
       <h2 class="accordion-header" id="${headerId}">
         <button class="accordion-button collapsed" type="button"
@@ -48,5 +51,6 @@
         </div>
       </div>
     `;
+    // Agrega el item del acordeón al contenedor
     acordeonMascotas.appendChild(item);
   });
