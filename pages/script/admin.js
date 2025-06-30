@@ -163,7 +163,7 @@ const chatForm = document.getElementById('chatForm');
       msg.classList.add('message', sender);
       msg.textContent = text;
       chatBox.appendChild(msg);
-      chatBox.scrollTop = chatBox.scrollHeight;
+      chatBox.scrollTop = chatBox.scrollHeight; //el área de chat se desplaza automáticamente hacia abajo para mostrar el último mensaje que se agregó
     }
 
     // Envío del mensaje
