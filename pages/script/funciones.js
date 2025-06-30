@@ -49,6 +49,7 @@ export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, al
     btnCompra.dataset.imagen = imagenSrc;
     btnCompra.dataset.marca = titulo;
     btnCompra.dataset.precio = precio;
+    btnCompra.dataset.descripcion = descripcion;
     btnCompra.dataset.stock = stockNum;       // stock restante (inicial)
     btnCompra.dataset.stockTotal = stockNum;  // stock original
 
