@@ -31,6 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    //Login de Admin
+        // Validación: contraseña incorrecta
+    if (emailIngresado === "veterinaria@gmail.com" &&  passIngresado === "Admin") {
+      window.location.href = "http://localhost:5173/pages/admin.html";
+      return;
+    }
+
     // Login exitoso
     localStorage.setItem("usuarioActivo", JSON.stringify(usuarioEncontrado));
     localStorage.setItem("usuarioAutenticado", "true");
