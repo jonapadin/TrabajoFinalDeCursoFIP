@@ -494,8 +494,8 @@ footer {
 
   .seccion-categorias h5 {
     text-transform: uppercase;
-    padding-left: 15px;
     padding-bottom: 15px;
+    text-align: center
   }
 
   .banner-categoria {
@@ -646,9 +646,7 @@ footer {
     height: 200px;
   }
 
-  .contenedor-navPc ul {
-    gap: 260px;
-  }
+
 
   .ml-4 {
     font-size: bold 3px;
@@ -715,9 +713,7 @@ footer {
     height: 24vh;
   }
 
-  .contenedor-navPc ul {
-    gap: 350px;
-  }
+
 }
 
 @media screen and (min-width: 1600px) {
@@ -749,7 +745,7 @@ footer {
   }
 
   .seccion-categorias h5 {
-    padding: 20px 15px;
+    padding: 20px 0;
   }
 
   .contenedor-categorias {
@@ -763,9 +759,7 @@ footer {
   }
 
 
-  .contenedor-navPc ul {
-    gap: 400px;
-  }
+
 
 }
 
@@ -819,14 +813,10 @@ footer {
 
   .seccion-categorias h5 {
     padding-top: 30px;
-    padding-left: 40px;
     padding-bottom: 0px;
     font-size: 30px;
   }
 
 
-  .contenedor-navPc ul {
-    gap: 550px;
-  }
 
 }

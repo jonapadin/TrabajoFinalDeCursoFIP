@@ -526,8 +526,11 @@ footer {
     justify-content: space-between;
     gap: 200px;
     padding-right: 60px;
-
   }
+
+    .contenedor-navPc ul li span {
+      font-weight: bold
+    }
 
 .contenedor-navPc img{
   width: 60px;
@@ -649,11 +652,7 @@ footer {
   font-size: 16px;
 }
 
-.contenedor-navPc ul{
-  gap: 400px;
-  
-  
-}
+
 }
 
 @media screen and (min-width: 1600px) {
@@ -670,10 +669,7 @@ footer {
     margin-left: 40px;
     width: 440px;
   }
-  .contenedor-navPc ul{
-  gap: 450px;  
-  
-}
+
 }
 
 @media screen and (min-width: 1920px) {
@@ -695,8 +691,5 @@ footer {
     margin-left: 0px;
     width: 440px;
   }
-  .contenedor-navPc ul{
-  gap: 550px;
-    
-}
+
 }

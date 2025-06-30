@@ -492,7 +492,9 @@ footer {
 
   }
 
-  .contenedor-navPc ul li span {}
+  .contenedor-navPc ul li span {
+    font-weight: bold
+  }
 
   .contenedor-navPc img {
     width: 60px;
