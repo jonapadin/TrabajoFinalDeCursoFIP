@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
 
     // Alimento
-    const productosPerro = dataProduct[0]?.categoria?.Perro.Alimento;
+    const productosPerro = dataProduct[0]?.categoria?.Exotico.Alimento;
     if (!productosPerro) {
         console.log("No se encontro la categoria Alimento");
         return;
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 
     // Accesorios
-    const accesorios = dataProduct[0]?.categoria?.Perro.Accesorios;
+    const accesorios = dataProduct[0]?.categoria?.Exotico.Accesorios;
     if (!accesorios) {
         console.warn("No se encontro la categoria Accesorios");
         return;
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     // Estetica e Higiene
-    const productosEstetica = dataProduct[0]?.categoria?.Perro.Estética_e_Higiene;
+    const productosEstetica = dataProduct[0]?.categoria?.Exotico.Estética_e_Higiene;
     if (!productosEstetica) {
         console.warn("No se encontro la categoria Estetica e Higiene");
         return;
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
 
     // Salud
-    const productosSalud = dataProduct[0]?.categoria?.Perro.Salud;
+    const productosSalud = dataProduct[0]?.categoria?.Exotico.Salud;
     if (!productosSalud) {
         console.warn("No se encontro la categoria Salud");
         return;
@@ -203,7 +203,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             }
 
             // Guardar estado actualizado
-            const stocksGuardados = JSON.parse(localStorage.getItem("stocks")) || [];
+            const stocksGuardados = JSON.parse(localStorage.getItem("stocks")) || {};
             stocksGuardados[id] = stockRestante;
             localStorage.setItem("stocks", JSON.stringify(stocksGuardados));
             localStorage.setItem("carrito", JSON.stringify(carrito));

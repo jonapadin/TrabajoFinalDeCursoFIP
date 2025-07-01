@@ -1,4 +1,4 @@
-export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, altImg, idUnico, stock) {
+export const crearTarjeta = (titulo, descripcion, infPago, precio, imagenSrc, altImg, idUnico, stock) => {
     const card = document.createElement("DIV");
     card.className = "card tarjeta-producto";
 
@@ -35,8 +35,6 @@ export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, al
 
     btnCompra.textContent = stockNum > 0 ? `Comprar (${stockNum} disponibles)` : "Sin stock";
     btnCompra.className = `btn-Compra`;
-
-
 
 
     //cambiar colores de la card si esta agotado 
@@ -104,7 +102,7 @@ export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, al
 }
 
 // crear titulo
-export function crearTitulo(texto, clases = []) {
+export const crearTitulo =(texto, clases = []) => {
     const titulo = document.createElement("H2");
     titulo.textContent = texto;
     if (Array.isArray(clases)) {
