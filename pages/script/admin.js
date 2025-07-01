@@ -112,20 +112,60 @@ function cargarMascotas() {
   const cargarMascotas = obtenerDeStorage("mascotas"); //No esta aplicado ya que no esta creado en localStorage
   const tbody = document.getElementById("tablaMascotas");
   tbody.innerHTML = "";
-  mascotas.forEach(mascotas => {
+  cargarMascotas.forEach(m => {
     const tr = document.createElement("tr");
     tr.innerHTML = `
       <td>${m.nombre}</td>
       <td>${m.especie}</td>
-      <td>${m.idDuenio}</td>
+      <td>${m.raza}</td>
+      <td>${m.edad}</td>
+      <td>${m.peso}</td>
+      <td>${m.descripcion}</td>
+      <td>${m.emailDuenio}</td>
       <td class="text-end">
-        <button class="btn btn-sm btn-outline-primary me-2" onclick="editarMascota('${m.idDuenio}')"><i class="bi bi-pencil"></i></button>
-        <button class="btn btn-sm btn-outline-danger" onclick="eliminarMascota('${m.idDuenio}')"><i class="bi bi-trash"></i></button>
+        <button class="btn btn-sm btn-outline-primary me-2" onclick="editarMascota('${m.emailDuenio}')"><i class="bi bi-pencil"></i></button>
+        <button class="btn btn-sm btn-outline-danger" onclick="eliminarMascota('${m.emailDuenio}')"><i class="bi bi-trash"></i></button>
       </td>
     `;
     tbody.appendChild(tr);
   });
 }
+
+// Evento al enviar el formulario de (crear o editar) mascota
+document.getElementById("formMascota").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const id = document.getElementById("mascotaId").value; // El id solo se usa si se edita un usuario
+  const nombre = document.getElementById("nombreMascota").value;
+  const especie = document.getElementById("especieMascota").value;
+  const raza = document.getElementById("razaMascota").value;
+  const edad = document.getElementById("edadMascota").value;
+  const peso = document.getElementById("pesoMascota").value;
+  const descripcion = document.getElementById("descripcionMascota").value;
+  const emailDuenio = document.getElementById("emailDuenio").value;
+  const mascotas = obtenerDeStorage("mascotas");
+
+  if (id) {
+    // Si ya existe un id, significa que es una edición
+    const u = mascotas.find(u => u.id === id);
+    if (u) {
+      u.nombre = nombre;
+      u.especie = especie;
+      u.raza = raza;
+      u.edad = edad;
+      u.peso = peso;
+      u.descripcion = descripcion;
+      u.emailDuenio = emailDuenio;
+    }
+  } else {
+    // Si no existe el id, es un nueva mascota, generamos uno nuevo con randomUUID
+    mascotas.push({ nombre, especie, raza , edad, peso, descripcion ,emailDuenio });
+  }
+
+  guardarEnStorage("mascotas", mascotas);
+  cargarMascotas(); // Recargamos la lista de mascotas
+  bootstrap.Modal.getInstance(document.getElementById('modalMascota')).hide(); // Cierra el modal
+  this.reset(); // Limpia el formulario
+});
 
 // seccion Turnos
 function cargarTurnos() {
@@ -184,7 +224,7 @@ const chatForm = document.getElementById('chatForm');
 
 // seccion ventas
 function cargarVentas() {
-  const carrito = obtenerDeStorage("carrito"); // Carga el historial de ventas desde el carrito guardado
+  const carrito = obtenerDeStorage("compraInvitado"); // Carga el historial de ventas desde el carrito guardado
   const tbody = document.getElementById("tablaVentas");
   tbody.innerHTML = "";
   carrito.forEach(carrito => {
@@ -192,11 +232,12 @@ function cargarVentas() {
     tr.innerHTML = `
       <td>${carrito.nombre}</td>
       <td>${carrito.email}</td>
-      <td>${carrito.id}</td>
-      <td>${carrito.id}</td>
+      <td>${carrito.fechaCompra}</td>
+      <td>${carrito.direccion}</td>
+      <td>${carrito.direccion}</td>
       <td class="text-end">
-        <button class="btn btn-sm btn-outline-primary me-2" onclick="editarCarrito('${carrito.id}')"><i class="bi bi-pencil"></i></button>
-        <button class="btn btn-sm btn-outline-danger" onclick="eliminarCarrito('${carrito.id}')"><i class="bi bi-trash"></i></button>
+        <button class="btn btn-sm btn-outline-primary me-2" onclick="editarCarrito('${carrito.dni}')"><i class="bi bi-pencil"></i></button>
+        <button class="btn btn-sm btn-outline-danger" onclick="eliminarCarrito('${carrito.dni}')"><i class="bi bi-trash"></i></button>
       </td>
     `;
     tbody.appendChild(tr);

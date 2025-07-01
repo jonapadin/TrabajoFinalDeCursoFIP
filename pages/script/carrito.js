@@ -220,14 +220,14 @@ document.addEventListener("DOMContentLoaded", () => {
                         return;
                     }
 
-                    const datosInvitado = {
+                    const datosInvitado = [{
                         nombre,
                         email,
                         direccion,
                         telefono,
                         dni,
                         fechaCompra: new Date().toISOString()
-                    };
+                    }];
 
                     localStorage.setItem("compraInvitado", JSON.stringify(datosInvitado));
 
