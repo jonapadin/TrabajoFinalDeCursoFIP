@@ -10,34 +10,38 @@
 </head>
 
 <body>
-<main>
-    
-    <div class="flecha">
-        <button type="button"> <img src="/public/assets/icons/line-md_arrow-left.svg" alt="flecha"
-                onclick="window.history.back()">
-        </button>
-    </div>
-    <h1>Carrito</h1>
+    <main>
 
-
-    <div id="contenedor-carrito"></div>
-
-    <!-- Template para producto -->
-    <template id="template-producto">
-        <div class="item-carrito">
-            <img src="/public/assets/productGato/7vidas.webp" alt="gato" width="80">
-            <h3></h3>
-            <p class="descripcion"></p>
-            <p class="precio"></p>
-            <div>
-                <button>-</button>
-                <input style="width: 20px;" readonly type="text" placeholder="0">
-                <button>+</button>
-            </div>
+        <div class="flecha">
+            <button type="button"> <img src="/public/assets/icons/line-md_arrow-left.svg" alt="flecha"
+                    onclick="window.history.back()">
+            </button>
         </div>
-    </template>
+        <h1>Carrito</h1>
 
-    <script type="module" src="/pages/script/carrito.js"></script>
+
+        <div id="contenedor-carrito"></div>
+
+        <!-- Template para producto -->
+        <template id="template-producto">
+            <section>
+                <div class="contenedor-tarjeta">
+                    <img src="" alt="">
+                    <div class="contenedor-info-tarj">
+                        <h3></h3>
+                        <p class="descripcion"></p>
+                        <p class="precio"></p>
+                        <div class="contenedor-botones">
+                            <button id="btn-decrementar">-</button>
+                            <input type="text" readonly value="0">
+                            <button id="btn-incrementar">+</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </template>
+
+        <script type="module" src="/pages/script/carrito.js"></script>
 </body>
 
 </html>
