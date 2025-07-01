@@ -202,3 +202,11 @@ function cargarVentas() {
     tbody.appendChild(tr);
   });
 }
+
+
+// Cierra sesión eliminando los datos del usuario activo
+function cerrarSesion() {
+  localStorage.removeItem("usuarioActivo");
+  localStorage.removeItem("perfilUsuario");
+  window.location.href = "/pages/login/login.html";
+}
