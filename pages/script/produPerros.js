@@ -159,10 +159,10 @@ document.addEventListener("DOMContentLoaded", async function () {
                     carrito[indexExistente].cantidad += 1;
 
                     const cantidad = carrito[indexExistente].cantidad;
-                    const precio = carrito[indexExistente].precio;
+                    const precio = parseFloat(carrito[indexExistente].precio); // <- forzamos a número
                     const subtotal = cantidad * precio;
 
-                    // Actualizar el subtotal si lo manejas en el objeto
+                    carrito[indexExistente].precio = precio; // nos aseguramos que ya sea numérico
                     carrito[indexExistente].subtotal = subtotal;
 
                     console.log("Cantidad actual:", cantidad);
@@ -171,21 +171,20 @@ document.addEventListener("DOMContentLoaded", async function () {
                     alert("No se puede agregar más de este producto. Stock máximo alcanzado.");
                     return;
                 }
-            }
-            else {
+            } else {
+                const precioNumerico = parseFloat(precio); // <- también aquí
                 carrito.push({
                     id,
                     img,
                     marca,
-                    precio: precio,
+                    precio: precioNumerico,
                     descripcion: descripcion,
                     stock: stockTotal,
                     cantidad: 1,
-                    subtotal: precio
+                    subtotal: precioNumerico
                 });
                 stockRestante -= 1;
             }
-
             // Actualizar botón
             event.target.dataset.stock = stockRestante;
             event.target.textContent = stockRestante > 0
