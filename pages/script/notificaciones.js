@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   
-  // Función que va vargar notificaciones desde localStorage
+  // Función que va cargar notificaciones desde localStorage
   function loadNotifications() {
     return JSON.parse(localStorage.getItem('notifications') || '[]');
   }
