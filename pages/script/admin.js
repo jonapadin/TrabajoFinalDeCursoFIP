@@ -49,7 +49,7 @@ function cargarUsuarios() {
     tr.innerHTML = `
       <td>${usuario.nombre}</td>
       <td>${usuario.email}</td>
-      <td>${usuario.id}</td>
+      <td>${usuario.telefono}</td>
       <td class="text-end">
         <button class="btn btn-sm btn-outline-primary me-2" onclick="editarUsuario('${usuario.id}')"><i class="bi bi-pencil"></i></button>
         <button class="btn btn-sm btn-outline-danger" onclick="eliminarUsuario('${usuario.id}')"><i class="bi bi-trash"></i></button>
@@ -74,6 +74,7 @@ formUsuario.addEventListener("submit", function (e) {
   const id = document.getElementById("usuarioId").value; // El id solo se usa si se edita un usuario
   const nombre = document.getElementById("nombreUsuario").value;
   const email = document.getElementById("emailUsuario").value;
+  const telefono = document.getElementById("telefonoUsuario").value;
   const usuarios = obtenerDeStorage("usuarios");
 
   if (id) {
@@ -82,11 +83,12 @@ formUsuario.addEventListener("submit", function (e) {
     if (u) {
       u.nombre = nombre;
       u.email = email;
+      u.telefono = telefono;
     }
   } else {
     // Si no existe el id, es un nuevo usuario, generamos uno nuevo con randomUUID
     const nuevoId = window.crypto.randomUUID();
-    usuarios.push({ id: nuevoId, nombre, email });
+    usuarios.push({ id: nuevoId, nombre, email, telefono });
   }
 
   guardarEnStorage("usuarios", usuarios);
