@@ -73,5 +73,17 @@ button {
   background: none;
   border: none;
 }
-
-
+.containerMensaje {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #f3e5f5; /* púrpura clarito */
+  color: #4a004a; /* púrpura oscuro */
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}

@@ -1,6 +1,6 @@
 export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, altImg, idUnico, stock) {
     const card = document.createElement("DIV");
-    card.className = "card";
+    card.className = "card tarjeta-producto";
 
     const imagenProducto = document.createElement("IMG");
     imagenProducto.className = "imgProducto";
@@ -17,26 +17,77 @@ export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, al
     p.textContent = infPago;
 
     const span = document.createElement("SPAN");
-    span.textContent = `$ ${precio}`;
+
+    // Asegurarse que el precio es número
+    const precioNumerico = parseFloat(precio.toString().replace(/\./g, "").replace(",", "."));
+
+    // Formatearlo como ARS
+    const formateadorARS = new Intl.NumberFormat("es-AR", {
+        style: "currency",
+        currency: "ARS",
+        minimumFractionDigits: 2
+    });
+
+    span.textContent = formateadorARS.format(precioNumerico);
 
     const btnCompra = document.createElement("BUTTON");
     const stockNum = Number(stock) || 0;  // Validar stock para que sea número
 
     btnCompra.textContent = stockNum > 0 ? `Comprar (${stockNum} disponibles)` : "Sin stock";
-    btnCompra.className = "btn-Compra";
+    btnCompra.className = `btn-Compra`;
 
-    // Asignar atributos data-* para info del producto
+
+
+
+    //cambiar colores de la card si esta agotado 
+    if (!stockNum) {
+        card.classList.add("background-sin-stock");
+        const agotado = document.createElement("DIV");
+
+
+        const pAgotado = document.createElement("P");
+        pAgotado.classList.add("sin-stock", "back")
+        pAgotado.textContent = "Producto Agotado!";
+
+        agotado.appendChild(pAgotado);
+        card.appendChild(agotado)
+    } else {
+        card.classList.remove("background-sin-stock");
+    }
+
+    // Asignar atributos para info del producto
     btnCompra.dataset.id = idUnico;
     btnCompra.dataset.imagen = imagenSrc;
     btnCompra.dataset.marca = titulo;
     btnCompra.dataset.precio = precio;
+    btnCompra.dataset.descripcion = descripcion;
     btnCompra.dataset.stock = stockNum;       // stock restante (inicial)
     btnCompra.dataset.stockTotal = stockNum;  // stock original
+
 
     // Si no hay stock, deshabilitar botón
     if (stockNum <= 0) {
         btnCompra.disabled = true;
     }
+
+
+    btnCompra.addEventListener("click", () => {
+        // Modal de notificacion
+        const modal = document.createElement("DIV");
+        modal.classList.add('notificacion');
+        const mensaje = document.createElement("P");
+        mensaje.textContent = "✅Producto Agregado al carrito!";
+        modal.appendChild(mensaje);
+
+        document.body.appendChild(modal);
+
+        //eliminar el modal después de 3 segundos
+        setTimeout(() => {
+            modal.remove();
+        }, 1500);
+    })
+
+
 
     const containerDesc = document.createElement("DIV");
     containerDesc.className = "containerDesc";

@@ -82,6 +82,6 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log("datos guardados");
 
         formularioRegistro.reset();
-        window.location.href = "http://localhost:5173/pages/usuario";
+        window.location.href = "http://localhost:5173/pages/login/login.html"
     });
 });

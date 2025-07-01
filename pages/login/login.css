@@ -12,10 +12,8 @@ body {
 }
 
 .container-login {
-  border: 2px solid #aba5a5;
   width: 300px;
   padding: 40px 20px;
-  border-radius: 10px;
   text-align: center;
 }
 
@@ -57,7 +55,7 @@ body {
   text-align: center;
   text-decoration: none;
   color: #545353;
-  
+
 }
 
 .ingreso-registro {
@@ -66,7 +64,8 @@ body {
   gap: 40px;
 }
 
-button, a {
+button,
+a {
   padding: 12px;
   border-radius: 6px;
   font-weight: bold;
@@ -100,4 +99,47 @@ button, a {
 .flecha button {
   background: none;
   border: none;
+}
+
+@media screen and (min-width: 1024px) {
+  .container-login {
+    border-radius: 10px;
+    border: 2px solid #aba5a5;
+
+  }
+
+}
+@media screen and (min-width: 1280px) {
+  .container-login {
+    border-radius: 10px;
+    border: 2px solid #aba5a5;
+
+  }
+
+}
+
+@media screen and (min-width: 1440px) {
+  .container-login {
+    border-radius: 10px;
+    border: 2px solid #aba5a5;
+
+  }
+
+  
+}
+@media screen and (min-width: 1600px) {
+  .container-login {
+    border-radius: 10px;
+    border: 2px solid #aba5a5;
+
+  }
+
+}
+@media screen and (min-width: 1920px) {
+  .container-login {
+    border-radius: 10px;
+    border: 2px solid #aba5a5;
+
+  }
+
 }

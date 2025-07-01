@@ -1,50 +1,216 @@
 body {
     font-family: Arial, sans-serif;
     background-color: #f7f7f7;
-    padding: 20px;
-}
-
-#carrito-contenedor {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.item-carrito {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    padding: 16px;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.item-carrito img {
-    width: 100px;
-    height: auto;
-    border-radius: 8px;
-}
-
-.item-carrito h3 {
+    padding: 0;
     margin: 0;
-    font-size: 1.2em;
-    color: #8f108d;
 }
 
-.item-carrito p {
-    margin: 4px 0;
-    font-size: 0.95em;
-    color: #333;
+main {
+    margin-top: 20px;
+    padding: 0 10px;
 }
-.flecha {
-  position: absolute;
-  top: 20px;
-  left: 20px;
+
+main h1 {
+    text-align: center;
 }
 
 .flecha button {
-  background: none;
-  border: none;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
 }
+
+
+
+
+/* Estilos de la tarjeta del producto */
+section {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 10px 16px;
+    padding: 10px 0;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.contenedor-tarjeta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 16px;
+}
+
+.contenedor-tarjeta img {
+    width: 60px;
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+/* Info del producto */
+.contenedor-info-tarj {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 100%;
+}
+
+.contenedor-info-tarj h3 {
+    font-size: 16px;
+    margin: 0;
+    color: #333;
+}
+
+.contenedor-info-tarj .descripcion {
+    font-size: 13px;
+    color: #666;
+    margin: 0;
+}
+
+.contenedor-info-tarj .precio {
+    font-weight: bold;
+    color: #0f96f0;
+    margin: 0;
+}
+
+/* Controles de cantidad */
+.contenedor-botones {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.contenedor-botones input {
+    width: 30px;
+    text-align: center;
+    border: none;
+    background-color: #eee;
+    border-radius: 4px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Botones */
+.contenedor-botones button {
+    background-color: #0f96f0;
+    color: white;
+    border: none;
+    padding: 4px 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.contenedor-botones button:hover {
+    background-color: #0d7cd8;
+}
+
+.contenedor-botones button:focus {
+    outline: none;
+}
+
+/* carrito */
+.mensaje-vacio {
+    font-size: 1.2em;
+    color: #666;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.total {
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+}
+.btn-finalizar-compra {
+    width: 100%;
+    padding: 14px 8px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #0d7cd8;
+    border: none;
+    color: #f7f7f7;
+}
+
+@media screen and (min-width: 1024px) {
+    section {
+        max-width: 900px;
+        margin: 16px auto;
+        padding: 16px 24px;
+        border-radius: 10px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .contenedor-tarjeta {
+        display: flex;
+        align-items: flex-start;
+        gap: 24px;
+    }
+
+    .contenedor-tarjeta img {
+        width: 100px;
+        height: auto;
+        border-radius: 6px;
+    }
+
+    .contenedor-info-tarj {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 6px;
+    }
+
+    .contenedor-info-tarj h3 {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .contenedor-info-tarj .descripcion {
+        font-size: 14px;
+        color: #666;
+        margin: 0;
+    }
+
+    .contenedor-info-tarj .precio {
+        font-weight: bold;
+        font-size: 16px;
+        color: #0f96f0;
+        margin: 0;
+    }
+
+    .contenedor-botones {
+        margin-top: 12px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .contenedor-botones button {
+        background-color: #0f96f0;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        font-size: 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    .contenedor-botones button:hover {
+        background-color: #0d7cd8;
+    }
+
+    .contenedor-botones input {
+        width: 36px;
+        text-align: center;
+        background: #eee;
+        border: none;
+        border-radius: 4px;
+        font-weight: bold;
+    }
+}
+
