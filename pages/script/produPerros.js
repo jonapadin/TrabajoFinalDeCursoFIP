@@ -70,7 +70,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         );
         seccionAlimento.appendChild(tarjeta);
         contenedor.appendChild(seccionAlimento);
-    });
+    }); 
+
+
+
 
     // Accesorios
     const accesorios = dataProduct[0]?.categoria?.Perro.Accesorios;

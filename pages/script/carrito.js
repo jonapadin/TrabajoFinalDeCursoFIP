@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const contenedorCarrito = document.getElementById('contenedor-carrito');
+    contenedorCarrito.classList.add('contenedor-carrito')
     const template = document.getElementById('template-producto');
 
     let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
@@ -43,26 +44,13 @@ document.addEventListener("DOMContentLoaded", () => {
             // Crear fondo oscuro (overlay)
             const overlay = document.createElement("div");
             overlay.id = "modal-compra";
-            overlay.style.position = "fixed";
-            overlay.style.top = 0;
-            overlay.style.left = 0;
-            overlay.style.width = "100%";
-            overlay.style.height = "100%";
-            overlay.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-            overlay.style.display = "flex";
-            overlay.style.justifyContent = "center";
-            overlay.style.alignItems = "center";
-            overlay.style.zIndex = 9999;
+            overlay.classList.add("modal-compra");
 
             // Crear contenedor del modal
             const modal = document.createElement("div");
-            modal.style.background = "#fff";
-            modal.style.padding = "20px";
-            modal.style.borderRadius = "8px";
-            modal.style.width = "90%";
-            modal.style.maxWidth = "400px";
-            modal.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.3)";
-            modal.style.textAlign = "center";
+            modal.classList.add("modal-contenido");
+
+
 
             // Título
             const titulo = document.createElement("h2");
@@ -73,46 +61,35 @@ document.addEventListener("DOMContentLoaded", () => {
             const inputEmail = document.createElement("input");
             inputEmail.type = "email";
             inputEmail.placeholder = "Ingresar correo de usuario";
-            inputEmail.style.width = "100%";
-            inputEmail.style.margin = "10px 0";
-            inputEmail.style.padding = "10px";
-            inputEmail.style.border = "1px solid #ccc";
-            inputEmail.style.borderRadius = "4px";
+            inputEmail.classList.add("input-email");
             modal.appendChild(inputEmail);
 
             // Botón de iniciar sesión
             const btnLogin = document.createElement("button");
             btnLogin.textContent = "Iniciar sesión";
-            btnLogin.style.marginTop = "10px";
-            btnLogin.style.width = "100%";
-            btnLogin.style.padding = "10px";
-            btnLogin.style.backgroundColor = "#4CAF50";
-            btnLogin.style.color = "white";
-            btnLogin.style.border = "none";
-            btnLogin.style.borderRadius = "4px";
+            btnLogin.classList.add("btn-login");
+            modal.appendChild(btnLogin);
             btnLogin.addEventListener("click", () => {
                 alert(`Iniciando sesión con: ${inputEmail.value}`);
-                // Aquí podés redirigir o validar
                 overlay.remove();
             });
             modal.appendChild(btnLogin);
 
-            // Divider o texto
-            const divider = document.createElement("p");
-            divider.textContent = "o";
-            divider.style.margin = "10px 0";
-            modal.appendChild(divider);
+            // Separador
+            const separador = document.createElement("p");
+            separador.textContent = "o";
+            separador.style.margin = "10px 0";
+            modal.appendChild(separador);
 
             // Enlace para registrarse
             const linkRegistro = document.createElement("a");
             linkRegistro.href = "#";
             linkRegistro.textContent = "Registrar nueva cuenta";
-            linkRegistro.style.display = "block";
-            linkRegistro.style.marginBottom = "10px";
+            linkRegistro.classList.add("link-registro");
+            modal.appendChild(linkRegistro);
             linkRegistro.addEventListener("click", (e) => {
                 e.preventDefault();
-                alert("Redirigiendo a registro...");
-                // window.location.href = "/registro.html"
+                window.location.href = "http://localhost:5173/pages/login/registro/registro.html"
                 overlay.remove();
             });
             modal.appendChild(linkRegistro);
@@ -120,12 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Botón para comprar como invitado
             const btnInvitado = document.createElement("button");
             btnInvitado.textContent = "Comprar como invitado";
-            btnInvitado.style.width = "100%";
-            btnInvitado.style.padding = "10px";
-            btnInvitado.style.backgroundColor = "#007bff";
-            btnInvitado.style.color = "white";
-            btnInvitado.style.border = "none";
-            btnInvitado.style.borderRadius = "4px";
+            btnInvitado.classList.add('btn-invitado')
             btnInvitado.addEventListener("click", () => {
                 overlay.remove();
             });
@@ -133,27 +105,11 @@ document.addEventListener("DOMContentLoaded", () => {
             btnInvitado.addEventListener("click", () => {
                 overlay.remove(); // Cierra el modal anterior
 
-                // Crear segundo modal para datos de compra
+                // Modal para datos de compra
                 const modalCompra = document.createElement("div");
-                modalCompra.style.position = "fixed";
-                modalCompra.style.top = 0;
-                modalCompra.style.left = 0;
-                modalCompra.style.width = "100%";
-                modalCompra.style.height = "100%";
-                modalCompra.style.backgroundColor = "rgba(0, 0, 0, 0.5)";
-                modalCompra.style.display = "flex";
-                modalCompra.style.justifyContent = "center";
-                modalCompra.style.alignItems = "center";
-                modalCompra.style.zIndex = 9999;
-
+                modalCompra.classList.add('modal-compra')
                 const contenido = document.createElement("div");
-                contenido.style.background = "#fff";
-                contenido.style.padding = "20px";
-                contenido.style.borderRadius = "8px";
-                contenido.style.width = "90%";
-                contenido.style.maxWidth = "400px";
-                contenido.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.3)";
-                contenido.style.textAlign = "center";
+                contenido.classList.add('modal-contenido')
 
                 const titulo = document.createElement("h3");
                 titulo.textContent = "Datos de envío";
@@ -162,52 +118,38 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Campos de datos
                 const inputNombre = document.createElement("input");
                 inputNombre.placeholder = "Nombre completo";
-                inputNombre.style.width = "100%";
-                inputNombre.style.margin = "10px 0";
-                inputNombre.style.padding = "10px";
+                inputNombre.classList.add("input-datos-m");
                 contenido.appendChild(inputNombre);
 
                 const inputEmail = document.createElement("input");
                 inputEmail.type = "email";
                 inputEmail.placeholder = "Correo electrónico";
-                inputEmail.style.width = "100%";
-                inputEmail.style.marginBottom = "10px";
-                inputEmail.style.padding = "10px";
+                inputEmail.classList.add("input-datos-m");
                 contenido.appendChild(inputEmail);
 
                 const inputDireccion = document.createElement("input");
                 inputDireccion.placeholder = "Dirección de entrega";
-                inputDireccion.style.width = "100%";
-                inputDireccion.style.marginBottom = "15px";
-                inputDireccion.style.padding = "10px";
+                inputDireccion.classList.add("input-datos-m");
                 contenido.appendChild(inputDireccion);
 
                 const inputTelefono = document.createElement("input");
                 inputTelefono.type = "tel";
                 inputTelefono.placeholder = "Número de teléfono";
-                inputTelefono.style.width = "100%";
-                inputTelefono.style.marginBottom = "10px";
-                inputTelefono.style.padding = "10px";
+                inputTelefono.classList.add("input-datos-m");
                 contenido.appendChild(inputTelefono);
 
-                // DNI
                 const inputDNI = document.createElement("input");
                 inputDNI.type = "text";
                 inputDNI.placeholder = "DNI";
-                inputDNI.style.width = "100%";
-                inputDNI.style.marginBottom = "15px";
-                inputDNI.style.padding = "10px";
+                inputDNI.classList.add("input-datos-m");
                 contenido.appendChild(inputDNI);
 
                 // Botón finalizar
                 const btnConfirmar = document.createElement("button");
                 btnConfirmar.textContent = "Confirmar compra";
-                btnConfirmar.style.width = "100%";
-                btnConfirmar.style.padding = "10px";
-                btnConfirmar.style.backgroundColor = "#28a745";
-                btnConfirmar.style.color = "white";
-                btnConfirmar.style.border = "none";
-                btnConfirmar.style.borderRadius = "4px";
+                btnConfirmar.classList.add("btn-confirmar");
+                contenido.appendChild(btnConfirmar);
+
                 btnConfirmar.addEventListener("click", () => {
                     const nombre = inputNombre.value.trim();
                     const email = inputEmail.value.trim();
@@ -253,14 +195,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
             modal.appendChild(btnInvitado);
 
-            // Botón cerrar (opcional)
+            // Botón cerrar
             const btnCerrar = document.createElement("span");
             btnCerrar.textContent = "✖";
-            btnCerrar.style.position = "absolute";
-            btnCerrar.style.top = "15px";
-            btnCerrar.style.right = "20px";
-            btnCerrar.style.cursor = "pointer";
-            btnCerrar.style.fontSize = "18px";
+            btnCerrar.classList.add('btn-cerrar')
             btnCerrar.addEventListener("click", () => {
                 overlay.remove();
             });
