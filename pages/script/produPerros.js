@@ -200,7 +200,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             }
 
             // Guardar estado actualizado
-            const stocksGuardados = JSON.parse(localStorage.getItem("stocks")) || {};
+            const stocksGuardados = JSON.parse(localStorage.getItem("stocks")) || [];
             stocksGuardados[id] = stockRestante;
             localStorage.setItem("stocks", JSON.stringify(stocksGuardados));
             localStorage.setItem("carrito", JSON.stringify(carrito));

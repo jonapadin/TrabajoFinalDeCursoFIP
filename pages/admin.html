@@ -14,7 +14,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
 
   <!-- Calendario-->
-   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
 
   <style>
@@ -79,6 +79,9 @@
       border-radius: 8px;
       margin-bottom: 5px;
       max-width: 80%;
+    }
+    .table>:not(caption)>*>*{
+      padding: 0 !important;
     }
   </style>
 </head>
@@ -171,7 +174,6 @@
           <tr>
             <th>Mascota</th>
             <th>Fecha</th>
-            <th>Hora</th>
             <th>Motivo</th>
             <th>Dueño</th>
             <th class="text-end">Acciones</th>
@@ -210,7 +212,8 @@
     <!-- Sección Ventas -->
     <div id="seccionVentas" style="display: none;">
       <h3>Ventas</h3>
-      <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#modalUsuario">+ Gestionar Ventas</button>
+      <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#modalUsuario">+ Gestionar
+        Ventas</button>
 
       <!--Lupa de busqueda-->
       <div class="search-container">
@@ -220,19 +223,22 @@
         </button>
       </div>
 
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Email</th>
-            <th>Fecha</th>
-            <th>Pedido</th>
-            <th>Estado</th>
-            <th class="text-end">Acciones</th>
-          </tr>
-        </thead>
-        <tbody id="tablaVentas"></tbody>
-      </table>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nombre</th>
+              <th>Email</th>
+              <th>Fecha</th>
+              <th>Pedido</th>
+              <th>Estado</th>
+              <th class="text-end">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaVentas"></tbody>
+        </table>
+      </div>
+
     </div>
   </div>
 
@@ -291,6 +297,18 @@
             <input type="text" class="form-control" id="razaMascota" required />
           </div>
           <div class="mb-3">
+            <label class="form-label">Edad</label>
+            <input type="text" class="form-control" id="edadMascota" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Peso (En kg)</label>
+            <input type="number" class="form-control" id="pesoMascota" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Descripción</label>
+            <input type="text" class="form-control" id="descripcionMascota" required />
+          </div>
+          <div class="mb-3">
             <label class="form-label">Email Dueño</label>
             <input type="email" class="form-control" id="emailDuenio" required />
           </div>
@@ -323,75 +341,61 @@
             </select>
           </div>
           <div class="mb-3">
-            <label class="form-label">Fecha</label>
+            <label class="form-label">Fecha y hora</label>
             <input id="datepicker" class="form-control" placeholder="Seleccionar fecha y hora">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Motivo</label>
-              <select class="form-select">
-                <option selected disabled>Selecciona una opción</option>
-                <option value="1">Consulta general</option>
-                <option value="2">Chequeo médico</option>
-                <option value="3">Vacunación</option>
-                <option value="4">Castración</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Email Dueño</label>
-              <input type="email" class="form-control" id="emailDuenio" required />
-            </div>
           </div>
-          <div class="modal-footer">
-            <button type="submit" class="btn btn-primary w-100">Guardar</button>
-          </div>
-      </form>
-    </div>
-
-    <!-- Modal ventas
-  <div class="modal fade" id="modalTurno" tabindex="-1" aria-labelledby="modalTurnoLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <form class="modal-content" id="formTurno">
-        <div class="modal-header bg-primary text-white">
-          <h5 class="modal-title" id="modalTurnoLabel">Agregar Turno</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-        </div>
-        <div class="modal-body">
-          <input type="hidden" id="turnoId" />
           <div class="mb-3">
-            <label class="form-label">Mascota</label>
-            <select class="form-control" id="tipoMascota" required>
-              <option value="" disabled selected>Selecciona una especie</option>
-              <option value="perro">Perro</option>
-              <option value="gato">Gato</option>
-              <option value="ave">Ave</option>
-              <option value="otro">Otro</option>
+            <label class="form-label">Motivo</label>
+            <select class="form-control" id="tipoTurno" required>
+              <option value="" selected disabled>Selecciona una opción</option>
+              <option value="Consulta general">Consulta general</option>
+              <option value="Chequeo médico">Chequeo médico</option>
+              <option value="Vacunación">Vacunación</option>
+              <option value="Castración">Castración</option>
             </select>
           </div>
           <div class="mb-3">
-            <label class="form-label">Fecha</label>
+            <label class="form-label">Email Dueño</label>
+            <input type="email" class="form-control" id="emailTurno" required />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-primary w-100">Guardar</button>
+        </div>
+      </form>
+    </div>
+
+    <!-- Modal ventas -->
+  <div class="modal fade" id="modalVentas" tabindex="-1" aria-labelledby="modalVentasLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form class="modal-content" id="formVentas">
+        <div class="modal-header bg-primary text-white">
+          <h5 class="modal-title" id="modalVentasLabel">Gestionar Ventas</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="ventasId" />
+          <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="nombreVenta" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" id="emailCompra" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Fecha y hora</label>
             <input id="datepicker" class="form-control" placeholder="Seleccionar fecha y hora">
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Motivo</label>
-              <select class="form-select">
-                <option selected disabled>Selecciona una opción</option>
-                <option value="1">Consulta general</option>
-                <option value="2">Chequeo médico</option>
-                <option value="3">Vacunación</option>
-                <option value="4">Castración</option>
-              </select>
-            </div>
-            <div class="mb-3">
-              <label class="form-label">Email Dueño</label>
-              <input type="email" class="form-control" id="emailDuenio" required />
-            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Pedido</label>
+            <input type="text" class="form-control" id="pedidoCompra" required />
           </div>
           <div class="modal-footer">
             <button type="submit" class="btn btn-primary w-100">Guardar</button>
           </div>
       </form>
     </div>
-    -->
   </div>
 
   <!-- Scripts Bootstrap y JS propios -->
