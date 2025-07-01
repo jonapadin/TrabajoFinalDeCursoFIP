@@ -171,7 +171,6 @@
           <tr>
             <th>Mascota</th>
             <th>Fecha</th>
-            <th>Hora</th>
             <th>Motivo</th>
             <th>Dueño</th>
             <th class="text-end">Acciones</th>
@@ -335,22 +334,22 @@
             </select>
           </div>
           <div class="mb-3">
-            <label class="form-label">Fecha</label>
+            <label class="form-label">Fecha y hora</label>
             <input id="datepicker" class="form-control" placeholder="Seleccionar fecha y hora">
             </div>
             <div class="mb-3">
               <label class="form-label">Motivo</label>
-              <select class="form-select">
-                <option selected disabled>Selecciona una opción</option>
-                <option value="1">Consulta general</option>
-                <option value="2">Chequeo médico</option>
-                <option value="3">Vacunación</option>
-                <option value="4">Castración</option>
+              <select class="form-control" id="tipoTurno" required>
+                <option value="" selected disabled>Selecciona una opción</option>
+                <option value="Consulta general">Consulta general</option>
+                <option value="Chequeo médico">Chequeo médico</option>
+                <option value="Vacunación">Vacunación</option>
+                <option value="Castración">Castración</option>
               </select>
             </div>
             <div class="mb-3">
               <label class="form-label">Email Dueño</label>
-              <input type="email" class="form-control" id="emailDuenio" required />
+              <input type="email" class="form-control" id="emailTurno" required />
             </div>
           </div>
           <div class="modal-footer">

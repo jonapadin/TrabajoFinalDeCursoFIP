@@ -303,7 +303,7 @@ body {
       background-color: #f9f9f9;
     }
 
-    /* Icono de campana con alerta */
+    /* Icono de campana con alerta, lo vamos a implementar luego
     .notification-alert {
       position: relative;
     }
@@ -323,7 +323,7 @@ body {
       50% { transform: scale(1.4); opacity: 0.5; }
       100% { transform: scale(1); opacity: 1; }
     } 
-
+*/
       @media (min-width: 1024px) {
       
       .banner{
@@ -437,4 +437,19 @@ body {
      .seguridad:hover {
        color: white;
        text-decoration: none;
+     }
+
+      @media (min-width: 1281px) {
+  
+       .banner {
+         height: 375px;
+       }
+
+     }
+
+     @media (min-width: 512px) {
+  
+       .veterinaria-img {
+         height: 90%;
+       }
      }

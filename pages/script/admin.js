@@ -169,7 +169,7 @@ document.getElementById("formMascota").addEventListener("submit", function (e) {
   this.reset(); // Limpia el formulario
 });
 
-// Carga un usuario en el formulario para edita
+// Carga una mascota en el formulario para edita
 function editarMascota(id) {
   const m = obtenerDeStorage("mascotas").find(m => m.id === id);
   if (!m) return;
@@ -185,7 +185,7 @@ function editarMascota(id) {
   new bootstrap.Modal(document.getElementById("modalMascota")).show();
 }
 
-// Elimina un usuario luego de confirmación
+// Elimina una mascota luego de confirmación
 function eliminarMascota(id) {
   if (confirm("¿Eliminar esta mascota?")) {
     const mascotas = obtenerDeStorage("mascotas").filter(u => u.id !== id);
@@ -193,8 +193,6 @@ function eliminarMascota(id) {
     cargarMascotas();
   }
 }
-
-
 
 // seccion Turnos
 function cargarTurnos() {
@@ -206,19 +204,70 @@ function cargarTurnos() {
     tr.innerHTML = `
       <td>${t.especie}</td>
       <td>${t.fecha}</td>
-      <td>${t.hora}</td>
       <td>${t.motivo}</td>
-      <td>${t.idDuenio}</td>
+      <td>${t.emailDuenio}</td>
       <td class="text-end">
-        <button class="btn btn-sm btn-outline-primary me-2" onclick="editarTurno('${t.idDuenio}')"><i class="bi bi-pencil"></i></button>
-        <button class="btn btn-sm btn-outline-danger" onclick="eliminarTurno('${t.idDuenio}')"><i class="bi bi-trash"></i></button>
+        <button class="btn btn-sm btn-outline-primary me-2" onclick="editarTurno('${t.id}')"><i class="bi bi-pencil"></i></button>
+        <button class="btn btn-sm btn-outline-danger" onclick="eliminarTurno('${t.id}')"><i class="bi bi-trash"></i></button>
       </td>
     `;
     tbody.appendChild(tr);
   });
 }
 
+// Evento al enviar el formulario de (crear o editar) turnos
+document.getElementById("formTurno").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const id = document.getElementById("turnoId").value; // El id solo se usa si se edita un usuario
+  const especie = document.getElementById("tipoMascota").value;
+  const fecha = document.getElementById("datepicker").value;
+  const motivo = document.getElementById("tipoTurno").value;
+  const emailDuenio = document.getElementById("emailTurno").value;
+  const turnos = obtenerDeStorage("turnos");
 
+  if (id) {
+    // Si ya existe un id, significa que es una edición
+    const t = turnos.find(t => t.id === id);
+    if (t) {
+      t.id = id;
+      t.especie = especie;
+      t.fecha = fecha;
+      t.motivo = motivo;
+      t.emailDuenio = emailDuenio;
+    }
+  } else {
+    // Si no existe el id, es un nueva mascota, generamos uno nuevo con randomUUID
+    const nuevoId = window.crypto.randomUUID();
+    turnos.push({ id:nuevoId, especie, fecha, motivo , emailDuenio });
+  }
+
+  guardarEnStorage("turnos", turnos);
+  cargarTurnos(); // Recargamos la lista de turnos
+  bootstrap.Modal.getInstance(document.getElementById('modalTurno')).hide(); // Cierra el modal
+  this.reset(); // Limpia el formulario
+});
+
+// Carga un turno en el formulario para editar
+function editarTurno(id) {
+  const t = obtenerDeStorage("turnos").find(t => t.id === id);
+  if (!t) return;
+  document.getElementById("turnoId").value = t.id;
+  document.getElementById("tipoMascota").value = t.especie;
+  document.getElementById("datepicker").value = t.fecha;
+  document.getElementById("tipoTurno").value = t.motivo;
+  document.getElementById("emailTurno").value = t.emailDuenio;
+  document.getElementById("modalTurnoLabel").textContent = "Editar Turno";
+  new bootstrap.Modal(document.getElementById("modalTurno")).show();
+}
+
+// Elimina un turno luego de confirmación
+function eliminarTurno(id) {
+  if (confirm("¿Eliminar esta Turno?")) {
+    const turnos = obtenerDeStorage("turnos").filter(t => t.id !== id);
+    guardarEnStorage("turnos", turnos);
+    cargarTurnos();
+  }
+}
 
 // seccion chat
 function cargarChat() { // Inicializa la funcionalidad de chat con respuestas automáticas
