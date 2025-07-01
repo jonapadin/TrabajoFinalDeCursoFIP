@@ -1,25 +1,11 @@
-  const mascotas = [
-    {
-      nombre: "Rocky",
-      especie: "Perro",
-      raza: "Labrador",
-      edad: "5 años",
-      peso: "30 kg",
-      historial: "Vacunas al día, última consulta en abril 2025"
-    },
-    {
-      nombre: "Mia",
-      especie: "Gato",
-      raza: "Siamesa",
-      edad: "3 años",
-      peso: "4.5 kg",
-      historial: "Esterilizada, controles anuales"
-    }
-    // Acá agregar más mascotas de ejemplo, luego hay que cambiarlo para usar localStorage
-  ];
-
+// Obtener el contenedor del acordeón
   const acordeonMascotas = document.getElementById("acordeonMascotas");
 
+    // Intentar obtener las mascotas desde localStorage
+  const mascotasGuardadas = localStorage.getItem("mascotas");
+
+  // Parsear las mascotas si existen, si no usar arreglo vacío
+  const mascotas = mascotasGuardadas ? JSON.parse(mascotasGuardadas) : [];
   // Recorre cada mascota y genera un item del acordeón
   mascotas.forEach((mascota, index) => {
     const collapseId = `mascota${index}`;
@@ -34,7 +20,7 @@
         <button class="accordion-button collapsed" type="button"
           data-bs-toggle="collapse" data-bs-target="#${collapseId}"
           aria-expanded="false" aria-controls="${collapseId}">
-          ${mascota.especie === "Perro" ? "🐶" : mascota.especie === "Gato" ? "🐱" : "🐾"} ${mascota.nombre} - ${mascota.especie}
+                    ${mascota.especie === "Perro" ? "🐶" : mascota.especie === "Gato" ? "🐱" : mascota.especie === "Ave" ? "🐦" : "🐾"} ${mascota.nombre} - ${mascota.especie}
         </button>
       </h2>
       <div id="${collapseId}" class="accordion-collapse collapse"
@@ -46,7 +32,7 @@
             <li><strong>Raza:</strong> ${mascota.raza}</li>
             <li><strong>Edad:</strong> ${mascota.edad}</li>
             <li><strong>Peso:</strong> ${mascota.peso}</li>
-            <li><strong>Historial médico:</strong> ${mascota.historial}</li>
+            <li><strong>Historial médico:</strong> ${mascota.descripcion}</li>
           </ul>
         </div>
       </div>
