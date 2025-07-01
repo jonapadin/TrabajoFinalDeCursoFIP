@@ -49,7 +49,7 @@ function cargarUsuarios() {
     tr.innerHTML = `
       <td>${usuario.nombre}</td>
       <td>${usuario.email}</td>
-      <td>${usuario.id}</td>
+      <td>${usuario.telefono}</td>
       <td class="text-end">
         <button class="btn btn-sm btn-outline-primary me-2" onclick="editarUsuario('${usuario.id}')"><i class="bi bi-pencil"></i></button>
         <button class="btn btn-sm btn-outline-danger" onclick="eliminarUsuario('${usuario.id}')"><i class="bi bi-trash"></i></button>
@@ -60,11 +60,21 @@ function cargarUsuarios() {
 }
 
 // Evento al enviar el formulario de usuario (crear o editar)
-document.getElementById("formUsuario").addEventListener("submit", function (e) {
+const formUsuario = document.getElementById("formUsuario");
+
+formUsuario.addEventListener("submit", function (e) {
+
+    // Verificamos la validez del formulario
+  if (!formUsuario.checkValidity()) {
+    formUsuario.classList.add("was-validated"); // Activa validaciones visuales de Bootstrap
+    return; // No sigue si el formulario es inválido
+  }
+
   e.preventDefault();
   const id = document.getElementById("usuarioId").value; // El id solo se usa si se edita un usuario
   const nombre = document.getElementById("nombreUsuario").value;
   const email = document.getElementById("emailUsuario").value;
+  const telefono = document.getElementById("telefonoUsuario").value;
   const usuarios = obtenerDeStorage("usuarios");
 
   if (id) {
@@ -73,17 +83,19 @@ document.getElementById("formUsuario").addEventListener("submit", function (e) {
     if (u) {
       u.nombre = nombre;
       u.email = email;
+      u.telefono = telefono;
     }
   } else {
     // Si no existe el id, es un nuevo usuario, generamos uno nuevo con randomUUID
     const nuevoId = window.crypto.randomUUID();
-    usuarios.push({ id: nuevoId, nombre, email });
+    usuarios.push({ id: nuevoId, nombre, email, telefono });
   }
 
   guardarEnStorage("usuarios", usuarios);
   cargarUsuarios(); // Recargamos la lista de usuarios
   bootstrap.Modal.getInstance(document.getElementById('modalUsuario')).hide(); // Cierra el modal
-  this.reset(); // Limpia el formulario
+  formUsuario.reset(); // Limpia el formulario
+  formUsuario.classList.remove("was-validated"); // Limpia validación visual para el siguiente uso
 });
 
 
@@ -106,6 +118,15 @@ function eliminarUsuario(id) {
     cargarUsuarios();
   }
 }
+
+//Resetear el modal cuando se clickea fuera
+const modalUsuario = document.getElementById("modalUsuario");
+
+modalUsuario.addEventListener('hidden.bs.modal', function () {
+  formUsuario.reset(); // Limpia los valores
+  formUsuario.classList.remove('was-validated'); // Limpia los estilos de validación
+  document.getElementById("usuarioId").value = ""; // Limpia el ID oculto
+});
 
 // seccion mascotas
 function cargarMascotas() {
@@ -210,7 +231,7 @@ const modalMascota = document.getElementById("modalMascota");
 modalMascota.addEventListener('hidden.bs.modal', function () {
   formMascota.reset(); // Limpia los valores
   formMascota.classList.remove('was-validated'); // Limpia los estilos de validación
-  document.getElementById("mascotaId").value = ""; // Limpia el ID oculto
+  document.getElementById("mascotaId").value = ""; // Limpia el ID que esta oculto
 });
 
 // seccion Turnos
@@ -235,7 +256,16 @@ function cargarTurnos() {
 }
 
 // Evento al enviar el formulario de (crear o editar) turnos
-document.getElementById("formTurno").addEventListener("submit", function (e) {
+
+const formTurno =  document.getElementById("formTurno")
+formTurno.addEventListener("submit", function (e) {
+
+  // Verificamos la validez del formulario
+  if (!formTurno.checkValidity()) {
+    formTurno.classList.add("was-validated"); // Activa validaciones visuales de Bootstrap
+    return; // No sigue si el formulario es inválido
+  }
+
   e.preventDefault();
   const id = document.getElementById("turnoId").value; // El id solo se usa si se edita un usuario
   const especie = document.getElementById("tipoMascota").value;
@@ -265,7 +295,8 @@ document.getElementById("formTurno").addEventListener("submit", function (e) {
   guardarEnStorage("turnos", turnos);
   cargarTurnos(); // Recargamos la lista de turnos
   bootstrap.Modal.getInstance(document.getElementById('modalTurno')).hide(); // Cierra el modal
-  this.reset(); // Limpia el formulario
+  formTurno.reset(); // Limpia el formulario
+  formTurno.classList.remove("was-validated"); // Limpia validación visual para el siguiente uso
 });
 
 // Carga un turno en el formulario para editar
@@ -289,6 +320,15 @@ function eliminarTurno(id) {
     cargarTurnos();
   }
 }
+
+//Resetear el modal cuando se clickea fuera
+const modalTurno = document.getElementById("modalTurno");
+
+modalTurno.addEventListener('hidden.bs.modal', function () {
+  formTurno.reset(); // Limpia los valores
+  formTurno.classList.remove('was-validated'); // Limpia los estilos de validación
+  document.getElementById("turnoId").value = ""; // Limpia el ID que esta oculto
+});
 
 // seccion chat
 function cargarChat() { // Inicializa la funcionalidad de chat con respuestas automáticas
