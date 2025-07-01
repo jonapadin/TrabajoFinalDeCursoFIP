@@ -271,7 +271,7 @@
   <!-- Modal Mascota -->
   <div class="modal fade" id="modalMascota" tabindex="-1" aria-labelledby="modalMascotaLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <form class="modal-content" id="formMascota">
+      <form class="modal-content needs-validation" id="formMascota" novalidate>
         <div class="modal-header bg-primary text-white">
           <h5 class="modal-title" id="modalMascotaLabel">Agregar Mascota</h5>
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
@@ -280,7 +280,8 @@
           <input type="hidden" id="mascotaId" />
           <div class="mb-3">
             <label class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombreMascota" required />
+            <input type="text" class="form-control" id="nombreMascota" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras y espacios"/>
+            <div class="invalid-feedback">Ingrese un valor valido</div>
           </div>
           <div class="mb-3">
             <label class="form-label">Especie</label>
@@ -291,26 +292,32 @@
               <option value="Ave">Ave</option>
               <option value="Otro">Otro</option>
             </select>
+            <div class="invalid-feedback">Ingrese un valor valido</div>
           </div>
           <div class="mb-3">
             <label class="form-label">Raza</label>
-            <input type="text" class="form-control" id="razaMascota" required />
+            <input type="text" class="form-control" id="razaMascota" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras y espacios" />
+            <div class="invalid-feedback">Ingrese un valor valido</div>
           </div>
           <div class="mb-3">
             <label class="form-label">Edad</label>
-            <input type="number" class="form-control" id="edadMascota" required />
+            <input type="number" class="form-control" id="edadMascota" min="0" required />
+            <div class="invalid-feedback">Ingrese un valor valido</div>
           </div>
           <div class="mb-3">
             <label class="form-label">Peso (En kg)</label>
-            <input type="number" class="form-control" id="pesoMascota" required />
+            <input type="number" class="form-control" id="pesoMascota" min="0" step="0.1" required />
+            <div class="invalid-feedback">Ingrese un valor valido</div>
           </div>
           <div class="mb-3">
             <label class="form-label">Descripción</label>
-            <input type="text" class="form-control" id="descripcionMascota" required />
+            <input type="text" class="form-control" id="descripcionMascota" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras y espacios" />
+            <div class="invalid-feedback">Ingrese un valor valido</div>
           </div>
           <div class="mb-3">
             <label class="form-label">Email Dueño</label>
             <input type="email" class="form-control" id="emailDuenio" required />
+            <div class="invalid-feedback">Ingrese un valor valido</div>
           </div>
         </div>
         <div class="modal-footer">
