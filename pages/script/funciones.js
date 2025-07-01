@@ -17,7 +17,18 @@ export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, al
     p.textContent = infPago;
 
     const span = document.createElement("SPAN");
-    span.textContent = `$ ${precio}`;
+
+    // Asegurarse que el precio es número
+    const precioNumerico = parseFloat(precio.toString().replace(/\./g, "").replace(",", "."));
+
+    // Formatearlo como ARS
+    const formateadorARS = new Intl.NumberFormat("es-AR", {
+        style: "currency",
+        currency: "ARS",
+        minimumFractionDigits: 2
+    });
+
+    span.textContent = formateadorARS.format(precioNumerico);
 
     const btnCompra = document.createElement("BUTTON");
     const stockNum = Number(stock) || 0;  // Validar stock para que sea número
@@ -67,7 +78,7 @@ export function crearTarjeta(titulo, descripcion, infPago, precio, imagenSrc, al
         const mensaje = document.createElement("P");
         mensaje.textContent = "✅Producto Agregado al carrito!";
         modal.appendChild(mensaje);
-        //agregar modal al documento
+
         document.body.appendChild(modal);
 
         //eliminar el modal después de 3 segundos
