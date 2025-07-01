@@ -132,7 +132,16 @@ function cargarMascotas() {
 }
 
 // Evento al enviar el formulario de (crear o editar) mascota
-document.getElementById("formMascota").addEventListener("submit", function (e) {
+const formMascota = document.getElementById("formMascota")
+
+formMascota.addEventListener("submit", function (e) {
+  
+  // Verificamos la validez del formulario
+  if (!formMascota.checkValidity()) {
+    formMascota.classList.add("was-validated"); // Activa validaciones visuales de Bootstrap
+    return; // No sigue si el formulario es inválido
+  }
+  
   e.preventDefault();
   const id = document.getElementById("mascotaId").value; // El id solo se usa si se edita un usuario
   const nombre = document.getElementById("nombreMascota").value;
@@ -166,7 +175,8 @@ document.getElementById("formMascota").addEventListener("submit", function (e) {
   guardarEnStorage("mascotas", mascotas);
   cargarMascotas(); // Recargamos la lista de mascotas
   bootstrap.Modal.getInstance(document.getElementById('modalMascota')).hide(); // Cierra el modal
-  this.reset(); // Limpia el formulario
+  formMascota.reset(); // Limpia el formulario
+  formMascota.classList.remove("was-validated"); // Limpia validación visual para el siguiente uso
 });
 
 // Carga una mascota en el formulario para edita
@@ -193,6 +203,15 @@ function eliminarMascota(id) {
     cargarMascotas();
   }
 }
+
+//Resetear el modal cuando se clickea fuera
+const modalMascota = document.getElementById("modalMascota");
+
+modalMascota.addEventListener('hidden.bs.modal', function () {
+  formMascota.reset(); // Limpia los valores
+  formMascota.classList.remove('was-validated'); // Limpia los estilos de validación
+  document.getElementById("mascotaId").value = ""; // Limpia el ID oculto
+});
 
 // seccion Turnos
 function cargarTurnos() {
@@ -240,6 +259,8 @@ document.getElementById("formTurno").addEventListener("submit", function (e) {
     const nuevoId = window.crypto.randomUUID();
     turnos.push({ id:nuevoId, especie, fecha, motivo , emailDuenio });
   }
+
+  
 
   guardarEnStorage("turnos", turnos);
   cargarTurnos(); // Recargamos la lista de turnos
