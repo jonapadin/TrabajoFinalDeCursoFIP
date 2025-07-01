@@ -123,8 +123,8 @@ function cargarMascotas() {
       <td>${m.descripcion}</td>
       <td>${m.emailDuenio}</td>
       <td class="text-end">
-        <button class="btn btn-sm btn-outline-primary me-2" onclick="editarMascota('${m.emailDuenio}')"><i class="bi bi-pencil"></i></button>
-        <button class="btn btn-sm btn-outline-danger" onclick="eliminarMascota('${m.emailDuenio}')"><i class="bi bi-trash"></i></button>
+        <button class="btn btn-sm btn-outline-primary me-2" onclick="editarMascota('${m.id}')"><i class="bi bi-pencil"></i></button>
+        <button class="btn btn-sm btn-outline-danger" onclick="eliminarMascota('${m.id}')"><i class="bi bi-trash"></i></button>
       </td>
     `;
     tbody.appendChild(tr);
@@ -148,6 +148,7 @@ document.getElementById("formMascota").addEventListener("submit", function (e) {
     // Si ya existe un id, significa que es una edición
     const u = mascotas.find(u => u.id === id);
     if (u) {
+      u.id = id;
       u.nombre = nombre;
       u.especie = especie;
       u.raza = raza;
@@ -158,7 +159,8 @@ document.getElementById("formMascota").addEventListener("submit", function (e) {
     }
   } else {
     // Si no existe el id, es un nueva mascota, generamos uno nuevo con randomUUID
-    mascotas.push({ nombre, especie, raza , edad, peso, descripcion ,emailDuenio });
+    const nuevoId = window.crypto.randomUUID();
+    mascotas.push({ id:nuevoId,nombre, especie, raza , edad, peso, descripcion ,emailDuenio });
   }
 
   guardarEnStorage("mascotas", mascotas);
@@ -166,6 +168,33 @@ document.getElementById("formMascota").addEventListener("submit", function (e) {
   bootstrap.Modal.getInstance(document.getElementById('modalMascota')).hide(); // Cierra el modal
   this.reset(); // Limpia el formulario
 });
+
+// Carga un usuario en el formulario para edita
+function editarMascota(id) {
+  const m = obtenerDeStorage("mascotas").find(m => m.id === id);
+  if (!m) return;
+  document.getElementById("mascotaId").value = m.id;
+  document.getElementById("nombreMascota").value = m.nombre;
+  document.getElementById("especieMascota").value = m.especie;
+  document.getElementById("razaMascota").value = m.raza;
+  document.getElementById("edadMascota").value = m.edad;
+  document.getElementById("pesoMascota").value = m.peso;
+  document.getElementById("descripcionMascota").value = m.descripcion;
+  document.getElementById("emailDuenio").value = m.emailDuenio;
+  document.getElementById("modalMascotaLabel").textContent = "Editar Mascota";
+  new bootstrap.Modal(document.getElementById("modalMascota")).show();
+}
+
+// Elimina un usuario luego de confirmación
+function eliminarMascota(id) {
+  if (confirm("¿Eliminar esta mascota?")) {
+    const mascotas = obtenerDeStorage("mascotas").filter(u => u.id !== id);
+    guardarEnStorage("mascotas", mascotas);
+    cargarMascotas();
+  }
+}
+
+
 
 // seccion Turnos
 function cargarTurnos() {
