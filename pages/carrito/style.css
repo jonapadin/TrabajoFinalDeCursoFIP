@@ -5,12 +5,12 @@ body {
     margin: 0;
 }
 
-main{
+main {
     margin-top: 20px;
     padding: 0 10px;
 }
 
-main h1{
+main h1 {
     text-align: center;
 }
 
@@ -20,6 +20,9 @@ main h1{
     background-color: transparent;
     cursor: pointer;
 }
+
+
+
 
 /* Estilos de la tarjeta del producto */
 section {
@@ -110,6 +113,29 @@ section {
     outline: none;
 }
 
+/* carrito */
+.mensaje-vacio {
+    font-size: 1.2em;
+    color: #666;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.total {
+    font-weight: bold;
+    text-align: right;
+    margin-top: 20px;
+}
+.btn-finalizar-compra {
+    width: 100%;
+    padding: 14px 8px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #0d7cd8;
+    border: none;
+    color: #f7f7f7;
+}
+
 @media screen and (min-width: 1024px) {
     section {
         max-width: 900px;
@@ -187,3 +213,4 @@ section {
         font-weight: bold;
     }
 }
+
