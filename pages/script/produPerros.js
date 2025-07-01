@@ -141,59 +141,55 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Obtener todos los botones Comprar
     const botonesCompra = document.querySelectorAll(".btn-Compra");
     botonesCompra.forEach((boton) => {
-        boton.addEventListener('click', (event) => {
-            const id = event.target.dataset.id;
-            const img = event.target.dataset.imagen;
-            const marca = event.target.dataset.marca;
-            const descripcion = event.target.dataset.descripcion;
-            const precio = event.target.dataset.precio;
-            let stockRestante = Number(event.target.dataset.stock);
-            const stockTotal = Number(event.target.dataset.stockTotal);
+        boton.addEventListener("click", (event) => {
+            const btn = event.target;
+            const id = btn.dataset.id;
+            const img = btn.dataset.imagen;
+            const marca = btn.dataset.marca;
+            const descripcion = btn.dataset.descripcion;
+            const precio = parseFloat(btn.dataset.precio);
+            const stockTotal = Number(btn.dataset.stockTotal);
+            let stockRestante = Number(btn.dataset.stock);
+
+            if (stockRestante <= 0) {
+                alert("Producto sin stock");
+                return;
+            }
 
             let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-
-            const indexExistente = carrito.findIndex(item => item.id === id);
+            const indexExistente = carrito.findIndex((item) => item.id === id);
 
             if (indexExistente !== -1) {
-                if (carrito[indexExistente].cantidad < stockTotal && stockRestante > 0) {
+                if (carrito[indexExistente].cantidad < stockTotal) {
                     carrito[indexExistente].cantidad += 1;
-
-                    const cantidad = carrito[indexExistente].cantidad;
-                    const precio = parseFloat(carrito[indexExistente].precio); // <- forzamos a número
-                    const subtotal = cantidad * precio;
-
-                    carrito[indexExistente].precio = precio; // nos aseguramos que ya sea numérico
-                    carrito[indexExistente].subtotal = subtotal;
-
-                    console.log("Cantidad actual:", cantidad);
-                    console.log("Subtotal:", subtotal);
+                    carrito[indexExistente].subtotal = carrito[indexExistente].cantidad * precio;
                 } else {
-                    alert("No se puede agregar más de este producto. Stock máximo alcanzado.");
+                    alert("No se puede agregar más. Stock máximo alcanzado.");
                     return;
                 }
             } else {
-                const precioNumerico = parseFloat(precio); // <- también aquí
                 carrito.push({
                     id,
                     img,
                     marca,
-                    precio: precioNumerico,
-                    descripcion: descripcion,
+                    descripcion,
+                    precio,
                     stock: stockTotal,
                     cantidad: 1,
-                    subtotal: precioNumerico
+                    subtotal: precio,
                 });
-                stockRestante -= 1;
             }
-            // Actualizar botón
-            event.target.dataset.stock = stockRestante;
-            event.target.textContent = stockRestante > 0
+
+            stockRestante -= 1;
+            btn.dataset.stock = stockRestante;
+            btn.textContent = stockRestante > 0
                 ? `Comprar (${stockRestante} disponibles)`
                 : "Sin stock";
 
             if (stockRestante <= 0) {
-                event.target.disabled = true;
-                const card = event.target.closest(".tarjeta-producto");
+                btn.disabled = true;
+
+                const card = btn.closest(".tarjeta-producto");
                 if (card && !card.querySelector(".sin-stock")) {
                     card.classList.add("background-sin-stock");
                     const overlay = document.createElement("div");
@@ -203,18 +199,17 @@ document.addEventListener("DOMContentLoaded", async function () {
                 }
             }
 
-            // Guardar stock actualizado
+            // Guardar estado actualizado
             const stocksGuardados = JSON.parse(localStorage.getItem("stocks")) || {};
             stocksGuardados[id] = stockRestante;
             localStorage.setItem("stocks", JSON.stringify(stocksGuardados));
-
-            // Guardar carrito actualizado
             localStorage.setItem("carrito", JSON.stringify(carrito));
 
             console.log("Producto agregado al carrito:", carrito[indexExistente] || carrito[carrito.length - 1]);
             console.log("Carrito actual:", carrito);
         });
     });
+
 
 
 });
