@@ -212,7 +212,7 @@
     <!-- Sección Ventas -->
     <div id="seccionVentas" style="display: none;">
       <h3>Ventas</h3>
-      <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#modalUsuario">+ Gestionar
+      <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#modalVentas">+ Gestionar
         Ventas</button>
 
       <!--Lupa de busqueda-->
@@ -230,8 +230,8 @@
               <th>Nombre</th>
               <th>Email</th>
               <th>Fecha</th>
+              <th>Telefono</th>
               <th>Pedido</th>
-              <th>Estado</th>
               <th class="text-end">Acciones</th>
             </tr>
           </thead>
@@ -384,6 +384,7 @@
         </div>
       </form>
     </div>
+    </div>
 
     <!-- Modal ventas -->
   <div class="modal fade" id="modalVentas" tabindex="-1" aria-labelledby="modalVentasLabel" aria-hidden="true">
@@ -407,12 +408,17 @@
           </div>
           <div class="mb-3">
             <label class="form-label">Fecha y hora</label>
-            <input id="datepicker" class="form-control" placeholder="Seleccionar fecha y hora" required>
+            <input id="fechaCompra" class="form-control" placeholder="Seleccionar fecha y hora" required>
+            <div class="invalid-feedback">Ingrese un valor valido</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Telefono</label>
+            <input type="tel" id="telefonoCompra" class="form-control" required>
             <div class="invalid-feedback">Ingrese un valor valido</div>
           </div>
           <div class="mb-3">
             <label class="form-label">Pedido</label>
-            <input type="text" class="form-control" id="pedidoCompra" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+" title="Solo letras y espacios"/>
+            <input type="text" class="form-control" id="pedidoCompra" required/>
             <div class="invalid-feedback">Ingrese un valor valido</div>
           </div>
           <div class="modal-footer">
