@@ -1,3 +1,22 @@
+document.addEventListener("DOMContentLoaded", () => {
+  mostrarSeccion("usuarios");
+
+  // Inicializar flatpickr para fecha de turnos
+  flatpickr("#datepicker", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    time_24hr: true
+  });
+
+  // Inicializar flatpickr para fecha de ventas
+  flatpickr("#fechaCompra", {
+    enableTime: true,
+    dateFormat: "Y-m-d H:i",
+    time_24hr: true
+  });
+});
+
+
 // seccion que mostramos al cargar el dom
 function mostrarSeccion(nombre) {
   // Oculta todas las secciones
@@ -363,7 +382,7 @@ const chatForm = document.getElementById('chatForm');
 
 // seccion ventas
 function cargarVentas() {
-  const carrito = obtenerDeStorage("compraInvitado"); // Carga el historial de ventas desde el carrito guardado
+  const carrito = obtenerDeStorage("ventas"); // Carga el historial de ventas desde el carrito guardado
   const tbody = document.getElementById("tablaVentas");
   tbody.innerHTML = "";
   carrito.forEach(carrito => {
@@ -371,18 +390,94 @@ function cargarVentas() {
     tr.innerHTML = `
       <td>${carrito.nombre}</td>
       <td>${carrito.email}</td>
-      <td>${carrito.fechaCompra}</td>
-      <td>${carrito.direccion}</td>
-      <td>${carrito.direccion}</td>
+      <td>${carrito.fecha}</td>
+      <td>${carrito.telefono}</td>
+      <td>${carrito.pedido}</td>
       <td class="text-end">
-        <button class="btn btn-sm btn-outline-primary me-2" onclick="editarCarrito('${carrito.dni}')"><i class="bi bi-pencil"></i></button>
-        <button class="btn btn-sm btn-outline-danger" onclick="eliminarCarrito('${carrito.dni}')"><i class="bi bi-trash"></i></button>
+        <button class="btn btn-sm btn-outline-primary me-2" onclick="editarVentas('${carrito.id}')"><i class="bi bi-pencil"></i></button>
+        <button class="btn btn-sm btn-outline-danger" onclick="eliminarVentas('${carrito.id}')"><i class="bi bi-trash"></i></button>
       </td>
     `;
     tbody.appendChild(tr);
   });
 }
 
+// Evento al enviar el formulario de ventas(crear o editar)
+const formVentas = document.getElementById("formVentas");
+
+formVentas.addEventListener("submit", function (e) {
+
+    // Verificamos la validez del formulario
+  if (!formVentas.checkValidity()) {
+    formVentas.classList.add("was-validated"); // Activa validaciones visuales de Bootstrap
+    return; // No sigue si el formulario es inválido
+  }
+
+  e.preventDefault();
+  const id = document.getElementById("ventasId").value; // El id solo se usa si se edita un usuario
+  const nombre = document.getElementById("nombreVenta").value;
+  const email = document.getElementById("emailCompra").value;
+  const fecha = document.getElementById("fechaCompra").value;
+  const telefono = document.getElementById("telefonoCompra").value;
+  const pedido = document.getElementById("pedidoCompra").value;
+  const ventas = obtenerDeStorage("compraInvitado");
+
+  if (id) {
+    // Si ya existe un id, significa que es una edición
+    const v = ventas.find(v => v.id === id);
+    if (v) {
+      v.nombre = nombre;
+      v.email = email;
+      v.fecha = fecha;
+      v.telefono = telefono;
+      v.pedido = pedido;
+    }
+  } else {
+    // Si no existe el id, es un nuevo usuario, generamos uno nuevo con randomUUID
+    const nuevoId = window.crypto.randomUUID();
+    ventas.push({ id: nuevoId, nombre, email, fecha, telefono, pedido });
+  }
+
+  guardarEnStorage("ventas", ventas);
+  cargarVentas(); // Recargamos la lista de usuarios
+  bootstrap.Modal.getInstance(document.getElementById('modalVentas')).hide(); // Cierra el modal
+  formVentas.reset(); // Limpia el formulario
+  formVentas.classList.remove("was-validated"); // Limpia validación visual para el siguiente uso
+  document.getElementById("ventasId").value = "";
+});
+
+
+// Carga un usuario en el formulario para edita
+function editarVentas(id) {
+  const v = obtenerDeStorage("ventas").find(v => v.id === id);
+  if (!v) return;
+  document.getElementById("ventasId").value = v.id;
+  document.getElementById("nombreVenta").value = v.nombre;
+  document.getElementById("emailCompra").value = v.email;
+  document.getElementById("datepicker").value = v.fecha;
+  document.getElementById("telefonoCompra").value = v.telefono;
+  document.getElementById("pedidoCompra").value = v.pedido;
+  document.getElementById("modalVentasLabel").textContent = "Editar Venta";
+  new bootstrap.Modal(document.getElementById("modalVentas")).show();
+}
+
+// Elimina un usuario luego de confirmación
+function eliminarVentas(id) {
+  if (confirm("¿Eliminar esta venta?")) {
+    const ventas = obtenerDeStorage("ventas").filter(v => v.id !== id);
+    guardarEnStorage("ventas", ventas);
+    cargarVentas();
+  }
+}
+
+//Resetear el modal cuando se clickea fuera
+const modalVentas = document.getElementById("modalVentas");
+
+modalVentas.addEventListener('hidden.bs.modal', function () {
+  formVentas.reset(); // Limpia los valores
+  formVentas.classList.remove('was-validated'); // Limpia los estilos de validación
+  document.getElementById("ventasId").value = ""; // Limpia el ID oculto
+});
 
 // Cierra sesión eliminando los datos del usuario activo
 function cerrarSesion() {
