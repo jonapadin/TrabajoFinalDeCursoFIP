@@ -21,6 +21,7 @@
   font-weight: 700;
   font-style: normal;
 }
+
 .bebas-neue-regular {
   font-family: "Bebas Neue", sans-serif;
   font-weight: 400;
@@ -49,6 +50,110 @@ body {
   background-color: #F5F6FA;
   margin: 0;
   padding: 0;
+}
+
+/* loader */
+.loader-screen {
+  position: fixed;
+  inset: 0;
+  background: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 1s ease;
+}
+
+.loader-screen.fade-out {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 2.5s ease;
+}
+
+.patitas-container {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.patita {
+  width: 30px;
+  height: auto;
+  animation: caminar 1.2s infinite ease-in-out;
+}
+
+.patita:nth-child(odd) {
+  animation-name: paso-izq;
+}
+
+.patita:nth-child(even) {
+  animation-name: paso-der;
+}
+
+.patita:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.patita:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.patita:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.patita:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.patita:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.patita:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.patita:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+.patita:nth-child(8) {
+  animation-delay: 0.7s;
+}
+
+@keyframes paso-izq {
+
+  0%,
+  100% {
+    transform: rotate(0deg) translateY(0);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: rotate(-20deg) translateY(-5px);
+    opacity: 1;
+  }
+}
+
+@keyframes paso-der {
+
+  0%,
+  100% {
+    transform: rotate(0deg) translateY(0);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: rotate(20deg) translateY(-5px);
+    opacity: 1;
+  }
+}
+
+.texto {
+  font-size: 1.8rem;
+  font-family: 'Poppins', sans-serif;
 }
 
 .izquierda {
@@ -436,7 +541,7 @@ footer {
 
   /* estilos navbar */
   html {
-    overflow-x: hidden ;
+    overflow-x: hidden;
   }
 
   .izquierda ul {
@@ -572,30 +677,30 @@ footer {
     margin-bottom: 8px;
   }
 
-    /*sub nav */
+  /*sub nav */
   .contenedor-nav-auth {
     display: flex;
-      position: absolute;
-  right: 70px;
+    position: absolute;
+    right: 70px;
   }
 
   .nav-list {
-  display: flex;
-  gap: 15px;
-  list-style: none;
-  color: #F5F6FA;
-  padding: 0;
-  margin: 0;
-}
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    color: #F5F6FA;
+    padding: 0;
+    margin: 0;
+  }
 
-.nav-username {
-  color: #F5F6FA;
-}
+  .nav-username {
+    color: #F5F6FA;
+  }
 
-.nav-link {
-  color: #F5F6FA;
-  text-decoration: none;
-}
+  .nav-link {
+    color: #F5F6FA;
+    text-decoration: none;
+  }
 
 
   /* estilos banner */
@@ -784,17 +889,17 @@ footer {
     margin-left: 20px;
   }
 
-    /*sub nav */
+  /*sub nav */
   .contenedor-nav-auth {
 
-  right: 80px;
+    right: 80px;
   }
 
   .nav-list {
 
-  gap: 20px;
+    gap: 20px;
 
-}
+  }
 
 
 
@@ -905,7 +1010,7 @@ footer {
     margin-top: 25vh;
   }
 
-  
+
 
 }
 
@@ -975,64 +1080,64 @@ footer {
 
 
 
-.container-p {
-  width: 90%;
-  margin: 0 auto;
-}
+  .container-p {
+    width: 90%;
+    margin: 0 auto;
+  }
 
-.container-p p {
-  font-size: 24px;
-}
+  .container-p p {
+    font-size: 24px;
+  }
 
-.btn-primary {
-  font-size: 18px;
-}
+  .btn-primary {
+    font-size: 18px;
+  }
 
-/*servicios */
-.contenedor-servicios {
-  margin-top: -5%;
-  padding: 8rem 1.5rem;
-}
+  /*servicios */
+  .contenedor-servicios {
+    margin-top: -5%;
+    padding: 8rem 1.5rem;
+  }
 
-.contenedor-servicios h2 {
-  font-size: 28px;
-}
+  .contenedor-servicios h2 {
+    font-size: 28px;
+  }
 
-.f-size {
-  font-size: 18px;
-}
+  .f-size {
+    font-size: 18px;
+  }
 
-.img-icon {
-  width: 100%;
-}
+  .img-icon {
+    width: 100%;
+  }
 
-.contenedor-cards {
-  margin: 0 auto;
-  max-width: 100%;
-}
-
-
-/*testimonios */
-
-.contenedor-testimonios {
-  padding: 100px 0;
-}
-
-.contenedor-testimonios h3 {
-  font-size: 28px;
-}
-
-.contenedor-tarjetas {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.tarjeta {
-  max-width: 600px;
-}
+  .contenedor-cards {
+    margin: 0 auto;
+    max-width: 100%;
+  }
 
 
-    .parrafo-testimonio {
-        font-size: 16px;
-        padding: 10px 20px;
-    }
+  /*testimonios */
+
+  .contenedor-testimonios {
+    padding: 100px 0;
+  }
+
+  .contenedor-testimonios h3 {
+    font-size: 28px;
+  }
+
+  .contenedor-tarjetas {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tarjeta {
+    max-width: 600px;
+  }
+
+
+  .parrafo-testimonio {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
 }

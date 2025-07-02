@@ -1,4 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  // remover animacion
+  setTimeout(() => {
+    loader.classList.add("fade-out");
+    setTimeout(() => loader.remove(), 2500); 
+  }, 3000);
+
+
   const usuarioAutenticado = localStorage.getItem("usuarioAutenticado");
   const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"));
 
@@ -50,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
       btnCerrarSesion.addEventListener("click", () => {
         localStorage.removeItem("usuarioAutenticado");
         localStorage.removeItem("usuarioActivo");
-        window.location.href = "/index.html"; 
+        window.location.href = "/index.html";
       });
     }
   }

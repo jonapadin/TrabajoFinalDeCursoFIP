@@ -70,26 +70,23 @@ header {
   justify-content: space-between;
 }
 
-/* Sección izquierda*/
+
 .izquierda {
   display: flex;
   align-items: center;
 }
 
-/* Sección derecha */
 .derecha {
   display: flex;
   align-items: center;
 }
 
-/* Logo */
 .imagen-logo {
   margin-left: 2px;
   margin-top: 6px;
   user-select: none;
 }
 
-/* Botón para menú y cerrar */
 .boton-categoria {
   background: none;
   border: none;
@@ -100,14 +97,14 @@ header {
   align-items: center;
 }
 
-/* Contenedor buscador */
+
 .contenedor-buscador {
   display: flex;
   position: relative;
   align-items: center;
 }
 
-/* Input buscador */
+
 .input-buscador {
   height: 35px;
   right: 42px;
@@ -119,7 +116,7 @@ header {
 
 }
 
-/* Botón lupa */
+
 .boton-lupa {
   position: relative;
   right: 42px;
@@ -148,14 +145,14 @@ header {
   width: 50%;
 }
 
-/* Lista menú */
+
 .menu-desplegable ul {
   list-style: none;
   margin: 2rem 0 2rem 2rem;
   padding: 0;
 }
 
-/* Ítems menú */
+
 .menu-desplegable li {
   margin-bottom: 1rem;
 }
@@ -171,6 +168,11 @@ header {
 #btn-close {
   align-self: flex-start;
   margin-bottom: 1rem;
+}
+
+/* nav sub */
+.contenedor-nav-auth {
+  display: none;
 }
 
 
@@ -222,7 +224,7 @@ footer {
   justify-items: center;
   padding: 0 5px 0 5px;
   gap: 10px;
-} 
+}
 
 
 
@@ -260,7 +262,7 @@ footer {
 }
 
 
-.background-sin-stock{
+.background-sin-stock {
   filter: grayscale();
 }
 
@@ -357,7 +359,8 @@ footer {
   html {
     height: 100dvh;
   }
-    .sin-stock {
+
+  .sin-stock {
     top: 50%;
     transform: translateY(-50%);
     font-size: 16px !important;
@@ -545,6 +548,31 @@ footer {
   }
 
 
+  /*sub nav */
+  .contenedor-nav-auth {
+    display: flex;
+    position: absolute;
+    right: 70px;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    color: #F5F6FA;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-username {
+    color: #F5F6FA;
+  }
+
+  .nav-link {
+    color: #F5F6FA;
+    text-decoration: none;
+  }
+
 
   /* productos */
 
@@ -559,7 +587,7 @@ footer {
     gap: 20px;
   }
 
-  
+
 
   .imgProducto {
     padding-bottom: 0px;
@@ -568,8 +596,8 @@ footer {
   }
 
   .card {
-      position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
     max-width: 300px;
     margin-bottom: 25px;
   }
@@ -673,6 +701,19 @@ footer {
 
     margin-left: 20px;
   }
+
+  /*sub nav */
+  .contenedor-nav-auth {
+
+    right: 80px;
+  }
+
+  .nav-list {
+
+    gap: 20px;
+
+  }
+
 
 
   /*prodcutos  */
