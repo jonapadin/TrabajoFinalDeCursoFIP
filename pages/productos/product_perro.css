@@ -222,8 +222,7 @@ footer {
   justify-items: center;
   padding: 0 5px 0 5px;
   gap: 10px;
-
-}
+} 
 
 
 
@@ -560,6 +559,8 @@ footer {
     gap: 20px;
   }
 
+  
+
   .imgProducto {
     padding-bottom: 0px;
     width: 120px;
@@ -570,7 +571,7 @@ footer {
       position: relative;
   overflow: hidden;
     max-width: 300px;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
   }
 
   .card {

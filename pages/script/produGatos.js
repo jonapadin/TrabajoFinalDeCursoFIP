@@ -1,8 +1,7 @@
 import { obtenerProductos } from "./fetchProductos";
 import { crearTarjeta, crearTitulo } from "./funciones";
-document.addEventListener("DOMContentLoaded", async function () {
 
-    const btnMasInf = document.createElement('button');
+document.addEventListener("DOMContentLoaded", async function () {
 
     // Seccion alimento, elementos
     const contenedor = document.getElementById("seccion-productos");
@@ -11,21 +10,20 @@ document.addEventListener("DOMContentLoaded", async function () {
     const seccionAlimento = document.createElement("section");
     seccionAlimento.className = "seccionAlimento";
 
-
     const tituloAlimentos = crearTitulo("Alimento", ['titulo']);
     contenedor.appendChild(tituloAlimentos);
 
     // Seccion Accesorios, elementos
     const contenedorAccesorios = document.getElementById('seccion-accesorios');
-    contenedorAccesorios.className = "seccionProductos;"
+    contenedorAccesorios.className = "seccionProductos";
 
-    const seccionAccesorios = document.createElement('section');
+    const seccionAccesorios = document.createElement("section");
     seccionAccesorios.className = "seccionAlimento";
 
     const tituloAccesorios = crearTitulo("Accesorios", ["titulo"]);
     contenedorAccesorios.appendChild(tituloAccesorios);
 
-    //Seccion Estetica e Higiene, elementos
+    // Seccion Estetica e Higiene, elementos
     const contenedorEsteticaHigiene = document.getElementById('seccion-esteticaHigiene');
 
     const seccionEsteticaHigiene = document.createElement('section');
@@ -34,132 +32,187 @@ document.addEventListener("DOMContentLoaded", async function () {
     const tituloEsteticaH = crearTitulo("Estetica e Higiene", ["titulo"]);
     contenedorEsteticaHigiene.appendChild(tituloEsteticaH);
 
-    //Seccion salud, elementos
+    // Seccion salud, elementos
     const contenedorSalud = document.getElementById('seccion-salud');
 
     const seccionSalud = document.createElement('section');
     seccionSalud.className = "seccionAlimento";
 
     const tituloSalud = crearTitulo("Salud");
-    tituloSalud.className = "titulo"
-
+    tituloSalud.className = "titulo";
     contenedorSalud.appendChild(tituloSalud);
 
     // fetch a datos
     const dataProduct = await obtenerProductos();
 
-    // validacion de datos
     if (!dataProduct || !dataProduct.length) {
         console.log("no hay productos");
-        return
+        return;
     }
 
-
-    //acceder a la esctructura
-    const alimentos = dataProduct[0]?.categoria?.Gato.Alimento;
-
-
-    if (!alimentos) {
-        console.warn("No se encontro la categoria Alimento");
-        return
-
+    // Alimento
+    const productosPerro = dataProduct[0]?.categoria?.Gato.Alimento;
+    if (!productosPerro) {
+        console.log("No se encontro la categoria Alimento");
+        return;
     }
-
-    // iterar sobre alimentos y crear las cards
-    alimentos.forEach((producto, index) => {
-        const idUnico = `btn-${producto.marca}-${index}`; // Combina marca + índice
-
-        const cardsAlimento = crearTarjeta(
+    productosPerro.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`;
+        const tarjeta = crearTarjeta(
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca,     // alt de imagen
-            idUnico
+            producto.marca,
+            idUnico,
+            producto.stock
         );
-
-        seccionAlimento.appendChild(cardsAlimento);
+        seccionAlimento.appendChild(tarjeta);
         contenedor.appendChild(seccionAlimento);
-    });
-    const accesorios = dataProduct[0]?.categoria?.Gato.Accesorios;
+    }); 
 
+
+
+
+    // Accesorios
+    const accesorios = dataProduct[0]?.categoria?.Gato.Accesorios;
     if (!accesorios) {
         console.warn("No se encontro la categoria Accesorios");
-        return
-
+        return;
     }
-
-    // crear cards seccion accesorios
-    accesorios.forEach((producto, index)=> {
-        const idUnico = `btn-${producto.marca}-${index}`; // Combina marca + índice
-        const cardsAccesorios = crearTarjeta(
+    accesorios.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`;
+        const tarjeta = crearTarjeta(
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca, // para alt de imagen
-            idUnico
+            producto.marca,
+            idUnico,
+            producto.stock
         );
-
-        seccionAccesorios.appendChild(cardsAccesorios);
+        seccionAccesorios.appendChild(tarjeta);
         contenedorAccesorios.appendChild(seccionAccesorios);
     });
 
-    // crear cards seccion estetica
+    // Estetica e Higiene
     const productosEstetica = dataProduct[0]?.categoria?.Gato.Estética_e_Higiene;
     if (!productosEstetica) {
         console.warn("No se encontro la categoria Estetica e Higiene");
-        return
-
+        return;
     }
-
-    productosEstetica.forEach((producto, index)=> {
-        const idUnico = `btn-${producto.marca}-${index}`; // Combina marca + índice
-        const cardsesteticaHigiene = crearTarjeta(
+    productosEstetica.forEach((producto, index) => {
+        const idUnico = `btn-${producto.marca}-${index}`;
+        const tarjeta = crearTarjeta(
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca, // para alt de imagen
-            idUnico
+            producto.marca,
+            idUnico,
+            producto.stock
         );
-
-        seccionEsteticaHigiene.appendChild(cardsesteticaHigiene);
+        seccionEsteticaHigiene.appendChild(tarjeta);
         contenedorEsteticaHigiene.appendChild(seccionEsteticaHigiene);
     });
 
+    // Salud
     const productosSalud = dataProduct[0]?.categoria?.Gato.Salud;
     if (!productosSalud) {
-        console.warn("No se encontro la categoria Salud")
+        console.warn("No se encontro la categoria Salud");
+        return;
     }
-
-    // crear cards seccion salud
     productosSalud.forEach((producto, index) => {
-        const idUnico = `btn-${producto.marca}-${index}`; // Combina marca + índice
-        const cardSalud = crearTarjeta(
+        const idUnico = `btn-${producto.marca}-${index}`;
+        const tarjeta = crearTarjeta(
             producto.marca,
             producto.descripcion,
             producto.opciones_pago.descripcion,
             producto.precio,
             producto.imagen,
-            producto.marca // para alt de imagen
-            , idUnico
+            producto.marca,
+            idUnico,
+            producto.stock
         );
-
-        seccionSalud.appendChild(cardSalud);
+        seccionSalud.appendChild(tarjeta);
         contenedorSalud.appendChild(seccionSalud);
-    })
-
-const botonesCompra = document.querySelectorAll(".btn-Compra");
-console.log("Botones encontrados:", botonesCompra.length); 
-
-botonesCompra.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-        console.log("Botón clickeado:", e.target);
-        console.log("ID:", e.target.id);
     });
+
+    // Obtener todos los botones Comprar
+    const botonesCompra = document.querySelectorAll(".btn-Compra");
+    botonesCompra.forEach((boton) => {
+        boton.addEventListener("click", (event) => {
+            const btn = event.target;
+            const id = btn.dataset.id;
+            const img = btn.dataset.imagen;
+            const marca = btn.dataset.marca;
+            const descripcion = btn.dataset.descripcion;
+            const precio = parseFloat(btn.dataset.precio);
+            const stockTotal = Number(btn.dataset.stockTotal);
+            let stockRestante = Number(btn.dataset.stock);
+
+            if (stockRestante <= 0) {
+                alert("Producto sin stock");
+                return;
+            }
+
+            let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+            const indexExistente = carrito.findIndex((item) => item.id === id);
+
+            if (indexExistente !== -1) {
+                if (carrito[indexExistente].cantidad < stockTotal) {
+                    carrito[indexExistente].cantidad += 1;
+                    carrito[indexExistente].subtotal = carrito[indexExistente].cantidad * precio;
+                } else {
+                    alert("No se puede agregar más. Stock máximo alcanzado.");
+                    return;
+                }
+            } else {
+                carrito.push({
+                    id,
+                    img,
+                    marca,
+                    descripcion,
+                    precio,
+                    stock: stockTotal,
+                    cantidad: 1,
+                    subtotal: precio,
+                });
+            }
+
+            stockRestante -= 1;
+            btn.dataset.stock = stockRestante;
+            btn.textContent = stockRestante > 0
+                ? `Comprar (${stockRestante} disponibles)`
+                : "Sin stock";
+
+            if (stockRestante <= 0) {
+                btn.disabled = true;
+
+                const card = btn.closest(".tarjeta-producto");
+                if (card && !card.querySelector(".sin-stock")) {
+                    card.classList.add("background-sin-stock");
+                    const overlay = document.createElement("div");
+                    overlay.classList.add("sin-stock");
+                    overlay.textContent = "Producto Agotado!";
+                    card.appendChild(overlay);
+                }
+            }
+
+            // Guardar estado actualizado
+            const stocksGuardados = JSON.parse(localStorage.getItem("stocks")) || {};
+            stocksGuardados[id] = stockRestante;
+            localStorage.setItem("stocks", JSON.stringify(stocksGuardados));
+            localStorage.setItem("carrito", JSON.stringify(carrito));
+
+            console.log("Producto agregado al carrito:", carrito[indexExistente] || carrito[carrito.length - 1]);
+            console.log("Carrito actual:", carrito);
+        });
+    });
+
+
+
 });
-})  
