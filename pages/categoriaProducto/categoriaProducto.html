@@ -15,75 +15,80 @@
   <link rel="stylesheet" href="./categoriaProducto.css">
   <title>Veterinaria App</title>
 </head>
+  <header>
+    <nav class="contenido">
 
-<header>
-  <nav class="contenido">
-
-    <div class="izquierda">
-      <button id="btn-menu" type="button" class="boton-categoria">
-        <img class="categoria" src="/assets/icons/hamburger.svg" alt="icono-Menu">
-      </button>
-      <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg" alt="imagen-logo">
-
-      <!-- menuPC -->
-      <ul class="ocultarMobile lato-bold">
-        <li><a href="/index.html">Inicio</a></li>
-        <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
-        <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
-      </ul>
-      <!-- Menú desplegable aquí -->
-      <div id="menu-desplegable" class="menu-desplegable" hidden>
-        <button id="btn-close" type="button" class="boton-categoria">
-          <img class="categoria" src="/assets/icons/close-menu.svg" alt="icono-close" width="32">
+      <div class="izquierda">
+        <button id="btn-menu" type="button" class="boton-categoria ocultar">
+          <img class="categoria" src="/assets/icons/hamburger.svg" alt="icono-Menu">
         </button>
-        <ul>
+        <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg" alt="imagen-logo">
+
+        <!-- Menú pc-->
+        <ul class="ocultarMobile lato-bold">
           <li><a href="/index.html">Inicio</a></li>
           <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
           <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
-          <li><a href="/pages/login/login.html">Ingresar</a></li>
         </ul>
+
+        <!-- Menú desplegable aquí -->
+        <div id="menu-desplegable" class="menu-desplegable" hidden>
+          <button id="btn-close" type="button" class="boton-categoria">
+            <img class="categoria" src="/assets/icons/close-menu.svg" alt="icono-close" width="32">
+          </button>
+          <ul>
+            <li><a href="/index.html">Inicio</a></li>
+            <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
+            <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
+            <li id="item-login"><a href="/pages/login/login.html">Ingresar</a></li>
+            <li id="item-logout" style="display: none;">
+              <a href="#" id="cerrar-sesion">Cerrar sesión</a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div class="derecha">
-      <div class="contenedor-buscador">
-        <input class="input-buscador" type="search" placeholder="Buscar">
-        <button class="boton-lupa">
-          <img src="/assets/Vector (1).svg" alt="lupa">
-        </button>
-      </div>
-    </div>
-    <section class="ocultarMobile container-enlaces ">
-      <div class="container-1">
-        <a href="/pages/carrito/carrito.html" class="items-1">
-          <img src="/public/assets/icons/carrito.svg" alt="icono del carrito">
-          <span class="lato-bold">Carrito</span>
-        </a>
+      <div class="derecha">
+        <div class="contenedor-buscador">
+          <input class="input-buscador" type="search" placeholder="Buscar">
+          <button class="boton-lupa">
+            <img src="/assets/Vector (1).svg" alt="lupa">
+          </button>
+        </div>
       </div>
 
-      <div class="container-2">
-        <a href="/pages/login/login.html">
-          <img src="/public/assets/icons/usuario.svg" alt="icono de usuario" width="28">
-          <span class="lato-bold">Ingresar</span>
-        </a>
-      </div>
-    </section>
+      <section class="ocultarMobile container-enlaces ">
+        <div class="container-1">
+          <a href="/pages/carrito/carrito.html" class="items-1">
+            <img src="/public/assets/icons/carrito.svg" alt="icono del carrito">
+            <span class="lato-bold">Carrito</span>
+          </a>
+        </div>
 
-    <section style="right: 40px; position: absolute;" id="contenedorNav"></section>
+        <div id="ocultar-auth" class="container-2">
+          <a href="/pages/login/login.html">
+            <img src="/public/assets/icons/usuario.svg" alt="icono de usuario" width="28">
+            <span class="lato-bold">Ingresar</span>
+          </a>
+        </div>
+      </section>
 
-    <template id="nav-auth">
-      <div>
-        <ul style="display: flex; gap: 12px; list-style: none; color: #F5F6FA;">
-          <li id="nombreUsuario">usuario</li>
-          <li><a href="#" style="color: #F5F6FA; text-decoration: none;">MENU</a></li>
-        </ul>
-      </div>
-    </template>
+      <section style="right: 40px; position: absolute;" id="contenedorNav"></section>
+
+      <template id="nav-auth">
+        <div>
+          <ul style="display: flex; gap: 12px; list-style: none; color: #F5F6FA;">
+            <li id="nombreUsuario">usuario</li>
+            <li><a href="#" style="color: #F5F6FA; text-decoration: none;">MENU</a></li>
+          </ul>
+        </div>
+      </template>
 
 
-  </nav>
+    </nav>
 
-</header>
+  </header>
+
 
 <body class="lato-bold">
   <main>
