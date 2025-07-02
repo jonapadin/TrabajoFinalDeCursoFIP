@@ -468,6 +468,128 @@
                             }
                         }
                     ]
+                },
+                "Exotico": {
+                    "Alimento": [
+                        {
+                            "id": 1,
+                            "precio": 2400,
+                            "stock": 10,
+                            "descripcion": "Sabor Vegetales 1kg",
+                            "marca": "Verdecora",
+                            "imagen": "/assets/productExotico/alimentocobaya.webp",
+                            "opciones_pago": {
+                                "cuotas": 3,
+                                "monto_por_cuota": 2000,
+                                "total": 2400,
+                                "descripcion": "Pago en 3 cuotas de $2000 sin interés"
+                            }
+                        },
+                        {
+                            "id": 2,
+                            "precio": 1800,
+                            "stock": 12,
+                            "descripcion": "Alimentos para conejos 750grs",
+                            "marca": "Balanceado Conejos",
+                            "imagen": "/assets/productExotico/balanceadoConejos.webp",
+                            "opciones_pago": {
+                                "cuotas": 3,
+                                "monto_por_cuota": 600,
+                                "total": 1800,
+                                "descripcion": "Pago en 3 cuotas de $1.800 sin interés"
+                            }
+                        }
+                    ],
+                    "Accesorios": [
+                        {
+                            "id": 1,
+                            "precio": 6000,
+                            "stock": 4,
+                            "descripcion": "Arnes para conejos",
+                            "marca": "CanCat",
+                            "imagen": "/assets/productExotico/Arnes.webp",
+                            "opciones_pago": {
+                                "cuotas": 3,
+                                "monto_por_cuota": 2000,
+                                "total": 6000,
+                                "descripcion": "Pago en 3 cuotas de $2000 sin interés"
+                            }
+                        },
+                        {
+                            "id": 2,
+                            "precio": 24000,
+                            "stock": 5,
+                            "descripcion": "Jaula para cobayos",
+                            "marca": "Dominal",
+                            "imagen": "/assets/productExotico/jaulaConejo.webp",
+                            "opciones_pago": {
+                                "cuotas": 3,
+                                "monto_por_cuota": 8000,
+                                "total": 24000,
+                                "descripcion": "Pago en 3 cuotas de$ 8000 sin interés"
+                            }
+                        },
+                        {
+                            "id": 3,
+                            "precio": 12000,
+                            "stock": 0,
+                            "descripcion": "Comedero",
+                            "marca": "Dominal",
+                            "imagen": "/assets/productExotico/comedero.webp",
+                            "opciones_pago": {
+                                "cuotas": 3,
+                                "monto_por_cuota": 4000,
+                                "total": 12000,
+                                "descripcion": "Pago en 3 cuotas de 4.000 sin interés"
+                            }
+                        }
+                    ],
+                    "Estética_e_Higiene": [
+                        {
+                            "id": 5,
+                            "precio": 12000,
+                            "stock": 6,
+                            "descripcion": "Baño de arena para reodores",
+                            "marca": "Zootec",
+                            "imagen": "/assets/productExotico/zootec.webp",
+                            "opciones_pago": {
+                                "cuotas": 3,
+                                "monto_por_cuota": 4000,
+                                "total": 12000,
+                                "descripcion": "Pago en 3 cuotas de $12.000 sin interés"
+                            }
+                        },
+                        {
+                            "id": 6,
+                            "precio": 9600,
+                            "stock": 15,
+                            "descripcion": "Spray",
+                            "marca": "Better",
+                            "imagen": "/assets/productExotico/spray.webp",
+                            "opciones_pago": {
+                                "cuotas": 3,
+                                "monto_por_cuota": 3200,
+                                "total": 9600,
+                                "descripcion": "Pago en 3 cuotas de 3.200 sin interés"
+                            }
+                        }
+                    ],
+                    "Salud": [
+                        {
+                            "id": 1,
+                            "precio": 6000,
+                            "stock": 24,
+                            "descripcion": "Snacks con vitaminas",
+                            "marca": "Cunipic",
+                            "imagen": "/assets/productExotico/cunipic.webp",
+                            "opciones_pago": {
+                                "cuotas": 3,
+                                "monto_por_cuota": 2000,
+                                "total": 6000,
+                                "descripcion": "Pago en 3 cuotas de 2.000 sin interés"
+                            }
+                        }
+                    ]
                 }
             }
         }
