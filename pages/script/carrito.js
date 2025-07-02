@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Evitar que se creen múltiples modales
             if (document.getElementById("modal-compra")) return;
 
-            // Crear fondo oscuro (overlay)
+            // Crear overlay
             const overlay = document.createElement("div");
             overlay.id = "modal-compra";
             overlay.classList.add("modal-compra");
@@ -103,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             btnInvitado.addEventListener("click", () => {
-                overlay.remove(); // Cierra el modal anterior
+                overlay.remove(); 
 
                 // Modal para datos de compra
                 const modalCompra = document.createElement("div");

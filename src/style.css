@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+/*fonts */
 .opens-sans {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
@@ -20,6 +21,12 @@
   font-weight: 700;
   font-style: normal;
 }
+.bebas-neue-regular {
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
 
 .uppercase {
   text-transform: uppercase;
@@ -986,8 +993,8 @@ footer {
 }
 
 
-.parrafo-testimonio {
-  font-size: 18px;
-  padding: 10px 0;
-}
+    .parrafo-testimonio {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
 }
