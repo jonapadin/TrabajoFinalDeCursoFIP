@@ -41,6 +41,9 @@
             <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
             <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
             <li id="item-login"><a href="/pages/login/login.html">Ingresar</a></li>
+            <li id="item-menu" style="display: none;">
+              <a href="#" id="cerrar-menu">Menu</a>
+            </li>
             <li id="item-logout" style="display: none;">
               <a href="#" id="cerrar-sesion">Cerrar sesión</a>
             </li>
@@ -73,17 +76,16 @@
         </div>
       </section>
 
-      <section style="right: 40px; position: absolute;" id="contenedorNav"></section>
+      <section class="contenedor-nav-auth" id="contenedorNav"></section>
 
       <template id="nav-auth">
-        <div>
-          <ul style="display: flex; gap: 12px; list-style: none; color: #F5F6FA;">
-            <li id="nombreUsuario">usuario</li>
-            <li><a href="#" style="color: #F5F6FA; text-decoration: none;">MENU</a></li>
+        <div class="nav-auth-wrapper">
+          <ul class="nav-list">
+            <li id="nombreUsuario" class="nav-username">usuario</li>
+            <li><a href="#" class="nav-link">MENU</a></li>
           </ul>
         </div>
       </template>
-
 
     </nav>
 
