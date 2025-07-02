@@ -64,6 +64,20 @@ body {
   gap: 40px;
 }
 
+form a {
+  display: block;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+form a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
 button,
 a {
   padding: 12px;
@@ -102,40 +116,6 @@ a {
 }
 
 @media screen and (min-width: 1024px) {
-  .container-login {
-    border-radius: 10px;
-    border: 2px solid #aba5a5;
-
-  }
-
-}
-@media screen and (min-width: 1280px) {
-  .container-login {
-    border-radius: 10px;
-    border: 2px solid #aba5a5;
-
-  }
-
-}
-
-@media screen and (min-width: 1440px) {
-  .container-login {
-    border-radius: 10px;
-    border: 2px solid #aba5a5;
-
-  }
-
-  
-}
-@media screen and (min-width: 1600px) {
-  .container-login {
-    border-radius: 10px;
-    border: 2px solid #aba5a5;
-
-  }
-
-}
-@media screen and (min-width: 1920px) {
   .container-login {
     border-radius: 10px;
     border: 2px solid #aba5a5;

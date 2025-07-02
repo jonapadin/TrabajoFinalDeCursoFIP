@@ -25,13 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const completo = nombre && apellido && edad && telefono && clave && reclave && correo;
         const clavesCoinciden = clave === reclave;
-        
+
         if (clave && reclave && !clavesCoinciden) {
             mensaje.textContent = "Las contraseñas deben coincidir.";
         } else {
             mensaje.textContent = "";
         }
-        
+
         const habilitar = completo && clavesCoinciden;
         btnRegistrar.disabled = !habilitar;
         btnRegistrar.classList.toggle('disabled', !habilitar);
@@ -78,10 +78,35 @@ document.addEventListener("DOMContentLoaded", function () {
 
         usuarios.push(usuario);
         localStorage.setItem("usuarios", JSON.stringify(usuarios));
-        localStorage.setItem("usuarioActivo", JSON.stringify(usuario));
         console.log("datos guardados");
 
-        formularioRegistro.reset();
-        window.location.href = "http://localhost:5173/pages/login/login.html"
+        // overlay confirmacion
+        const overlaySucces = document.createElement('div');
+        overlaySucces.classList.add('overlay-success');
+
+
+        const contenidoOverlay = document.createElement('div');
+        contenidoOverlay.classList.add('contenido-overlay');
+
+        // Mensaje de éxito
+        const mensajeSuccess = document.createElement('p');
+        mensajeSuccess.textContent = "¡Gracias por registrarte!";
+
+
+        const botonConfirm = document.createElement('button');
+        botonConfirm.textContent = "OK";
+
+
+        contenidoOverlay.appendChild(mensajeSuccess);
+        contenidoOverlay.appendChild(botonConfirm);
+        overlaySucces.appendChild(contenidoOverlay);
+        document.body.appendChild(overlaySucces);
+
+        botonConfirm.addEventListener('click', () => {
+            overlaySucces.remove();
+            formularioRegistro.reset();
+            window.location.href = "http://localhost:5173/pages/login/login.html";
+        });
     });
 });
+s

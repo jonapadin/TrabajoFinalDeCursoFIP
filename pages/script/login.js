@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     );
 
     if (!usuarioEncontrado) {
-      mensaje.textContent = "Correo no registrado.";
+      mensaje.textContent = "No hemos encontrado una cuenta asociada a este correo electrónico.";
       mensaje.style.color = "red";
       return;
     }
