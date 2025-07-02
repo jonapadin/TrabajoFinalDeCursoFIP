@@ -38,13 +38,12 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // ✅ Login exitoso para usuarios comunes
+    // Login exitoso para usuarios comunes
     localStorage.setItem("usuarioActivo", JSON.stringify({
       ...usuarioEncontrado,
       rol: "usuario"
     }));
     localStorage.setItem("usuarioAutenticado", "true");
-
     formulario.reset();
     window.location.href = "/pages/usuario.html";
   });
