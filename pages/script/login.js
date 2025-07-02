@@ -5,47 +5,47 @@ document.addEventListener("DOMContentLoaded", () => {
   formulario.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    // Obtener los valores del formulario
     const emailIngresado = document.getElementById("email").value.trim().toLowerCase();
     const passIngresado = document.getElementById("password").value.trim();
 
-    // Obtener los usuarios registrados desde localStorage
-    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+ //validar si es admin
+    if (emailIngresado === "veterinaria@gmail.com" && passIngresado === "Admin") {
+      localStorage.setItem("usuarioActivo", JSON.stringify({
+        nombre: "Administrador",
+        email: emailIngresado,
+        rol: "admin"
+      }));
+      localStorage.setItem("usuarioAutenticado", "true");
+      window.location.href = "/pages/admin.html";
+      return;
+    }
 
-    // Buscar el usuario por email
+    // 🔍 Usuarios comunes
+    const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
     const usuarioEncontrado = usuarios.find(usuario =>
       usuario.email.trim().toLowerCase() === emailIngresado
     );
 
-    // Validación: email no registrado
     if (!usuarioEncontrado) {
       mensaje.textContent = "Correo no registrado.";
       mensaje.style.color = "red";
       return;
     }
 
-    // Validación: contraseña incorrecta
     if (usuarioEncontrado.password !== passIngresado) {
       mensaje.textContent = "Usuario o contraseña incorrecta.";
       mensaje.style.color = "red";
       return;
     }
 
-    //Login de Admin
-        // Validación: contraseña incorrecta
-    if (emailIngresado === "veterinaria@gmail.com" &&  passIngresado === "Admin") {
-      window.location.href = "http://localhost:5173/pages/admin.html";
-      return;
-    }
-
-    // Login exitoso
-    localStorage.setItem("usuarioActivo", JSON.stringify(usuarioEncontrado));
+    // ✅ Login exitoso para usuarios comunes
+    localStorage.setItem("usuarioActivo", JSON.stringify({
+      ...usuarioEncontrado,
+      rol: "usuario"
+    }));
     localStorage.setItem("usuarioAutenticado", "true");
 
-    // Limpiar formulario
     formulario.reset();
-
-    // Redirigir al panel de usuario
-    window.location.href = "http://localhost:5173/pages/usuario.html"; // Asegurate que esta ruta sea la correcta
+    window.location.href = "/pages/usuario.html";
   });
 });

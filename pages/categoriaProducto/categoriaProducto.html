@@ -24,20 +24,20 @@
         <img class="categoria" src="/assets/icons/hamburger.svg" alt="icono-Menu">
       </button>
       <img class="imagen-logo" src="/assets/icons/patitaGatoPerroLogo 2.svg" alt="imagen-logo">
-      
+
       <!-- menuPC -->
-       <ul class="ocultarMobile lato-bold">
-          <li><a href="/pages/usuario.html">Inicio</a></li>
-          <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
-          <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
-        </ul>
+      <ul class="ocultarMobile lato-bold">
+        <li><a href="/index.html">Inicio</a></li>
+        <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
+        <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
+      </ul>
       <!-- Menú desplegable aquí -->
       <div id="menu-desplegable" class="menu-desplegable" hidden>
         <button id="btn-close" type="button" class="boton-categoria">
           <img class="categoria" src="/assets/icons/close-menu.svg" alt="icono-close" width="32">
         </button>
         <ul>
-          <li><a href="/pages/usuario.html">Inicio</a></li>
+          <li><a href="/index.html">Inicio</a></li>
           <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
           <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
           <li><a href="/pages/login/login.html">Ingresar</a></li>
@@ -54,20 +54,32 @@
       </div>
     </div>
     <section class="ocultarMobile container-enlaces ">
-        <div class="container-1">
-          <a href="/pages/carrito/carrito.html" class="items-1">
-            <img src="/public/assets/icons/carrito.svg" alt="icono del carrito">
-            <span class="lato-bold">Carrito</span>
-          </a>
-        </div>
+      <div class="container-1">
+        <a href="/pages/carrito/carrito.html" class="items-1">
+          <img src="/public/assets/icons/carrito.svg" alt="icono del carrito">
+          <span class="lato-bold">Carrito</span>
+        </a>
+      </div>
 
-        <div class="container-2">
-          <a href="/pages/login/login.html">
-            <img src="/public/assets/icons/usuario.svg" alt="icono de usuario" width="28">
-            <span class="lato-bold">Ingresar</span>
-          </a>
-        </div>
-      </section>
+      <div class="container-2">
+        <a href="/pages/login/login.html">
+          <img src="/public/assets/icons/usuario.svg" alt="icono de usuario" width="28">
+          <span class="lato-bold">Ingresar</span>
+        </a>
+      </div>
+    </section>
+
+    <section style="right: 40px; position: absolute;" id="contenedorNav"></section>
+
+    <template id="nav-auth">
+      <div>
+        <ul style="display: flex; gap: 12px; list-style: none; color: #F5F6FA;">
+          <li id="nombreUsuario">usuario</li>
+          <li><a href="#" style="color: #F5F6FA; text-decoration: none;">MENU</a></li>
+        </ul>
+      </div>
+    </template>
+
 
   </nav>
 
@@ -77,15 +89,15 @@
   <main>
     <section class="banner-categoria"></section>
     <section class="seccion-categorias">
-      
-    <h5 class="size-medium">Categorías</h5>
 
-    <div class="contenedor-categorias">
-      <a href="/pages/productos/product_perro.html" class="img-animal perro "><span>PERRO</span></a>
-      <a href="/pages/productos/product_gato.html" class="img-animal gato"><span>GATO</span></a>
-      <a href="#" class="img-animal aves"><span>AVES</span></a>
-      <a href="/pages/productos/product_exotico.html" class="img-animal exoticos"><span>EXOTICOS</span></a>
-    </div>
+      <h5 class="size-medium">Categorías</h5>
+
+      <div class="contenedor-categorias">
+        <a href="/pages/productos/product_perro.html" class="img-animal perro "><span>PERRO</span></a>
+        <a href="/pages/productos/product_gato.html" class="img-animal gato"><span>GATO</span></a>
+        <a href="#" class="img-animal aves"><span>AVES</span></a>
+        <a href="/pages/productos/product_exotico.html" class="img-animal exoticos"><span>EXOTICOS</span></a>
+      </div>
     </section>
   </main>
   <footer>
