@@ -23,8 +23,10 @@
   <title>Productos-Perros</title>
 </head>
 
+
+
 <body>
-   <header>
+  <header>
     <nav class="contenido">
 
       <div class="izquierda">
@@ -89,7 +91,7 @@
 
       <template id="nav-auth">
         <div class="nav-auth-wrapper">
-          <ul class="nav-list">
+          <ul class="nav-list lato-bold">
             <li id="nombreUsuario" class="nav-username">usuario</li>
             <li><a href="#" class="nav-link">MENU</a></li>
           </ul>
@@ -106,15 +108,37 @@
       <img class="imagen-banner" src="/public/assets/productPerro/BANNER-DOG-CHOW-MAXIMUS-1075x519px.jpg" alt="banner">
     </section>
 
-    <section class="container-main">
-      <section id="seccion-productos"></section>
-      <section id="seccion-accesorios"></section>
-      <section id="seccion-esteticaHigiene"></section>
-      <section id="seccion-salud"></section>
 
+
+    <section style="position: relative;">
+
+      <!-- subnavcateg mobile -->
+      <div style="position: absolute; top: 10px; left: 50%; transform: translateX(-50%);">
+        <ul style="display: flex; gap: 25px; list-style: none; font-size: 25px;">
+          <li><a href="">Gato</a></li>
+          <li><a href="">Aves</a></li>
+          <li><a href="">Exoticos</a></li>
+        </ul>
+      </div>
+
+      <aside>
+        <h3>Categorias</h3>
+        <article>
+          <ul>
+            <li><a href="/pages/productos/product_gato.html">Gato</a></li>
+            <li>Aves</li>
+            <li><a href="/pages/productos/product_exotico.html">Exoticos</a></li>
+          </ul>
+        </article>
+      </aside>
+      <section class="container-main">
+        <section id="seccion-productos"></section>
+        <section id="seccion-accesorios"></section>
+        <section id="seccion-esteticaHigiene"></section>
+        <section id="seccion-salud"></section>
+      </section>
 
     </section>
-
 
 
 
@@ -151,17 +175,17 @@
       </div>
     </div>
 
-    
-      <section style="right: 40px; position: absolute;" id="contenedorNav"></section>
 
-      <template id="nav-auth">
-        <div >
-          <ul style="display: flex; gap: 12px; list-style: none; color: #F5F6FA;">
-            <li id="nombreUsuario">usuario</li>
-            <li><a href="#" style="color: #F5F6FA; text-decoration: none;">MENU</a></li>
-          </ul>
-        </div>
-      </template>
+    <section style="right: 40px; position: absolute;" id="contenedorNav"></section>
+
+    <template id="nav-auth">
+      <div>
+        <ul style="display: flex; gap: 12px; list-style: none; color: #F5F6FA;">
+          <li id="nombreUsuario">usuario</li>
+          <li><a href="#" style="color: #F5F6FA; text-decoration: none;">MENU</a></li>
+        </ul>
+      </div>
+    </template>
 
 
   </footer>

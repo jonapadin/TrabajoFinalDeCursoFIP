@@ -1,10 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  // remover animacion
-  setTimeout(() => {
-    loader.classList.add("fade-out");
-  }, 3000);
+  const loader = document.querySelector('#loader');
 
+  setTimeout(() => {
+    loader?.classList.add("fade-out");
+  }, 3000);
 
   const usuarioAutenticado = localStorage.getItem("usuarioAutenticado");
   const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"));

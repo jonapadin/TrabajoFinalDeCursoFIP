@@ -19,6 +19,11 @@ header {
 
 }
 
+
+.lato-regular {
+  font-weight: 400;
+}
+
 /* modal */
 .notificacion {
   top: 80px;
@@ -181,6 +186,67 @@ header {
   width: 100%;
   margin-top: 80px;
 }
+
+/* aside */
+/* aside {
+  position: absolute;
+  left: 250px;
+  top: 114px;
+  background-color: #ffffff;
+  width: 200px;
+  height: auto;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+}
+
+aside h3 {
+  margin-top: 0;
+  font-size: 1.2em;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+  color: #444;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+aside ul li {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  background-color: #f5f5f5;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+aside ul li:hover {
+  background-color: #e0e0e0;
+}
+
+aside ul li a {
+  text-decoration: none;
+  color: #333;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+aside ul li:hover {
+  background-color: #e0e0e0;
+}
+
+aside ul li a:hover {
+  color: #000;
+} */
+
 
 /* footer */
 
@@ -413,7 +479,7 @@ footer {
 
   /* estilos navbar */
 
-.izquierda ul {
+  .izquierda ul {
     text-transform: uppercase;
     font-size: 12px;
 
@@ -512,7 +578,6 @@ footer {
     width: 100%;
     justify-content: start;
     align-items: center;
-    padding: 0 50px;
   }
 
   .div-izquierda ul {
@@ -576,6 +641,9 @@ footer {
     text-decoration: none;
   }
 
+ aside {
+  display: none;
+ }
 
   /* productos */
 
@@ -594,14 +662,14 @@ footer {
 
   .imgProducto {
     padding-bottom: 0px;
-    width: 120px;
+    width: 80px;
     margin: 0 auto;
   }
 
   .card {
     position: relative;
     overflow: hidden;
-    max-width: 300px;
+    max-width: 18 0px;
     margin-bottom: 25px;
   }
 
@@ -676,7 +744,7 @@ footer {
 @media screen and (min-width: 1280px) {
 
   /* estilos navbar */
-   /*nav */
+  /*nav */
   .contenido {
     justify-content: start;
     max-width: 100%;
@@ -718,6 +786,68 @@ footer {
     gap: 20px;
 
   }
+
+   /* aside */
+  aside {
+    position: absolute;
+    left: 20px;
+    top: 114px;
+    background-color: #ffffff;
+    width: 140px;
+    height: auto;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+    display: initial;
+  }
+
+  aside h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: #444;
+  }
+
+  aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  aside ul li {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  aside ul li:hover {
+    background-color: #e0e0e0;
+  }
+
+  aside ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  aside ul li:hover {
+    background-color: #e0e0e0;
+  }
+
+  aside ul li a:hover {
+    color: #000;
+  }
+
 
 
 
@@ -782,7 +912,8 @@ footer {
 }
 
 @media screen and (min-width: 1440px) {
- /* navbar estilos */
+
+  /* navbar estilos */
   .imagen-logo {
     width: 60px;
   }
@@ -812,6 +943,12 @@ footer {
     width: 32px;
   }
 
+
+  aside {
+    left: 60px;
+    top: 114px;
+  }
+
   /* productos */
 
   .card {
@@ -834,6 +971,7 @@ footer {
 }
 
 @media screen and (min-width: 1600px) {
+
   /*estilos nav */
   .contenido {
     padding-left: 80px;
@@ -846,6 +984,12 @@ footer {
   .input-buscador {
     margin-left: 40px;
     width: 440px;
+  }
+
+
+  aside {
+    left: 130px;
+    top: 114px;
   }
 
 
@@ -887,5 +1031,9 @@ footer {
     width: 440px;
   }
 
+  aside {
+    left: 300px;
+    top: 114px;
+  }
 
 }
