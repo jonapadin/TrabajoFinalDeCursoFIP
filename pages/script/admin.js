@@ -1,4 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  // Verificación de rol de usuario
+  const usuario = JSON.parse(localStorage.getItem("usuarioActivo"));
+  const autenticado = localStorage.getItem("usuarioAutenticado");
+
+  if (!autenticado || !usuario || usuario.rol !== "admin") {
+
+    window.location.href = "/index.html"; 
+    return;
+  }
+
   mostrarSeccion("usuarios");
 
   // Inicializar flatpickr para fecha de turnos
@@ -20,35 +31,35 @@ document.addEventListener("DOMContentLoaded", () => {
 // seccion que mostramos al cargar el dom
 function mostrarSeccion(nombre) {
   // Oculta todas las secciones
-      document.getElementById("seccionUsuarios").style.display = "none";
-      document.getElementById("seccionMascotas").style.display = "none";
-      document.getElementById("seccionTurnos").style.display = "none";
-      document.getElementById("seccionChat").style.display = "none";
-      document.getElementById("seccionVentas").style.display = "none";
+  document.getElementById("seccionUsuarios").style.display = "none";
+  document.getElementById("seccionMascotas").style.display = "none";
+  document.getElementById("seccionTurnos").style.display = "none";
+  document.getElementById("seccionChat").style.display = "none";
+  document.getElementById("seccionVentas").style.display = "none";
 
-      // Mostramos la sección indicada y carga sus datos
-      if (nombre === "usuarios") {
-        document.getElementById("seccionUsuarios").style.display = "block";
-        cargarUsuarios();
-      } else if (nombre === "mascotas") {
-        document.getElementById("seccionMascotas").style.display = "block";
-        cargarMascotas();
-      } else if (nombre === "turnos") {
-        document.getElementById("seccionTurnos").style.display = "block";
-        cargarTurnos();
-      }  else if (nombre === "chat") {
-        document.getElementById("seccionChat").style.display = "block";
-        cargarChat();
-      } else if (nombre === "ventas") {
-        document.getElementById("seccionVentas").style.display = "block";
-        cargarVentas();
-      }
-    }
+  // Mostramos la sección indicada y carga sus datos
+  if (nombre === "usuarios") {
+    document.getElementById("seccionUsuarios").style.display = "block";
+    cargarUsuarios();
+  } else if (nombre === "mascotas") {
+    document.getElementById("seccionMascotas").style.display = "block";
+    cargarMascotas();
+  } else if (nombre === "turnos") {
+    document.getElementById("seccionTurnos").style.display = "block";
+    cargarTurnos();
+  } else if (nombre === "chat") {
+    document.getElementById("seccionChat").style.display = "block";
+    cargarChat();
+  } else if (nombre === "ventas") {
+    document.getElementById("seccionVentas").style.display = "block";
+    cargarVentas();
+  }
+}
 
-    // Mostrar seccion usuarios por defecto
-    document.addEventListener("DOMContentLoaded", () => {
-      mostrarSeccion("usuarios");
-    });
+// Mostrar seccion usuarios por defecto
+document.addEventListener("DOMContentLoaded", () => {
+  mostrarSeccion("usuarios");
+});
 
 function guardarEnStorage(clave, datos) {
   localStorage.setItem(clave, JSON.stringify(datos));
@@ -83,7 +94,7 @@ const formUsuario = document.getElementById("formUsuario");
 
 formUsuario.addEventListener("submit", function (e) {
 
-    // Verificamos la validez del formulario
+  // Verificamos la validez del formulario
   if (!formUsuario.checkValidity()) {
     formUsuario.classList.add("was-validated"); // Activa validaciones visuales de Bootstrap
     return; // No sigue si el formulario es inválido
@@ -175,13 +186,13 @@ function cargarMascotas() {
 const formMascota = document.getElementById("formMascota")
 
 formMascota.addEventListener("submit", function (e) {
-  
+
   // Verificamos la validez del formulario
   if (!formMascota.checkValidity()) {
     formMascota.classList.add("was-validated"); // Activa validaciones visuales de Bootstrap
     return; // No sigue si el formulario es inválido
   }
-  
+
   e.preventDefault();
   const id = document.getElementById("mascotaId").value; // El id solo se usa si se edita un usuario
   const nombre = document.getElementById("nombreMascota").value;
@@ -209,7 +220,7 @@ formMascota.addEventListener("submit", function (e) {
   } else {
     // Si no existe el id, es un nueva mascota, generamos uno nuevo con randomUUID
     const nuevoId = window.crypto.randomUUID();
-    mascotas.push({ id:nuevoId,nombre, especie, raza , edad, peso, descripcion ,emailDuenio });
+    mascotas.push({ id: nuevoId, nombre, especie, raza, edad, peso, descripcion, emailDuenio });
   }
 
   guardarEnStorage("mascotas", mascotas);
@@ -276,7 +287,7 @@ function cargarTurnos() {
 
 // Evento al enviar el formulario de (crear o editar) turnos
 
-const formTurno =  document.getElementById("formTurno")
+const formTurno = document.getElementById("formTurno")
 formTurno.addEventListener("submit", function (e) {
 
   // Verificamos la validez del formulario
@@ -306,10 +317,10 @@ formTurno.addEventListener("submit", function (e) {
   } else {
     // Si no existe el id, es un nueva mascota, generamos uno nuevo con randomUUID
     const nuevoId = window.crypto.randomUUID();
-    turnos.push({ id:nuevoId, especie, fecha, motivo , emailDuenio });
+    turnos.push({ id: nuevoId, especie, fecha, motivo, emailDuenio });
   }
 
-  
+
 
   guardarEnStorage("turnos", turnos);
   cargarTurnos(); // Recargamos la lista de turnos
@@ -351,33 +362,33 @@ modalTurno.addEventListener('hidden.bs.modal', function () {
 
 // seccion chat
 function cargarChat() { // Inicializa la funcionalidad de chat con respuestas automáticas
-const chatForm = document.getElementById('chatForm');
-    const messageInput = document.getElementById('messageInput');
-    const chatBox = document.getElementById('chatBox');
+  const chatForm = document.getElementById('chatForm');
+  const messageInput = document.getElementById('messageInput');
+  const chatBox = document.getElementById('chatBox');
 
   // Agrega un mensaje al chat (usuario o bot)
-    function addMessage(text, sender = 'user') {
-      const msg = document.createElement('div');
-      msg.classList.add('message', sender);
-      msg.textContent = text;
-      chatBox.appendChild(msg);
-      chatBox.scrollTop = chatBox.scrollHeight; //el área de chat se desplaza automáticamente hacia abajo para mostrar el último mensaje que se agregó
+  function addMessage(text, sender = 'user') {
+    const msg = document.createElement('div');
+    msg.classList.add('message', sender);
+    msg.textContent = text;
+    chatBox.appendChild(msg);
+    chatBox.scrollTop = chatBox.scrollHeight; //el área de chat se desplaza automáticamente hacia abajo para mostrar el último mensaje que se agregó
+  }
+
+  // Envío del mensaje
+  chatForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const text = messageInput.value.trim();
+    if (text !== '') {
+      addMessage(text, 'user'); // Mensaje del usuario
+      messageInput.value = '';
+
+      // Simulación de respuesta automática
+      setTimeout(() => {
+        addMessage('¡Gracias por tu mensaje! Un profesional responderá pronto.', 'bot');
+      }, 800);
     }
-
-    // Envío del mensaje
-    chatForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const text = messageInput.value.trim();
-      if (text !== '') {
-        addMessage(text, 'user'); // Mensaje del usuario
-        messageInput.value = '';
-
-        // Simulación de respuesta automática
-        setTimeout(() => {
-          addMessage('¡Gracias por tu mensaje! Un profesional responderá pronto.', 'bot');
-        }, 800);
-      }
-    });
+  });
 }
 
 // seccion ventas
@@ -407,7 +418,7 @@ const formVentas = document.getElementById("formVentas");
 
 formVentas.addEventListener("submit", function (e) {
 
-    // Verificamos la validez del formulario
+  // Verificamos la validez del formulario
   if (!formVentas.checkValidity()) {
     formVentas.classList.add("was-validated"); // Activa validaciones visuales de Bootstrap
     return; // No sigue si el formulario es inválido
