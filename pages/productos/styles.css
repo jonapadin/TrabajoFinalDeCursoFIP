@@ -187,65 +187,6 @@ header {
   margin-top: 80px;
 }
 
-/* aside */
-/* aside {
-  position: absolute;
-  left: 250px;
-  top: 114px;
-  background-color: #ffffff;
-  width: 200px;
-  height: auto;
-  padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-  transition: all 0.3s ease-in-out;
-}
-
-aside h3 {
-  margin-top: 0;
-  font-size: 1.2em;
-  border-bottom: 2px solid #f0f0f0;
-  padding-bottom: 10px;
-  margin-bottom: 15px;
-  color: #444;
-}
-
-aside ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-aside ul li {
-  margin-bottom: 10px;
-  padding: 8px 12px;
-  background-color: #f5f5f5;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-aside ul li:hover {
-  background-color: #e0e0e0;
-}
-
-aside ul li a {
-  text-decoration: none;
-  color: #333;
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-aside ul li:hover {
-  background-color: #e0e0e0;
-}
-
-aside ul li a:hover {
-  color: #000;
-} */
 
 
 /* footer */
@@ -373,12 +314,11 @@ footer {
 }
 
 .boton-categoria {
-  padding: 6px 30px;
   background-color: transparent;
   color: #800080;
-  border: 2px solid #800080;
   border-radius: 5px;
   margin: 5px 0;
+  border: 0;
 }
 
 .btn-Compra {
@@ -390,8 +330,40 @@ footer {
   margin: 5px 0;
 }
 
+aside {
+  display: none;
+}
+
+.subnavcateg {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.subnavcateg ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.subnavcateg ul a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #8F108D;
+  background-color: #F5F6FA;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  border: 1px solid #8F108D;
+}
+
 
 .container-main {
+  padding-top: 20px;
   padding-bottom: 100px;
 }
 
@@ -573,7 +545,6 @@ footer {
   }
 
 
-
   .contenido {
     width: 100%;
     justify-content: start;
@@ -641,9 +612,6 @@ footer {
     text-decoration: none;
   }
 
- aside {
-  display: none;
- }
 
   /* productos */
 
@@ -731,8 +699,7 @@ footer {
 
 
   .container-main {
-    padding-top: 30px;
-
+    padding-top: 50px
   }
 
   .contenedor-nav {
@@ -768,6 +735,9 @@ footer {
     margin-bottom: 8px;
   }
 
+  .container-main {
+    padding-top: 30px
+  }
 
   .izquierda ul {
 
@@ -787,7 +757,7 @@ footer {
 
   }
 
-   /* aside */
+  /* aside */
   aside {
     position: absolute;
     left: 20px;
@@ -848,7 +818,9 @@ footer {
     color: #000;
   }
 
-  .subnavcateg {display: none;}
+  .subnavcateg {
+    display: none;
+  }
 
 
 
@@ -1031,6 +1003,12 @@ footer {
     margin-left: 0px;
     width: 440px;
   }
+
+  .contenedor-nav-auth {
+
+    right: 90px;
+  }
+
 
   aside {
     left: 300px;

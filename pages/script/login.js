@@ -1,4 +1,8 @@
+import { loader } from "./funciones";
+
 document.addEventListener("DOMContentLoaded", () => {
+
+
   const formulario = document.getElementById("datosUsuario");
   const mensaje = document.getElementById("mensaje");
 
@@ -8,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const emailIngresado = document.getElementById("email").value.trim().toLowerCase();
     const passIngresado = document.getElementById("password").value.trim();
 
- //validar si es admin
+    //validar si es admin
     if (emailIngresado === "veterinaria@gmail.com" && passIngresado === "Admin") {
       localStorage.setItem("usuarioActivo", JSON.stringify({
         nombre: "Administrador",
@@ -16,7 +20,16 @@ document.addEventListener("DOMContentLoaded", () => {
         rol: "admin"
       }));
       localStorage.setItem("usuarioAutenticado", "true");
-      window.location.href = "/";
+
+      loader();
+      setTimeout(() => {
+        const el = document.querySelector('#loader');
+        el?.classList.add('fade-out');
+
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 1000);
+      }, 1000);
       return;
     }
 
@@ -44,7 +57,12 @@ document.addEventListener("DOMContentLoaded", () => {
       rol: "usuario"
     }));
     localStorage.setItem("usuarioAutenticado", "true");
-    formulario.reset();
-    window.location.href = "/";
+
+    loader(); // ⬅️ Mostramos el loader primero
+
+    // No hace falta resetear el formulario si se va a redirigir
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 3000); // Podés ajustar este tiempo
   });
 });

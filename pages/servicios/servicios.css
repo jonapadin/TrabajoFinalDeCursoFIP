@@ -12,6 +12,10 @@ body {
   margin: 0;
 }
 
+.contenedor-navPc {
+  display: none;
+}
+
 /* Fuentes */
 .lato-regular {
   font-weight: 400;
@@ -448,30 +452,30 @@ footer {
     margin-top: 20px;
   }
 
-      /*sub nav */
+  /*sub nav */
   .contenedor-nav-auth {
     display: flex;
-      position: absolute;
-  right: 70px;
+    position: absolute;
+    right: 70px;
   }
 
   .nav-list {
-  display: flex;
-  gap: 15px;
-  list-style: none;
-  color: #F5F6FA;
-  padding: 0;
-  margin: 0;
-}
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    color: #F5F6FA;
+    padding: 0;
+    margin: 0;
+  }
 
-.nav-username {
-  color: #F5F6FA;
-}
+  .nav-username {
+    color: #F5F6FA;
+  }
 
-.nav-link {
-  color: #F5F6FA;
-  text-decoration: none;
-}
+  .nav-link {
+    color: #F5F6FA;
+    text-decoration: none;
+  }
 
 
 
@@ -564,17 +568,17 @@ footer {
     margin-left: 20px;
   }
 
-      /*sub nav */
+  /*sub nav */
   .contenedor-nav-auth {
 
-  right: 80px;
+    right: 80px;
   }
 
   .nav-list {
 
-  gap: 20px;
+    gap: 20px;
 
-}
+  }
 
 
   .contenedor-cards {
@@ -684,6 +688,12 @@ footer {
     margin-left: 0px;
     width: 440px;
   }
+
+  .contenedor-nav-auth {
+
+    right: 90px;
+  }
+
 
   /*servicios */
 

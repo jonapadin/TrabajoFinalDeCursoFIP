@@ -838,6 +838,12 @@ footer {
     width: 440px;
   }
 
+    .contenedor-nav-auth {
+
+    right: 90px;
+  }
+
+
   .contenedor-categorias {
     width: 140vh;
     padding-top: 30px;

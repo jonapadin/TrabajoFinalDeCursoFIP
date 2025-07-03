@@ -52,108 +52,6 @@ body {
   padding: 0;
 }
 
-/* loader */
-.loader-screen {
-  position: fixed;
-  inset: 0;
-  background: #f0f0f0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  transition: opacity 1s ease;
-}
-
-.loader-screen.fade-out {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 2.5s ease;
-}
-.patitas-container {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.patita {
-  width: 30px;
-  height: auto;
-  animation: caminar 1.2s infinite ease-in-out;
-}
-
-.patita:nth-child(odd) {
-  animation-name: paso-izq;
-}
-
-.patita:nth-child(even) {
-  animation-name: paso-der;
-}
-
-.patita:nth-child(1) {
-  animation-delay: 0s;
-}
-
-.patita:nth-child(2) {
-  animation-delay: 0.1s;
-}
-
-.patita:nth-child(3) {
-  animation-delay: 0.2s;
-}
-
-.patita:nth-child(4) {
-  animation-delay: 0.3s;
-}
-
-.patita:nth-child(5) {
-  animation-delay: 0.4s;
-}
-
-.patita:nth-child(6) {
-  animation-delay: 0.5s;
-}
-
-.patita:nth-child(7) {
-  animation-delay: 0.6s;
-}
-
-.patita:nth-child(8) {
-  animation-delay: 0.7s;
-}
-
-@keyframes paso-izq {
-
-  0%,
-  100% {
-    transform: rotate(0deg) translateY(0);
-    opacity: 0.6;
-  }
-
-  50% {
-    transform: rotate(-20deg) translateY(-5px);
-    opacity: 1;
-  }
-}
-
-@keyframes paso-der {
-
-  0%,
-  100% {
-    transform: rotate(0deg) translateY(0);
-    opacity: 0.6;
-  }
-
-  50% {
-    transform: rotate(20deg) translateY(-5px);
-    opacity: 1;
-  }
-}
-
-.texto {
-  font-size: 1.8rem;
-  font-family: 'Poppins', sans-serif;
-}
 
 .izquierda {
   position: relative;
@@ -1113,6 +1011,11 @@ footer {
   .contenedor-cards {
     margin: 0 auto;
     max-width: 100%;
+  }
+
+  .contenedor-nav-auth {
+
+    right: 90px;
   }
 
 
