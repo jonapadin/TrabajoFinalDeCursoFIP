@@ -387,6 +387,7 @@ footer {
 @media (min-width: 1024px) {
   header {
     width: 100%;
+    overflow-x: hidden;
   }
 
 
@@ -412,7 +413,7 @@ footer {
 
   /* estilos navbar */
 
-  .izquierda ul {
+.izquierda ul {
     text-transform: uppercase;
     font-size: 12px;
 
@@ -537,6 +538,8 @@ footer {
   ul {
     margin-top: 20px;
   }
+
+
 
 
   .container-enlaces {
@@ -673,6 +676,7 @@ footer {
 @media screen and (min-width: 1280px) {
 
   /* estilos navbar */
+   /*nav */
   .contenido {
     justify-content: start;
     max-width: 100%;
@@ -701,6 +705,7 @@ footer {
 
     margin-left: 20px;
   }
+
 
   /*sub nav */
   .contenedor-nav-auth {
@@ -777,6 +782,7 @@ footer {
 }
 
 @media screen and (min-width: 1440px) {
+ /* navbar estilos */
   .imagen-logo {
     width: 60px;
   }
@@ -828,6 +834,7 @@ footer {
 }
 
 @media screen and (min-width: 1600px) {
+  /*estilos nav */
   .contenido {
     padding-left: 80px;
   }
@@ -835,7 +842,6 @@ footer {
   .container-enlaces {
     margin-left: 60px;
   }
-
 
   .input-buscador {
     margin-left: 40px;
@@ -846,6 +852,8 @@ footer {
 }
 
 @media screen and (min-width: 1920px) {
+
+  /* navbar estilos */
   .contenido {
     justify-content: center;
   }
@@ -854,9 +862,23 @@ footer {
     padding-left: 0px;
   }
 
+  .izquierda ul li a {
+    font-size: 16px;
+  }
+
+  .container-1 a span {
+    font-size: 16px;
+  }
+
+  .container-2 a span {
+    font-size: 16px;
+  }
+
+
   .container-enlaces {
+
     margin-left: 0;
-    margin-bottom: 0;
+    margin-bottom: 8px;
   }
 
 
@@ -864,5 +886,6 @@ footer {
     margin-left: 0px;
     width: 440px;
   }
+
 
 }

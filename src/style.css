@@ -70,7 +70,6 @@ body {
   pointer-events: none;
   transition: opacity 2.5s ease;
 }
-
 .patitas-container {
   display: flex;
   gap: 8px;
