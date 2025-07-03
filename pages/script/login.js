@@ -16,11 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
         rol: "admin"
       }));
       localStorage.setItem("usuarioAutenticado", "true");
-      window.location.href = "/pages/admin.html";
+      window.location.href = "/";
       return;
     }
 
-    // 🔍 Usuarios comunes
+    // Usuarios comunes
     const usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
     const usuarioEncontrado = usuarios.find(usuario =>
       usuario.email.trim().toLowerCase() === emailIngresado
@@ -45,6 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }));
     localStorage.setItem("usuarioAutenticado", "true");
     formulario.reset();
-    window.location.href = "/pages/usuario.html";
+    window.location.href = "/";
   });
 });
