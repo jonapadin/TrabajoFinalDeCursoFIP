@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // remover animacion
   setTimeout(() => {
     loader.classList.add("fade-out");
-    setTimeout(() => loader.remove(), 2500); 
   }, 3000);
 
 
