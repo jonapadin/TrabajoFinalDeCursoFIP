@@ -304,6 +304,58 @@ body {
     .notification.expanded {
       background-color: #f9f9f9;
     }
+    /* estilos chat */
+     .chat-container {
+      max-width: 600px;
+      margin: auto;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .chat-box {
+      height: 600px;
+      overflow-y: auto;
+      padding: 15px;
+      background-color: #f8f9fa;
+    }
+
+    .message {
+      margin-bottom: 12px;
+      padding: 10px 15px;
+      border-radius: 20px;
+      max-width: 75%;
+      word-wrap: break-word;
+    }
+
+    .message.user {
+      background-color: #0d6efd;
+      color: white;
+      align-self: flex-end;
+      margin-left: auto;
+    }
+
+    .message.bot {
+      background-color: #e9ecef;
+      color: black;
+      align-self: flex-start;
+      margin-right: auto;
+    }
+
+    .input-group {
+      border-top: 1px solid #ddd;
+      padding: 10px;
+    }
+    /*estilo notificacion de  perfil*/
+     .notification.unread .notification-text {
+      font-weight: bold;
+    }
+
+    .notification.read .notification-text {
+      font-weight: normal;
+      color: #6c757d;
+    }
+  
 
     /* Icono de campana con alerta, lo vamos a implementar luego
     .notification-alert {
