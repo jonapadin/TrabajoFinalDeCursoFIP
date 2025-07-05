@@ -69,11 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
             btnLogin.textContent = "Iniciar sesión";
             btnLogin.classList.add("btn-login");
             modal.appendChild(btnLogin);
-            btnLogin.addEventListener("click", () => {
-                alert(`Iniciando sesión con: ${inputEmail.value}`);
-                overlay.remove();
-            });
-            modal.appendChild(btnLogin);
+
 
             // Separador
             const separador = document.createElement("p");
@@ -103,7 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             btnInvitado.addEventListener("click", () => {
-                overlay.remove(); 
 
                 // Modal para datos de compra
                 const modalCompra = document.createElement("div");
@@ -127,11 +122,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 inputEmail.classList.add("input-datos-m");
                 contenido.appendChild(inputEmail);
 
-                const inputDireccion = document.createElement("input");
-                inputDireccion.placeholder = "Dirección de entrega";
-                inputDireccion.classList.add("input-datos-m");
-                contenido.appendChild(inputDireccion);
+                // Desplegable para seleccionar el correo de envío
+                const selectCorreo = document.createElement("select");
+                selectCorreo.classList.add("input-datos-m"); // Reutilizando la misma clase para mantener estilos
 
+                const opcionesCorreo = ["Seleccione un correo", "Correo Argentino", "OCA", "Andreani", "DHL"];
+                opcionesCorreo.forEach(opcionTexto => {
+                    const opcion = document.createElement("option");
+                    opcion.value = opcionTexto.toLowerCase().replace(/\s+/g, '-'); // valor para procesamiento
+                    opcion.textContent = opcionTexto;
+                    selectCorreo.appendChild(opcion);
+                });
+
+                contenido.appendChild(selectCorreo);
                 const inputTelefono = document.createElement("input");
                 inputTelefono.type = "tel";
                 inputTelefono.placeholder = "Número de teléfono";
@@ -150,14 +153,23 @@ document.addEventListener("DOMContentLoaded", () => {
                 btnConfirmar.classList.add("btn-confirmar");
                 contenido.appendChild(btnConfirmar);
 
+                const btnCerrar = document.createElement("span");
+                btnCerrar.textContent = "✖";
+                btnCerrar.classList.add('btn-cerrar');
+                btnCerrar.addEventListener("click", () => {
+                    modalCompra.remove();
+                });
+
+
+
                 btnConfirmar.addEventListener("click", () => {
                     const nombre = inputNombre.value.trim();
                     const email = inputEmail.value.trim();
-                    const direccion = inputDireccion.value.trim();
+                    const correoSeleccionado = selectCorreo.value;
                     const telefono = inputTelefono.value.trim();
                     const dni = inputDNI.value.trim();
 
-                    if (!nombre || !email || !direccion || !telefono || !dni) {
+                    if (!nombre || !email || correoSeleccionado === "seleccione-un-correo" || !telefono || !dni) {
                         alert("Por favor, completá todos los campos.");
                         return;
                     }
@@ -165,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     const datosInvitado = [{
                         nombre,
                         email,
-                        direccion,
+                        correo: correoSeleccionado,
                         telefono,
                         dni,
                         fechaCompra: new Date().toISOString()
@@ -173,7 +185,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     localStorage.setItem("compraInvitado", JSON.stringify(datosInvitado));
 
-                    alert("¡Gracias por tu compra! Tus datos fueron guardados.");
+                    // overlay confirmacion
+                    const overlaySucces = document.createElement('div');
+                    overlaySucces.classList.add('overlay-success');
+
+
+                    const contenidoOverlay = document.createElement('div');
+                    contenidoOverlay.classList.add('contenido-overlay');
+
+                    // Mensaje de éxito
+                    const mensajeSuccess = document.createElement('p');
+                    mensajeSuccess.textContent = "¡Gracias por tu compra! Hemos guardado tus datos de envío y pronto recibirás un correo de confirmación.!";
+
+
+                    const botonConfirm = document.createElement('button');
+                    botonConfirm.classList.add('btn-confirm');
+                    botonConfirm.textContent = "OK";
+
+                    botonConfirm.addEventListener('click',() => {
+                        overlaySucces.remove();
+                    })
+
+                    contenidoOverlay.appendChild(mensajeSuccess);
+                    contenidoOverlay.appendChild(botonConfirm)
+                    overlaySucces.appendChild(contenidoOverlay);
+                    document.body.appendChild(overlaySucces);
 
                     // Vaciar carrito y DOM
                     localStorage.removeItem("carrito");
@@ -189,8 +225,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 contenido.appendChild(btnConfirmar);
+                contenido.appendChild(btnCerrar);
                 modalCompra.appendChild(contenido);
                 document.body.appendChild(modalCompra);
+                
             });
 
             modal.appendChild(btnInvitado);
