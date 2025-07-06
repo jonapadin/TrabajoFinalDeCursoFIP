@@ -134,6 +134,17 @@ button span {
 .contenido-overlay button:hover {
     background-color: #45a049;
 }
+/* Chrome, Safari, Edge, Opera */
+.sin-flechas::-webkit-outer-spin-button,
+.sin-flechas::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.sin-flechas {
+  -moz-appearance: textfield;
+}
 
 @media screen and (min-width: 1024px) {
   .contenido {
