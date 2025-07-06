@@ -124,12 +124,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Desplegable para seleccionar el correo de envío
                 const selectCorreo = document.createElement("select");
-                selectCorreo.classList.add("input-datos-m"); // Reutilizando la misma clase para mantener estilos
+                selectCorreo.classList.add("input-datos-m");
 
-                const opcionesCorreo = ["Seleccione un correo", "Correo Argentino", "OCA", "Andreani", "DHL"];
+                const opcionesCorreo = ["Seleccione un correo", "Correo Argentino", "OCA", "Andreani"];
                 opcionesCorreo.forEach(opcionTexto => {
                     const opcion = document.createElement("option");
-                    opcion.value = opcionTexto.toLowerCase().replace(/\s+/g, '-'); // valor para procesamiento
+                    opcion.value = opcionTexto.toLowerCase().replace(/\s+/g, '-');
                     opcion.textContent = opcionTexto;
                     selectCorreo.appendChild(opcion);
                 });
@@ -162,6 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
                 btnConfirmar.addEventListener("click", () => {
                     const nombre = inputNombre.value.trim();
                     const email = inputEmail.value.trim();
@@ -169,8 +170,61 @@ document.addEventListener("DOMContentLoaded", () => {
                     const telefono = inputTelefono.value.trim();
                     const dni = inputDNI.value.trim();
 
+                    /*validaciones */
+
                     if (!nombre || !email || correoSeleccionado === "seleccione-un-correo" || !telefono || !dni) {
-                        alert("Por favor, completá todos los campos.");
+
+                        /*alert */
+                        const messageWarn = document.createElement("p");
+                        messageWarn.textContent = "Por favor, completá todos los campos."
+                        messageWarn.style = "color: red"
+                        contenido.appendChild(messageWarn)
+
+                        setTimeout(() => {
+                            messageWarn.remove()
+                        }, 2000);
+                        return;
+                    }
+
+                    const nombreValido = /^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s'-]+$/;
+
+                    if (!nombreValido.test(nombre)) {
+                        const messageWarn = document.createElement("p");
+                        messageWarn.textContent = "El nombre y apellido no deben contener números ni caracteres especiales.";
+                        messageWarn.style = "color: red";
+                        contenido.appendChild(messageWarn);
+                        
+                        setTimeout(() => {
+                            messageWarn.remove()
+                        }, 2000);
+                        return;
+                    }
+
+                    const telefonoValido = /^\d{10,15}$/;
+
+                    if (!telefonoValido.test(telefono)) {
+                        const messageWarn = document.createElement("p");
+                        messageWarn.textContent = "El teléfono debe contener solo números (entre 10 y 15 dígitos).";
+                        messageWarn.style = "color: red";
+                        contenido.appendChild(messageWarn);
+                        
+                        setTimeout(() => {
+                            messageWarn.remove()
+                        }, 2000);
+                        return;
+                    }
+
+                    const dniValido = /^\d{7,8}$/;
+
+                    if (!dniValido.test(dni)) {
+                        const messageWarn = document.createElement("p");
+                        messageWarn.textContent = "El DNI debe contener solo números (7 u 8 dígitos).";
+                        messageWarn.style = "color: red";
+                        contenido.appendChild(messageWarn);
+                        
+                        setTimeout(() => {
+                            messageWarn.remove()
+                        }, 2000);
                         return;
                     }
 
@@ -202,7 +256,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     botonConfirm.classList.add('btn-confirm');
                     botonConfirm.textContent = "OK";
 
-                    botonConfirm.addEventListener('click',() => {
+                    botonConfirm.addEventListener('click', () => {
                         overlaySucces.remove();
                     })
 
@@ -228,7 +282,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 contenido.appendChild(btnCerrar);
                 modalCompra.appendChild(contenido);
                 document.body.appendChild(modalCompra);
-                
+
             });
 
             modal.appendChild(btnInvitado);
