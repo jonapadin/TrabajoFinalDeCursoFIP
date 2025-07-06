@@ -1,0 +1,79 @@
+/* style admin*/
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.sidebar {
+  height: 100vh;
+  background-color: #f8f9fa;
+  padding-top: 1rem;
+  position: fixed;
+  width: 220px;
+  border-right: 1px solid #dee2e6;
+}
+
+.sidebar a {
+  color: #333;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+  transition: background 0.2s;
+}
+
+.sidebar a:hover,
+.sidebar a.active {
+  background-color: #e2e6ea;
+  font-weight: bold;
+}
+
+.main-content {
+  margin-left: 230px;
+  padding: 2rem;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+
+.chat-container {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  max-width: 600px;
+}
+
+.chat-box {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 6px;
+  min-height: 150px;
+  margin-bottom: 10px;
+  overflow-y: auto;
+}
+
+.message.bot {
+  background-color: #e9ecef;
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  max-width: 80%;
+}
+
+.table>:not(caption)>*>* {
+  padding: 0 !important;
+}
+
+/* Chrome, Safari, Edge, Opera */
+.sin-flechas::-webkit-outer-spin-button,
+.sin-flechas::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.sin-flechas {
+  -moz-appearance: textfield;
+}
