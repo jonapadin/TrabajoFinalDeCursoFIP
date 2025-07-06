@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         messageWarn.textContent = "El nombre y apellido no deben contener números ni caracteres especiales.";
                         messageWarn.style = "color: red";
                         contenido.appendChild(messageWarn);
-                        
+
                         setTimeout(() => {
                             messageWarn.remove()
                         }, 2000);
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         messageWarn.textContent = "El teléfono debe contener solo números (entre 10 y 15 dígitos).";
                         messageWarn.style = "color: red";
                         contenido.appendChild(messageWarn);
-                        
+
                         setTimeout(() => {
                             messageWarn.remove()
                         }, 2000);
@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         messageWarn.textContent = "El DNI debe contener solo números (7 u 8 dígitos).";
                         messageWarn.style = "color: red";
                         contenido.appendChild(messageWarn);
-                        
+
                         setTimeout(() => {
                             messageWarn.remove()
                         }, 2000);
@@ -341,10 +341,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (btnIncrementar) {
                 btnIncrementar.addEventListener("click", () => {
-                    producto.cantidad += 1;
-                    producto.subtotal = producto.precio * producto.cantidad;
-                    localStorage.setItem("carrito", JSON.stringify(carrito));
-                    renderCarrito();
+                    if (producto.cantidad < producto.stock) {
+                        producto.cantidad += 1;
+                        producto.subtotal = producto.precio * producto.cantidad;
+                        localStorage.setItem("carrito", JSON.stringify(carrito));
+                        renderCarrito();
+                    } else {
+                        alert("No hay más stock disponible de este producto.");
+                    }
                 });
             }
 

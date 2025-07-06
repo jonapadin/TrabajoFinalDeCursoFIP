@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         );
         seccionAlimento.appendChild(tarjeta);
         contenedor.appendChild(seccionAlimento);
-    }); 
+    });
 
 
 
@@ -155,19 +155,19 @@ document.addEventListener("DOMContentLoaded", async function () {
             let stockRestante = Number(btn.dataset.stock);
 
             if (stockRestante <= 0) {
-                alert("Producto sin stock");
                 return;
             }
 
             let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
             const indexExistente = carrito.findIndex((item) => item.id === id);
 
+            const stockRestanteActual = Number(btn.dataset.stock);
+
             if (indexExistente !== -1) {
-                if (carrito[indexExistente].cantidad < stockTotal) {
+                if (stockRestanteActual > 0) {
                     carrito[indexExistente].cantidad += 1;
                     carrito[indexExistente].subtotal = carrito[indexExistente].cantidad * precio;
                 } else {
-                    alert("No se puede agregar más. Stock máximo alcanzado.");
                     return;
                 }
             } else {
@@ -183,15 +183,15 @@ document.addEventListener("DOMContentLoaded", async function () {
                 });
             }
 
-            stockRestante -= 1;
-            btn.dataset.stock = stockRestante;
-            btn.textContent = stockRestante > 0
-                ? `Comprar (${stockRestante} disponibles)`
+            // Ahora sí actualizamos el stock del botón
+            const nuevoStock = stockRestanteActual - 1;
+            btn.dataset.stock = nuevoStock;
+            btn.textContent = nuevoStock > 0
+                ? `Comprar (${nuevoStock} disponibles)`
                 : "Sin stock";
 
-            if (stockRestante <= 0) {
+            if (nuevoStock <= 0) {
                 btn.disabled = true;
-
                 const card = btn.closest(".tarjeta-producto");
                 if (card && !card.querySelector(".sin-stock")) {
                     card.classList.add("background-sin-stock");
@@ -202,9 +202,9 @@ document.addEventListener("DOMContentLoaded", async function () {
                 }
             }
 
-            // Guardar estado actualizado
+            // Guardar
             const stocksGuardados = JSON.parse(localStorage.getItem("stocks")) || {};
-            stocksGuardados[id] = stockRestante;
+            stocksGuardados[id] = nuevoStock;
             localStorage.setItem("stocks", JSON.stringify(stocksGuardados));
             localStorage.setItem("carrito", JSON.stringify(carrito));
 
