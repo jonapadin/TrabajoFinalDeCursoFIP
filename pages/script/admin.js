@@ -393,28 +393,26 @@ function cargarChat() { // Inicializa la funcionalidad de chat con respuestas au
 
 // seccion ventas
 function cargarVentas() {
-  const carrito = obtenerDeStorage("compraInvitado"); // Carga el historial de ventas desde el carrito guardado
-  const marca = carrito[0].carrito[0].marca;
-  const descripcion = carrito[0].carrito[0].descripcion;
-  const cantidad = carrito[0].carrito[0].cantidad;
-  const subtotal = carrito[0].carrito[0].subtotal;
-
-  const pedido = `Producto: ${marca}, Descripcion ${descripcion}, Cantidad: ${cantidad}, Total: ${subtotal}`;
-
-
+  const carrito = obtenerDeStorage("compraInvitado");
   const tbody = document.getElementById("tablaVentas");
   tbody.innerHTML = "";
-  carrito.forEach(carrito => {
+
+  carrito.forEach(venta => {
+
+    const productosPedido = venta.carrito.map(producto => {
+      return `Producto: ${producto.marca}, Descripción: ${producto.descripcion}, Cantidad: ${producto.cantidad}, Total: ${producto.subtotal}`;
+    }).join("<br>"); 
+
     const tr = document.createElement("tr");
     tr.innerHTML = `
-      <td>${carrito.nombre}</td>
-      <td>${carrito.email}</td>
-      <td>${carrito.fechaCompra}</td>
-      <td>${carrito.telefono}</td>
-      <td>${pedido}</td>
+      <td>${venta.nombre}</td>
+      <td>${venta.email}</td>
+      <td>${venta.fechaCompra}</td>
+      <td>${venta.telefono}</td>
+      <td>${productosPedido}</td>
       <td class="text-end">
-        <button class="btn btn-sm btn-outline-primary me-2" onclick="editarVentas('${carrito.id}')"><i class="bi bi-pencil"></i></button>
-        <button class="btn btn-sm btn-outline-danger" onclick="eliminarVentas('${carrito.id}')"><i class="bi bi-trash"></i></button>
+        <button class="btn btn-sm btn-outline-primary me-2" onclick="editarVentas('${venta.id}')"><i class="bi bi-pencil"></i></button>
+        <button class="btn btn-sm btn-outline-danger" onclick="eliminarVentas('${venta.id}')"><i class="bi bi-trash"></i></button>
       </td>
     `;
     tbody.appendChild(tr);
