@@ -19,6 +19,11 @@ header {
 
 }
 
+
+.lato-regular {
+  font-weight: 400;
+}
+
 /* modal */
 .notificacion {
   top: 80px;
@@ -70,26 +75,23 @@ header {
   justify-content: space-between;
 }
 
-/* Sección izquierda*/
+
 .izquierda {
   display: flex;
   align-items: center;
 }
 
-/* Sección derecha */
 .derecha {
   display: flex;
   align-items: center;
 }
 
-/* Logo */
 .imagen-logo {
   margin-left: 2px;
   margin-top: 6px;
   user-select: none;
 }
 
-/* Botón para menú y cerrar */
 .boton-categoria {
   background: none;
   border: none;
@@ -100,14 +102,14 @@ header {
   align-items: center;
 }
 
-/* Contenedor buscador */
+
 .contenedor-buscador {
   display: flex;
   position: relative;
   align-items: center;
 }
 
-/* Input buscador */
+
 .input-buscador {
   height: 35px;
   right: 42px;
@@ -119,7 +121,7 @@ header {
 
 }
 
-/* Botón lupa */
+
 .boton-lupa {
   position: relative;
   right: 42px;
@@ -148,14 +150,14 @@ header {
   width: 50%;
 }
 
-/* Lista menú */
+
 .menu-desplegable ul {
   list-style: none;
   margin: 2rem 0 2rem 2rem;
   padding: 0;
 }
 
-/* Ítems menú */
+
 .menu-desplegable li {
   margin-bottom: 1rem;
 }
@@ -173,12 +175,19 @@ header {
   margin-bottom: 1rem;
 }
 
+/* nav sub */
+.contenedor-nav-auth {
+  display: none;
+}
+
 
 /* banner */
 .imagen-banner {
   width: 100%;
   margin-top: 80px;
 }
+
+
 
 /* footer */
 
@@ -222,7 +231,7 @@ footer {
   justify-items: center;
   padding: 0 5px 0 5px;
   gap: 10px;
-} 
+}
 
 
 
@@ -260,7 +269,7 @@ footer {
 }
 
 
-.background-sin-stock{
+.background-sin-stock {
   filter: grayscale();
 }
 
@@ -305,12 +314,11 @@ footer {
 }
 
 .boton-categoria {
-  padding: 6px 30px;
   background-color: transparent;
   color: #800080;
-  border: 2px solid #800080;
   border-radius: 5px;
   margin: 5px 0;
+  border: 0;
 }
 
 .btn-Compra {
@@ -322,8 +330,40 @@ footer {
   margin: 5px 0;
 }
 
+aside {
+  display: none;
+}
+
+.subnavcateg {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.subnavcateg ul {
+  display: flex;
+  gap: 25px;
+  list-style: none;
+  font-size: 25px;
+  margin: 0;
+  padding: 0;
+}
+
+.subnavcateg ul a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #8F108D;
+  background-color: #F5F6FA;
+  padding: 10px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  border: 1px solid #8F108D;
+}
+
 
 .container-main {
+  padding-top: 20px;
   padding-bottom: 100px;
 }
 
@@ -357,7 +397,8 @@ footer {
   html {
     height: 100dvh;
   }
-    .sin-stock {
+
+  .sin-stock {
     top: 50%;
     transform: translateY(-50%);
     font-size: 16px !important;
@@ -384,6 +425,7 @@ footer {
 @media (min-width: 1024px) {
   header {
     width: 100%;
+    overflow-x: hidden;
   }
 
 
@@ -503,12 +545,10 @@ footer {
   }
 
 
-
   .contenido {
     width: 100%;
     justify-content: start;
     align-items: center;
-    padding: 0 50px;
   }
 
   .div-izquierda ul {
@@ -536,6 +576,8 @@ footer {
   }
 
 
+
+
   .container-enlaces {
     margin-bottom: 8px;
   }
@@ -544,6 +586,31 @@ footer {
     height: 45vh;
   }
 
+
+  /*sub nav */
+  .contenedor-nav-auth {
+    display: flex;
+    position: absolute;
+    right: 70px;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    color: #F5F6FA;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-username {
+    color: #F5F6FA;
+  }
+
+  .nav-link {
+    color: #F5F6FA;
+    text-decoration: none;
+  }
 
 
   /* productos */
@@ -559,18 +626,18 @@ footer {
     gap: 20px;
   }
 
-  
+
 
   .imgProducto {
     padding-bottom: 0px;
-    width: 120px;
+    width: 80px;
     margin: 0 auto;
   }
 
   .card {
-      position: relative;
-  overflow: hidden;
-    max-width: 300px;
+    position: relative;
+    overflow: hidden;
+    max-width: 18 0px;
     margin-bottom: 25px;
   }
 
@@ -632,8 +699,7 @@ footer {
 
 
   .container-main {
-    padding-top: 30px;
-
+    padding-top: 50px
   }
 
   .contenedor-nav {
@@ -645,6 +711,7 @@ footer {
 @media screen and (min-width: 1280px) {
 
   /* estilos navbar */
+  /*nav */
   .contenido {
     justify-content: start;
     max-width: 100%;
@@ -668,11 +735,93 @@ footer {
     margin-bottom: 8px;
   }
 
+  .container-main {
+    padding-top: 30px
+  }
 
   .izquierda ul {
 
     margin-left: 20px;
   }
+
+
+  /*sub nav */
+  .contenedor-nav-auth {
+
+    right: 80px;
+  }
+
+  .nav-list {
+
+    gap: 20px;
+
+  }
+
+  /* aside */
+  aside {
+    position: absolute;
+    left: 20px;
+    top: 114px;
+    background-color: #ffffff;
+    width: 140px;
+    height: auto;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+    display: initial;
+  }
+
+  aside h3 {
+    margin-top: 0;
+    font-size: 1.2em;
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: #444;
+  }
+
+  aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  aside ul li {
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  aside ul li:hover {
+    background-color: #e0e0e0;
+  }
+
+  aside ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  aside ul li:hover {
+    background-color: #e0e0e0;
+  }
+
+  aside ul li a:hover {
+    color: #000;
+  }
+
+  .subnavcateg {
+    display: none;
+  }
+
 
 
   /*prodcutos  */
@@ -736,6 +885,8 @@ footer {
 }
 
 @media screen and (min-width: 1440px) {
+
+  /* navbar estilos */
   .imagen-logo {
     width: 60px;
   }
@@ -765,6 +916,12 @@ footer {
     width: 32px;
   }
 
+
+  aside {
+    left: 60px;
+    top: 114px;
+  }
+
   /* productos */
 
   .card {
@@ -787,6 +944,8 @@ footer {
 }
 
 @media screen and (min-width: 1600px) {
+
+  /*estilos nav */
   .contenido {
     padding-left: 80px;
   }
@@ -795,16 +954,23 @@ footer {
     margin-left: 60px;
   }
 
-
   .input-buscador {
     margin-left: 40px;
     width: 440px;
   }
 
 
+  aside {
+    left: 130px;
+    top: 114px;
+  }
+
+
 }
 
 @media screen and (min-width: 1920px) {
+
+  /* navbar estilos */
   .contenido {
     justify-content: center;
   }
@@ -813,15 +979,40 @@ footer {
     padding-left: 0px;
   }
 
+  .izquierda ul li a {
+    font-size: 16px;
+  }
+
+  .container-1 a span {
+    font-size: 16px;
+  }
+
+  .container-2 a span {
+    font-size: 16px;
+  }
+
+
   .container-enlaces {
+
     margin-left: 0;
-    margin-bottom: 0;
+    margin-bottom: 8px;
   }
 
 
   .input-buscador {
     margin-left: 0px;
     width: 440px;
+  }
+
+  .contenedor-nav-auth {
+
+    right: 90px;
+  }
+
+
+  aside {
+    left: 300px;
+    top: 114px;
   }
 
 }

@@ -6,6 +6,7 @@ body {
   padding: 20px;
 }
 
+
 .flecha {
   position: absolute;
   top: 20px;
@@ -21,6 +22,7 @@ body {
   font-weight: bold;
   font-size: 22px;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 form {
@@ -74,7 +76,7 @@ button span {
   font-size: 14px;
 }
 
-/* Estilo normal del botón */
+
 #btnReg {
   background-color: #800080;
   color: white;
@@ -86,11 +88,71 @@ button span {
   transition: background-color 0.3s ease, opacity 0.3s ease;
 }
 
-/* Estilo deshabilitado con clase .disabled */
 #btnReg.disabled {
   background-color: #d3b3d3;
-  /* tono claro de púrpura */
+
   color: #666;
   cursor: not-allowed;
   opacity: 0.6;
 }
+
+.overlay-success {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo semitransparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+
+.contenido-overlay {
+    background-color: white;
+    padding: 30px 40px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 300px;
+    font-family: sans-serif;
+}
+
+
+.contenido-overlay button {
+    margin-top: 20px;
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contenido-overlay button:hover {
+    background-color: #45a049;
+}
+/* Chrome, Safari, Edge, Opera */
+.sin-flechas::-webkit-outer-spin-button,
+.sin-flechas::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.sin-flechas {
+  -moz-appearance: textfield;
+}
+
+@media screen and (min-width: 1024px) {
+  .contenido {
+    border-radius: 10px;
+    border: 2px solid #aba5a5;
+    padding: 30px;
+    margin-top: 50%;
+  }
+
+}
+

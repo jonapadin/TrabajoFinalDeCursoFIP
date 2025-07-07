@@ -12,6 +12,10 @@ body {
   margin: 0;
 }
 
+.contenedor-navPc {
+  display: none;
+}
+
 /* Fuentes */
 .lato-regular {
   font-weight: 400;
@@ -141,6 +145,11 @@ header {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+/* nav sub */
+.contenedor-nav-auth {
+  display: none;
 }
 
 /* contenedor servicios */
@@ -443,6 +452,32 @@ footer {
     margin-top: 20px;
   }
 
+  /*sub nav */
+  .contenedor-nav-auth {
+    display: flex;
+    position: absolute;
+    right: 70px;
+  }
+
+  .nav-list {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    color: #F5F6FA;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-username {
+    color: #F5F6FA;
+  }
+
+  .nav-link {
+    color: #F5F6FA;
+    text-decoration: none;
+  }
+
+
 
   /*servicios */
   .contenedor-cards {
@@ -532,6 +567,19 @@ footer {
   .izquierda ul {
     margin-left: 20px;
   }
+
+  /*sub nav */
+  .contenedor-nav-auth {
+
+    right: 80px;
+  }
+
+  .nav-list {
+
+    gap: 20px;
+
+  }
+
 
   .contenedor-cards {
     display: grid;
@@ -641,11 +689,17 @@ footer {
     width: 440px;
   }
 
+  .contenedor-nav-auth {
+
+    right: 90px;
+  }
+
+
   /*servicios */
 
   .contenedor-servicios {
     max-width: 60%;
-    padding-top: 150px;
+    padding-top: 250px;
   }
 
   .titulo-servicios {

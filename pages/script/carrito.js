@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Evitar que se creen múltiples modales
             if (document.getElementById("modal-compra")) return;
 
-            // Crear fondo oscuro (overlay)
+            // Crear overlay
             const overlay = document.createElement("div");
             overlay.id = "modal-compra";
             overlay.classList.add("modal-compra");
@@ -69,11 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
             btnLogin.textContent = "Iniciar sesión";
             btnLogin.classList.add("btn-login");
             modal.appendChild(btnLogin);
-            btnLogin.addEventListener("click", () => {
-                alert(`Iniciando sesión con: ${inputEmail.value}`);
-                overlay.remove();
-            });
-            modal.appendChild(btnLogin);
+
 
             // Separador
             const separador = document.createElement("p");
@@ -103,7 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             btnInvitado.addEventListener("click", () => {
-                overlay.remove(); // Cierra el modal anterior
 
                 // Modal para datos de compra
                 const modalCompra = document.createElement("div");
@@ -127,11 +122,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 inputEmail.classList.add("input-datos-m");
                 contenido.appendChild(inputEmail);
 
-                const inputDireccion = document.createElement("input");
-                inputDireccion.placeholder = "Dirección de entrega";
-                inputDireccion.classList.add("input-datos-m");
-                contenido.appendChild(inputDireccion);
+                // Desplegable para seleccionar el correo de envío
+                const selectCorreo = document.createElement("select");
+                selectCorreo.classList.add("input-datos-m");
 
+                const opcionesCorreo = ["Seleccione un correo", "Correo Argentino", "OCA", "Andreani"];
+                opcionesCorreo.forEach(opcionTexto => {
+                    const opcion = document.createElement("option");
+                    opcion.value = opcionTexto.toLowerCase().replace(/\s+/g, '-');
+                    opcion.textContent = opcionTexto;
+                    selectCorreo.appendChild(opcion);
+                });
+
+                contenido.appendChild(selectCorreo);
                 const inputTelefono = document.createElement("input");
                 inputTelefono.type = "tel";
                 inputTelefono.placeholder = "Número de teléfono";
@@ -150,30 +153,119 @@ document.addEventListener("DOMContentLoaded", () => {
                 btnConfirmar.classList.add("btn-confirmar");
                 contenido.appendChild(btnConfirmar);
 
+                const btnCerrar = document.createElement("span");
+                btnCerrar.textContent = "✖";
+                btnCerrar.classList.add('btn-cerrar');
+                btnCerrar.addEventListener("click", () => {
+                    modalCompra.remove();
+                });
+
+
+
+
                 btnConfirmar.addEventListener("click", () => {
                     const nombre = inputNombre.value.trim();
                     const email = inputEmail.value.trim();
-                    const direccion = inputDireccion.value.trim();
+                    const correoSeleccionado = selectCorreo.value;
                     const telefono = inputTelefono.value.trim();
                     const dni = inputDNI.value.trim();
 
-                    if (!nombre || !email || !direccion || !telefono || !dni) {
-                        alert("Por favor, completá todos los campos.");
+                    /*validaciones */
+
+                    if (!nombre || !email || correoSeleccionado === "seleccione-un-correo" || !telefono || !dni) {
+
+                        /*alert */
+                        const messageWarn = document.createElement("p");
+                        messageWarn.textContent = "Por favor, completá todos los campos."
+                        messageWarn.style = "color: red"
+                        contenido.appendChild(messageWarn)
+
+                        setTimeout(() => {
+                            messageWarn.remove()
+                        }, 2000);
+                        return;
+                    }
+
+                    const nombreValido = /^[a-zA-ZÁÉÍÓÚáéíóúÑñ\s'-]+$/;
+
+                    if (!nombreValido.test(nombre)) {
+                        const messageWarn = document.createElement("p");
+                        messageWarn.textContent = "El nombre y apellido no deben contener números ni caracteres especiales.";
+                        messageWarn.style = "color: red";
+                        contenido.appendChild(messageWarn);
+
+                        setTimeout(() => {
+                            messageWarn.remove()
+                        }, 2000);
+                        return;
+                    }
+
+                    const telefonoValido = /^\d{10,15}$/;
+
+                    if (!telefonoValido.test(telefono)) {
+                        const messageWarn = document.createElement("p");
+                        messageWarn.textContent = "El teléfono debe contener solo números (entre 10 y 15 dígitos).";
+                        messageWarn.style = "color: red";
+                        contenido.appendChild(messageWarn);
+
+                        setTimeout(() => {
+                            messageWarn.remove()
+                        }, 2000);
+                        return;
+                    }
+
+                    const dniValido = /^\d{7,8}$/;
+
+                    if (!dniValido.test(dni)) {
+                        const messageWarn = document.createElement("p");
+                        messageWarn.textContent = "El DNI debe contener solo números (7 u 8 dígitos).";
+                        messageWarn.style = "color: red";
+                        contenido.appendChild(messageWarn);
+
+                        setTimeout(() => {
+                            messageWarn.remove()
+                        }, 2000);
                         return;
                     }
 
                     const datosInvitado = [{
                         nombre,
                         email,
-                        direccion,
+                        correo: correoSeleccionado,
                         telefono,
                         dni,
-                        fechaCompra: new Date().toISOString()
-                    }];
+                        fechaCompra: new Date().toISOString(),
+                        carrito: carrito
+                    },
+                    ];
 
                     localStorage.setItem("compraInvitado", JSON.stringify(datosInvitado));
 
-                    alert("¡Gracias por tu compra! Tus datos fueron guardados.");
+                    // overlay confirmacion
+                    const overlaySucces = document.createElement('div');
+                    overlaySucces.classList.add('overlay-success');
+
+
+                    const contenidoOverlay = document.createElement('div');
+                    contenidoOverlay.classList.add('contenido-overlay');
+
+                    // Mensaje de éxito
+                    const mensajeSuccess = document.createElement('p');
+                    mensajeSuccess.textContent = "¡Gracias por tu compra! Hemos guardado tus datos de envío y pronto recibirás un correo de confirmación.!";
+
+
+                    const botonConfirm = document.createElement('button');
+                    botonConfirm.classList.add('btn-confirm');
+                    botonConfirm.textContent = "OK";
+
+                    botonConfirm.addEventListener('click', () => {
+                        overlaySucces.remove();
+                    })
+
+                    contenidoOverlay.appendChild(mensajeSuccess);
+                    contenidoOverlay.appendChild(botonConfirm)
+                    overlaySucces.appendChild(contenidoOverlay);
+                    document.body.appendChild(overlaySucces);
 
                     // Vaciar carrito y DOM
                     localStorage.removeItem("carrito");
@@ -189,8 +281,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
                 contenido.appendChild(btnConfirmar);
+                contenido.appendChild(btnCerrar);
                 modalCompra.appendChild(contenido);
                 document.body.appendChild(modalCompra);
+
             });
 
             modal.appendChild(btnInvitado);
@@ -249,10 +343,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (btnIncrementar) {
                 btnIncrementar.addEventListener("click", () => {
-                    producto.cantidad += 1;
-                    producto.subtotal = producto.precio * producto.cantidad;
-                    localStorage.setItem("carrito", JSON.stringify(carrito));
-                    renderCarrito();
+                    if (producto.cantidad < producto.stock) {
+                        producto.cantidad += 1;
+                        producto.subtotal = producto.precio * producto.cantidad;
+                        localStorage.setItem("carrito", JSON.stringify(carrito));
+                        renderCarrito();
+                    } else {
+                        alert("No hay más stock disponible de este producto.");
+                    }
                 });
             }
 

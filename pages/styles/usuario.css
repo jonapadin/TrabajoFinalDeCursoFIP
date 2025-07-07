@@ -4,18 +4,19 @@ body {
   align-items: center;
 }
 
-/* estilos seccion usuario */ 
-.texto1{
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 14px;
+/* estilos seccion usuario */
+.texto1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
 }
 
-.texto2{
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 18px;
+.texto2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
 }
+
 .search-input {
   width: 0;
   transition: width 0.4s ease, opacity 0.4s ease;
@@ -66,28 +67,29 @@ body {
 
 .btn-cita:hover {
   background-color: #8f108d;
+
 }
 
-    .service-img {
-      border-radius: 10px;
-      width: 100%;
-      object-fit: cover;
-      height: 110px;
-    }
+.service-img {
+  border-radius: 10px;
+  width: 100%;
+  object-fit: cover;
+  height: 110px;
+}
 
-    .service-img:hover{
-      filter: brightness(0.8);
-    }
+.service-img:hover {
+  filter: brightness(0.8);
+}
 
-    .service-title {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      color: #ffffff;
-      font-weight: bold;
-      text-shadow: 1px 1px 3px #000;
-      font-family: 'Poppins', sans-serif;
-    }
+.service-title {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px #000;
+  font-family: 'Poppins', sans-serif;
+}
 
 
 .custom-offcanvas {
@@ -95,7 +97,7 @@ body {
   bottom: 60px;
   height: auto;
   background-color: #fff;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .bottom-nav {
@@ -132,11 +134,13 @@ body {
   border-radius: 10px;
   overflow: hidden;
   margin-top: 20px;
+  margin-bottom: 30px;
   height: 150px;
 }
+
 /* Estilos banner de redireccion al chat en usuario */
-.btn-chat{
-  
+.btn-chat {
+
   background-color: #ffff;
   color: #8f108d;
   border: none;
@@ -155,6 +159,7 @@ body {
 .btn-chat:hover {
   background-color: #8f108d;
 }
+
 .bannerchat-text {
   color: white;
   padding: 20px;
@@ -162,8 +167,10 @@ body {
   border-radius: 10px;
 }
 
-.consulta{
-  font-size: 22px;  margin-left: 10px; margin-top: 12px;
+.consulta {
+  font-size: 22px;
+  margin-left: 10px;
+  margin-top: 12px;
 }
 
 /* Ícono activo */
@@ -198,42 +205,42 @@ body {
 }
 
 /* estilos turnos */
-  .option-btn {
-    width: 64px;
-    height: 64px;
-    transition: all 0.3s ease;
-    border-color: #000;
-  }
+.option-btn {
+  width: 64px;
+  height: 64px;
+  transition: all 0.3s ease;
+  border-color: #000;
+}
 
-  .option-label {
-    text-align: center;
-    font-size: 14px;
-    margin-top: 5px;
-  }
+.option-label {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 5px;
+}
 
-  .option-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: pointer;
-  }
+.option-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
 
-  .option-selected {
-    background-color: white !important;
-    border-color: #8f108d !important;
-    color: white !important;
-  }
+.option-selected {
+  background-color: white !important;
+  border-color: #8f108d !important;
+  color: white !important;
+}
 
-  .option-btn img {
-    width: 40px;
-  }
+.option-btn img {
+  width: 40px;
+}
 
-  .option-btn:hover {
-    background-color: #750c73;
-    border-color: #750c73;
-  }
+.option-btn:hover {
+  background-color: #750c73;
+  border-color: #750c73;
+}
 
-    /* Elimina el efecto azul al hacer clic o enfocar 
+/* Elimina el efecto azul al hacer clic o enfocar 
   .btn:focus,
   .btn:active,
   .btn-primary:focus,
@@ -248,62 +255,126 @@ body {
 
 /* modal de confirmacion de la ventana turnos */
 
-  .modal-confirm .modal-header {
-    background-color: #0d6efd;
-    color: white;
-  }
-  .modal-confirm .modal-footer .btn {
-    min-width: 100px;
-  }
+.modal-confirm .modal-header {
+  background-color: #0d6efd;
+  color: white;
+}
 
-  /* estilo para la sección de notificaciones */
+.modal-confirm .modal-footer .btn {
+  min-width: 100px;
+}
 
-     .list-group-item.notification {
-      padding: 0.75rem 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .list-group-item.notification.unread {
-      background-color: #eaf4ff;
-    }
-    .notification > .d-flex {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-    }
-    .notification-text-container {
-      display: flex;
-      align-items: center;
-      flex-grow: 1;
-      min-width: 0;
-      margin-right: 1rem;
-    }
-    .notification-text-container i {
-      margin-right: 0.5rem;
-      flex-shrink: 0;
-      font-size: 1.2rem;
-    }
-    .notification-text {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .notification-buttons {
-      display: flex;
-      gap: 0.5rem;
-      align-items: flex-start;
-      flex-shrink: 0;
-    }
-    .notification.expanded .notification-text {
-      white-space: normal;
-      max-height: 200px;
-      overflow: auto;
-    }
-    .notification.expanded {
-      background-color: #f9f9f9;
-    }
+/* estilo para la sección de notificaciones */
 
-    /* Icono de campana con alerta, lo vamos a implementar luego
+.list-group-item.notification {
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.list-group-item.notification.unread {
+  background-color: #eaf4ff;
+}
+
+.notification>.d-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.notification-text-container {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  min-width: 0;
+  margin-right: 1rem;
+}
+
+.notification-text-container i {
+  margin-right: 0.5rem;
+  flex-shrink: 0;
+  font-size: 1.2rem;
+}
+
+.notification-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.notification-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+
+.notification.expanded .notification-text {
+  white-space: normal;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.notification.expanded {
+  background-color: #f9f9f9;
+}
+
+/* estilos chat */
+.chat-container {
+  max-width: 600px;
+  margin: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.chat-box {
+  height: 600px;
+  overflow-y: auto;
+  padding: 15px;
+  background-color: #f8f9fa;
+}
+
+.message {
+  margin-bottom: 12px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  max-width: 75%;
+  word-wrap: break-word;
+}
+
+.message.user {
+  background-color: #0d6efd;
+  color: white;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.message.bot {
+  background-color: #e9ecef;
+  color: black;
+  align-self: flex-start;
+  margin-right: auto;
+}
+
+.input-group {
+  border-top: 1px solid #ddd;
+  padding: 10px;
+}
+
+/*estilo notificacion de  perfil*/
+.notification.unread .notification-text {
+  font-weight: bold;
+}
+
+.notification.read .notification-text {
+  font-weight: normal;
+  color: #6c757d;
+}
+
+
+
+/* Icono de campana con alerta, lo vamos a implementar luego
     .notification-alert {
       position: relative;
     }
@@ -324,132 +395,135 @@ body {
       100% { transform: scale(1); opacity: 1; }
     } 
 */
-      @media (min-width: 1024px) {
-      
-      .banner{
-      height: 300px;
-      font-size: 40px;
-     }
-     .texto2{
-      font-size: 20px;
-     }
+@media (min-width: 1024px) {
 
-     .veterinaria-img {
-       height:270px;
-}
-    .btn-cita {
-
-  padding: 20px 40px;
-
-  font-size: 20px;
-}
-
-      .alguna{
-        font-size: 45px;  
-        margin-top: 5px;
-      }
-
-      .consulta{
-        font-size: 50px;  
-        margin-left: 15px;
-        margin-top: 30px;
-      }
-      
-      .btn-chat{
-        font-size: 20px;
-        padding: 20px 40px;
-        bottom: 15px;
-        left: 110px;
-     }
-
-    .banner-chat {
-      height: 300px;
-    }
+  .banner {
+    height: 300px;
+    font-size: 40px;
   }
 
-      @media (min-width: 1280px) {
-  
-       .banner {
-         height: 300px;
-         font-size: 40px;
-       }
-  
-       .texto2 {
-         font-size: 50px;
-       }
-  
-       .veterinaria-img {
-         height: 270px;
-       }
-  
-       .btn-cita {
-  
-         padding: 20px 40px;
-  
-         font-size: 20px;
-       }
-  
-       .alguna {
-         font-size: 55px;
-         margin-left: 65px;
-         margin-top: 20px;
-       }
-  
-       .consulta {
-         font-size: 70px;
-         margin-left: 65px;
-         margin-top: 30px;
-       }
-  
-       .btn-chat {
-         font-size: 20px;
-         padding: 20px 40px;
-         bottom: 20px;
-         left: 110px;
-       }
-  
-       .banner-chat {
-         height: 380px;
-       }
-     .service-img {
-      height: 200px;
-    }
-     }
-  
-     /* perfil*/
-     .btnCerrarSesion {
-       background-color: #fff;
-       color: red;
-       border-color: red;
-       margin-top: 15px;
-     }
-  
-     .btnCerrarSesion:hover {
-       color: #8f108d;
-       border-color: #8f108d;
-     }
-  
-     .seguridad {
-       color: black;
-       text-decoration: none;
-     }
-  
-     .seguridad:hover {
-       color: white;
-       text-decoration: none;
-     }
+  .texto2 {
+    font-size: 20px;
+  }
 
-      @media (min-width: 1281px) {
-  
-       .banner {
-         height: 375px;
-       }
+  .veterinaria-img {
+    height: 270px;
+  }
 
-     }
+  .btn-cita {
 
-     @media (min-width: 512px) {
-  
-       .veterinaria-img {
-         height: 90%;
-       }
-     }
+    padding: 20px 40px;
+
+    font-size: 20px;
+  }
+
+  .alguna {
+    font-size: 45px;
+    margin-top: 5px;
+  }
+
+  .consulta {
+    font-size: 50px;
+    margin-left: 15px;
+    margin-top: 30px;
+  }
+
+  .btn-chat {
+    font-size: 20px;
+    padding: 20px 40px;
+    bottom: 15px;
+    left: 110px;
+  }
+
+  .banner-chat {
+    height: 300px;
+  }
+}
+
+@media (min-width: 1280px) {
+
+  .banner {
+    height: 300px;
+    font-size: 40px;
+  }
+
+  .texto2 {
+    font-size: 50px;
+  }
+
+  .veterinaria-img {
+    height: 270px;
+  }
+
+  .btn-cita {
+
+    padding: 20px 40px;
+
+    font-size: 20px;
+  }
+
+  .alguna {
+    font-size: 55px;
+    margin-left: 65px;
+    margin-top: 20px;
+  }
+
+  .consulta {
+    font-size: 70px;
+    margin-left: 65px;
+    margin-top: 30px;
+  }
+
+  .btn-chat {
+    font-size: 20px;
+    padding: 20px 40px;
+    bottom: 20px;
+    left: 110px;
+  }
+
+  .banner-chat {
+    height: 380px;
+  }
+
+  .service-img {
+    height: 200px;
+  }
+}
+
+/* perfil*/
+.btnCerrarSesion {
+  background-color: #fff;
+  color: red;
+  border-color: red;
+  margin-top: 15px;
+}
+
+.btnCerrarSesion:hover {
+  color: #8f108d;
+  border-color: #8f108d;
+}
+
+.seguridad {
+  color: black;
+  text-decoration: none;
+}
+
+.seguridad:hover {
+  color: white;
+  text-decoration: none;
+}
+
+@media (min-width: 1281px) {
+
+  .banner {
+    height: 375px;
+  }
+
+}
+
+@media (min-width: 512px) {
+
+  .veterinaria-img {
+    height: 90%;
+  }
+}

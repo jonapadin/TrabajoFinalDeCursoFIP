@@ -111,3 +111,27 @@ export const crearTitulo =(texto, clases = []) => {
     return titulo;
 }
 
+export const loader = () => {
+  const loader = document.createElement('div');
+  loader.className = 'loader-screen';
+  loader.id = 'loader';
+
+  const patitasContainer = document.createElement('div');
+  patitasContainer.className = 'patitas-container';
+
+  for (let i = 0; i < 8; i++) {
+    const img = document.createElement('img');
+    img.src = '/public/assets/pets.png';
+    img.className = 'patita';
+    img.alt = 'patita';
+    patitasContainer.appendChild(img);
+  }
+
+  const texto = document.createElement('div');
+  texto.className = 'texto';
+  texto.textContent = 'Cargando...';
+
+  loader.appendChild(patitasContainer);
+  loader.appendChild(texto);
+  document.body.appendChild(loader);
+}

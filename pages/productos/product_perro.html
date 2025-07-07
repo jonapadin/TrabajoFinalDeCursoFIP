@@ -19,9 +19,11 @@
     <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
   </noscript>
-  <link rel="stylesheet" href="./product_perro.css">
+  <link rel="stylesheet" href="./styles.css">
   <title>Productos-Perros</title>
 </head>
+
+
 
 <body>
   <header>
@@ -35,7 +37,7 @@
 
         <!-- Menú pc-->
         <ul class="ocultarMobile lato-bold">
-          <li><a href="/pages/usuario.html">Inicio</a></li>
+          <li><a href="/index.html">Inicio</a></li>
           <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
           <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
         </ul>
@@ -46,10 +48,16 @@
             <img class="categoria" src="/assets/icons/close-menu.svg" alt="icono-close" width="32">
           </button>
           <ul>
-            <li><a href="/pages/usuario.html">Inicio</a></li>
+            <li><a href="/index.html">Inicio</a></li>
             <li><a href="/pages/categoriaProducto/categoriaProducto.html">Productos</a></li>
             <li><a href="/pages/servicios/servicios.html">Servicios</a></li>
-            <li><a href="/pages/login/login.html">Ingresar</a></li>
+            <li id="item-login"><a href="/pages/login/login.html">Ingresar</a></li>
+            <li id="item-menu" style="display: none;">
+              <a href="#" id="cerrar-menu">Menu</a>
+            </li>
+            <li id="item-logout" style="display: none;">
+              <a href="#" id="cerrar-sesion">Cerrar sesión</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -71,13 +79,24 @@
           </a>
         </div>
 
-        <div class="container-2">
+        <div id="ocultar-auth" class="container-2">
           <a href="/pages/login/login.html">
             <img src="/public/assets/icons/usuario.svg" alt="icono de usuario" width="28">
             <span class="lato-bold">Ingresar</span>
           </a>
         </div>
       </section>
+
+      <section class="contenedor-nav-auth" id="contenedorNav"></section>
+
+      <template id="nav-auth">
+        <div class="nav-auth-wrapper">
+          <ul class="nav-list lato-bold">
+            <li id="nombreUsuario" class="nav-username">usuario</li>
+            <li><a href="#" class="nav-link">MENU</a></li>
+          </ul>
+        </div>
+      </template>
 
     </nav>
 
@@ -89,15 +108,37 @@
       <img class="imagen-banner" src="/public/assets/productPerro/BANNER-DOG-CHOW-MAXIMUS-1075x519px.jpg" alt="banner">
     </section>
 
-    <section class="container-main">
-      <section id="seccion-productos"></section>
-      <section id="seccion-accesorios"></section>
-      <section id="seccion-esteticaHigiene"></section>
-      <section id="seccion-salud"></section>
 
+
+    <section style="position: relative;">
+
+      <!-- subnavcateg mobile -->
+      <div class="subnavcateg">
+        <ul>
+          <li><a href="/pages/productos/product_gato.html">Gato</a></li>
+          <li><a href="">Aves</a></li>
+          <li><a href="/pages/productos/product_exotico.html">Exoticos</a></li>
+        </ul>
+      </div>
+
+      <aside>
+        <h3>Categorias</h3>
+        <article>
+          <ul>
+            <li><a href="/pages/productos/product_gato.html">Gato</a></li>
+            <li>Aves</li>
+            <li><a href="/pages/productos/product_exotico.html">Exoticos</a></li>
+          </ul>
+        </article>
+      </aside>
+      <section class="container-main">
+        <section id="seccion-productos"></section>
+        <section id="seccion-accesorios"></section>
+        <section id="seccion-esteticaHigiene"></section>
+        <section id="seccion-salud"></section>
+      </section>
 
     </section>
-
 
 
 
@@ -134,17 +175,17 @@
       </div>
     </div>
 
-    
-      <section style="right: 40px; position: absolute;" id="contenedorNav"></section>
 
-      <template id="nav-auth">
-        <div >
-          <ul style="display: flex; gap: 12px; list-style: none; color: #F5F6FA;">
-            <li id="nombreUsuario">usuario</li>
-            <li><a href="#" style="color: #F5F6FA; text-decoration: none;">MENU</a></li>
-          </ul>
-        </div>
-      </template>
+    <section style="right: 40px; position: absolute;" id="contenedorNav"></section>
+
+    <template id="nav-auth">
+      <div>
+        <ul style="display: flex; gap: 12px; list-style: none; color: #F5F6FA;">
+          <li id="nombreUsuario">usuario</li>
+          <li><a href="#" style="color: #F5F6FA; text-decoration: none;">MENU</a></li>
+        </ul>
+      </div>
+    </template>
 
 
   </footer>

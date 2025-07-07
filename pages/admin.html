@@ -9,88 +9,20 @@
   <!-- Estilos Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-
   <!-- Fuente -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
-
   <!-- Calendario-->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="/pages/styles/admin.css">
 
 
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .sidebar {
-      height: 100vh;
-      background-color: #f8f9fa;
-      padding-top: 1rem;
-      position: fixed;
-      width: 220px;
-      border-right: 1px solid #dee2e6;
-    }
-
-    .sidebar a {
-      color: #333;
-      text-decoration: none;
-      padding: 10px 20px;
-      display: block;
-      transition: background 0.2s;
-    }
-
-    .sidebar a:hover,
-    .sidebar a.active {
-      background-color: #e2e6ea;
-      font-weight: bold;
-    }
-
-    .main-content {
-      margin-left: 230px;
-      padding: 2rem;
-    }
-
-    .search-container {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 1rem;
-    }
-
-    .chat-container {
-      background: #fff;
-      border-radius: 8px;
-      padding: 1rem;
-      max-width: 600px;
-    }
-
-    .chat-box {
-      border: 1px solid #ccc;
-      padding: 10px;
-      border-radius: 6px;
-      min-height: 150px;
-      margin-bottom: 10px;
-      overflow-y: auto;
-    }
-
-    .message.bot {
-      background-color: #e9ecef;
-      padding: 8px 12px;
-      border-radius: 8px;
-      margin-bottom: 5px;
-      max-width: 80%;
-    }
-    .table>:not(caption)>*>*{
-      padding: 0 !important;
-    }
-  </style>
 </head>
 
 <body>
   <!-- Sidebar -->
   <div class="sidebar">
     <h5 class="text-center">Panel Admin</h5>
-    <a href="#" class="active" onclick="mostrarSeccion('usuarios')"><i class="bi bi-people me-2"></i>Usuarios</a>
+    <a href="#"  onclick="mostrarSeccion('usuarios')"><i class="bi bi-people me-2"></i>Usuarios</a>
     <a href="#" onclick="mostrarSeccion('mascotas')"><i class="bi bi-heart-pulse me-2"></i>Mascotas</a>
     <a href="#" onclick="mostrarSeccion('turnos')"><i class="bi bi-calendar-event me-2"></i>Turnos</a>
     <a href="#" onclick="mostrarSeccion('chat')"><i class="bi bi-chat-dots me-2"></i>Chat</a>
@@ -212,7 +144,7 @@
     <!-- Sección Ventas -->
     <div id="seccionVentas" style="display: none;">
       <h3>Ventas</h3>
-      <button class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#modalVentas">+ Gestionar
+      <button  class="btn btn-success mb-3" data-bs-toggle="modal" data-bs-target="#modalVentas">+ Gestionar
         Ventas</button>
 
       <!--Lupa de busqueda-->
@@ -266,7 +198,7 @@
           </div>
           <div class="mb-3">
             <label class="form-label">Telefono</label>
-            <input type="tel" class="form-control" id="telefonoUsuario" required/>
+            <input type="number" class="form-control sin-flechas" id="telefonoUsuario" required>
             <div class="invalid-feedback">Ingrese un valor valido</div>
           </div>
         </div>
@@ -310,12 +242,12 @@
           </div>
           <div class="mb-3">
             <label class="form-label">Edad</label>
-            <input type="number" class="form-control" id="edadMascota" min="0" required />
+            <input type="number" class="form-control sin-flechas" id="edadMascota" min="0" required >
             <div class="invalid-feedback">Ingrese un valor valido</div>
           </div>
           <div class="mb-3">
             <label class="form-label">Peso (En kg)</label>
-            <input type="number" class="form-control" id="pesoMascota" min="0" step="0.1" required />
+            <input type="number" class="form-control sin-flechas" id="pesoMascota" min="0" step="0.1" required />
             <div class="invalid-feedback">Ingrese un valor valido</div>
           </div>
           <div class="mb-3">
@@ -413,7 +345,7 @@
           </div>
           <div class="mb-3">
             <label class="form-label">Telefono</label>
-            <input type="tel" id="telefonoCompra" class="form-control" required>
+            <input type="number" id="telefonoCompra" class="form-control sin-flechas" required>
             <div class="invalid-feedback">Ingrese un valor valido</div>
           </div>
           <div class="mb-3">
@@ -429,7 +361,7 @@
   </div>
 
   <!-- Scripts Bootstrap y JS propios -->
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="script/turnos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script/historiaClinica.js"></script>

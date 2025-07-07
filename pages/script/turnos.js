@@ -30,9 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
       minTime: "08:00",
       maxTime: "16:00",
       onChange: function (_, dateStr, instance) {
-        const horariosOcupados = ["2025-06-01 09:00", "2025-06-02 11:30"];
+        const horariosOcupados = ["2025-07-08 09:00", "2025-07-08 11:30", "2025-07-08 13:30"]
         if (horariosOcupados.includes(dateStr)) {
-          alert("Ese horario ya está reservado. Por favor selecciona otro.");
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Ese horario ya está reservado. Por favor selecciona otro.",
+          });
           instance.clear();
         }
       },
@@ -62,56 +66,69 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   reservarBtn.addEventListener("click", function () {
-  const fechaHora = dateInput.value;
-  const motivo = document.getElementById("tipoTurno").value;
-  const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"));
+    const fechaHora = dateInput.value;
+    const motivo = document.getElementById("tipoTurno").value;
+    const usuarioActivo = JSON.parse(localStorage.getItem("usuarioActivo"));
 
-  if (!seleccion) {
-    alert("Por favor selecciona una especie antes de reservar.");
-    return;
-  }
+    if (!seleccion) {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Por favor selecciona una especie antes de reservar",
+        });
+      return;
+    }
 
-  if (!fechaHora) {
-    alert("Selecciona una fecha y hora válida.");
-    return;
-  }
+    if (!fechaHora) {
+    Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Selecciona una fecha y hora válida."
+        });
+      return;
+    }
 
-  if (!motivo) {
-    alert("Selecciona un motivo válido.");
-    return;
-  }
+    if (!motivo) {
+          Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Selecciona un motivo válido."
+        });
+      return;
+    }
 
-  // Notificación
-  const notifs = loadNotifications();
-  const nuevaNotificacion = {
-    id: generateId(),
-    mensaje: `Reserva creada para tu ${seleccion} el ${fechaHora}`,
-    leida: false
-  };
-  notifs.unshift(nuevaNotificacion);
-  saveNotifications(notifs);
+    // Notificación
+    const notifs = loadNotifications();
+    const nuevaNotificacion = {
+      id: generateId(),
+      mensaje: `Reserva creada para tu ${seleccion} el ${fechaHora}`,
+      leida: false,
+    };
+    notifs.unshift(nuevaNotificacion);
+    saveNotifications(notifs);
 
-  // Turno
-  const turnos = JSON.parse(localStorage.getItem("turnos") || "[]");
-  const nuevoTurno = {
-    id: crypto.randomUUID(),
-    especie: seleccion,
-    fecha: fechaHora,
-    motivo: motivo,
-    emailDuenio: usuarioActivo.email
-  };
-  turnos.push(nuevoTurno);
-  localStorage.setItem("turnos", JSON.stringify(turnos));
+    // Turno
+    const turnos = JSON.parse(localStorage.getItem("turnos") || "[]");
+    const nuevoTurno = {
+      id: crypto.randomUUID(),
+      especie: seleccion,
+      fecha: fechaHora,
+      motivo: motivo,
+      emailDuenio: usuarioActivo.email,
+    };
+    turnos.push(nuevoTurno);
+    localStorage.setItem("turnos", JSON.stringify(turnos));
 
-  // Mostrar modal
-  const modal = new bootstrap.Modal(document.getElementById('reservaModal'));
-  modal.show();
+    // Mostrar modal
+    const modal = new bootstrap.Modal(document.getElementById("reservaModal"));
+    modal.show();
 
-  // Limpiar campos
-  dateInput.value = "";
-  document.getElementById("tipoTurno").value = "";
-  document.querySelectorAll('.option-container button').forEach(btn => btn.classList.remove('option-selected'));
-  seleccion = "";
-});
-
+    // Limpiar campos
+    dateInput.value = "";
+    document.getElementById("tipoTurno").value = "";
+    document
+      .querySelectorAll(".option-container button")
+      .forEach((btn) => btn.classList.remove("option-selected"));
+    seleccion = "";
+  });
 });

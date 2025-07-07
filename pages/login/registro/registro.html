@@ -1,74 +1,73 @@
-<!DOCTYPE html>
-<html lang="es">
+    <!DOCTYPE html>
+    <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/pages/login/registro/style.css">
-    <link rel="icon" type="image/svg+xml" href="/public/assets/icons/patitaGatoPerroLogo 2.svg" />
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/pages/login/registro/style.css">
+        <link rel="icon" type="image/svg+xml" href="/public/assets/icons/patitaGatoPerroLogo 2.svg" />
 
-    <title>REGISTRARSE</title>
-</head>
+        <title>REGISTRARSE</title>
+    </head>
 
-<body>
-    <main>
+    <body>
+        <main>
 
 
-        <div class="flecha">
-            <img src="/public/assets/icons/line-md_arrow-left.svg" alt="flecha" onclick="window.history.back()">
-        </div>
+            <div class="flecha">
+                <img src="/public/assets/icons/line-md_arrow-left.svg" alt="flecha" onclick="window.history.back()">
+            </div>
 
-        <p class="registro">Registro</p>
+            <section class="contenido">
+                <p class="registro">Registro</p>
 
-        <section>
-            <form id="formulario">
-                <div id="grupoNombre" class="campo">
-                    <label for="nombre">Nombre:</label>
-                    <input id="nombre" name="nombre" type="text" placeholder="Ruben" required >
-                  
-                </div>
+                <form id="formulario">
+                    <div id="grupoNombre" class="campo">
+                        <label for="nombre">Nombre:</label>
+                        <input id="nombre" name="nombre" type="text" placeholder="Ruben" required>
 
-                <div class="campo">
-                    <label for="apellido">Apellido:</label>
-                    <input id="apellido" name="apellido" type="text" placeholder="Fernandez"  required>
-                </div>
-                <div class="campo">
-                    <label  for="edad">Edad:</label>
-                    <input id="edad" name="edad" type="text" placeholder="Edad"  min="18" required >
-                </div>
-                <div class="campo">
-                    <label for="telefono">Teléfono:</label>
-                    <input id="telefono" name="telefono" type="tel" placeholder="Teléfono"  required>
-                </div>
+                    </div>
 
-                <div class="campo">
-                    <label for="clave">Clave:</label>
-                    <input id="pass" name="pass" type="password" placeholder="*********" required >
-                </div>
+                    <div class="campo">
+                        <label for="apellido">Apellido:</label>
+                        <input id="apellido" name="apellido" type="text" placeholder="Fernandez" required>
+                    </div>
+                    <div class="campo">
+                        <label for="edad">Edad:</label>
+                        <input id="edad" name="edad" type="number" placeholder="Edad" min="18" required class="sin-flechas">
+                    </div>
+                    <div class="campo">
+                        <label for="telefono">Teléfono:</label>
+                        <input id="telefono" name="telefono" type="number" placeholder="Teléfono" required  class="sin-flechas">
+                    </div>
 
-                <div class="campo">
-                    <label for="repetirclave">Repetir:</label>
-                    <input id="repass" name="repass" type="password" placeholder="*********" required>
-                </div>
+                    <div class="campo">
+                        <label for="clave">Clave:</label>
+                        <input id="pass" name="pass" type="password" placeholder="*********" required>
+                    </div>
 
-                <div class="campo">
-                    <label for="correo">Correo:</label>
-                    <input id="email" name="email" type="email" placeholder="correo@correo.com" required>
-                </div>
+                    <div class="campo">
+                        <label for="repetirclave">Repetir:</label>
+                        <input id="repass" name="repass" type="password" placeholder="*********" required>
+                    </div>
 
-                <div id="mensaje" style="color: red; text-align: center; margin-bottom: 8px; font-size: 14px;">
-                    
-                </div>
-            
+                    <div class="campo">
+                        <label for="correo">Correo:</label>
+                        <input id="email" name="email" type="email" placeholder="correo@correo.com" required>
+                    </div>
 
-                <div class="btn-registro">
-                    <button class="disabled" id="btnReg" type="submit" disabled><span>REGISTRAR</span></button>
-                </div>
-            </form>
-  
-        </section>
-    </main>
-    <script type="module" src="/pages/script/registro.js"></script>
-    
-</body>
+                    <div id="mensaje" style="color: red; text-align: center; margin-bottom: 8px; font-size: 14px;">
 
+                    </div>
+
+
+                    <div class="btn-registro">
+                        <button class="disabled" id="btnReg" type="submit" disabled><span>REGISTRAR</span></button>
+                    </div>
+                </form>
+
+            </section>
+        </main>
+        <script type="module" src="/pages/script/registro.js"></script>
+
+    </body>
