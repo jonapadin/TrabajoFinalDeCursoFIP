@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (!autenticado || !usuario || usuario.rol !== "admin") {
 
-    window.location.href = "/index.html"; 
+    window.location.href = "/index.html";
     return;
   }
 
@@ -393,7 +393,15 @@ function cargarChat() { // Inicializa la funcionalidad de chat con respuestas au
 
 // seccion ventas
 function cargarVentas() {
-  const carrito = obtenerDeStorage("ventas"); // Carga el historial de ventas desde el carrito guardado
+  const carrito = obtenerDeStorage("compraInvitado"); // Carga el historial de ventas desde el carrito guardado
+  const marca = carrito[0].carrito[0].marca;
+  const descripcion = carrito[0].carrito[0].descripcion;
+  const cantidad = carrito[0].carrito[0].cantidad;
+  const subtotal = carrito[0].carrito[0].subtotal;
+
+  const pedido = `Producto: ${marca}, Descripcion ${descripcion}, Cantidad: ${cantidad}, Total: ${subtotal}`;
+
+
   const tbody = document.getElementById("tablaVentas");
   tbody.innerHTML = "";
   carrito.forEach(carrito => {
@@ -401,9 +409,9 @@ function cargarVentas() {
     tr.innerHTML = `
       <td>${carrito.nombre}</td>
       <td>${carrito.email}</td>
-      <td>${carrito.fecha}</td>
+      <td>${carrito.fechaCompra}</td>
       <td>${carrito.telefono}</td>
-      <td>${carrito.pedido}</td>
+      <td>${pedido}</td>
       <td class="text-end">
         <button class="btn btn-sm btn-outline-primary me-2" onclick="editarVentas('${carrito.id}')"><i class="bi bi-pencil"></i></button>
         <button class="btn btn-sm btn-outline-danger" onclick="eliminarVentas('${carrito.id}')"><i class="bi bi-trash"></i></button>
