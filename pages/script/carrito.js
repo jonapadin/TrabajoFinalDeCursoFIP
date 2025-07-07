@@ -234,8 +234,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         correo: correoSeleccionado,
                         telefono,
                         dni,
-                        fechaCompra: new Date().toISOString()
-                    }];
+                        fechaCompra: new Date().toISOString(),
+                        carrito: carrito
+                    },
+                    ];
 
                     localStorage.setItem("compraInvitado", JSON.stringify(datosInvitado));
 
