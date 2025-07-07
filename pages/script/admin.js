@@ -12,11 +12,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
   mostrarSeccion("usuarios");
 
+  const feriadosArg = [
+    "2025-01-01",
+    "2025-03-24",
+    "2025-04-02",
+    "2025-05-01",
+    "2025-05-25",
+    "2025-06-20",
+    "2025-07-09",
+    "2025-12-25",
+  ];
+
   // Inicializar flatpickr para fecha de turnos
   flatpickr("#datepicker", {
+    locale: "es",
     enableTime: true,
     dateFormat: "Y-m-d H:i",
-    time_24hr: true
+    time_24hr: true,
+      minDate: "today",
+      defaultHour: 8,
+      minuteIncrement: 30,
+      disable: [
+        (date) => date.getDay() === 0 || date.getDay() === 6,
+        ...feriadosArg,
+      ],
+      minTime: "08:00",
+      maxTime: "16:00",
+      onChange: function (_, dateStr, instance) {
+        const horariosOcupados = ["2025-07-08 09:00", "2025-07-08 11:30", "2025-07-08 13:30"]
+        if (horariosOcupados.includes(dateStr)) {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Ese horario ya está reservado. Por favor selecciona otro.",
+          });
+          instance.clear();
+        }
+      },
   });
 
   // Inicializar flatpickr para fecha de ventas
@@ -30,6 +62,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // seccion que mostramos al cargar el dom
 function mostrarSeccion(nombre) {
+
+  // Quitar clase 'active' de todos los enlaces de la sidebar
+  document.querySelectorAll(".sidebar a").forEach((el) => el.classList.remove("active"));
+
+  // Agregar clase 'active' al enlace clickeado
+  const enlaces = document.querySelectorAll(".sidebar a");
+  enlaces.forEach((enlace) => {
+    if (enlace.getAttribute("onclick")?.includes(nombre)) {
+      enlace.classList.add("active");
+    }
+  });
+
   // Oculta todas las secciones
   document.getElementById("seccionUsuarios").style.display = "none";
   document.getElementById("seccionMascotas").style.display = "none";
@@ -142,11 +186,29 @@ function editarUsuario(id) {
 
 // Elimina un usuario luego de confirmación
 function eliminarUsuario(id) {
-  if (confirm("¿Eliminar este usuario?")) {
-    const usuarios = obtenerDeStorage("usuarios").filter(u => u.id !== id);
-    guardarEnStorage("usuarios", usuarios);
-    cargarUsuarios();
-  }
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: "Esta acción no se puede deshacer.",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, eliminar',
+    cancelButtonText: 'Cancelar',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const usuarios = obtenerDeStorage("usuarios").filter(u => u.id !== id);
+      guardarEnStorage("usuarios", usuarios);
+      cargarUsuarios();
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Eliminado',
+        text: 'El usuario ha sido eliminado.',
+        timer: 1500,
+        showConfirmButton: false
+      });
+    }
+  });
 }
 
 //Resetear el modal cuando se clickea fuera
@@ -248,11 +310,29 @@ function editarMascota(id) {
 
 // Elimina una mascota luego de confirmación
 function eliminarMascota(id) {
-  if (confirm("¿Eliminar esta mascota?")) {
-    const mascotas = obtenerDeStorage("mascotas").filter(u => u.id !== id);
-    guardarEnStorage("mascotas", mascotas);
-    cargarMascotas();
-  }
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: "Esta acción no se puede deshacer.",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, eliminar',
+    cancelButtonText: 'Cancelar',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const mascotas = obtenerDeStorage("mascotas").filter(u => u.id !== id);
+      guardarEnStorage("mascotas", mascotas);
+      cargarMascotas();
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Eliminado',
+        text: 'El turno ha sido eliminado.',
+        timer: 1500,
+        showConfirmButton: false
+      });
+    }
+  });
 }
 
 //Resetear el modal cuando se clickea fuera
@@ -344,11 +424,29 @@ function editarTurno(id) {
 
 // Elimina un turno luego de confirmación
 function eliminarTurno(id) {
-  if (confirm("¿Eliminar esta Turno?")) {
-    const turnos = obtenerDeStorage("turnos").filter(t => t.id !== id);
-    guardarEnStorage("turnos", turnos);
-    cargarTurnos();
-  }
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: "Esta acción no se puede deshacer.",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, eliminar',
+    cancelButtonText: 'Cancelar',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const turnos = obtenerDeStorage("turnos").filter(u => u.id !== id);
+      guardarEnStorage("turnos", turnos);
+      cargarTurnos();
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Eliminado',
+        text: 'El turno ha sido eliminado.',
+        timer: 1500,
+        showConfirmButton: false
+      });
+    }
+  });
 }
 
 //Resetear el modal cuando se clickea fuera
@@ -474,11 +572,29 @@ function editarVentas(id) {
 
 // Elimina un usuario luego de confirmación
 function eliminarVentas(id) {
-  if (confirm("¿Eliminar esta venta?")) {
-    const ventas = obtenerDeStorage("ventas").filter(v => v.id !== id);
-    guardarEnStorage("ventas", ventas);
-    cargarVentas();
-  }
+  Swal.fire({
+    title: '¿Estás seguro?',
+    text: "Esta acción no se puede deshacer.",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Sí, eliminar',
+    cancelButtonText: 'Cancelar',
+    reverseButtons: true
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const ventas = obtenerDeStorage("ventas").filter(u => u.id !== id);
+      guardarEnStorage("ventas", ventas);
+      cargarVentas();
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Eliminado',
+        text: 'El turno ha sido eliminado.',
+        timer: 1500,
+        showConfirmButton: false
+      });
+    }
+  });
 }
 
 //Resetear el modal cuando se clickea fuera
