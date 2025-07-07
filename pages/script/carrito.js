@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         messageWarn.textContent = "El nombre y apellido no deben contener números ni caracteres especiales.";
                         messageWarn.style = "color: red";
                         contenido.appendChild(messageWarn);
-                        
+
                         setTimeout(() => {
                             messageWarn.remove()
                         }, 2000);
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         messageWarn.textContent = "El teléfono debe contener solo números (entre 10 y 15 dígitos).";
                         messageWarn.style = "color: red";
                         contenido.appendChild(messageWarn);
-                        
+
                         setTimeout(() => {
                             messageWarn.remove()
                         }, 2000);
@@ -221,7 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         messageWarn.textContent = "El DNI debe contener solo números (7 u 8 dígitos).";
                         messageWarn.style = "color: red";
                         contenido.appendChild(messageWarn);
-                        
+
                         setTimeout(() => {
                             messageWarn.remove()
                         }, 2000);
@@ -234,8 +234,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         correo: correoSeleccionado,
                         telefono,
                         dni,
-                        fechaCompra: new Date().toISOString()
-                    }];
+                        fechaCompra: new Date().toISOString(),
+                        carrito: carrito
+                    },
+                    ];
 
                     localStorage.setItem("compraInvitado", JSON.stringify(datosInvitado));
 
